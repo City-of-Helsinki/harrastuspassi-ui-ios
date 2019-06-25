@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		31CE400222B0E2A700EEAF78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE400122B0E2A700EEAF78 /* AppDelegate.swift */; };
-		31CE400422B0E2A700EEAF78 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE400322B0E2A700EEAF78 /* FirstViewController.swift */; };
-		31CE400622B0E2A700EEAF78 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE400522B0E2A700EEAF78 /* SecondViewController.swift */; };
+		31CE400422B0E2A700EEAF78 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE400322B0E2A700EEAF78 /* HomeViewController.swift */; };
+		31CE400622B0E2A700EEAF78 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE400522B0E2A700EEAF78 /* MapViewController.swift */; };
 		31CE400922B0E2A700EEAF78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31CE400722B0E2A700EEAF78 /* Main.storyboard */; };
 		31CE400B22B0E2A900EEAF78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31CE400A22B0E2A900EEAF78 /* Assets.xcassets */; };
 		31CE400E22B0E2A900EEAF78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31CE400C22B0E2A900EEAF78 /* LaunchScreen.storyboard */; };
 		31CE401922B0E2AA00EEAF78 /* HarrastuspassiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE401822B0E2AA00EEAF78 /* HarrastuspassiTests.swift */; };
 		31CE402422B0E2AA00EEAF78 /* HarrastuspassiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE402322B0E2AA00EEAF78 /* HarrastuspassiUITests.swift */; };
+		31CE403222B0E6AC00EEAF78 /* AnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE403122B0E6AC00EEAF78 /* AnimatedTabBarController.swift */; };
+		31CE403522B2118500EEAF78 /* HobbyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE403422B2118500EEAF78 /* HobbyEvent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +39,8 @@
 /* Begin PBXFileReference section */
 		31CE3FFE22B0E2A700EEAF78 /* Harrastuspassi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harrastuspassi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31CE400122B0E2A700EEAF78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		31CE400322B0E2A700EEAF78 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		31CE400522B0E2A700EEAF78 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		31CE400322B0E2A700EEAF78 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		31CE400522B0E2A700EEAF78 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		31CE400822B0E2A700EEAF78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		31CE400A22B0E2A900EEAF78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31CE400D22B0E2A900EEAF78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,8 @@
 		31CE401F22B0E2AA00EEAF78 /* HarrastuspassiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarrastuspassiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31CE402322B0E2AA00EEAF78 /* HarrastuspassiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarrastuspassiUITests.swift; sourceTree = "<group>"; };
 		31CE402522B0E2AA00EEAF78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31CE403122B0E6AC00EEAF78 /* AnimatedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTabBarController.swift; sourceTree = "<group>"; };
+		31CE403422B2118500EEAF78 /* HobbyEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +103,12 @@
 		31CE400022B0E2A700EEAF78 /* Harrastuspassi */ = {
 			isa = PBXGroup;
 			children = (
+				31CE403322B210EE00EEAF78 /* Models */,
 				31CE400122B0E2A700EEAF78 /* AppDelegate.swift */,
-				31CE400322B0E2A700EEAF78 /* FirstViewController.swift */,
-				31CE400522B0E2A700EEAF78 /* SecondViewController.swift */,
+				31CE400322B0E2A700EEAF78 /* HomeViewController.swift */,
+				31CE400522B0E2A700EEAF78 /* MapViewController.swift */,
 				31CE400722B0E2A700EEAF78 /* Main.storyboard */,
+				31CE403122B0E6AC00EEAF78 /* AnimatedTabBarController.swift */,
 				31CE400A22B0E2A900EEAF78 /* Assets.xcassets */,
 				31CE400C22B0E2A900EEAF78 /* LaunchScreen.storyboard */,
 				31CE400F22B0E2A900EEAF78 /* Info.plist */,
@@ -126,6 +132,14 @@
 				31CE402522B0E2AA00EEAF78 /* Info.plist */,
 			);
 			path = HarrastuspassiUITests;
+			sourceTree = "<group>";
+		};
+		31CE403322B210EE00EEAF78 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				31CE403422B2118500EEAF78 /* HobbyEvent.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +273,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31CE400622B0E2A700EEAF78 /* SecondViewController.swift in Sources */,
+				31CE403222B0E6AC00EEAF78 /* AnimatedTabBarController.swift in Sources */,
+				31CE400622B0E2A700EEAF78 /* MapViewController.swift in Sources */,
 				31CE400222B0E2A700EEAF78 /* AppDelegate.swift in Sources */,
-				31CE400422B0E2A700EEAF78 /* FirstViewController.swift in Sources */,
+				31CE403522B2118500EEAF78 /* HobbyEvent.swift in Sources */,
+				31CE400422B0E2A700EEAF78 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
