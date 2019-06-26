@@ -18,6 +18,7 @@ class HobbyEvent {
     var startDate: Date
     var endDate: Date
     var placeholderImage: UIImage?
+    var info: String
     
     init(_ name:String = "Placeholder", _ imageUrl:URL? = nil) {
         self.name = name
@@ -28,6 +29,7 @@ class HobbyEvent {
         }
         startDate = Date()
         endDate = Date()
+        info  = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas placerat ipsum id lacus tempus, eget scelerisque est egestas. Aliquam aliquet, odio a ultrices congue, metus lorem scelerisque tellus, ut sodales libero ante et odio. Nullam pulvinar mi sed nisi posuere fringilla et eget nulla. Sed viverra lacus ac erat iaculis varius. Praesent commodo viverra odio eu interdum. Duis eu finibus nisi. Pellentesque bibendum libero non justo placerat fermentum."
     }
     
 }

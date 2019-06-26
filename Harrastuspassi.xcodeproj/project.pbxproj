@@ -17,6 +17,9 @@
 		31CE402422B0E2AA00EEAF78 /* HarrastuspassiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE402322B0E2AA00EEAF78 /* HarrastuspassiUITests.swift */; };
 		31CE403222B0E6AC00EEAF78 /* AnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE403122B0E6AC00EEAF78 /* AnimatedTabBarController.swift */; };
 		31CE403522B2118500EEAF78 /* HobbyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE403422B2118500EEAF78 /* HobbyEvent.swift */; };
+		31CE405022C2234600EEAF78 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE404F22C2234600EEAF78 /* Slide.swift */; };
+		31CE405222C2237500EEAF78 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CE405122C2237500EEAF78 /* Slide.xib */; };
+		31CE405422C33F2900EEAF78 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE405322C33F2900EEAF78 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		31CE402522B0E2AA00EEAF78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31CE403122B0E6AC00EEAF78 /* AnimatedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTabBarController.swift; sourceTree = "<group>"; };
 		31CE403422B2118500EEAF78 /* HobbyEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyEvent.swift; sourceTree = "<group>"; };
+		31CE404F22C2234600EEAF78 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
+		31CE405122C2237500EEAF78 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
+		31CE405322C33F2900EEAF78 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,9 @@
 				31CE400A22B0E2A900EEAF78 /* Assets.xcassets */,
 				31CE400C22B0E2A900EEAF78 /* LaunchScreen.storyboard */,
 				31CE400F22B0E2A900EEAF78 /* Info.plist */,
+				31CE404F22C2234600EEAF78 /* Slide.swift */,
+				31CE405122C2237500EEAF78 /* Slide.xib */,
+				31CE405322C33F2900EEAF78 /* DetailsViewController.swift */,
 			);
 			path = Harrastuspassi;
 			sourceTree = "<group>";
@@ -249,6 +258,7 @@
 				31CE400E22B0E2A900EEAF78 /* LaunchScreen.storyboard in Resources */,
 				31CE400B22B0E2A900EEAF78 /* Assets.xcassets in Resources */,
 				31CE400922B0E2A700EEAF78 /* Main.storyboard in Resources */,
+				31CE405222C2237500EEAF78 /* Slide.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +286,8 @@
 				31CE403222B0E6AC00EEAF78 /* AnimatedTabBarController.swift in Sources */,
 				31CE400622B0E2A700EEAF78 /* MapViewController.swift in Sources */,
 				31CE400222B0E2A700EEAF78 /* AppDelegate.swift in Sources */,
+				31CE405022C2234600EEAF78 /* Slide.swift in Sources */,
+				31CE405422C33F2900EEAF78 /* DetailsViewController.swift in Sources */,
 				31CE403522B2118500EEAF78 /* HobbyEvent.swift in Sources */,
 				31CE400422B0E2A700EEAF78 /* HomeViewController.swift in Sources */,
 			);

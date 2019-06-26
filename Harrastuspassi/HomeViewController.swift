@@ -12,13 +12,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     
     
     @IBOutlet weak var hobbyTableView: UITableView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var promoTitle: UILabel!
-    @IBOutlet weak var promoImage: UIImageView!
-    @IBOutlet weak var promoView: UIView!
-    @IBOutlet weak var label: UILabel!
     
     var data: [HobbyEvent]?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,67 +27,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
             HobbyEvent("Eukonkanto"),
             HobbyEvent("Taekwondo")
         ]
+        self.view.setNeedsLayout()
+        self.view.layoutIfNeeded()
+        let slides = createPromoSlides()
+        if let s = slides {
+            setupSlideScrollView(slides: s)
+            pageControl.numberOfPages = s.count
+            pageControl.currentPage = 0
+            view.bringSubviewToFront(pageControl)
+        }
+        scrollView.delegate = self
         hobbyTableView.delegate = self
         hobbyTableView.dataSource = self
-        
-        if let d = data {
-            pageControl.numberOfPages = d.count
-            pageControl.currentPage = 0
-            promoTitle?.text = d[0].name
-            promoImage?.image = UIImage(named: "soccer-placeholder")
-            view.bringSubviewToFront(pageControl)
-            promoView.layer.cornerRadius = 10
-            promoView.layer.masksToBounds = true
-        }
-        
-        
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
-        
-        leftSwipe.direction = .left
-        rightSwipe.direction = .right
-        
-        promoView.addGestureRecognizer(leftSwipe)
-        promoView.addGestureRecognizer(rightSwipe)
     }
     
-    @objc func handleSwipes(_ sender:UISwipeGestureRecognizer)
-    {
-        
-        let currentPage = pageControl.currentPage
-        if (sender.direction == .right)
-        {
-            if let d = data {
-                print("Swipe Left")
-                if currentPage == 0 {
-                    pageControl.currentPage = d.count - 1
-                    promoTitle.text = d[d.count - 1].name
-                } else {
-                    pageControl.currentPage = currentPage - 1
-                    promoTitle.text = d[currentPage - 1].name
-                }
-            }
-            
-        }
-        
-        if (sender.direction == .left)
-        {
-            
-            if let d = data {
-                print("Swipe Left")
-                if currentPage == d.count - 1 {
-                    pageControl.currentPage = 0
-                    promoTitle.text = d[0].name
-                } else {
-                    pageControl.currentPage = currentPage + 1
-                    promoTitle.text = d[currentPage + 1].name
-                }
-            }
-            print("Swipe Right")
-            
-            // show the view from the left side
-        }
-    }
     
     //MARK: Create promotion banner
     
@@ -111,6 +62,50 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
             cell.textLabel?.text = d[indexPath.row].name
         }
         return cell
+    }
+    
+    func createPromoSlides() -> [Slide]? {
+        
+        var slides: [Slide] = []
+        
+        if let d = data {
+            for element in d {
+                let slide:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
+                slide.imageView.image = UIImage(named: "soccer-placeholder")
+                slide.titleLabel.text = element.name
+                slide.layer.cornerRadius = 15
+                slide.layer.masksToBounds = true
+                let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+                slide.addGestureRecognizer(tap)
+                slides.append(slide)
+            }
+            return slides
+        }
+        return nil
+    }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        // handling code
+        let vc =  storyboard!.instantiateViewController(withIdentifier: "detailsVc") as! DetailsViewController
+        vc.data = data?[pageControl.currentPage]
+        present(vc, animated: true, completion: nil)
+    }
+    
+    func setupSlideScrollView(slides : [Slide]) {
+        scrollView.contentSize = CGSize(width: scrollView.frame.width * CGFloat(slides.count), height: scrollView.frame.height)
+        print(scrollView.frame.width * CGFloat(slides.count))
+        print(scrollView.frame.width)
+        scrollView.isPagingEnabled = true
+        
+        for i in 0 ..< slides.count {
+            slides[i].frame = CGRect(x: scrollView.frame.width * CGFloat(i), y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
+            scrollView.addSubview(slides[i])
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
+        pageControl.currentPage = Int(pageIndex)
     }
    
 }
