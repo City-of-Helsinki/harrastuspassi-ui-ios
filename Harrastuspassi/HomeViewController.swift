@@ -12,7 +12,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     
     
     @IBOutlet weak var hobbyTableView: UITableView!
-    @IBOutlet weak var scrollView: UIScrollView!
+    //@IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
     var data: [HobbyEvent]?
@@ -25,11 +25,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
             HobbyEvent("Jalkapallo"),
             HobbyEvent("Jaakiekko"),
             HobbyEvent("Eukonkanto"),
-            HobbyEvent("Taekwondo")
+            HobbyEvent("Taekwondo"),
+            HobbyEvent("Kitaransoiton alkeet")
         ]
         self.view.setNeedsLayout()
         self.view.layoutIfNeeded()
-        let slides = createPromoSlides()
+        /*let slides = createPromoSlides()
         if let s = slides {
             setupSlideScrollView(slides: s)
             pageControl.numberOfPages = s.count
@@ -37,6 +38,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
             view.bringSubviewToFront(pageControl)
         }
         scrollView.delegate = self
+        */
         hobbyTableView.delegate = self
         hobbyTableView.dataSource = self
     }
@@ -64,7 +66,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         return cell
     }
     
-    func createPromoSlides() -> [Slide]? {
+    /*func createPromoSlides() -> [Slide]? {
         
         var slides: [Slide] = []
         
@@ -83,6 +85,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         }
         return nil
     }
+    */
     
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
         // handling code
@@ -91,7 +94,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         present(vc, animated: true, completion: nil)
     }
     
-    func setupSlideScrollView(slides : [Slide]) {
+    /*func setupSlideScrollView(slides : [Slide]) {
         scrollView.contentSize = CGSize(width: scrollView.frame.width * CGFloat(slides.count), height: scrollView.frame.height)
         print(scrollView.frame.width * CGFloat(slides.count))
         print(scrollView.frame.width)
@@ -107,5 +110,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
         pageControl.currentPage = Int(pageIndex)
     }
+ */
    
 }
