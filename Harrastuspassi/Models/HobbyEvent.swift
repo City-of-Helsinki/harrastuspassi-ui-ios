@@ -16,7 +16,7 @@ class HobbyEvent {
     var name: String
     var imageUrl: URL?
     var startDate: Date
-    var endDate: Date
+    //var endDate: Date
     var placeholderImage: UIImage?
     var info: String
     
@@ -25,10 +25,10 @@ class HobbyEvent {
         if let url = imageUrl {
             self.imageUrl = url;
         } else {
-            placeholderImage = UIImage(named: "ic_panorama")
+            placeholderImage = UIImage(named: "ecology-2985781_640")
         }
         startDate = Date()
-        endDate = Date()
+        //endDate = Date()
         info  = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas placerat ipsum id lacus tempus, eget scelerisque est egestas. Aliquam aliquet, odio a ultrices congue, metus lorem scelerisque tellus, ut sodales libero ante et odio. Nullam pulvinar mi sed nisi posuere fringilla et eget nulla. Sed viverra lacus ac erat iaculis varius. Praesent commodo viverra odio eu interdum. Duis eu finibus nisi. Pellentesque bibendum libero non justo placerat fermentum."
     }
     
