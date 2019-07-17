@@ -11,9 +11,9 @@ import UIKit
 class HobbyTableViewCell: UITableViewCell {
 
     @IBOutlet weak var hobbyImage: UIImageView!
-   
+    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var title: UILabel!
-    
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var location: UILabel!
     
@@ -25,7 +25,10 @@ class HobbyTableViewCell: UITableViewCell {
         title.text = hobbyEvent.name
         location.text = hobbyEvent.info
         date.text = formatter.string(from: hobbyEvent.startDate)
+        icon.image = UIImage(named: "date_range")
     }
+    
+    
     
  /*   override func awakeFromNib() {
         super.awakeFromNib()
