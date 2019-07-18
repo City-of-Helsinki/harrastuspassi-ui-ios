@@ -11,31 +11,23 @@ import UIKit
 class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var hobbyTableView: UITableView!
-
-    var data: [HobbyEvent]?
+    @IBOutlet weak var errorText: UILabel!
+    
+    var hobbyData: [HobbyEventData]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        data = [
-            HobbyEvent("Jalkapallo"),
-            HobbyEvent("Jaakiekko"),
-            HobbyEvent("Eukonkanto"),
-            HobbyEvent("Taekwondo"),
-            HobbyEvent("Kitaransoiton alkeet")
-        ]
-        //self.view.setNeedsLayout()
-       //self.view.layoutIfNeeded()
-
         hobbyTableView.delegate = self
         hobbyTableView.dataSource = self
+        self.errorText.isHidden = true
         
-        self.fetchUrl(url: "http://10.0.1.172:8000/hobbies/")
+        self.fetchUrl(url: "http://10.0.1.172:8000/mobile-api/hobbies/")
     }
     
-    //MARK: Tableview setup
+    // Tableview setup
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let d = data {
+        if let d = hobbyData {
             return d.count
         } else {
             return 0;
@@ -43,10 +35,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "HobbyTableViewCell", for: indexPath) as! HobbyTableViewCell
-        if let d = data {
+        if let d = hobbyData {
             cell.setHobbyEvents(hobbyEvent: d[indexPath.row])
+            cell.selectionStyle = .none
         }
         
         return cell
@@ -54,48 +46,36 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     
     func fetchUrl(url: String) {
         let config = URLSessionConfiguration.default
-        
         let session = URLSession(configuration: config)
-        
         let url : URL? = URL(string: url)
-        
         let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
         
-        print(data)
-        // Starts the task, spawns a new thread and calls the callback function
         task.resume();
     }
     
     func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
-        guard let eventData = try? JSONDecoder().decode(HobbyEventData.self, from: data!)
+        guard let eventData = try? JSONDecoder().decode([HobbyEventData].self, from: data!)
         else {
-                print("Error occured")
-                return
+            self.errorText.isHidden = false
+            self.errorText.text = "Jokin meni vikaan"
+            return
         }
+        
+        DispatchQueue.main.async(execute: {() in
+            if(eventData.count == 0) {
+                self.errorText.text = "Ei harrastustapahtumia"
+                self.errorText.isHidden = false
+            } else {
+                self.hobbyData = eventData
+                self.hobbyTableView.reloadData()
+            }
+        })
     }
-
-        //self.hobbyTableView.reloadData()
- 
-    /* if let url = URL(string: url) {
-        do {
-            let events = try String(contentsOf: url)
-            print(events)
-        } catch {
-            // contents could not be loaded
-        }
-    } else {
-    // the URL was bad!
-    print("No url")
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+        edgesForExtendedLayout = UIRectEdge.bottom
+        extendedLayoutIncludesOpaqueBars = true
     }
-   */
-     
-     
-     /*   @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-        // handling code
-        let vc =  storyboard!.instantiateViewController(withIdentifier: "detailsVc") as! DetailsViewController
-        vc.data = data?[pageControl.currentPage]
-        present(vc, animated: true, completion: nil)
-    }
-   */
 }

@@ -17,30 +17,42 @@ class HobbyTableViewCell: UITableViewCell {
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var location: UILabel!
     
-    func setHobbyEvents(hobbyEvent: HobbyEvent) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-    
-        hobbyImage.image = UIImage(named: "ecology-2985781_640")
+    func setHobbyEvents(hobbyEvent: HobbyEventData) {
+        
+        if let imageUrl = hobbyEvent.image {
+            let url = URL (string: imageUrl)
+            hobbyImage.loadurl(url: url!)
+        } else {
+            hobbyImage.image = UIImage(named: "ic_panorama")
+        }
+        
+        if let place = hobbyEvent.location {
+            location.text = place
+        } else {
+            location.text = "Ei paikkatietoa"
+        }
+        
+        if let time = hobbyEvent.day_of_week {
+            date.text = time
+        } else {
+            date.text = "Ei tapahtuma-aikaa"
+        }
+        
         title.text = hobbyEvent.name
-        location.text = hobbyEvent.info
-        date.text = formatter.string(from: hobbyEvent.startDate)
         icon.image = UIImage(named: "date_range")
     }
-    
-    
-    
- /*   override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+}
+
+extension UIImageView {
+    func loadurl(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
- 
- */
-
 }
