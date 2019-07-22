@@ -22,7 +22,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         hobbyTableView.dataSource = self
         self.errorText.isHidden = true
         
-        self.fetchUrl(url: "http://10.0.1.172:8000/mobile-api/hobbies/")
+        self.fetchUrl(url: "https://app.harrastuspassi.fi/mobile-api/hobbies/")
     }
     
     // Tableview setup
