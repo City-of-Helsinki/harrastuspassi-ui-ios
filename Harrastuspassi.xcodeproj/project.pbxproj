@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E0CD7B122E9BE1C001E80D3 /* HobbyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0CD7B022E9BE1C001E80D3 /* HobbyDetailViewController.swift */; };
 		2E1329A822D74B790060A3A1 /* HobbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1329A722D74B790060A3A1 /* HobbyTableViewCell.swift */; };
 		2EB9E13222DDFF560024AA16 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EB9E13122DDFF560024AA16 /* Roboto-Bold.ttf */; };
 		2EB9E13322DDFF560024AA16 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EB9E13122DDFF560024AA16 /* Roboto-Bold.ttf */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E0CD7B022E9BE1C001E80D3 /* HobbyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyDetailViewController.swift; sourceTree = "<group>"; };
 		2E1329A722D74B790060A3A1 /* HobbyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyTableViewCell.swift; sourceTree = "<group>"; };
 		2EB9E13122DDFF560024AA16 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		2EB9E13522DDFF620024AA16 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				31CE400322B0E2A700EEAF78 /* HomeViewController.swift */,
 				31CE403122B0E6AC00EEAF78 /* AnimatedTabBarController.swift */,
+				2E0CD7B022E9BE1C001E80D3 /* HobbyDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			files = (
 				31CE403222B0E6AC00EEAF78 /* AnimatedTabBarController.swift in Sources */,
 				2E1329A822D74B790060A3A1 /* HobbyTableViewCell.swift in Sources */,
+				2E0CD7B122E9BE1C001E80D3 /* HobbyDetailViewController.swift in Sources */,
 				31CE400222B0E2A700EEAF78 /* AppDelegate.swift in Sources */,
 				31CE403522B2118500EEAF78 /* HobbyEventData.swift in Sources */,
 				31CE400422B0E2A700EEAF78 /* HomeViewController.swift in Sources */,
