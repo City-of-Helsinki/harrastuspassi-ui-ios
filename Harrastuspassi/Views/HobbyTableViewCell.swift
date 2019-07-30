@@ -26,13 +26,13 @@ class HobbyTableViewCell: UITableViewCell {
             hobbyImage.image = UIImage(named: "ic_panorama")
         }
         
-        if let place = hobbyEvent.location {
+        if let place = hobbyEvent.location?.name {
             location.text = place
         } else {
             location.text = "Ei paikkatietoa"
         }
         
-        if let time = hobbyEvent.day_of_week {
+        if let time = hobbyEvent.startDayOfWeek {
             date.text = time
         } else {
             date.text = "Ei tapahtuma-aikaa"

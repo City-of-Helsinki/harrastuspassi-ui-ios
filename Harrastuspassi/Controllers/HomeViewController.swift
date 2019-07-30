@@ -22,7 +22,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         hobbyTableView.dataSource = self
         self.errorText.isHidden = true
         
-        self.fetchUrl(url: "https://app.harrastuspassi.fi/mobile-api/hobbies/")
+        self.fetchUrl(url: Config.API_URL)
     }
     
     // Tableview setup
@@ -49,33 +49,47 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         let session = URLSession(configuration: config)
         let url : URL? = URL(string: url)
         let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
-        
+    
         task.resume();
     }
     
     func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
-        guard let eventData = try? JSONDecoder().decode([HobbyEventData].self, from: data!)
-        else {
-            self.errorText.isHidden = false
-            self.errorText.text = "Jokin meni vikaan"
-            return
-        }
-        
-        DispatchQueue.main.async(execute: {() in
-            if(eventData.count == 0) {
-                self.errorText.text = "Ei harrastustapahtumia"
-                self.errorText.isHidden = false
-            } else {
-                self.hobbyData = eventData
-                self.hobbyTableView.reloadData()
+        if let fetchedData = data {
+            guard let eventData = try? JSONDecoder().decode([HobbyEventData].self, from: fetchedData)
+                else {
+                    DispatchQueue.main.async(execute: {() in
+                        self.errorText.isHidden = false
+                        self.errorText.text = "Jokin meni vikaan"
+                        
+                    })
+                    return
             }
-        })
+            
+            DispatchQueue.main.async(execute: {() in
+                if(eventData.count == 0) {
+                    self.errorText.text = "Ei harrastustapahtumia"
+                    self.errorText.isHidden = false
+                } else {
+                    self.hobbyData = eventData
+                    self.hobbyTableView.reloadData()
+                }
+            })
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tabBarController?.tabBar.isHidden = true
-        edgesForExtendedLayout = UIRectEdge.bottom
-        extendedLayoutIncludesOpaqueBars = true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailViewController = segue.destination as? HobbyDetailViewController,
+            let index = hobbyTableView.indexPathForSelectedRow?.row
+            else {
+                return
+            }
+        if let data = hobbyData {
+            detailViewController.hobbyEvent = data[index]
+        }
+        
     }
 }

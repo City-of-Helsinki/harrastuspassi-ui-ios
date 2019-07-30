@@ -100,4 +100,6 @@ iOSInjectionProject/
 ### Xcode Patch ###
 **/xcshareddata/WorkspaceSettings.xcsettings
 
+**/Config.swift
+
 # End of https://www.gitignore.io/api/xcode,swift

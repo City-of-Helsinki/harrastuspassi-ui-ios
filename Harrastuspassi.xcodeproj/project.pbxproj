@@ -21,6 +21,8 @@
 		2EB9E13E22DDFF770024AA16 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EB9E13D22DDFF770024AA16 /* Roboto-Light.ttf */; };
 		2EB9E13F22DDFF770024AA16 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EB9E13D22DDFF770024AA16 /* Roboto-Light.ttf */; };
 		2EB9E14022DDFF770024AA16 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EB9E13D22DDFF770024AA16 /* Roboto-Light.ttf */; };
+		3117AEA522F01497001686DC /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3117AEA422F01497001686DC /* LocationData.swift */; };
+		3117AEA922F04EA2001686DC /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3117AEA822F04EA2001686DC /* Config.swift */; };
 		31CE400222B0E2A700EEAF78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE400122B0E2A700EEAF78 /* AppDelegate.swift */; };
 		31CE400422B0E2A700EEAF78 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE400322B0E2A700EEAF78 /* HomeViewController.swift */; };
 		31CE400922B0E2A700EEAF78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31CE400722B0E2A700EEAF78 /* Main.storyboard */; };
@@ -56,6 +58,8 @@
 		2EB9E13522DDFF620024AA16 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		2EB9E13922DDFF6C0024AA16 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		2EB9E13D22DDFF770024AA16 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		3117AEA422F01497001686DC /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
+		3117AEA822F04EA2001686DC /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		31CE3FFE22B0E2A700EEAF78 /* Harrastuspassi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harrastuspassi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31CE400122B0E2A700EEAF78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31CE400322B0E2A700EEAF78 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 				31CE400A22B0E2A900EEAF78 /* Assets.xcassets */,
 				31CE400C22B0E2A900EEAF78 /* LaunchScreen.storyboard */,
 				31CE400F22B0E2A900EEAF78 /* Info.plist */,
+				3117AEA822F04EA2001686DC /* Config.swift */,
 			);
 			path = Harrastuspassi;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				31CE403422B2118500EEAF78 /* HobbyEventData.swift */,
+				3117AEA422F01497001686DC /* LocationData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -337,7 +343,9 @@
 				2E0CD7B122E9BE1C001E80D3 /* HobbyDetailViewController.swift in Sources */,
 				31CE400222B0E2A700EEAF78 /* AppDelegate.swift in Sources */,
 				31CE403522B2118500EEAF78 /* HobbyEventData.swift in Sources */,
+				3117AEA922F04EA2001686DC /* Config.swift in Sources */,
 				31CE400422B0E2A700EEAF78 /* HomeViewController.swift in Sources */,
+				3117AEA522F01497001686DC /* LocationData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
