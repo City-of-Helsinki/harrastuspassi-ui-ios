@@ -17,11 +17,13 @@ struct HobbyEventData : Codable {
     let location : LocationData?
     let category : Int?
     let description : String?
-    let startDate : Date?
-    let endDate: Date?
+    let startDate : String?
+    let endDate: String?
     let createdAt : String?
     let modifiedAt : String?
     let organizer : String?
+    let startTime : String?
+    let endTime : String?
     
     enum CodingKeys: String, CodingKey {
         
@@ -38,6 +40,8 @@ struct HobbyEventData : Codable {
         case createdAt = "created_at"
         case modifiedAt = "modified_at"
         case organizer = "organizer"
+        case endTime = "end_time"
+        case startTime = "start_time"
     }
 }
 

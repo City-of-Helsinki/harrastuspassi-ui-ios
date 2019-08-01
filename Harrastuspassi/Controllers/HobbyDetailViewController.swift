@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
     
     var hobbyEvent: HobbyEventData?
+    var camera: GMSCameraPosition?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -21,6 +23,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var dayOfWeekLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var mapView: GMSMapView!
     
     
     override func viewDidLoad() {
@@ -32,9 +35,6 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
         dateFormatter.dateFormat = "dd.MM.yyyy"
         titleLabel.text = hobbyEvent?.name
         dayOfWeekLabel.text = hobbyEvent?.startDayOfWeek
-        if let date = hobbyEvent?.startDate {
-            dateLabel.text = dateFormatter.string(from: date)
-        }
         if let event = hobbyEvent {
             if let imageUrl = event.image {
                 let url = URL (string: imageUrl)
@@ -43,9 +43,12 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
                 imageView.image = UIImage(named: "ic_panorama")
             }
         }
+        
+        guard let id = hobbyEvent?.id else {
+            return
+        }
+        fetchUrl(url: Config.API_URL + String(id))
     }
-    
-
     /*
     // MARK: - Navigation
 
@@ -77,11 +80,45 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
             
             DispatchQueue.main.async(execute: {() in
                 self.hobbyEvent = eventData
+                self.reloadData()
+                self.setUpMapView()
             })
         }
     }
     
     func reloadData() {
+        guard let event = hobbyEvent else {
+            return
+        }
+        organizerLabel.text = event.organizer
+        timeLabel.text = event.startTime
+        locationLabel.text = event.location?.name
+        descriptionLabel.text = event.description
+        dateLabel.text = event.startDate
+        guard let location = event.location else {
+            return
+        }
+        if let zipCode = location.zipCode, let address = location.address, let city = location.city {
+            addressLabel.text = address + ", " + zipCode + ", " + city
+        }
         
+    }
+    
+    func setUpMapView() {
+        guard let lat = hobbyEvent?.location?.lat, let lon = hobbyEvent?.location?.lon, let title = hobbyEvent?.name, let snippet = hobbyEvent?.location?.name else {
+            return
+        }
+        camera = GMSCameraPosition.camera(withLatitude: Double(lat), longitude: Double(lon), zoom: 6.0)
+        guard let cam = camera else {
+            return
+        }
+        self.view.layoutIfNeeded()
+        mapView.animate(to: cam)
+        
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: Double(lat), longitude: Double(lon))
+        marker.title = title
+        marker.snippet = snippet
+        marker.map = mapView
     }
 }

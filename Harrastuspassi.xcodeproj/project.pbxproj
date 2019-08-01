@@ -32,6 +32,7 @@
 		31CE402422B0E2AA00EEAF78 /* HarrastuspassiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE402322B0E2AA00EEAF78 /* HarrastuspassiUITests.swift */; };
 		31CE403222B0E6AC00EEAF78 /* AnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE403122B0E6AC00EEAF78 /* AnimatedTabBarController.swift */; };
 		31CE403522B2118500EEAF78 /* HobbyEventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE403422B2118500EEAF78 /* HobbyEventData.swift */; };
+		51EB0CF575D5A7DC02F242E9 /* libPods-Harrastuspassi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A139C270AD13F19FE0834903 /* libPods-Harrastuspassi.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E22FA57BC449116BC77D138 /* Pods-Harrastuspassi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harrastuspassi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi.debug.xcconfig"; sourceTree = "<group>"; };
 		2E0CD7B022E9BE1C001E80D3 /* HobbyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyDetailViewController.swift; sourceTree = "<group>"; };
 		2E1329A722D74B790060A3A1 /* HobbyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyTableViewCell.swift; sourceTree = "<group>"; };
 		2EB9E13122DDFF560024AA16 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -75,6 +77,8 @@
 		31CE402522B0E2AA00EEAF78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31CE403122B0E6AC00EEAF78 /* AnimatedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTabBarController.swift; sourceTree = "<group>"; };
 		31CE403422B2118500EEAF78 /* HobbyEventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyEventData.swift; sourceTree = "<group>"; };
+		5D7ACE3BCF49CC1E3F90F1F9 /* Pods-Harrastuspassi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harrastuspassi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi.release.xcconfig"; sourceTree = "<group>"; };
+		A139C270AD13F19FE0834903 /* libPods-Harrastuspassi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Harrastuspassi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51EB0CF575D5A7DC02F242E9 /* libPods-Harrastuspassi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +107,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0ACF1A2A550E2DDFA7B7D986 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A139C270AD13F19FE0834903 /* libPods-Harrastuspassi.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2E6029AF22DDC75700AC665B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +151,8 @@
 				31CE401722B0E2AA00EEAF78 /* HarrastuspassiTests */,
 				31CE402222B0E2AA00EEAF78 /* HarrastuspassiUITests */,
 				31CE3FFF22B0E2A700EEAF78 /* Products */,
+				5627CD0804CDF7A5ED3A5F2D /* Pods */,
+				0ACF1A2A550E2DDFA7B7D986 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -195,6 +210,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		5627CD0804CDF7A5ED3A5F2D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1E22FA57BC449116BC77D138 /* Pods-Harrastuspassi.debug.xcconfig */,
+				5D7ACE3BCF49CC1E3F90F1F9 /* Pods-Harrastuspassi.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -202,9 +226,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 31CE402822B0E2AA00EEAF78 /* Build configuration list for PBXNativeTarget "Harrastuspassi" */;
 			buildPhases = (
+				BA3A2D2D2AD01F6DF882A1D2 /* [CP] Check Pods Manifest.lock */,
 				31CE3FFA22B0E2A700EEAF78 /* Sources */,
 				31CE3FFB22B0E2A700EEAF78 /* Frameworks */,
 				31CE3FFC22B0E2A700EEAF78 /* Resources */,
+				59DF95283B26AC3345B8F88E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -332,6 +358,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		59DF95283B26AC3345B8F88E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA3A2D2D2AD01F6DF882A1D2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Harrastuspassi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		31CE3FFA22B0E2A700EEAF78 /* Sources */ = {
@@ -520,6 +587,7 @@
 		};
 		31CE402922B0E2AA00EEAF78 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E22FA57BC449116BC77D138 /* Pods-Harrastuspassi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -541,6 +609,7 @@
 		};
 		31CE402A22B0E2AA00EEAF78 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D7ACE3BCF49CC1E3F90F1F9 /* Pods-Harrastuspassi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
