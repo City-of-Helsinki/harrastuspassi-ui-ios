@@ -23,6 +23,7 @@
 		2EB9E14022DDFF770024AA16 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EB9E13D22DDFF770024AA16 /* Roboto-Light.ttf */; };
 		3117AEA522F01497001686DC /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3117AEA422F01497001686DC /* LocationData.swift */; };
 		3117AEA922F04EA2001686DC /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3117AEA822F04EA2001686DC /* Config.swift */; };
+		3117AEAC22F2CFC2001686DC /* HPAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3117AEAB22F2CFC2001686DC /* HPAlert.swift */; };
 		31CE400222B0E2A700EEAF78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE400122B0E2A700EEAF78 /* AppDelegate.swift */; };
 		31CE400422B0E2A700EEAF78 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE400322B0E2A700EEAF78 /* HomeViewController.swift */; };
 		31CE400922B0E2A700EEAF78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31CE400722B0E2A700EEAF78 /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 		2EB9E13D22DDFF770024AA16 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		3117AEA422F01497001686DC /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		3117AEA822F04EA2001686DC /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		3117AEAB22F2CFC2001686DC /* HPAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPAlert.swift; sourceTree = "<group>"; };
 		31CE3FFE22B0E2A700EEAF78 /* Harrastuspassi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harrastuspassi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31CE400122B0E2A700EEAF78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31CE400322B0E2A700EEAF78 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		3117AEAA22F2CF96001686DC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3117AEAB22F2CFC2001686DC /* HPAlert.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		31CE3FF522B0E2A700EEAF78 = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +179,7 @@
 		31CE400022B0E2A700EEAF78 /* Harrastuspassi */ = {
 			isa = PBXGroup;
 			children = (
+				3117AEAA22F2CF96001686DC /* Utils */,
 				2EB9E13022DDFF060024AA16 /* Fonts */,
 				2E6029B022DDC77400AC665B /* Views */,
 				2E6029AF22DDC75700AC665B /* Controllers */,
@@ -414,6 +425,7 @@
 				31CE400222B0E2A700EEAF78 /* AppDelegate.swift in Sources */,
 				31CE403522B2118500EEAF78 /* HobbyEventData.swift in Sources */,
 				3117AEA922F04EA2001686DC /* Config.swift in Sources */,
+				3117AEAC22F2CFC2001686DC /* HPAlert.swift in Sources */,
 				31CE400422B0E2A700EEAF78 /* HomeViewController.swift in Sources */,
 				3117AEA522F01497001686DC /* LocationData.swift in Sources */,
 			);

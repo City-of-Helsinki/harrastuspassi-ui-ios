@@ -73,7 +73,10 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
             guard let eventData = try? JSONDecoder().decode(HobbyEventData.self, from: fetchedData)
                 else {
                     DispatchQueue.main.async(execute: {() in
-                        self.titleLabel.text = "Jokin meni vikaan"
+                        HPAlert.presentAlertWithTitle("Virhe", message: "Jokin meni vikaan.", presenter: self, completion: {
+                            (UIAlertAction) in
+                            self.navigationController?.popViewController(animated: true);
+                        })
                     })
                     return
             }
@@ -87,14 +90,26 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func reloadData() {
-        guard let event = hobbyEvent else {
+        let getDateFormatter  = DateFormatter()
+        getDateFormatter.dateFormat = "yyyy-MM-dd"
+        let getTimeFormatter = DateFormatter()
+        getTimeFormatter.dateFormat = "HH:mm:ss"
+        guard let event = hobbyEvent, let d = hobbyEvent?.startDate, let t = hobbyEvent?.startTime else {
             return
         }
+        
+        let date = getDateFormatter.date(from: d)
+        let time = getTimeFormatter.date(from: t)
+        let dateOutputDateFormatter = DateFormatter()
+        dateOutputDateFormatter.dateFormat = "dd.MM.yyyy"
+        let timeOutputFormatter = DateFormatter()
+        timeOutputFormatter.dateFormat = "HH:mm"
+        
         organizerLabel.text = event.organizer
-        timeLabel.text = event.startTime
+        if let t = time { timeLabel.text = timeOutputFormatter.string(from: t) }
         locationLabel.text = event.location?.name
         descriptionLabel.text = event.description
-        dateLabel.text = event.startDate
+        if let d = date { dateLabel.text = dateOutputDateFormatter.string(from: d) }
         guard let location = event.location else {
             return
         }
@@ -108,7 +123,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
         guard let lat = hobbyEvent?.location?.lat, let lon = hobbyEvent?.location?.lon, let title = hobbyEvent?.name, let snippet = hobbyEvent?.location?.name else {
             return
         }
-        camera = GMSCameraPosition.camera(withLatitude: Double(lat), longitude: Double(lon), zoom: 6.0)
+        camera = GMSCameraPosition.camera(withLatitude: Double(lat), longitude: Double(lon), zoom: 12.0)
         guard let cam = camera else {
             return
         }
