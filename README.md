@@ -28,7 +28,7 @@ import Foundation
 
 class Config {
     static let API_URL: String = "<YOUR_API_URL>"
-    static let GM_API_KEY = "<YOUR_GM_API_KEY>"
+    static let GM_API_KEY = "<YOUR_GOOGLE_MAPS_API_KEY>"
 }
 ```
 
