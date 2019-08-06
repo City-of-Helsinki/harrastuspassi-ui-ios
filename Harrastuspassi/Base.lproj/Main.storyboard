@@ -21,7 +21,7 @@
         <!--Home-->
         <scene sceneID="9tl-Oz-Am1">
             <objects>
-                <viewController title="Home" id="gLY-4E-wIE" customClass="HomeViewController" customModule="Harrastuspassi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home" hidesBottomBarWhenPushed="YES" id="gLY-4E-wIE" customClass="HomeViewController" customModule="Harrastuspassi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qkG-eW-ZFL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,13 +151,13 @@
         <!--Hobby Detail View Controller-->
         <scene sceneID="5Xs-eF-pwR">
             <objects>
-                <viewController id="h0w-UW-GsU" customClass="HobbyDetailViewController" customModule="Harrastuspassi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="h0w-UW-GsU" customClass="HobbyDetailViewController" customModule="Harrastuspassi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mgR-u1-aKa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e2V-Wi-347">
-                                <rect key="frame" x="0.0" y="44" width="414" height="907"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="956"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Og3-us-WGZ" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="942.5"/>
@@ -409,7 +409,7 @@
         <!--Item-->
         <scene sceneID="7b9-XR-G0o">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="og6-76-G8s" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="og6-76-G8s" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" image="ic_home" id="lr0-Bf-4nI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aK1-Og-Wak">
