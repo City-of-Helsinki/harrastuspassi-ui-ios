@@ -34,7 +34,10 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         titleLabel.text = hobbyEvent?.name
-        dayOfWeekLabel.text = hobbyEvent?.startDayOfWeek
+        if let d = hobbyEvent?.startDayOfWeek {
+            dayOfWeekLabel.text = d
+        }
+        
         if let event = hobbyEvent {
             if let imageUrl = event.image {
                 let url = URL (string: imageUrl)
