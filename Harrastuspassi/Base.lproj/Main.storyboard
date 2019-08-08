@@ -138,7 +138,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="apB-Ih-qbT"/>
                     </view>
-                    <navigationItem key="navigationItem" id="RNg-JY-lz1"/>
+                    <navigationItem key="navigationItem" id="RNg-JY-lz1">
+                        <barButtonItem key="rightBarButtonItem" image="ic_filter_list" id="6oj-id-v2e">
+                            <connections>
+                                <segue destination="JI3-Ws-b1T" kind="presentation" id="N5W-KN-IGa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="errorText" destination="8gU-KW-Jqe" id="eA6-SY-sWF"/>
                         <outlet property="hobbyTableView" destination="u52-1f-bvP" id="eDd-n1-7PB"/>
@@ -384,7 +390,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HE4-5I-37P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2046" y="-289"/>
+            <point key="canvasLocation" x="2032" y="149"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="iJi-It-S5f">
+            <objects>
+                <viewController id="JI3-Ws-b1T" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qEC-JO-86E">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Filter here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8N-Fo-D4q">
+                                <rect key="frame" x="186" y="438" width="77" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="yWz-we-Nd5"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jc7-6U-XxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2964" y="-307"/>
         </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -405,10 +437,10 @@
             </objects>
             <point key="canvasLocation" x="-283" y="-289"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="7b9-XR-G0o">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="og6-76-G8s" sceneMemberID="viewController">
+                <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="og6-76-G8s" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" image="ic_home" id="lr0-Bf-4nI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aK1-Og-Wak">
@@ -429,6 +461,7 @@
     <resources>
         <image name="date_range" width="71" height="70.5"/>
         <image name="ic_date_range_24pt" width="24" height="24"/>
+        <image name="ic_filter_list" width="18" height="18"/>
         <image name="ic_home" width="24" height="24"/>
         <image name="ic_location_24pt" width="24" height="24"/>
         <image name="ic_time_24pt" width="24" height="24"/>
