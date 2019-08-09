@@ -24,6 +24,11 @@
 		3117AEA522F01497001686DC /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3117AEA422F01497001686DC /* LocationData.swift */; };
 		3117AEA922F04EA2001686DC /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3117AEA822F04EA2001686DC /* Config.swift */; };
 		3117AEAC22F2CFC2001686DC /* HPAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3117AEAB22F2CFC2001686DC /* HPAlert.swift */; };
+		3117AEB022FC2013001686DC /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3117AEAF22FC2013001686DC /* FilterViewController.swift */; };
+		3117AEB222FC2FC4001686DC /* SelectedCategoriesContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3117AEB122FC2FC4001686DC /* SelectedCategoriesContainerView.swift */; };
+		3117AEB422FD393C001686DC /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3117AEB322FD393C001686DC /* CategoryListViewController.swift */; };
+		3117AEB622FD5940001686DC /* CategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3117AEB522FD5940001686DC /* CategoryData.swift */; };
+		3117AEB822FD5AD9001686DC /* CategoryFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3117AEB722FD5AD9001686DC /* CategoryFilterTableViewCell.swift */; };
 		31CE400222B0E2A700EEAF78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE400122B0E2A700EEAF78 /* AppDelegate.swift */; };
 		31CE400422B0E2A700EEAF78 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE400322B0E2A700EEAF78 /* HomeViewController.swift */; };
 		31CE400922B0E2A700EEAF78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31CE400722B0E2A700EEAF78 /* Main.storyboard */; };
@@ -64,6 +69,11 @@
 		3117AEA422F01497001686DC /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		3117AEA822F04EA2001686DC /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		3117AEAB22F2CFC2001686DC /* HPAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPAlert.swift; sourceTree = "<group>"; };
+		3117AEAF22FC2013001686DC /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		3117AEB122FC2FC4001686DC /* SelectedCategoriesContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCategoriesContainerView.swift; sourceTree = "<group>"; };
+		3117AEB322FD393C001686DC /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
+		3117AEB522FD5940001686DC /* CategoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryData.swift; sourceTree = "<group>"; };
+		3117AEB722FD5AD9001686DC /* CategoryFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterTableViewCell.swift; sourceTree = "<group>"; };
 		31CE3FFE22B0E2A700EEAF78 /* Harrastuspassi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harrastuspassi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31CE400122B0E2A700EEAF78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31CE400322B0E2A700EEAF78 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +133,8 @@
 				31CE400322B0E2A700EEAF78 /* HomeViewController.swift */,
 				31CE403122B0E6AC00EEAF78 /* AnimatedTabBarController.swift */,
 				2E0CD7B022E9BE1C001E80D3 /* HobbyDetailViewController.swift */,
+				3117AEAF22FC2013001686DC /* FilterViewController.swift */,
+				3117AEB322FD393C001686DC /* CategoryListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -131,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				2E1329A722D74B790060A3A1 /* HobbyTableViewCell.swift */,
+				3117AEB122FC2FC4001686DC /* SelectedCategoriesContainerView.swift */,
+				3117AEB722FD5AD9001686DC /* CategoryFilterTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -217,6 +231,7 @@
 			children = (
 				31CE403422B2118500EEAF78 /* HobbyEventData.swift */,
 				3117AEA422F01497001686DC /* LocationData.swift */,
+				3117AEB522FD5940001686DC /* CategoryData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -420,11 +435,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				31CE403222B0E6AC00EEAF78 /* AnimatedTabBarController.swift in Sources */,
+				3117AEB622FD5940001686DC /* CategoryData.swift in Sources */,
 				2E1329A822D74B790060A3A1 /* HobbyTableViewCell.swift in Sources */,
 				2E0CD7B122E9BE1C001E80D3 /* HobbyDetailViewController.swift in Sources */,
 				31CE400222B0E2A700EEAF78 /* AppDelegate.swift in Sources */,
+				3117AEB222FC2FC4001686DC /* SelectedCategoriesContainerView.swift in Sources */,
+				3117AEB022FC2013001686DC /* FilterViewController.swift in Sources */,
+				3117AEB822FD5AD9001686DC /* CategoryFilterTableViewCell.swift in Sources */,
 				31CE403522B2118500EEAF78 /* HobbyEventData.swift in Sources */,
 				3117AEA922F04EA2001686DC /* Config.swift in Sources */,
+				3117AEB422FD393C001686DC /* CategoryListViewController.swift in Sources */,
 				3117AEAC22F2CFC2001686DC /* HPAlert.swift in Sources */,
 				31CE400422B0E2A700EEAF78 /* HomeViewController.swift in Sources */,
 				3117AEA522F01497001686DC /* LocationData.swift in Sources */,

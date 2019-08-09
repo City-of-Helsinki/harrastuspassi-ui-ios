@@ -50,7 +50,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
         guard let id = hobbyEvent?.id else {
             return
         }
-        fetchUrl(url: Config.API_URL + String(id))
+        fetchUrl(url: Config.API_URL + "hobbies/" + String(id))
     }
     /*
     // MARK: - Navigation

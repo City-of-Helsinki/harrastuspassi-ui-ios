@@ -22,7 +22,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         hobbyTableView.dataSource = self
         self.errorText.isHidden = true
         
-        self.fetchUrl(url: Config.API_URL)
+        self.fetchUrl(url: Config.API_URL + "hobbies/")
     }
     
     // Tableview setup
@@ -91,5 +91,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
             detailViewController.hobbyEvent = data[index]
         }
         
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
