@@ -10,17 +10,17 @@ import UIKit
 
 class CategoryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
-    
+
     @IBOutlet weak var containerTableView: UITableView!
-    
-    var categoryData: [[CategoryData]]?
+    var categoryData: [CategoryData]?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        containerTableView.dataSource = self;
         containerTableView.delegate = self;
-        fetchUrl(url: Config.API_URL + "hobbycategories/")
+        fetchUrl(url: Config.API_URL + "hobbycategories/?include=child_categories&parent=null")
         // Do any additional setup after loading the view.
     }
     
@@ -50,10 +50,9 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
                 else {
                     return
             }
-            print(categoryData.description);
+            print(categoryData);
             DispatchQueue.main.async(execute: {() in
-                
-                self.categoryData = [[CategoryData(id: 0, name: "Pallolajit", treeId: 0, level: 1, parent: 0), CategoryData(id: 0, name: "Pallolajit", treeId: 0, level: 1, parent: 2)], [CategoryData(id: 0, name: "Pallolajit", treeId: 0, level: 1, parent: 0), CategoryData(id: 0, name: "Pallolajit", treeId: 0, level: 1, parent: 2)]]
+                self.categoryData = categoryData
                 
                 self.containerTableView.reloadData()
             })
@@ -61,32 +60,46 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        guard let data = categoryData else {
-            return 0;
-        }
-        return data.count;
+        return 1;
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let data = categoryData else {
+        if let data = categoryData {
+            return data.count
+        } else {
             return 0;
         }
-        return data[section].count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
-    
-    @IBAction func closeButtonPressed(_ sender: Any) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryFilterCell", for: indexPath) as! CategoryFilterTableViewCell
         
-        self.dismiss(animated: true, completion: nil);
+        print("Setting cell for:")
+        if let data = categoryData {
+            cell.setCategory(category: data[indexPath.row]);
+            cell.selectionStyle = .none;
+        }
+        return cell
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let subvc = segue.destination as? SubCategoryListController,
+            let index = containerTableView.indexPathForSelectedRow?.row
+            else {
+                return
+        }
+        if let data = categoryData {
+            subvc.data = data[index].childCategories
+            subvc.navigationItem.title = data[index].name
+        }
+    }
     
-
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

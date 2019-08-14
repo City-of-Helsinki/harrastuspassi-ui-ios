@@ -9,10 +9,16 @@
 import UIKit
 
 class CategoryFilterTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    func setCategory(category: CategoryData) {
+        if let title = category.name {
+            titleLabel.text = title;
+        } else {
+            titleLabel.text = "Muut";
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
