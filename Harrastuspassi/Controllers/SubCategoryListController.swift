@@ -14,6 +14,7 @@ class SubCategoryListController: UIViewController, UITableViewDelegate, UITableV
     
 
     var data: [CategoryData]?
+    weak var selectionDelegate: SelectionDelegate?
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -49,6 +50,13 @@ class SubCategoryListController: UIViewController, UITableViewDelegate, UITableV
             if d[indexPath.row].childCategories?.count == 0 {
                 cell.accessoryType = .none
             }
+            if let delegate = selectionDelegate, let id = d[indexPath.row].id {
+                if delegate.selectedItems.contains(id) {
+                    print("selected")
+                    cell.categorySelected = true
+                }
+            }
+            cell.selectionDelegate = self.selectionDelegate
         }
         return cell
     }
@@ -61,6 +69,7 @@ class SubCategoryListController: UIViewController, UITableViewDelegate, UITableV
         }
         if let d = data {
             subvc.data = d[index].childCategories
+            subvc.selectionDelegate = self.selectionDelegate
             subvc.navigationItem.title = d[index].name
         }
     }

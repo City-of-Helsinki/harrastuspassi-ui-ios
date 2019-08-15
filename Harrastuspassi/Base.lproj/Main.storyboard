@@ -524,16 +524,34 @@
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzy-c0-jbb">
-                                                    <rect key="frame" x="20" y="11" width="120" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ean-1w-8zM">
+                                                    <rect key="frame" x="20" y="12" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="ml9-PO-lCr"/>
+                                                        <constraint firstAttribute="width" constant="24" id="tni-X1-TWC"/>
+                                                    </constraints>
+                                                    <state key="normal" image="ic_check"/>
+                                                    <connections>
+                                                        <action selector="checkmarkButtonPressed:" destination="DrX-js-aNf" eventType="touchUpInside" id="z0Q-OF-Tkn"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzy-c0-jbb">
+                                                    <rect key="frame" x="52" y="13.5" width="120" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pzy-c0-jbb" firstAttribute="leading" secondItem="Ean-1w-8zM" secondAttribute="trailing" constant="8" id="DNh-bo-a8Z"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Ean-1w-8zM" secondAttribute="bottom" constant="1" id="VKz-mh-2Mh"/>
+                                                <constraint firstItem="Ean-1w-8zM" firstAttribute="leading" secondItem="iVA-IK-VLk" secondAttribute="leadingMargin" id="gZt-K4-n3C"/>
+                                                <constraint firstItem="Ean-1w-8zM" firstAttribute="top" secondItem="iVA-IK-VLk" secondAttribute="topMargin" constant="1" id="kCi-PB-j5m"/>
+                                                <constraint firstItem="pzy-c0-jbb" firstAttribute="centerY" secondItem="iVA-IK-VLk" secondAttribute="centerY" id="sB4-iz-7MJ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="checkmarkButton" destination="Ean-1w-8zM" id="IoZ-Lb-xGz"/>
                                             <outlet property="titleLabel" destination="pzy-c0-jbb" id="GhO-VU-JQh"/>
                                             <segue destination="W4g-to-XuZ" kind="show" id="j2M-J6-QaY"/>
                                         </connections>
@@ -548,7 +566,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Unk-uH-SFt" firstAttribute="bottom" secondItem="RNe-s0-ojh" secondAttribute="bottom" id="5T2-qp-g1l"/>
+                            <constraint firstItem="RNe-s0-ojh" firstAttribute="bottom" secondItem="Unk-uH-SFt" secondAttribute="bottom" id="ahq-VR-cAD"/>
                             <constraint firstItem="RNe-s0-ojh" firstAttribute="top" secondItem="LRr-DG-YH0" secondAttribute="bottom" id="d17-EN-cFi"/>
                             <constraint firstItem="Unk-uH-SFt" firstAttribute="trailing" secondItem="RNe-s0-ojh" secondAttribute="trailing" id="hsK-eE-n6A"/>
                             <constraint firstItem="LRr-DG-YH0" firstAttribute="top" secondItem="yBF-Cg-TZt" secondAttribute="top" id="iyY-hP-ZA4"/>
@@ -565,6 +583,11 @@
                         <barButtonItem key="leftBarButtonItem" image="ic_close" id="QsA-mk-5em">
                             <connections>
                                 <action selector="closeButtonPressed:" destination="XwD-Ua-7vn" id="pcE-nb-jlf"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Tallenna" id="gMv-3N-XKD">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="XwD-Ua-7vn" id="pAN-hB-d71"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -595,16 +618,33 @@
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1w-Cy-Jh6">
-                                                    <rect key="frame" x="20" y="11" width="120" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" alpha="0.30000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPW-kX-CTO">
+                                                    <rect key="frame" x="20" y="12" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="24" id="Hzp-pH-ZAJ"/>
+                                                        <constraint firstAttribute="height" constant="24" id="qOZ-S6-ERt"/>
+                                                    </constraints>
+                                                    <state key="normal" image="ic_check"/>
+                                                    <connections>
+                                                        <action selector="checkmarkButtonPressed:" destination="QmE-t7-5UZ" eventType="touchUpInside" id="ibz-re-7gc"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1w-Cy-Jh6">
+                                                    <rect key="frame" x="52" y="13.5" width="120" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="P1w-Cy-Jh6" firstAttribute="centerY" secondItem="Frx-4Y-gpe" secondAttribute="centerY" id="FvH-XF-n58"/>
+                                                <constraint firstItem="NPW-kX-CTO" firstAttribute="centerY" secondItem="Frx-4Y-gpe" secondAttribute="centerY" id="TDn-7B-8Nh"/>
+                                                <constraint firstItem="NPW-kX-CTO" firstAttribute="leading" secondItem="Frx-4Y-gpe" secondAttribute="leadingMargin" id="YRR-ai-b4R"/>
+                                                <constraint firstItem="P1w-Cy-Jh6" firstAttribute="leading" secondItem="NPW-kX-CTO" secondAttribute="trailing" constant="8" id="kUM-ED-Y0b"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="checkmarkButton" destination="NPW-kX-CTO" id="Pfi-Tt-EcU"/>
                                             <outlet property="titleLabel" destination="P1w-Cy-Jh6" id="MrY-r4-dxn"/>
                                             <segue destination="W4g-to-XuZ" kind="show" identifier="showSub" id="xdJ-n2-2pP"/>
                                         </connections>
@@ -627,7 +667,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Cz-WZ-av5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5588" y="-307"/>
+            <point key="canvasLocation" x="5586.9565217391309" y="-307.36607142857139"/>
         </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -697,6 +737,7 @@
     <resources>
         <image name="date_range" width="71" height="70.5"/>
         <image name="ic_add" width="24" height="24"/>
+        <image name="ic_check" width="24" height="24"/>
         <image name="ic_close" width="24" height="24"/>
         <image name="ic_date_range_24pt" width="24" height="24"/>
         <image name="ic_filter_list" width="18" height="18"/>

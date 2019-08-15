@@ -8,12 +8,11 @@
 
 import UIKit
 
-class CategoryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+class CategoryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SelectionDelegate {
 
     @IBOutlet weak var containerTableView: UITableView!
     var categoryData: [CategoryData]?
-    
+    var selectedItems = [Int]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +77,10 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
         if let data = categoryData {
             cell.setCategory(category: data[indexPath.row]);
             cell.selectionStyle = .none;
+            if selectedItems.contains(where: { $0 == data[indexPath.row].id}) {
+                cell.categorySelected = true
+            }
+            cell.selectionDelegate = self
         }
         return cell
     }
@@ -94,6 +97,7 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
         }
         if let data = categoryData {
             subvc.data = data[index].childCategories
+            subvc.selectionDelegate = self
             subvc.navigationItem.title = data[index].name
         }
     }
@@ -102,4 +106,26 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
         self.dismiss(animated: true, completion: nil)
     }
     
+    func addSelection(selectedItem: CategoryData) {
+        if let id = selectedItem.id {
+            self.selectedItems.append(id)
+        }
+        print(self.selectedItems)
+    }
+    
+    func removeSelection(removedItem: CategoryData) {
+        self.selectedItems = selectedItems.filter { element in
+            return element != removedItem.id
+        }
+        print("selectedItems:")
+        print(self.selectedItems)
+    }
+    
+    func saveFiltersAndDismiss() {
+        let defaults = UserDefaults.standard;
+        defaults.set(selectedItems, forKey: Constants.DefaultKeys.filters)
+    }
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        saveFiltersAndDismiss()
+    }
 }
