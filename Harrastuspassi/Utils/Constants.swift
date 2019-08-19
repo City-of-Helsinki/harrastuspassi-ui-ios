@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Constants {
+struct DefaultKeys {
     
     struct DefaultKeys {
         static let filters = "filters"

@@ -17,6 +17,9 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let savedSelections = UserDefaults.standard.array(forKey: DefaultKeys.Filters.categoriesTmp) as? [Int] {
+            selectedItems = savedSelections
+        }
         containerTableView.dataSource = self;
         containerTableView.delegate = self;
         fetchUrl(url: Config.API_URL + "hobbycategories/?include=child_categories&parent=null")
@@ -123,7 +126,8 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
     
     func saveFiltersAndDismiss() {
         let defaults = UserDefaults.standard;
-        defaults.set(selectedItems, forKey: Constants.DefaultKeys.filters)
+        defaults.set(selectedItems, forKey: DefaultKeys.Filters.categoriesTmp)
+        self.dismiss(animated: true, completion: nil)
     }
     @IBAction func saveButtonPressed(_ sender: Any) {
         saveFiltersAndDismiss()

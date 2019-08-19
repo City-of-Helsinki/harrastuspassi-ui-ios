@@ -12,4 +12,5 @@ protocol SelectionDelegate: class {
     var selectedItems: [Int] {get set};
     func addSelection(selectedItem: CategoryData);
     func removeSelection(removedItem: CategoryData);
+    func saveFiltersAndDismiss();
 }

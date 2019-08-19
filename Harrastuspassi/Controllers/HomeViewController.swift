@@ -8,12 +8,15 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate, UITableViewDataSource, ModalDelegate {
+    
+    
     
     @IBOutlet weak var hobbyTableView: UITableView!
     @IBOutlet weak var errorText: UILabel!
     
     var hobbyData: [HobbyEventData]?
+    var filters = Filters();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +24,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         hobbyTableView.delegate = self
         hobbyTableView.dataSource = self
         self.errorText.isHidden = true
-        
-        self.fetchUrl(url: Config.API_URL + "hobbies/")
+        if let filteredCategories = UserDefaults.standard.array(forKey: DefaultKeys.Filters.categories) as? [Int], filteredCategories.count > 0 {
+            filters.categories = filteredCategories
+        }
+        self.fetchUrl(urlString: Config.API_URL + "hobbies/")
     }
+    
+    
     
     // Tableview setup
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,10 +51,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         return cell
     }
     
-    func fetchUrl(url: String) {
+    func fetchUrl(urlString: String) {
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
-        let url : URL? = URL(string: url)
+        var url: URL?
+        if filters.categories.count > 0 {
+            url = applyFiltersToUrl(urlString)
+        } else {
+            url = URL(string: urlString)
+        }
+        print(url)
         let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
     
         task.resume();
@@ -64,12 +77,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
                     })
                     return
             }
-            
+            print(response)
+            print(eventData)
             DispatchQueue.main.async(execute: {() in
                 if(eventData.count == 0) {
+                    self.hobbyData = eventData
+                    self.hobbyTableView.reloadData()
                     self.errorText.text = "Ei harrastustapahtumia"
                     self.errorText.isHidden = false
                 } else {
+                    self.errorText.isHidden = true
                     self.hobbyData = eventData
                     self.hobbyTableView.reloadData()
                 }
@@ -82,18 +99,45 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let detailViewController = segue.destination as? HobbyDetailViewController,
-            let index = hobbyTableView.indexPathForSelectedRow?.row
-            else {
+        if segue.identifier == Segues.details {
+            guard let detailViewController = segue.destination as? HobbyDetailViewController,
+                let index = hobbyTableView.indexPathForSelectedRow?.row
+                else {
+                    return
+            }
+            if let data = hobbyData {
+                detailViewController.hobbyEvent = data[index]
+            }
+        } else if segue.identifier == Segues.filters {
+            guard let filterModal = segue.destination as? FilterViewController else {
                 return
             }
-        if let data = hobbyData {
-            detailViewController.hobbyEvent = data[index]
+            filterModal.modalDelegate = self
         }
+        
         
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    func didCloseModal(data: [Int]?) {
+        
+        if let d = data {
+            filters.categories = d
+            UserDefaults.standard.set(d, forKey: DefaultKeys.Filters.categories)
+        }
+        fetchUrl(urlString: Config.API_URL + "hobbies/")
+    }
+    
+    
+    func applyFiltersToUrl(_ url: String) -> URL? {
+        var urlComponents = URLComponents(string: url);
+        urlComponents?.queryItems = []
+        for id in filters.categories {
+            urlComponents?.queryItems?.append(URLQueryItem(name: "category", value: String(id)))
+        }
+        return urlComponents?.url
     }
 }
