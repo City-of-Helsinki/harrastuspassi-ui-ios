@@ -12,12 +12,14 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
 
     @IBOutlet weak var containerTableView: UITableView!
     var categoryData: [CategoryData]?
+    var receivedItems: [Int]?
     var selectedItems = [Int]()
+    var modalDelegate: ModalDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let savedSelections = UserDefaults.standard.array(forKey: DefaultKeys.Filters.categoriesTmp) as? [Int] {
+        if let savedSelections = receivedItems {
             selectedItems = savedSelections
         }
         containerTableView.dataSource = self;
@@ -125,8 +127,7 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func saveFiltersAndDismiss() {
-        let defaults = UserDefaults.standard;
-        defaults.set(selectedItems, forKey: DefaultKeys.Filters.categoriesTmp)
+        modalDelegate?.didCloseModal(data: selectedItems)
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func saveButtonPressed(_ sender: Any) {

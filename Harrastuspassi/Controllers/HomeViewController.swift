@@ -60,7 +60,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         } else {
             url = URL(string: urlString)
         }
-        print(url)
         let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
     
         task.resume();
@@ -77,8 +76,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
                     })
                     return
             }
-            print(response)
-            print(eventData)
             DispatchQueue.main.async(execute: {() in
                 if(eventData.count == 0) {
                     self.hobbyData = eventData

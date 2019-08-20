@@ -8,7 +8,9 @@
 
 import UIKit
 
-class FilterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class FilterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ModalDelegate {
+    
+    
     
     var categories: Dictionary<Int, CategoryData>?;
     var selectedCategories: [Int] = [];
@@ -27,7 +29,7 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView.delegate = self
         collectionView.dataSource = self
         // Do any additional setup after loading the view.
-        if let selectedCategories = UserDefaults.standard.array(forKey: DefaultKeys.Filters.categoriesTmp) as? [Int] {
+        if let selectedCategories = UserDefaults.standard.array(forKey: DefaultKeys.Filters.categories) as? [Int] {
             self.selectedCategories = selectedCategories
         }
         fetchUrl(url: Config.API_URL + "hobbycategories/")
@@ -35,9 +37,6 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true);
-        if let selectedCategories = UserDefaults.standard.array(forKey: DefaultKeys.Filters.categoriesTmp) as? [Int] {
-            self.selectedCategories = selectedCategories
-        }
         collectionView.reloadData();
         setCollectionViewHeight();
         selectedCategoriesContainer.setNeedsLayout();
@@ -146,7 +145,6 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
             selectedCategoriesContainer.setNeedsLayout();
             selectedCategoriesContainer.layoutIfNeeded();
         }, completion: nil)
-        UserDefaults.standard.set(selectedCategories, forKey: DefaultKeys.Filters.categoriesTmp)
         
     }
     
@@ -157,6 +155,16 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         self.dismiss(animated: true, completion: nil);
     }
     
+    func didCloseModal(data: [Int]?) {
+        if let d = data {
+            self.selectedCategories = d
+        }
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let categoryvc = (segue.destination as! UINavigationController).topViewController as! CategoryListViewController;
+        categoryvc.modalDelegate = self
+        categoryvc.receivedItems = selectedCategories;
+    }
 }
 
