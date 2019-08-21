@@ -46,12 +46,24 @@
                                                                 <constraint firstAttribute="height" constant="100" id="DKc-DG-xHh"/>
                                                                 <constraint firstAttribute="width" constant="100" id="Uha-8a-VBt"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="HeroID" value="DetailImage"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="HobbyImage"/>
+                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20X-bg-97e">
                                                             <rect key="frame" x="112" y="12" width="290" height="22"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                                             <color key="textColor" red="0.18823529410000001" green="0.078431372550000003" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="HeroID" value="HobbyTitle"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="HobbyTitle"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEt-JC-B6J">
                                                             <rect key="frame" x="112" y="36" width="290" height="19"/>
@@ -101,6 +113,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="QYb-9f-BjE" secondAttribute="bottom" constant="10" id="R16-0n-NaF"/>
                                                 <constraint firstAttribute="trailing" secondItem="QYb-9f-BjE" secondAttribute="trailing" id="hMp-25-ceK"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="HobbyBackground"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.18823529410000001" green="0.078431372550000003" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <accessibility key="accessibilityConfiguration" identifier="Cell"/>
@@ -112,7 +129,6 @@
                                             <outlet property="icon" destination="cKo-zN-fXO" id="oNt-XP-rHH"/>
                                             <outlet property="location" destination="cEt-JC-B6J" id="7xC-tc-ywM"/>
                                             <outlet property="title" destination="20X-bg-97e" id="xVs-dX-UTE"/>
-                                            <segue destination="h0w-UW-GsU" kind="show" identifier="details" id="jko-ls-LGv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -139,12 +155,15 @@
                         <viewLayoutGuide key="safeArea" id="apB-Ih-qbT"/>
                     </view>
                     <navigationItem key="navigationItem" id="RNg-JY-lz1">
-                        <barButtonItem key="rightBarButtonItem" image="ic_filter_list" id="6oj-id-v2e">
+                        <barButtonItem key="rightBarButtonItem" image="ic_tune" id="6oj-id-v2e">
                             <connections>
                                 <segue destination="JI3-Ws-b1T" kind="presentation" identifier="filters" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="N5W-KN-IGa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="errorText" destination="8gU-KW-Jqe" id="eA6-SY-sWF"/>
                         <outlet property="hobbyTableView" destination="u52-1f-bvP" id="eDd-n1-7PB"/>
@@ -157,13 +176,13 @@
         <!--Hobby Detail View Controller-->
         <scene sceneID="5Xs-eF-pwR">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="h0w-UW-GsU" customClass="HobbyDetailViewController" customModule="Harrastuspassi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsVC" hidesBottomBarWhenPushed="YES" id="h0w-UW-GsU" customClass="HobbyDetailViewController" customModule="Harrastuspassi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mgR-u1-aKa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="912"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e2V-Wi-347">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="912"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="956"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Og3-us-WGZ" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="790"/>
@@ -184,7 +203,7 @@
                                                                     <constraint firstAttribute="height" constant="24" id="Yg8-AU-T72"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ei ilmoitettu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyn-We-wdF" userLabel="DayOfWeek">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyn-We-wdF" userLabel="DayOfWeek">
                                                                 <rect key="frame" x="28" y="0.0" width="86.5" height="24"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                                 <color key="textColor" red="0.18823529410000001" green="0.078431372550000003" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -203,7 +222,7 @@
                                                     <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zh8-jN-snH" userLabel="DateView">
                                                         <rect key="frame" x="130.5" y="0.0" width="123" height="30"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ei ilmoitettu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPq-f4-azY" userLabel="Date">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPq-f4-azY" userLabel="Date">
                                                                 <rect key="frame" x="28" y="3.5" width="87" height="17"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                                 <color key="textColor" red="0.18823529410000001" green="0.078431372550000003" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -239,7 +258,7 @@
                                                                     <constraint firstAttribute="height" constant="24" id="n7P-ZO-hVB"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ei ilmoitettu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TmE-Hh-2pB" userLabel="Time">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TmE-Hh-2pB" userLabel="Time">
                                                                 <rect key="frame" x="28" y="3.5" width="86.5" height="17"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                                 <color key="textColor" red="0.18823529410000001" green="0.078431372550000003" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -266,6 +285,12 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                 <color key="textColor" red="0.18823529410000001" green="0.078431372550000003" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="HeroID" value="HobbyTitle"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="HobbyTitle"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ei ilmoitettu" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URZ-To-oNH">
                                                 <rect key="frame" x="15" y="271" width="384" height="17"/>
@@ -310,6 +335,12 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="bzL-dc-8Z3"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="HeroID" value="DetailImage"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="HobbyImage"/>
+                                                </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <view tag="10" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILu-Ua-6N6" userLabel="MapView" customClass="GMSMapView">
                                                 <rect key="frame" x="0.0" y="490" width="414" height="300"/>
@@ -355,6 +386,11 @@
                                             <constraint firstItem="ILu-Ua-6N6" firstAttribute="top" secondItem="4jR-Xq-OSU" secondAttribute="bottom" constant="10" id="yxF-ue-ImQ"/>
                                             <constraint firstItem="VgM-ym-leG" firstAttribute="leading" secondItem="sot-Ua-k9k" secondAttribute="leading" id="zyQ-Z0-LES"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="HobbyBackground"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.18823529410000001" green="0.078431372550000003" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -378,6 +414,9 @@
                         <viewLayoutGuide key="safeArea" id="9Vf-kE-Lmh"/>
                     </view>
                     <size key="freeformSize" width="414" height="1000"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="addressLabel" destination="VgM-ym-leG" id="vSQ-HG-8HX"/>
                         <outlet property="dateLabel" destination="XPq-f4-azY" id="34u-88-5xX"/>
@@ -607,10 +646,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ean-1w-8zM">
-                                                    <rect key="frame" x="20" y="12" width="24" height="24"/>
+                                                    <rect key="frame" x="20" y="12" width="30" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="24" id="ml9-PO-lCr"/>
-                                                        <constraint firstAttribute="width" constant="24" id="tni-X1-TWC"/>
+                                                        <constraint firstAttribute="height" constant="30" id="ml9-PO-lCr"/>
+                                                        <constraint firstAttribute="width" constant="30" id="tni-X1-TWC"/>
                                                     </constraints>
                                                     <state key="normal" image="ic_check"/>
                                                     <connections>
@@ -618,7 +657,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzy-c0-jbb">
-                                                    <rect key="frame" x="52" y="13.5" width="316" height="21"/>
+                                                    <rect key="frame" x="58" y="16.5" width="310" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -627,6 +666,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="pzy-c0-jbb" secondAttribute="trailing" id="DHY-rr-wgY"/>
                                                 <constraint firstItem="pzy-c0-jbb" firstAttribute="leading" secondItem="Ean-1w-8zM" secondAttribute="trailing" constant="8" id="DNh-bo-a8Z"/>
+                                                <constraint firstItem="Ean-1w-8zM" firstAttribute="centerY" secondItem="iVA-IK-VLk" secondAttribute="centerY" id="Ukl-qP-Klb"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Ean-1w-8zM" secondAttribute="bottom" constant="1" id="VKz-mh-2Mh"/>
                                                 <constraint firstItem="Ean-1w-8zM" firstAttribute="leading" secondItem="iVA-IK-VLk" secondAttribute="leadingMargin" id="gZt-K4-n3C"/>
                                                 <constraint firstItem="Ean-1w-8zM" firstAttribute="top" secondItem="iVA-IK-VLk" secondAttribute="topMargin" constant="1" id="kCi-PB-j5m"/>
@@ -702,10 +742,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" alpha="0.30000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPW-kX-CTO">
-                                                    <rect key="frame" x="20" y="12" width="24" height="24"/>
+                                                    <rect key="frame" x="20" y="9" width="30" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="Hzp-pH-ZAJ"/>
-                                                        <constraint firstAttribute="height" constant="24" id="qOZ-S6-ERt"/>
+                                                        <constraint firstAttribute="width" constant="30" id="Hzp-pH-ZAJ"/>
+                                                        <constraint firstAttribute="height" constant="30" id="qOZ-S6-ERt"/>
                                                     </constraints>
                                                     <state key="normal" image="ic_check"/>
                                                     <connections>
@@ -713,7 +753,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1w-Cy-Jh6">
-                                                    <rect key="frame" x="52" y="13.5" width="311" height="21"/>
+                                                    <rect key="frame" x="58" y="13.5" width="305" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -724,6 +764,7 @@
                                                 <constraint firstItem="NPW-kX-CTO" firstAttribute="centerY" secondItem="Frx-4Y-gpe" secondAttribute="centerY" id="TDn-7B-8Nh"/>
                                                 <constraint firstItem="NPW-kX-CTO" firstAttribute="leading" secondItem="Frx-4Y-gpe" secondAttribute="leadingMargin" id="YRR-ai-b4R"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="P1w-Cy-Jh6" secondAttribute="trailing" constant="5" id="jGj-cX-GaV"/>
+                                                <constraint firstItem="NPW-kX-CTO" firstAttribute="centerY" secondItem="Frx-4Y-gpe" secondAttribute="centerY" id="jIV-Kj-HvG"/>
                                                 <constraint firstItem="P1w-Cy-Jh6" firstAttribute="leading" secondItem="NPW-kX-CTO" secondAttribute="trailing" constant="8" id="kUM-ED-Y0b"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -788,6 +829,9 @@
                         <color key="barTintColor" red="0.1895129382610321" green="0.080823101103305817" blue="0.43108141422271729" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="gLY-4E-wIE" kind="relationship" relationship="rootViewController" id="tgL-bZ-Npf"/>
                     </connections>
@@ -828,11 +872,11 @@
         <image name="ic_check" width="24" height="24"/>
         <image name="ic_close" width="24" height="24"/>
         <image name="ic_date_range_24pt" width="24" height="24"/>
-        <image name="ic_filter_list" width="18" height="18"/>
         <image name="ic_home" width="24" height="24"/>
         <image name="ic_location_24pt" width="24" height="24"/>
         <image name="ic_time_24pt" width="24" height="24"/>
         <image name="ic_today_24pt" width="24" height="24"/>
+        <image name="ic_tune" width="24" height="24"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

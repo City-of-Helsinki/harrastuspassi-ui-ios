@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate, UITableViewDataSource, ModalDelegate {
     
@@ -136,5 +137,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
             urlComponents?.queryItems?.append(URLQueryItem(name: "category", value: String(id)))
         }
         return urlComponents?.url
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard.init(name: "Main", bundle:nil)
+        let destinationvc = sb.instantiateViewController(withIdentifier: "DetailsVC") as! HobbyDetailViewController
+        if let data = hobbyData {
+            destinationvc.hobbyEvent = data[indexPath.row];
+            destinationvc.image = (tableView.cellForRow(at: indexPath) as! HobbyTableViewCell).hobbyImage.image;
+        }
+        self.hero.modalAnimationType = .selectBy(presenting:.zoom, dismissing:.zoomOut);
+        destinationvc.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
+        self.navigationController?.pushViewController(destinationvc, animated: true);
+        
     }
 }

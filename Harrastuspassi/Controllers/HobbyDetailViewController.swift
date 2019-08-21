@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import Hero
 
 class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
     
@@ -25,6 +26,8 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
     
+    var image: UIImage?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +42,10 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
         }
         
         if let event = hobbyEvent {
-            if let imageUrl = event.image {
+            if let img = image {
+                imageView.image = img
+                
+            } else if let imageUrl = event.image {
                 let url = URL (string: imageUrl)
                 imageView.loadurl(url: url!)
             } else {
