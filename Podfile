@@ -3,4 +3,5 @@ target 'Harrastuspassi' do
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'Hero'
+  pod 'RevealingSplashView'
 end

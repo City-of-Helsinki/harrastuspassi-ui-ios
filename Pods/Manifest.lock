@@ -7,23 +7,27 @@ PODS:
   - GooglePlaces (3.3.0):
     - GoogleMaps/Base (= 3.3.0)
   - Hero (1.4.0)
+  - RevealingSplashView (0.6.0)
 
 DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - Hero
+  - RevealingSplashView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - GoogleMaps
     - GooglePlaces
     - Hero
+    - RevealingSplashView
 
 SPEC CHECKSUMS:
   GoogleMaps: cfee83da305b9aaeccf92c24ac79df11c3003492
   GooglePlaces: 1e2a87bd9efee9623ee65d44ecc35ebfecd7b13c
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
+  RevealingSplashView: 40c5a770894459736acdc95655eeba0dd30ce91c
 
-PODFILE CHECKSUM: 2e9e299b44443d9f34bec5b0ce9111c531aa7f3e
+PODFILE CHECKSUM: 49e1698fda36dedf85598d1a48e93935334d777d
 
 COCOAPODS: 1.5.3

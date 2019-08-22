@@ -8,6 +8,7 @@
 
 import UIKit
 import Hero
+import RevealingSplashView
 
 class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate, UITableViewDataSource, ModalDelegate {
     
@@ -22,6 +23,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "logo_kelt_lil")!,iconInitialSize: CGSize(width: 250, height: 250), backgroundColor: UIColor(red:0.19, green:0.08, blue:0.43, alpha:1.0))
+        
+        let window = UIApplication.shared.keyWindow
+        window?.addSubview(revealingSplashView)
+        
+        revealingSplashView.startAnimation(){
+            print("Completed")
+            revealingSplashView.removeFromSuperview();
+        }
+        
+        
         hobbyTableView.delegate = self
         hobbyTableView.dataSource = self
         self.errorText.isHidden = true

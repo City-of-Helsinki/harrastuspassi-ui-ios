@@ -10,11 +10,13 @@ import UIKit
 import GoogleMaps
 import Hero
 
-class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
+class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate {
     
+    var panGR: UIPanGestureRecognizer!
     var hobbyEvent: HobbyEventData?
     var camera: GMSCameraPosition?
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var organizerLabel: UILabel!
@@ -33,6 +35,11 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        panGR = UIPanGestureRecognizer(target: self, action: #selector(handlePan(gestureRecognizer:)));
+        panGR.delegate = self
+        scrollView.addGestureRecognizer(panGR);
+        view.addGestureRecognizer(panGR);
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
@@ -144,5 +151,31 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
         marker.title = title
         marker.snippet = snippet
         marker.map = mapView
+    }
+    
+    @objc func handlePan(gestureRecognizer:UIPanGestureRecognizer) {
+        
+        let translation = panGR.translation(in: nil)
+        let progress = translation.y / 2 / view.bounds.height
+        
+        switch panGR.state {
+        case .began:
+            // begin the transition as normal
+            if scrollView.contentOffset.y == 0 {
+                
+            }
+            dismiss(animated: true, completion: nil)
+        case .changed:
+            // calculate the progress based on how far the user moved
+            let translation = panGR.translation(in: nil)
+            let progress = translation.y / 2 / view.bounds.height
+            Hero.shared.update(CGFloat(progress))
+        default:
+            if progress + panGR.velocity(in: nil).y / view.bounds.height > 0.3 {
+                Hero.shared.finish()
+            } else {
+                Hero.shared.cancel()
+            }
+        }
     }
 }

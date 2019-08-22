@@ -426,6 +426,7 @@
                         <outlet property="locationLabel" destination="sot-Ua-k9k" id="mib-0M-4Px"/>
                         <outlet property="mapView" destination="ILu-Ua-6N6" id="MJD-Xo-yZ2"/>
                         <outlet property="organizerLabel" destination="URZ-To-oNH" id="zeH-Az-FVP"/>
+                        <outlet property="scrollView" destination="e2V-Wi-347" id="GPl-XV-3Vd"/>
                         <outlet property="timeLabel" destination="TmE-Hh-2pB" id="llc-QD-cU4"/>
                         <outlet property="titleLabel" destination="4BU-5n-gUh" id="POi-KT-733"/>
                     </connections>
