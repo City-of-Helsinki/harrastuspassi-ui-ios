@@ -15,10 +15,12 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     var categories: Dictionary<Int, CategoryData>?;
     var selectedCategories: [Int] = [];
     var modalDelegate: ModalDelegate?
+    var weekdays = Weekdays().list;
     
     @IBOutlet weak var selectedCategoriesContainer: UIView!
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var weekdayCollectionView: WeekDayCollectionView!
+    @IBOutlet weak var categoryCollectionView: UICollectionView!
     
     @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
     
@@ -26,8 +28,10 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        categoryCollectionView.delegate = self
+        categoryCollectionView.dataSource = self
+        weekdayCollectionView.delegate = self
+        weekdayCollectionView.dataSource = self
         // Do any additional setup after loading the view.
         if let selectedCategories = UserDefaults.standard.array(forKey: DefaultKeys.Filters.categories) as? [Int] {
             self.selectedCategories = selectedCategories
@@ -37,7 +41,7 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true);
-        collectionView.reloadData();
+        categoryCollectionView.reloadData();
         setCollectionViewHeight();
         selectedCategoriesContainer.setNeedsLayout();
         selectedCategoriesContainer.layoutIfNeeded();
@@ -85,7 +89,7 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
                     return 0;
                 }
                 
-                self.collectionView.reloadData()
+                self.categoryCollectionView.reloadData()
                 self.setCollectionViewHeight()
                 
             })
@@ -97,54 +101,113 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1;
+        if collectionView == categoryCollectionView {
+            return 1;
+        } else {
+            return 2;
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print(selectedCategories.count);
-        return selectedCategories.count;
+        if collectionView == self.categoryCollectionView {
+            return selectedCategories.count;
+        } else {
+            if section == 0 {
+                return weekdays.count - 1;
+            } else {
+                return 1;
+            }
+            
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FlagCell", for: indexPath) as! CategoryFlagView
-        
-        print("Setting cell for:")
-        if let data = categories {
-            cell.titleLabel.text = data[selectedCategories[indexPath.item]]?.name
-            cell.titleLabel.sizeToFit()
+        if collectionView == self.categoryCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FlagCell", for: indexPath) as! CategoryFlagView
+            
+            print("Setting cell for:")
+            if let data = categories {
+                cell.titleLabel.text = data[selectedCategories[indexPath.item]]?.name
+                cell.titleLabel.sizeToFit()
+            }
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weekdayCell", for: indexPath) as! WeekdayCollectionViewCell
+            
+            print("Setting cell for:")
+            cell.titleLabel.adjustsFontSizeToFitWidth = true;
+            if indexPath.section == 0 {
+                cell.titleLabel.text = weekdays[indexPath.item].name
+            } else {
+                cell.titleLabel.text = weekdays[6].name
+            }
+            cell.contentView.layer.cornerRadius = 2.0
+            cell.contentView.layer.borderWidth = 1.0
+            cell.contentView.layer.borderColor = UIColor.clear.cgColor
+            cell.contentView.layer.masksToBounds = true
+            
+            cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+            cell.layer.shadowRadius = 2.0
+            cell.layer.shadowOpacity = 0.5
+            cell.layer.masksToBounds = false
+            return cell
         }
-        return cell
+        
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if section == 1 {
+            print("Inset")
+            print((self.view.frame.width/2) - (125/2))
+            return UIEdgeInsets(top: 8, left: (self.view.frame.width/2) - (125/2), bottom: 0, right: 0);
+        }
+        return UIEdgeInsets(top: 2, left: 2, bottom: 0, right: 2);
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let otherContstraintsWidthSum: CGFloat = 35.0;
-        
-        var calculatedWidth: CGFloat = 100;
-        
-        if let data = categories, let title = data[selectedCategories[indexPath.item]]?.name {
-            calculatedWidth = NSString(string: title).size(withAttributes: [
-                .font : UIFont(name: "Roboto-Bold", size: 15)!
-                ]).width + otherContstraintsWidthSum
+        if collectionView == self.categoryCollectionView {
+            let otherContstraintsWidthSum: CGFloat = 35.0;
+            
+            var calculatedWidth: CGFloat = 100;
+            
+            if let data = categories, let title = data[selectedCategories[indexPath.item]]?.name {
+                calculatedWidth = NSString(string: title).size(withAttributes: [
+                    .font : UIFont(name: "Roboto-Bold", size: 15)!
+                    ]).width + otherContstraintsWidthSum
+            }
+            
+            return CGSize(width: calculatedWidth, height: 32)
+        } else {
+            return CGSize(width: 110, height: 50)
         }
         
-        return CGSize(width: calculatedWidth, height: 32)
     }
     
     func setCollectionViewHeight() {
-        let height = self.collectionView.collectionViewLayout.collectionViewContentSize.height
+        let height = self.categoryCollectionView.collectionViewLayout.collectionViewContentSize.height
         collectionViewHeightConstraint.constant = height
+        self.view.setNeedsLayout()
         self.view.layoutIfNeeded()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.performBatchUpdates({
-            selectedCategories.remove(at: indexPath.item)
-            collectionView.deleteItems(at: [indexPath])
-            setCollectionViewHeight();
-            selectedCategoriesContainer.setNeedsLayout();
-            selectedCategoriesContainer.layoutIfNeeded();
-        }, completion: nil)
+        if collectionView == self.categoryCollectionView {
+            collectionView.performBatchUpdates({
+                selectedCategories.remove(at: indexPath.item)
+                collectionView.deleteItems(at: [indexPath])
+                setCollectionViewHeight();
+                selectedCategoriesContainer.setNeedsLayout();
+                selectedCategoriesContainer.layoutIfNeeded();
+            }, completion: nil)
+        } else {
+            print("Weekday selected")
+        }
+        
         
     }
     
