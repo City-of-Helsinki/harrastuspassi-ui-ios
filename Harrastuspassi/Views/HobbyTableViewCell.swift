@@ -19,26 +19,26 @@ class HobbyTableViewCell: UITableViewCell {
     
     func setHobbyEvents(hobbyEvent: HobbyEventData) {
         
-        if let imageUrl = hobbyEvent.image {
+        if let hobby = hobbyEvent.hobby, let imageUrl = hobby.image {
             let url = URL (string: imageUrl)
             hobbyImage.loadurl(url: url!)
         } else {
             hobbyImage.image = UIImage(named: "ic_panorama")
         }
         
-        if let place = hobbyEvent.location?.name {
+        if let hobby = hobbyEvent.hobby, let place = hobby.location?.name {
             location.text = place
         } else {
             location.text = "Ei paikkatietoa"
         }
         
         if let time = hobbyEvent.startDayOfWeek {
-            date.text = time
+            date.text = Weekdays().list.first{ $0.id == time}?.name
         } else {
             date.text = "Ei tapahtuma-aikaa"
         }
         
-        title.text = hobbyEvent.name
+        title.text = hobbyEvent.hobby?.name
         icon.image = UIImage(named: "date_range")
     }
 }

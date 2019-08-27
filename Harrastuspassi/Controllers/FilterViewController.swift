@@ -14,9 +14,12 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     var categories: Dictionary<Int, CategoryData>?;
     var selectedCategories: [Int] = [];
+    var selectedWeekdays: [Int] = [];
     var modalDelegate: ModalDelegate?
     var weekdays = Weekdays().list;
     
+    
+    @IBOutlet weak var weekDayContainerView: UIView!
     @IBOutlet weak var selectedCategoriesContainer: UIView!
     
     @IBOutlet weak var weekdayCollectionView: WeekDayCollectionView!
@@ -24,6 +27,7 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var categoryCollectionContainerHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -140,19 +144,24 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
             cell.titleLabel.adjustsFontSizeToFitWidth = true;
             if indexPath.section == 0 {
                 cell.titleLabel.text = weekdays[indexPath.item].name
+                if selectedWeekdays.count > 0, selectedWeekdays.contains(weekdays[indexPath.item].id) {
+                    cell.backgroundColor = UIColor(red:0.19, green:0.08, blue:0.43, alpha:1.0);
+                    cell.titleLabel.textColor = .white;
+                } else {
+                    cell.backgroundColor = .white;
+                    cell.titleLabel.textColor = UIColor(red:0.19, green:0.08, blue:0.43, alpha:1.0);
+                }
             } else {
                 cell.titleLabel.text = weekdays[6].name
+                if selectedWeekdays.contains(7) {
+                    cell.backgroundColor = UIColor(red:0.19, green:0.08, blue:0.43, alpha:1.0);
+                    cell.titleLabel.textColor = .white;
+                } else {
+                    cell.backgroundColor = .white;
+                    cell.titleLabel.textColor = UIColor(red:0.19, green:0.08, blue:0.43, alpha:1.0);
+                }
             }
-            cell.contentView.layer.cornerRadius = 2.0
-            cell.contentView.layer.borderWidth = 1.0
-            cell.contentView.layer.borderColor = UIColor.clear.cgColor
-            cell.contentView.layer.masksToBounds = true
             
-            cell.layer.shadowColor = UIColor.black.cgColor
-            cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-            cell.layer.shadowRadius = 2.0
-            cell.layer.shadowOpacity = 0.5
-            cell.layer.masksToBounds = false
             return cell
         }
         
@@ -189,13 +198,17 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     func setCollectionViewHeight() {
-        let height = self.categoryCollectionView.collectionViewLayout.collectionViewContentSize.height
-        collectionViewHeightConstraint.constant = height
-        self.view.setNeedsLayout()
         self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.3, animations: {
+            let height = self.categoryCollectionView.collectionViewLayout.collectionViewContentSize.height
+            self.categoryCollectionContainerHeightConstraint.constant = height + 90
+            self.collectionViewHeightConstraint.constant = height
+            self.view.layoutIfNeeded()
+        })
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         if collectionView == self.categoryCollectionView {
             collectionView.performBatchUpdates({
                 selectedCategories.remove(at: indexPath.item)
@@ -205,7 +218,22 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
                 selectedCategoriesContainer.layoutIfNeeded();
             }, completion: nil)
         } else {
-            print("Weekday selected")
+            if indexPath.section == 0 {
+                print(indexPath.item)
+                if selectedWeekdays.contains(indexPath.item + 1) {
+                    selectedWeekdays = selectedWeekdays.filter { $0 != indexPath.item + 1 }
+                } else {
+                    selectedWeekdays.append(indexPath.item + 1);
+                }
+            } else {
+                if selectedWeekdays.contains(7) {
+                    selectedWeekdays = selectedWeekdays.filter {$0 != 7}
+                } else {
+                    selectedWeekdays.append(7)
+                }
+            }
+            weekdayCollectionView.reloadData();
+            print(selectedWeekdays)
         }
         
         

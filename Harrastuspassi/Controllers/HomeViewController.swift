@@ -41,7 +41,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         if let filteredCategories = UserDefaults.standard.array(forKey: DefaultKeys.Filters.categories) as? [Int], filteredCategories.count > 0 {
             filters.categories = filteredCategories
         }
-        self.fetchUrl(urlString: Config.API_URL + "hobbies/")
+        self.fetchUrl(urlString: Config.API_URL + "hobbyevents")
     }
     
     
@@ -58,7 +58,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HobbyTableViewCell", for: indexPath) as! HobbyTableViewCell
         if let d = hobbyData {
+            cell.hobbyImage?.hero.id = "image" + String(indexPath.row);
+            cell.title.hero.id = "title" + String(indexPath.row);
             cell.setHobbyEvents(hobbyEvent: d[indexPath.row])
+            cell.contentView.hero.isEnabled = true;
+            cell.contentView.hero.id = String(indexPath.row);
             cell.selectionStyle = .none
         }
         
@@ -66,14 +70,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     }
     
     func fetchUrl(urlString: String) {
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        var url: URL?
-        if filters.categories.count > 0 {
-            url = applyFiltersToUrl(urlString)
-        } else {
-            url = URL(string: urlString)
-        }
+        let config = URLSessionConfiguration.default;
+        let session = URLSession(configuration: config);
+        var url: URL?;
+        url = applyQueryParamsToUrl(urlString);
         let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
     
         task.resume();
@@ -90,6 +90,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
                     })
                     return
             }
+            print(eventData)
             DispatchQueue.main.async(execute: {() in
                 if(eventData.count == 0) {
                     self.hobbyData = eventData
@@ -139,15 +140,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
             filters.categories = d
             UserDefaults.standard.set(d, forKey: DefaultKeys.Filters.categories)
         }
-        fetchUrl(urlString: Config.API_URL + "hobbies/")
+        fetchUrl(urlString: Config.API_URL + "hobbyevents")
     }
     
     
-    func applyFiltersToUrl(_ url: String) -> URL? {
+    func applyQueryParamsToUrl(_ url: String) -> URL? {
         var urlComponents = URLComponents(string: url);
         urlComponents?.queryItems = []
-        for id in filters.categories {
-            urlComponents?.queryItems?.append(URLQueryItem(name: "category", value: String(id)))
+        urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"))
+        if filters.categories.count > 0 {
+            for id in filters.categories {
+                urlComponents?.queryItems?.append(URLQueryItem(name: "category", value: String(id)))
+            }
         }
         return urlComponents?.url
     }
@@ -156,6 +160,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         let sb = UIStoryboard.init(name: "Main", bundle:nil)
         let destinationvc = sb.instantiateViewController(withIdentifier: "DetailsVC") as! HobbyDetailViewController
         if let data = hobbyData {
+            destinationvc.heroID = String(indexPath.row);
+            destinationvc.imageHeroID = "image" + String(indexPath.row);
+            destinationvc.titleHeroID = "title" + String(indexPath.row);
             destinationvc.hobbyEvent = data[indexPath.row];
             destinationvc.image = (tableView.cellForRow(at: indexPath) as! HobbyTableViewCell).hobbyImage.image;
         }

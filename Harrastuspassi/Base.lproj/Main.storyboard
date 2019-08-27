@@ -50,7 +50,6 @@
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="HeroID" value="DetailImage"/>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="HobbyImage"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20X-bg-97e">
@@ -114,7 +113,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="QYb-9f-BjE" secondAttribute="trailing" id="hMp-25-ceK"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="HobbyBackground"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
                                             </userDefinedRuntimeAttributes>
@@ -339,7 +337,6 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="HeroID" value="DetailImage"/>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="HobbyImage"/>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <view tag="10" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILu-Ua-6N6" userLabel="MapView" customClass="GMSMapView">
@@ -387,7 +384,6 @@
                                             <constraint firstItem="VgM-ym-leG" firstAttribute="leading" secondItem="sot-Ua-k9k" secondAttribute="leading" id="zyQ-Z0-LES"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="HobbyBackground"/>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
                                         </userDefinedRuntimeAttributes>
@@ -419,6 +415,7 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="addressLabel" destination="VgM-ym-leG" id="vSQ-HG-8HX"/>
+                        <outlet property="contentView" destination="Og3-us-WGZ" id="Qbh-Gi-0b0"/>
                         <outlet property="dateLabel" destination="XPq-f4-azY" id="34u-88-5xX"/>
                         <outlet property="dayOfWeekLabel" destination="iyn-We-wdF" id="U97-4q-hZM"/>
                         <outlet property="descriptionLabel" destination="4jR-Xq-OSU" id="Vs7-4d-om7"/>
@@ -471,7 +468,7 @@
                                         <color key="textColor" red="0.18951293829999999" green="0.080823101100000003" blue="0.43108141420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eG2-QV-RJp" customClass="SelectedCategoriesContainerView" customModule="Harrastuspassi" customModuleProvider="target">
+                                    <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eG2-QV-RJp" customClass="SelectedCategoriesContainerView" customModule="Harrastuspassi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="38" width="384" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39n-3S-YhP">
@@ -539,13 +536,13 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yz5-hU-gu5" secondAttribute="bottom" constant="4" id="1x3-ff-e6f"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yz5-hU-gu5" secondAttribute="bottom" constant="15" id="1x3-ff-e6f"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="58Y-19-ZG2"/>
                                             <constraint firstItem="yz5-hU-gu5" firstAttribute="leading" secondItem="eG2-QV-RJp" secondAttribute="leading" constant="8" id="CKc-8a-Ik7"/>
                                             <constraint firstAttribute="trailing" secondItem="39n-3S-YhP" secondAttribute="trailing" constant="4" id="Cqk-SB-ctG"/>
                                             <constraint firstItem="39n-3S-YhP" firstAttribute="top" secondItem="eG2-QV-RJp" secondAttribute="top" constant="4" id="U68-zo-xiE"/>
                                             <constraint firstItem="39n-3S-YhP" firstAttribute="leading" secondItem="yz5-hU-gu5" secondAttribute="trailing" constant="8" id="cXO-6O-hFi"/>
-                                            <constraint firstItem="yz5-hU-gu5" firstAttribute="top" secondItem="eG2-QV-RJp" secondAttribute="top" constant="4" id="slv-JZ-NAb"/>
+                                            <constraint firstItem="yz5-hU-gu5" firstAttribute="top" secondItem="eG2-QV-RJp" secondAttribute="top" constant="15" id="slv-JZ-NAb"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -574,32 +571,11 @@
                                     <constraint firstAttribute="height" constant="150" id="qDm-xm-zcc"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKe-hY-JQM">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <color key="backgroundColor" red="0.1895129382610321" green="0.080823101103305817" blue="0.43108141422271729" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.18823529410000001" green="0.078431372550000003" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIG-H8-St5">
-                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
-                                <color key="backgroundColor" red="0.18951293829999999" green="0.080823101100000003" blue="0.43108141420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="fmR-gD-V5n"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
-                                <state key="normal" title="Suodata"/>
-                                <connections>
-                                    <action selector="filterButtonPressed:" destination="JI3-Ws-b1T" eventType="touchUpInside" id="jgc-dk-3Gb"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q38-Cw-qsa">
-                                <rect key="frame" x="0.0" y="862" width="414" height="34"/>
-                                <color key="backgroundColor" red="0.18951293829999999" green="0.080823101100000003" blue="0.43108141420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hek-kr-nRL">
+                            <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hek-kr-nRL">
                                 <rect key="frame" x="8" y="275" width="398" height="200"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oiL-bw-a1e" customClass="WeekDayCollectionView" customModule="Harrastuspassi" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1.4720606324699474" width="398" height="200.00000000000011"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oiL-bw-a1e" customClass="WeekDayCollectionView" customModule="Harrastuspassi" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="200"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="4" id="vpA-l7-cu8">
                                             <size key="itemSize" width="100" height="50"/>
@@ -640,10 +616,31 @@
                                     <constraint firstAttribute="bottom" secondItem="oiL-bw-a1e" secondAttribute="bottom" id="Sp0-nq-md5"/>
                                     <constraint firstItem="oiL-bw-a1e" firstAttribute="top" secondItem="hek-kr-nRL" secondAttribute="top" id="cyZ-Ze-eRF"/>
                                     <constraint firstAttribute="trailing" secondItem="oiL-bw-a1e" secondAttribute="trailing" id="dyT-V2-Hrc"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="vAi-b6-b1u"/>
+                                    <constraint firstAttribute="height" constant="200" id="vAi-b6-b1u"/>
                                     <constraint firstItem="oiL-bw-a1e" firstAttribute="leading" secondItem="hek-kr-nRL" secondAttribute="leading" id="ygd-wT-57s"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKe-hY-JQM">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <color key="backgroundColor" red="0.1895129382610321" green="0.080823101103305817" blue="0.43108141422271729" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.18823529410000001" green="0.078431372550000003" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q38-Cw-qsa">
+                                <rect key="frame" x="0.0" y="862" width="414" height="34"/>
+                                <color key="backgroundColor" red="0.18951293829999999" green="0.080823101100000003" blue="0.43108141420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIG-H8-St5">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <color key="backgroundColor" red="0.18951293829999999" green="0.080823101100000003" blue="0.43108141420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="fmR-gD-V5n"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
+                                <state key="normal" title="Suodata"/>
+                                <connections>
+                                    <action selector="filterButtonPressed:" destination="JI3-Ws-b1T" eventType="touchUpInside" id="jgc-dk-3Gb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -651,21 +648,21 @@
                             <constraint firstItem="s98-Ua-wIr" firstAttribute="trailing" secondItem="yWz-we-Nd5" secondAttribute="trailing" id="1en-RR-YTc"/>
                             <constraint firstItem="Q38-Cw-qsa" firstAttribute="leading" secondItem="yWz-we-Nd5" secondAttribute="leading" id="F2k-rr-LAl"/>
                             <constraint firstAttribute="trailing" secondItem="FKe-hY-JQM" secondAttribute="trailing" id="F8X-mB-Vvw"/>
+                            <constraint firstItem="WIG-H8-St5" firstAttribute="leading" secondItem="yWz-we-Nd5" secondAttribute="leading" id="FGR-1x-TNt"/>
                             <constraint firstItem="hek-kr-nRL" firstAttribute="top" secondItem="nbs-Bd-0f9" secondAttribute="bottom" constant="15" id="HWb-C8-Aci"/>
                             <constraint firstItem="s98-Ua-wIr" firstAttribute="leading" secondItem="yWz-we-Nd5" secondAttribute="leading" id="IFQ-IZ-y9a"/>
                             <constraint firstItem="hek-kr-nRL" firstAttribute="leading" secondItem="yWz-we-Nd5" secondAttribute="leading" constant="8" id="IyG-9h-Wrp"/>
                             <constraint firstItem="nbs-Bd-0f9" firstAttribute="top" secondItem="s98-Ua-wIr" secondAttribute="bottom" constant="22" id="J86-zY-WPO"/>
                             <constraint firstItem="yWz-we-Nd5" firstAttribute="top" secondItem="FKe-hY-JQM" secondAttribute="bottom" id="Mik-32-loG"/>
+                            <constraint firstItem="WIG-H8-St5" firstAttribute="trailing" secondItem="yWz-we-Nd5" secondAttribute="trailing" id="R9s-po-9WO"/>
                             <constraint firstItem="FKe-hY-JQM" firstAttribute="top" secondItem="qEC-JO-86E" secondAttribute="top" id="RND-sm-dMH"/>
-                            <constraint firstItem="yWz-we-Nd5" firstAttribute="trailing" secondItem="WIG-H8-St5" secondAttribute="trailing" id="T40-Xn-jqJ"/>
                             <constraint firstAttribute="trailing" secondItem="Q38-Cw-qsa" secondAttribute="trailing" id="UMZ-6V-8ck"/>
                             <constraint firstItem="Q38-Cw-qsa" firstAttribute="top" secondItem="yWz-we-Nd5" secondAttribute="bottom" id="VwM-we-FL0"/>
-                            <constraint firstItem="yWz-we-Nd5" firstAttribute="bottom" secondItem="WIG-H8-St5" secondAttribute="bottom" id="bny-oR-ktp"/>
-                            <constraint firstItem="WIG-H8-St5" firstAttribute="leading" secondItem="yWz-we-Nd5" secondAttribute="leading" id="d3O-vp-EJi"/>
                             <constraint firstItem="nbs-Bd-0f9" firstAttribute="leading" secondItem="yWz-we-Nd5" secondAttribute="leading" constant="15" id="dD0-kU-BDH"/>
                             <constraint firstAttribute="bottom" secondItem="Q38-Cw-qsa" secondAttribute="bottom" id="e79-Ka-VXG"/>
                             <constraint firstItem="s98-Ua-wIr" firstAttribute="top" secondItem="yWz-we-Nd5" secondAttribute="top" id="iOe-Zh-xrp"/>
                             <constraint firstItem="FKe-hY-JQM" firstAttribute="leading" secondItem="qEC-JO-86E" secondAttribute="leading" id="k7T-c5-wnq"/>
+                            <constraint firstItem="Q38-Cw-qsa" firstAttribute="top" secondItem="WIG-H8-St5" secondAttribute="bottom" id="mUX-Mq-NgP"/>
                             <constraint firstItem="yWz-we-Nd5" firstAttribute="trailing" secondItem="hek-kr-nRL" secondAttribute="trailing" constant="8" id="tWv-MQ-d27"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yWz-we-Nd5"/>
@@ -673,9 +670,11 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="categoryCollectionContainerHeightConstraint" destination="qDm-xm-zcc" id="uol-WQ-cUv"/>
                         <outlet property="categoryCollectionView" destination="yz5-hU-gu5" id="ItY-Rg-LXa"/>
                         <outlet property="collectionViewHeightConstraint" destination="l40-gn-o9i" id="lBt-Ez-Pbn"/>
                         <outlet property="selectedCategoriesContainer" destination="eG2-QV-RJp" id="Ngy-CV-goV"/>
+                        <outlet property="weekDayContainerView" destination="hek-kr-nRL" id="wpC-Ut-fJ7"/>
                         <outlet property="weekdayCollectionView" destination="oiL-bw-a1e" id="f5t-Cy-gya"/>
                     </connections>
                 </viewController>

@@ -10,6 +10,7 @@ import Foundation
 
 struct Filters {
     var categories:[Int] = [];
+    var weekdays:[Int] = [];
 }
 
 struct Weekday {
