@@ -11,7 +11,7 @@ import UIKit
 class FilterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ModalDelegate {
     
     
-    
+    let feedbackGenerator = UISelectionFeedbackGenerator();
     var categories: Dictionary<Int, CategoryData>?;
     var selectedCategories: [Int] = [];
     var selectedWeekdays: [Int] = [];
@@ -39,6 +39,10 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         // Do any additional setup after loading the view.
         if let selectedCategories = UserDefaults.standard.array(forKey: DefaultKeys.Filters.categories) as? [Int] {
             self.selectedCategories = selectedCategories
+        }
+        if let selectedWeekdays = UserDefaults.standard.array(forKey: DefaultKeys.Filters.weekdays) as? [Int] {
+            self.selectedWeekdays = selectedWeekdays
+            weekdayCollectionView.reloadData();
         }
         fetchUrl(url: Config.API_URL + "hobbycategories/")
     }
@@ -211,6 +215,7 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         if collectionView == self.categoryCollectionView {
             collectionView.performBatchUpdates({
+                feedbackGenerator.selectionChanged();
                 selectedCategories.remove(at: indexPath.item)
                 collectionView.deleteItems(at: [indexPath])
                 setCollectionViewHeight();
@@ -232,6 +237,7 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
                     selectedWeekdays.append(7)
                 }
             }
+            feedbackGenerator.selectionChanged();
             weekdayCollectionView.reloadData();
             print(selectedWeekdays)
         }
@@ -240,15 +246,18 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func filterButtonPressed(_ sender: Any) {
+        var filters = Filters();
+        filters.categories = selectedCategories;
+        filters.weekdays = selectedWeekdays;
         if let delegate = self.modalDelegate {
-            delegate.didCloseModal(data: selectedCategories);
+            delegate.didCloseModal(data: filters);
         }
         self.dismiss(animated: true, completion: nil);
     }
     
-    func didCloseModal(data: [Int]?) {
+    func didCloseModal(data: Filters?) {
         if let d = data {
-            self.selectedCategories = d
+            self.selectedCategories = d.categories;
         }
     }
     

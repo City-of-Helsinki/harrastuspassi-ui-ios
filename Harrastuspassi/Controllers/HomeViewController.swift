@@ -38,9 +38,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         hobbyTableView.delegate = self
         hobbyTableView.dataSource = self
         self.errorText.isHidden = true
-        if let filteredCategories = UserDefaults.standard.array(forKey: DefaultKeys.Filters.categories) as? [Int], filteredCategories.count > 0 {
+        if let filteredCategories = UserDefaults.standard.array(forKey: DefaultKeys.Filters.categories) as? [Int], filteredCategories.count > 0  {
             filters.categories = filteredCategories
         }
+        
+        if let filteredWeekdays = UserDefaults.standard.array(forKey: DefaultKeys.Filters.weekdays) as? [Int] {
+            filters.weekdays = filteredWeekdays
+        }
+        
         self.fetchUrl(urlString: Config.API_URL + "hobbyevents")
     }
     
@@ -134,11 +139,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         return .lightContent
     }
     
-    func didCloseModal(data: [Int]?) {
+    func didCloseModal(data: Filters?) {
         
         if let d = data {
-            filters.categories = d
-            UserDefaults.standard.set(d, forKey: DefaultKeys.Filters.categories)
+            filters = d;
+            UserDefaults.standard.set(d.categories, forKey: DefaultKeys.Filters.categories);
+            UserDefaults.standard.set(d.weekdays, forKey: DefaultKeys.Filters.weekdays);
         }
         fetchUrl(urlString: Config.API_URL + "hobbyevents")
     }
@@ -151,6 +157,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         if filters.categories.count > 0 {
             for id in filters.categories {
                 urlComponents?.queryItems?.append(URLQueryItem(name: "category", value: String(id)))
+            }
+        }
+        if filters.weekdays.count > 0 {
+            for id in filters.weekdays {
+                urlComponents?.queryItems?.append(URLQueryItem(name: "start_weekday", value: String(id)))
             }
         }
         return urlComponents?.url

@@ -15,6 +15,7 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
     var receivedItems: [Int]?
     var selectedItems = [Int]()
     var modalDelegate: ModalDelegate?
+    let feedbackGenerator = UISelectionFeedbackGenerator();
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,6 +116,7 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
         if let id = selectedItem.id {
             self.selectedItems.append(id)
         }
+        feedbackGenerator.selectionChanged();
         print(self.selectedItems)
     }
     
@@ -124,10 +126,13 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
         }
         print("selectedItems:")
         print(self.selectedItems)
+        feedbackGenerator.selectionChanged();
     }
     
     func saveFiltersAndDismiss() {
-        modalDelegate?.didCloseModal(data: selectedItems)
+        var filters = Filters();
+        filters.categories = selectedItems;
+        modalDelegate?.didCloseModal(data: filters);
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func saveButtonPressed(_ sender: Any) {

@@ -15,6 +15,7 @@ struct DefaultKeys {
     struct Filters {
         static let categories = "categoryFilters"
         static let categoriesTmp = "categoryFiltersTmp"
+        static let weekdays = "weekdays"
     }
     
 }

@@ -572,10 +572,16 @@
                                 </constraints>
                             </view>
                             <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hek-kr-nRL">
-                                <rect key="frame" x="8" y="275" width="398" height="200"/>
+                                <rect key="frame" x="8" y="275" width="398" height="250"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Viikonpäivä" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nid-CB-x06">
+                                        <rect key="frame" x="8" y="8" width="90" height="20"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
+                                        <color key="textColor" red="0.18823529410000001" green="0.078431372550000003" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oiL-bw-a1e" customClass="WeekDayCollectionView" customModule="Harrastuspassi" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="398" height="200"/>
+                                        <rect key="frame" x="0.0" y="43" width="398" height="207"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="4" id="vpA-l7-cu8">
                                             <size key="itemSize" width="100" height="50"/>
@@ -592,7 +598,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjL-rY-x9o">
-                                                            <rect key="frame" x="41.5" y="15" width="42" height="20"/>
+                                                            <rect key="frame" x="29" y="15" width="42" height="20"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
                                                             <color key="textColor" red="0.18823529410000001" green="0.078431372550000003" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -613,11 +619,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="oiL-bw-a1e" secondAttribute="bottom" id="Sp0-nq-md5"/>
-                                    <constraint firstItem="oiL-bw-a1e" firstAttribute="top" secondItem="hek-kr-nRL" secondAttribute="top" id="cyZ-Ze-eRF"/>
-                                    <constraint firstAttribute="trailing" secondItem="oiL-bw-a1e" secondAttribute="trailing" id="dyT-V2-Hrc"/>
-                                    <constraint firstAttribute="height" constant="200" id="vAi-b6-b1u"/>
-                                    <constraint firstItem="oiL-bw-a1e" firstAttribute="leading" secondItem="hek-kr-nRL" secondAttribute="leading" id="ygd-wT-57s"/>
+                                    <constraint firstAttribute="bottom" secondItem="oiL-bw-a1e" secondAttribute="bottom" id="3lj-gl-vct"/>
+                                    <constraint firstItem="nid-CB-x06" firstAttribute="top" secondItem="hek-kr-nRL" secondAttribute="top" constant="8" id="Gan-qq-dN7"/>
+                                    <constraint firstItem="nid-CB-x06" firstAttribute="leading" secondItem="hek-kr-nRL" secondAttribute="leading" constant="8" id="SMt-lz-cs2"/>
+                                    <constraint firstAttribute="trailing" secondItem="oiL-bw-a1e" secondAttribute="trailing" id="SnX-Lf-JDb"/>
+                                    <constraint firstItem="oiL-bw-a1e" firstAttribute="leading" secondItem="hek-kr-nRL" secondAttribute="leading" id="Wi0-ya-wwD"/>
+                                    <constraint firstItem="oiL-bw-a1e" firstAttribute="top" secondItem="nid-CB-x06" secondAttribute="bottom" constant="15" id="dGG-hD-5Ce"/>
+                                    <constraint firstAttribute="height" constant="250" id="vAi-b6-b1u"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKe-hY-JQM">

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ModalDelegate {
-    func didCloseModal(data: [Int]?);
+    func didCloseModal(data: Filters?);
 }
