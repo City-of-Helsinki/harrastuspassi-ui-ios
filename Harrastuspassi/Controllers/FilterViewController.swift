@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import RangeSeekSlider
 
-class FilterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ModalDelegate {
+class FilterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ModalDelegate, RangeSeekSliderDelegate {
     
     
     let feedbackGenerator = UISelectionFeedbackGenerator();
@@ -17,8 +18,10 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     var selectedWeekdays: [Int] = [];
     var modalDelegate: ModalDelegate?
     var weekdays = Weekdays().list;
+    var filters = Filters();
     
     
+    @IBOutlet weak var timeSlider: TimeFilterSlider!
     @IBOutlet weak var weekDayContainerView: UIView!
     @IBOutlet weak var selectedCategoriesContainer: UIView!
     
@@ -36,6 +39,7 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         categoryCollectionView.dataSource = self
         weekdayCollectionView.delegate = self
         weekdayCollectionView.dataSource = self
+        timeSlider.delegate = self;
         // Do any additional setup after loading the view.
         if let selectedCategories = UserDefaults.standard.array(forKey: DefaultKeys.Filters.categories) as? [Int] {
             self.selectedCategories = selectedCategories
@@ -265,6 +269,12 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         let categoryvc = (segue.destination as! UINavigationController).topViewController as! CategoryListViewController;
         categoryvc.modalDelegate = self
         categoryvc.receivedItems = selectedCategories;
+    }
+    
+    func rangeSeekSlider(_ slider: RangeSeekSlider, didChange minValue: CGFloat, maxValue: CGFloat) {
+        self.filters.times.minTime = minValue;
+        self.filters.times.maxTime = maxValue;
+        print(filters)
     }
 }
 

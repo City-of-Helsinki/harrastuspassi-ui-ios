@@ -7,12 +7,14 @@ PODS:
   - GooglePlaces (3.3.0):
     - GoogleMaps/Base (= 3.3.0)
   - Hero (1.4.0)
+  - RangeSeekSlider (1.8.0)
   - RevealingSplashView (0.6.0)
 
 DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - Hero
+  - RangeSeekSlider
   - RevealingSplashView
 
 SPEC REPOS:
@@ -20,14 +22,16 @@ SPEC REPOS:
     - GoogleMaps
     - GooglePlaces
     - Hero
+    - RangeSeekSlider
     - RevealingSplashView
 
 SPEC CHECKSUMS:
   GoogleMaps: cfee83da305b9aaeccf92c24ac79df11c3003492
   GooglePlaces: 1e2a87bd9efee9623ee65d44ecc35ebfecd7b13c
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
+  RangeSeekSlider: 650b11fa1edcb92e1e0ede797669d98622570fb5
   RevealingSplashView: 40c5a770894459736acdc95655eeba0dd30ce91c
 
-PODFILE CHECKSUM: 49e1698fda36dedf85598d1a48e93935334d777d
+PODFILE CHECKSUM: 20cbf92c040d167aafe976861ef367e787db1d08
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.5

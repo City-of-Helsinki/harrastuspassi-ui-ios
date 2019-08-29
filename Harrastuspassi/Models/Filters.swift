@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 struct Filters {
     var categories:[Int] = [];
     var weekdays:[Int] = [];
+    var times = Times();
 }
 
 struct Weekday {
@@ -21,4 +23,9 @@ struct Weekday {
 
 struct Weekdays {
     let list = [Weekday(id: 1, name: "Maanantai"), Weekday(id: 2, name: "Tiistai"), Weekday(id: 3, name: "Keskiviikko"),Weekday(id: 4, name: "Torstai"),Weekday(id: 5, name: "Perjantai"),Weekday(id: 6, name: "Lauantai"),Weekday(id: 7, name: "Sunnuntai")];
+}
+
+struct Times {
+    var minTime: CGFloat = 8.0;
+    var maxTime: CGFloat = 15.0;
 }

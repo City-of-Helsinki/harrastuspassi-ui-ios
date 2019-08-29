@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,7 +22,6 @@
 		2EB9E13F22DDFF770024AA16 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EB9E13D22DDFF770024AA16 /* Roboto-Light.ttf */; };
 		2EB9E14022DDFF770024AA16 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EB9E13D22DDFF770024AA16 /* Roboto-Light.ttf */; };
 		3117AEA522F01497001686DC /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3117AEA422F01497001686DC /* LocationData.swift */; };
-		3117AEA922F04EA2001686DC /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3117AEA822F04EA2001686DC /* Config.swift */; };
 		3117AEAC22F2CFC2001686DC /* HPAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3117AEAB22F2CFC2001686DC /* HPAlert.swift */; };
 		3117AEB022FC2013001686DC /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3117AEAF22FC2013001686DC /* FilterViewController.swift */; };
 		3117AEB222FC2FC4001686DC /* SelectedCategoriesContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3117AEB122FC2FC4001686DC /* SelectedCategoriesContainerView.swift */; };
@@ -50,7 +49,9 @@
 		31CE402422B0E2AA00EEAF78 /* HarrastuspassiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE402322B0E2AA00EEAF78 /* HarrastuspassiUITests.swift */; };
 		31CE403222B0E6AC00EEAF78 /* AnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE403122B0E6AC00EEAF78 /* AnimatedTabBarController.swift */; };
 		31CE403522B2118500EEAF78 /* HobbyEventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE403422B2118500EEAF78 /* HobbyEventData.swift */; };
-		51EB0CF575D5A7DC02F242E9 /* libPods-Harrastuspassi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A139C270AD13F19FE0834903 /* libPods-Harrastuspassi.a */; };
+		6900AB1F19F08B6BE7641B34 /* Pods_Harrastuspassi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4123D35689EF2662512A7B19 /* Pods_Harrastuspassi.framework */; };
+		C2FAD61123169C6000CCF284 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FAD61023169C6000CCF284 /* Config.swift */; };
+		C2FAD6132317AC7200CCF284 /* TimeFilterSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FAD6122317AC7200CCF284 /* TimeFilterSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +80,6 @@
 		2EB9E13922DDFF6C0024AA16 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		2EB9E13D22DDFF770024AA16 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		3117AEA422F01497001686DC /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
-		3117AEA822F04EA2001686DC /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		3117AEAB22F2CFC2001686DC /* HPAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPAlert.swift; sourceTree = "<group>"; };
 		3117AEAF22FC2013001686DC /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		3117AEB122FC2FC4001686DC /* SelectedCategoriesContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCategoriesContainerView.swift; sourceTree = "<group>"; };
@@ -113,8 +113,10 @@
 		31CE402522B0E2AA00EEAF78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31CE403122B0E6AC00EEAF78 /* AnimatedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTabBarController.swift; sourceTree = "<group>"; };
 		31CE403422B2118500EEAF78 /* HobbyEventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyEventData.swift; sourceTree = "<group>"; };
+		4123D35689EF2662512A7B19 /* Pods_Harrastuspassi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Harrastuspassi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D7ACE3BCF49CC1E3F90F1F9 /* Pods-Harrastuspassi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harrastuspassi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi.release.xcconfig"; sourceTree = "<group>"; };
-		A139C270AD13F19FE0834903 /* libPods-Harrastuspassi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Harrastuspassi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2FAD61023169C6000CCF284 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		C2FAD6122317AC7200CCF284 /* TimeFilterSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFilterSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51EB0CF575D5A7DC02F242E9 /* libPods-Harrastuspassi.a in Frameworks */,
+				6900AB1F19F08B6BE7641B34 /* Pods_Harrastuspassi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,7 +148,7 @@
 		0ACF1A2A550E2DDFA7B7D986 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A139C270AD13F19FE0834903 /* libPods-Harrastuspassi.a */,
+				4123D35689EF2662512A7B19 /* Pods_Harrastuspassi.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -174,6 +176,7 @@
 				3117AEC62306823F001686DC /* CategoryFlagView.swift */,
 				3171419F230FC687005B1F5E /* WeekDayCollectionView.swift */,
 				317141A1230FC6D9005B1F5E /* WeekdayCollectionViewCell.swift */,
+				C2FAD6122317AC7200CCF284 /* TimeFilterSlider.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -245,7 +248,7 @@
 				31CE400A22B0E2A900EEAF78 /* Assets.xcassets */,
 				31CE400C22B0E2A900EEAF78 /* LaunchScreen.storyboard */,
 				31CE400F22B0E2A900EEAF78 /* Info.plist */,
-				3117AEA822F04EA2001686DC /* Config.swift */,
+				C2FAD61023169C6000CCF284 /* Config.swift */,
 			);
 			path = Harrastuspassi;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				31CE3FFB22B0E2A700EEAF78 /* Frameworks */,
 				31CE3FFC22B0E2A700EEAF78 /* Resources */,
 				59DF95283B26AC3345B8F88E /* [CP] Copy Pods Resources */,
+				EAF2CAF8BE41E8E864C81AB0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -438,19 +442,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BA3A2D2D2AD01F6DF882A1D2 /* [CP] Check Pods Manifest.lock */ = {
@@ -471,6 +472,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EAF2CAF8BE41E8E864C81AB0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -479,6 +497,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31CE403222B0E6AC00EEAF78 /* AnimatedTabBarController.swift in Sources */,
+				C2FAD6132317AC7200CCF284 /* TimeFilterSlider.swift in Sources */,
 				3117AEC5230554AB001686DC /* DefaultKeys.swift in Sources */,
 				3117AEB622FD5940001686DC /* CategoryData.swift in Sources */,
 				2E1329A822D74B790060A3A1 /* HobbyTableViewCell.swift in Sources */,
@@ -492,12 +511,12 @@
 				3117AECF230A87F0001686DC /* Filters.swift in Sources */,
 				3117AECD230A84B4001686DC /* ModalDelegate.swift in Sources */,
 				317141A2230FC6D9005B1F5E /* WeekdayCollectionViewCell.swift in Sources */,
-				3117AEA922F04EA2001686DC /* Config.swift in Sources */,
 				3117AEB422FD393C001686DC /* CategoryListViewController.swift in Sources */,
 				3117AEAC22F2CFC2001686DC /* HPAlert.swift in Sources */,
 				317141A0230FC687005B1F5E /* WeekDayCollectionView.swift in Sources */,
 				3117AECB2306B688001686DC /* Extensions.swift in Sources */,
 				31CE400422B0E2A700EEAF78 /* HomeViewController.swift in Sources */,
+				C2FAD61123169C6000CCF284 /* Config.swift in Sources */,
 				3117AEA522F01497001686DC /* LocationData.swift in Sources */,
 				3117AEBA2303E1B3001686DC /* Utils.swift in Sources */,
 				3117AEC72306823F001686DC /* CategoryFlagView.swift in Sources */,

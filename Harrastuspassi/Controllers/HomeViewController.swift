@@ -79,6 +79,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         let session = URLSession(configuration: config);
         var url: URL?;
         url = applyQueryParamsToUrl(urlString);
+        print(url)
         let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
     
         task.resume();

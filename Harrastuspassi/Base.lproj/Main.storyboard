@@ -575,7 +575,7 @@
                                 <rect key="frame" x="8" y="275" width="398" height="250"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Viikonpäivä" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nid-CB-x06">
-                                        <rect key="frame" x="8" y="8" width="90" height="20"/>
+                                        <rect key="frame" x="8" y="8" width="89.5" height="20"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
                                         <color key="textColor" red="0.18823529410000001" green="0.078431372550000003" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -649,6 +649,83 @@
                                     <action selector="filterButtonPressed:" destination="JI3-Ws-b1T" eventType="touchUpInside" id="jgc-dk-3Gb"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3T-2N-Eva">
+                                <rect key="frame" x="8" y="525" width="398" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kellonaika" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MW8-uR-KDS">
+                                        <rect key="frame" x="8" y="8" width="382" height="20"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
+                                        <color key="textColor" red="0.13977959752082825" green="0.069326348602771759" blue="0.33335381746292114" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1g-DJ-QiA" customClass="TimeFilterSlider" customModule="Harrastuspassi" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="58" width="382" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.2852320320405109" green="0.29073191896255685" blue="0.30723157972869475" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="e7Q-7n-wpH"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="minLabelColor">
+                                                <color key="value" red="0.13977959749999999" green="0.069326348600000004" blue="0.33335381749999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="maxLabelColor">
+                                                <color key="value" red="0.13977959749999999" green="0.069326348600000004" blue="0.33335381749999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="handleColor">
+                                                <color key="value" red="0.13977959749999999" green="0.069326348600000004" blue="0.33335381749999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="colorBetweenHandles">
+                                                <color key="value" red="0.13977959749999999" green="0.069326348600000004" blue="0.33335381749999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="initialColor">
+                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="minValue">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                                <real key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="selectedMinValue">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="selectedMaxValue">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="step">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="minDistance">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="selectedHandleDiameterMultiplier">
+                                                <real key="value" value="1.7"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="handleDiameter">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="labelPadding">
+                                                <real key="value" value="-1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="enableStep" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="c1g-DJ-QiA" secondAttribute="trailing" constant="8" id="2vY-Kb-XAM"/>
+                                    <constraint firstItem="MW8-uR-KDS" firstAttribute="top" secondItem="q3T-2N-Eva" secondAttribute="top" constant="8" id="LJR-4a-WOM"/>
+                                    <constraint firstAttribute="trailing" secondItem="MW8-uR-KDS" secondAttribute="trailing" constant="8" id="VjG-lM-QdK"/>
+                                    <constraint firstItem="MW8-uR-KDS" firstAttribute="leading" secondItem="q3T-2N-Eva" secondAttribute="leading" constant="8" id="Vk6-Zi-laz"/>
+                                    <constraint firstItem="c1g-DJ-QiA" firstAttribute="top" secondItem="MW8-uR-KDS" secondAttribute="bottom" constant="30" id="XRv-Wc-ufx"/>
+                                    <constraint firstAttribute="height" constant="150" id="dCt-sB-8DW"/>
+                                    <constraint firstItem="c1g-DJ-QiA" firstAttribute="leading" secondItem="q3T-2N-Eva" secondAttribute="leading" constant="8" id="uOT-97-YxI"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -658,9 +735,12 @@
                             <constraint firstAttribute="trailing" secondItem="FKe-hY-JQM" secondAttribute="trailing" id="F8X-mB-Vvw"/>
                             <constraint firstItem="WIG-H8-St5" firstAttribute="leading" secondItem="yWz-we-Nd5" secondAttribute="leading" id="FGR-1x-TNt"/>
                             <constraint firstItem="hek-kr-nRL" firstAttribute="top" secondItem="nbs-Bd-0f9" secondAttribute="bottom" constant="15" id="HWb-C8-Aci"/>
+                            <constraint firstItem="yWz-we-Nd5" firstAttribute="trailing" secondItem="q3T-2N-Eva" secondAttribute="trailing" constant="8" id="Hvk-4q-Sga"/>
                             <constraint firstItem="s98-Ua-wIr" firstAttribute="leading" secondItem="yWz-we-Nd5" secondAttribute="leading" id="IFQ-IZ-y9a"/>
                             <constraint firstItem="hek-kr-nRL" firstAttribute="leading" secondItem="yWz-we-Nd5" secondAttribute="leading" constant="8" id="IyG-9h-Wrp"/>
                             <constraint firstItem="nbs-Bd-0f9" firstAttribute="top" secondItem="s98-Ua-wIr" secondAttribute="bottom" constant="22" id="J86-zY-WPO"/>
+                            <constraint firstItem="q3T-2N-Eva" firstAttribute="top" secondItem="hek-kr-nRL" secondAttribute="bottom" id="LgJ-nw-eL2"/>
+                            <constraint firstItem="q3T-2N-Eva" firstAttribute="leading" secondItem="yWz-we-Nd5" secondAttribute="leading" constant="8" id="M7v-VY-T0l"/>
                             <constraint firstItem="yWz-we-Nd5" firstAttribute="top" secondItem="FKe-hY-JQM" secondAttribute="bottom" id="Mik-32-loG"/>
                             <constraint firstItem="WIG-H8-St5" firstAttribute="trailing" secondItem="yWz-we-Nd5" secondAttribute="trailing" id="R9s-po-9WO"/>
                             <constraint firstItem="FKe-hY-JQM" firstAttribute="top" secondItem="qEC-JO-86E" secondAttribute="top" id="RND-sm-dMH"/>
@@ -682,13 +762,14 @@
                         <outlet property="categoryCollectionView" destination="yz5-hU-gu5" id="ItY-Rg-LXa"/>
                         <outlet property="collectionViewHeightConstraint" destination="l40-gn-o9i" id="lBt-Ez-Pbn"/>
                         <outlet property="selectedCategoriesContainer" destination="eG2-QV-RJp" id="Ngy-CV-goV"/>
+                        <outlet property="timeSlider" destination="c1g-DJ-QiA" id="0gj-hM-flJ"/>
                         <outlet property="weekDayContainerView" destination="hek-kr-nRL" id="wpC-Ut-fJ7"/>
                         <outlet property="weekdayCollectionView" destination="oiL-bw-a1e" id="f5t-Cy-gya"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jc7-6U-XxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2962.3188405797105" y="-307.36607142857139"/>
+            <point key="canvasLocation" x="2960.8695652173915" y="-289.28571428571428"/>
         </scene>
         <!--Kategoriat-->
         <scene sceneID="ZpV-Oi-7uY">
@@ -789,7 +870,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i2z-X9-tqF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4721.739130434783" y="-307.36607142857139"/>
+            <point key="canvasLocation" x="4723" y="-289"/>
         </scene>
         <!--Sub Category List Controller-->
         <scene sceneID="zO9-rK-Zpw">
@@ -865,7 +946,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Cz-WZ-av5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5586.9565217391309" y="-307.36607142857139"/>
+            <point key="canvasLocation" x="5588" y="-289"/>
         </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -935,7 +1016,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NN4-qo-V4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3811.594202898551" y="-307.36607142857139"/>
+            <point key="canvasLocation" x="3820" y="-289"/>
         </scene>
     </scenes>
     <resources>
