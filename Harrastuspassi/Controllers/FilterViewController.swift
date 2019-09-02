@@ -23,6 +23,7 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     
     
+    @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var maxTimeLabel: UILabel!
@@ -45,6 +46,7 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         weekdayCollectionView.delegate = self
         weekdayCollectionView.dataSource = self
         timeSlider.delegate = self;
+        navBar.layer.zPosition = .greatestFiniteMagnitude
         
         // Do any additional setup after loading the view.
         if let selectedCategories = defaults.array(forKey: DefaultKeys.Filters.categories) as? [Int] {

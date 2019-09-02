@@ -33,6 +33,8 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var closeButton: UIButton!
     
+    var startingOffset: CGFloat = 0;
+    
     var image: UIImage?
     
     
@@ -48,6 +50,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         panGR.delegate = self
         scrollView.addGestureRecognizer(panGR);
         scrollView.bounces = false;
+        startingOffset = scrollView.contentOffset.y;
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
@@ -135,13 +138,13 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     @objc func handlePan(gestureRecognizer:UIPanGestureRecognizer) {
         let translation = panGR.translation(in: nil)
         let progress = translation.y / 2 / view.bounds.height
-        
+        print(startingOffset)
         switch panGR.state {
         case .began:
             // begin the transition as normal
             print("began")
             print(scrollView.contentOffset)
-            if scrollView.contentOffset.y == -44 {
+            if scrollView.contentOffset.y == self.startingOffset {
                 print("OFFSET 0")
                 dismiss(animated: true, completion: nil)
                 closeButton.isHidden = true;
