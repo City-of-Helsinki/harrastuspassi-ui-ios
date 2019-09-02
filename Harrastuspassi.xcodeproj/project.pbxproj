@@ -50,6 +50,7 @@
 		31CE403222B0E6AC00EEAF78 /* AnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE403122B0E6AC00EEAF78 /* AnimatedTabBarController.swift */; };
 		31CE403522B2118500EEAF78 /* HobbyEventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE403422B2118500EEAF78 /* HobbyEventData.swift */; };
 		6900AB1F19F08B6BE7641B34 /* Pods_Harrastuspassi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4123D35689EF2662512A7B19 /* Pods_Harrastuspassi.framework */; };
+		C2EE6E352319237400ADF459 /* PannableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EE6E342319237400ADF459 /* PannableScrollView.swift */; };
 		C2FAD61123169C6000CCF284 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FAD61023169C6000CCF284 /* Config.swift */; };
 		C2FAD6132317AC7200CCF284 /* TimeFilterSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FAD6122317AC7200CCF284 /* TimeFilterSlider.swift */; };
 /* End PBXBuildFile section */
@@ -115,6 +116,7 @@
 		31CE403422B2118500EEAF78 /* HobbyEventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyEventData.swift; sourceTree = "<group>"; };
 		4123D35689EF2662512A7B19 /* Pods_Harrastuspassi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Harrastuspassi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D7ACE3BCF49CC1E3F90F1F9 /* Pods-Harrastuspassi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harrastuspassi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi.release.xcconfig"; sourceTree = "<group>"; };
+		C2EE6E342319237400ADF459 /* PannableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PannableScrollView.swift; sourceTree = "<group>"; };
 		C2FAD61023169C6000CCF284 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		C2FAD6122317AC7200CCF284 /* TimeFilterSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFilterSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -177,6 +179,7 @@
 				3171419F230FC687005B1F5E /* WeekDayCollectionView.swift */,
 				317141A1230FC6D9005B1F5E /* WeekdayCollectionViewCell.swift */,
 				C2FAD6122317AC7200CCF284 /* TimeFilterSlider.swift */,
+				C2EE6E342319237400ADF459 /* PannableScrollView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 			files = (
 				31CE403222B0E6AC00EEAF78 /* AnimatedTabBarController.swift in Sources */,
 				C2FAD6132317AC7200CCF284 /* TimeFilterSlider.swift in Sources */,
+				C2EE6E352319237400ADF459 /* PannableScrollView.swift in Sources */,
 				3117AEC5230554AB001686DC /* DefaultKeys.swift in Sources */,
 				3117AEB622FD5940001686DC /* CategoryData.swift in Sources */,
 				2E1329A822D74B790060A3A1 /* HobbyTableViewCell.swift in Sources */,

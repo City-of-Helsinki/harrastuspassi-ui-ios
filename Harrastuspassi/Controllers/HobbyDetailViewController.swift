@@ -31,6 +31,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var closeButton: UIButton!
     
     var image: UIImage?
     
@@ -39,19 +40,23 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        contentView.hero.id = heroID;
+        view.hero.isEnabled = true;
+        view.hero.id = heroID;
         imageView.hero.id = imageHeroID;
         titleLabel.hero.id = titleHeroID;
         panGR = UIPanGestureRecognizer(target: self, action: #selector(handlePan(gestureRecognizer:)));
         panGR.delegate = self
         scrollView.addGestureRecognizer(panGR);
-        view.addGestureRecognizer(panGR);
+        scrollView.bounces = false;
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         if let d = hobbyEvent?.startDayOfWeek {
             dayOfWeekLabel.text = Weekdays().list.first{$0.id == d}?.name
         }
+        
+        closeButton.layer.cornerRadius = 15;
+        closeButton.clipsToBounds = true;
         
         if let event = hobbyEvent {
             titleLabel.text = event.hobby?.name
@@ -128,17 +133,21 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     }
     
     @objc func handlePan(gestureRecognizer:UIPanGestureRecognizer) {
-        
         let translation = panGR.translation(in: nil)
         let progress = translation.y / 2 / view.bounds.height
         
         switch panGR.state {
         case .began:
             // begin the transition as normal
-            if scrollView.contentOffset.y == 0 {
+            print("began")
+            print(scrollView.contentOffset)
+            if scrollView.contentOffset.y == -44 {
+                print("OFFSET 0")
+                dismiss(animated: true, completion: nil)
+                closeButton.isHidden = true;
                 
             }
-            dismiss(animated: true, completion: nil)
+            
         case .changed:
             // calculate the progress based on how far the user moved
             let translation = panGR.translation(in: nil)
@@ -149,7 +158,17 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
                 Hero.shared.finish()
             } else {
                 Hero.shared.cancel()
+                closeButton.isHidden = false;
             }
         }
     }
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true;
+    }
+    
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil);
+    }
+    
 }

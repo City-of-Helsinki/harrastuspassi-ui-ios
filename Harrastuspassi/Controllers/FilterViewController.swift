@@ -19,12 +19,17 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     var modalDelegate: ModalDelegate?
     var weekdays = Weekdays().list;
     var filters = Filters();
+    var defaults = UserDefaults.standard;
     
     
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var maxTimeLabel: UILabel!
+    @IBOutlet weak var minTimeLabel: UILabel!
     @IBOutlet weak var timeSlider: TimeFilterSlider!
     @IBOutlet weak var weekDayContainerView: UIView!
     @IBOutlet weak var selectedCategoriesContainer: UIView!
-    
     @IBOutlet weak var weekdayCollectionView: WeekDayCollectionView!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     
@@ -40,14 +45,27 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         weekdayCollectionView.delegate = self
         weekdayCollectionView.dataSource = self
         timeSlider.delegate = self;
+        
         // Do any additional setup after loading the view.
-        if let selectedCategories = UserDefaults.standard.array(forKey: DefaultKeys.Filters.categories) as? [Int] {
+        if let selectedCategories = defaults.array(forKey: DefaultKeys.Filters.categories) as? [Int] {
             self.selectedCategories = selectedCategories
         }
-        if let selectedWeekdays = UserDefaults.standard.array(forKey: DefaultKeys.Filters.weekdays) as? [Int] {
+        if let selectedWeekdays = defaults.array(forKey: DefaultKeys.Filters.weekdays) as? [Int] {
             self.selectedWeekdays = selectedWeekdays
             weekdayCollectionView.reloadData();
         }
+        if let startTime = defaults.float(forKey: DefaultKeys.Filters.startTime) as Float?, let endTime = defaults.float(forKey: DefaultKeys.Filters.endTime) as Float? {
+            let minValue = CGFloat(startTime);
+            let maxValue = CGFloat(endTime);
+            
+            timeSlider.selectedMinValue = minValue;
+            timeSlider.selectedMaxValue = maxValue;
+            
+            filters.times.minTime = minValue;
+            filters.times.maxTime = maxValue;
+        }
+        minTimeLabel.text = Utils.formatTimeFrom(float: filters.times.minTime);
+        maxTimeLabel.text = Utils.formatTimeFrom(float: filters.times.maxTime);
         fetchUrl(url: Config.API_URL + "hobbycategories/")
     }
     
@@ -177,10 +195,15 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if section == 1 {
+        if collectionView == self.weekdayCollectionView && section == 1 {
+            let totalCellWidth = 100;
+            let totalSpacingWidth = 0;
+            
+            let leftInset = (collectionView.frame.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+            let rightInset = leftInset
             print("Inset")
-            print((self.view.frame.width/2) - (125/2))
-            return UIEdgeInsets(top: 8, left: (self.view.frame.width/2) - (125/2), bottom: 0, right: 0);
+            print((collectionView.frame.width/2) - (100/2))
+            return UIEdgeInsets(top: 8, left: leftInset, bottom: 0, right: rightInset);
         }
         return UIEdgeInsets(top: 2, left: 2, bottom: 0, right: 2);
     }
@@ -208,10 +231,25 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     func setCollectionViewHeight() {
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.3, animations: {
-            let height = self.categoryCollectionView.collectionViewLayout.collectionViewContentSize.height
-            self.categoryCollectionContainerHeightConstraint.constant = height + 90
-            self.collectionViewHeightConstraint.constant = height
-            self.view.layoutIfNeeded()
+            var height = self.categoryCollectionView.collectionViewLayout.collectionViewContentSize.height
+            print("height")
+            print(height)
+            if height < 32 {
+                height = 32
+            }
+            self.categoryCollectionContainerHeightConstraint.constant = height + 100
+            self.collectionViewHeightConstraint.constant = height;
+            var collectiveHeight:CGFloat = 0
+            for view in self.containerView.subviews {
+                collectiveHeight = collectiveHeight + view.bounds.size.height
+            }
+            self.containerView.frame.size = CGSize(width: self.containerView.frame.width, height: collectiveHeight + height);
+            self.scrollView.contentSize = self.containerView.frame.size;
+            print(collectiveHeight) //total height of all subviews
+            self.view.layoutIfNeeded();
+            print("ContainerHeight:");
+            print(self.containerView.frame.height);
+            print("Scrollviewhight:");
         })
     }
     
@@ -253,6 +291,8 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         var filters = Filters();
         filters.categories = selectedCategories;
         filters.weekdays = selectedWeekdays;
+        filters.times.maxTime = self.filters.times.maxTime;
+        filters.times.minTime = self.filters.times.minTime;
         if let delegate = self.modalDelegate {
             delegate.didCloseModal(data: filters);
         }
@@ -274,7 +314,11 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     func rangeSeekSlider(_ slider: RangeSeekSlider, didChange minValue: CGFloat, maxValue: CGFloat) {
         self.filters.times.minTime = minValue;
         self.filters.times.maxTime = maxValue;
-        print(filters)
+        minTimeLabel.text = Utils.formatTimeFrom(float: minValue);
+        maxTimeLabel.text = Utils.formatTimeFrom(float: maxValue);
+        
+        
+        print(filters);
     }
 }
 

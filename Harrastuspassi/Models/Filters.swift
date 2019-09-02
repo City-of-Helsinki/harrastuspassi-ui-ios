@@ -26,6 +26,6 @@ struct Weekdays {
 }
 
 struct Times {
-    var minTime: CGFloat = 8.0;
-    var maxTime: CGFloat = 15.0;
+    var minTime: CGFloat = 480.0;
+    var maxTime: CGFloat = 1260.0;
 }

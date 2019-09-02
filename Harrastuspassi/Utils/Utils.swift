@@ -7,7 +7,37 @@
 //
 
 import Foundation
+import UIKit
 
 class Utils {
     
+    
+    class func formatTimeFrom(float: CGFloat) -> String {
+        let h = Int(float/60);
+        let m = Int(float.truncatingRemainder(dividingBy: 60));
+        return String(format: "%02d:%02d", h, m);
+    }
+    
+    class func getDefaultFilters() -> Filters {
+        let defaults = UserDefaults.standard;
+        var filters = Filters();
+        
+        if let filteredCategories = defaults.array(forKey: DefaultKeys.Filters.categories) as? [Int], filteredCategories.count > 0  {
+            filters.categories = filteredCategories
+        }
+        
+        if let filteredWeekdays = defaults.array(forKey: DefaultKeys.Filters.weekdays) as? [Int] {
+            filters.weekdays = filteredWeekdays
+        }
+        
+        if let startTime = defaults.float(forKey: DefaultKeys.Filters.startTime) as Float?, let endTime = defaults.float(forKey: DefaultKeys.Filters.endTime) as Float? {
+            let minValue = CGFloat(startTime);
+            let maxValue = CGFloat(endTime);
+            
+            filters.times.minTime = minValue;
+            filters.times.maxTime = maxValue;
+        }
+        
+        return filters;
+    }
 }
