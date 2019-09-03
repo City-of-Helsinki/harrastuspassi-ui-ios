@@ -490,7 +490,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Suodata" id="fck-N6-7KI">
+                                    <navigationItem title="Suodattimet" id="fck-N6-7KI">
                                         <barButtonItem key="leftBarButtonItem" image="ic_close" id="HUQ-X6-NM5">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
@@ -880,7 +880,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Unk-uH-SFt">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="724"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryFilterCell" rowHeight="48" id="DrX-js-aNf" customClass="CategoryFilterTableViewCell" customModule="Harrastuspassi" customModuleProvider="target">
@@ -936,14 +936,42 @@
                                 <color key="backgroundColor" red="0.18951293829999999" green="0.080823101100000003" blue="0.43108141420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.18951293829999999" green="0.080823101100000003" blue="0.43108141420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNj-fa-fTS">
+                                <rect key="frame" x="0.0" y="724" width="414" height="50"/>
+                                <color key="backgroundColor" red="0.18951293829999999" green="0.080823101100000003" blue="0.43108141420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Rep-j7-k38"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
+                                <state key="normal" title="Tallenna"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="saveCategoriesButton"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="XwD-Ua-7vn" eventType="touchUpInside" id="1Ds-HZ-jm2"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqz-e8-pvh">
+                                <rect key="frame" x="0.0" y="774" width="414" height="34"/>
+                                <color key="backgroundColor" red="0.18951293829999999" green="0.080823101100000003" blue="0.43108141420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="RNe-s0-ojh" firstAttribute="bottom" secondItem="Unk-uH-SFt" secondAttribute="bottom" id="ahq-VR-cAD"/>
+                            <constraint firstItem="VNj-fa-fTS" firstAttribute="trailing" secondItem="RNe-s0-ojh" secondAttribute="trailing" id="6e8-GM-6Wz"/>
+                            <constraint firstItem="VNj-fa-fTS" firstAttribute="bottom" secondItem="RNe-s0-ojh" secondAttribute="bottom" id="Ae2-wE-Bsq"/>
+                            <constraint firstAttribute="bottom" secondItem="bqz-e8-pvh" secondAttribute="bottom" id="GAv-xQ-D3n"/>
+                            <constraint firstItem="VNj-fa-fTS" firstAttribute="leading" secondItem="RNe-s0-ojh" secondAttribute="leading" id="KY1-l8-8nU"/>
+                            <constraint firstItem="bqz-e8-pvh" firstAttribute="top" secondItem="VNj-fa-fTS" secondAttribute="bottom" id="NMa-4s-fxD"/>
+                            <constraint firstItem="VNj-fa-fTS" firstAttribute="top" secondItem="Unk-uH-SFt" secondAttribute="bottom" id="ahq-VR-cAD"/>
+                            <constraint firstItem="bqz-e8-pvh" firstAttribute="leading" secondItem="yBF-Cg-TZt" secondAttribute="leading" id="c0X-yc-DPM"/>
                             <constraint firstItem="RNe-s0-ojh" firstAttribute="top" secondItem="LRr-DG-YH0" secondAttribute="bottom" id="d17-EN-cFi"/>
                             <constraint firstItem="Unk-uH-SFt" firstAttribute="trailing" secondItem="RNe-s0-ojh" secondAttribute="trailing" id="hsK-eE-n6A"/>
                             <constraint firstItem="LRr-DG-YH0" firstAttribute="top" secondItem="yBF-Cg-TZt" secondAttribute="top" id="iyY-hP-ZA4"/>
                             <constraint firstItem="Unk-uH-SFt" firstAttribute="leading" secondItem="RNe-s0-ojh" secondAttribute="leading" id="jhk-Xh-V3L"/>
+                            <constraint firstAttribute="trailing" secondItem="bqz-e8-pvh" secondAttribute="trailing" id="lDJ-K4-De3"/>
                             <constraint firstItem="Unk-uH-SFt" firstAttribute="trailing" secondItem="RNe-s0-ojh" secondAttribute="trailing" id="rTd-gV-TJm"/>
                             <constraint firstItem="Unk-uH-SFt" firstAttribute="leading" secondItem="RNe-s0-ojh" secondAttribute="leading" id="tT1-3T-lkC"/>
                             <constraint firstItem="LRr-DG-YH0" firstAttribute="leading" secondItem="yBF-Cg-TZt" secondAttribute="leading" id="teg-Mf-wPT"/>
@@ -958,11 +986,6 @@
                                 <action selector="closeButtonPressed:" destination="XwD-Ua-7vn" id="pcE-nb-jlf"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Tallenna" id="gMv-3N-XKD">
-                            <connections>
-                                <action selector="saveButtonPressed:" destination="XwD-Ua-7vn" id="pAN-hB-d71"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="containerTableView" destination="Unk-uH-SFt" id="Vgr-d9-4AQ"/>
@@ -970,7 +993,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i2z-X9-tqF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4723" y="-289"/>
+            <point key="canvasLocation" x="4721.739130434783" y="-289.28571428571428"/>
         </scene>
         <!--Sub Category List Controller-->
         <scene sceneID="zO9-rK-Zpw">
@@ -981,7 +1004,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dKL-TP-T3U" customClass="CategoryFilterTableView" customModule="Harrastuspassi" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="724"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FilterCell" rowHeight="48" id="QmE-t7-5UZ" customClass="CategoryFilterTableViewCell" customModule="Harrastuspassi" customModuleProvider="target">
@@ -1025,26 +1048,60 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="categorylist"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xh-it-D4W">
+                                <rect key="frame" x="0.0" y="724" width="414" height="50"/>
+                                <color key="backgroundColor" red="0.18951293829999999" green="0.080823101100000003" blue="0.43108141420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ZGz-YD-6va"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
+                                <state key="normal" title="Tallenna"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="saveCategoriesButton"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="W4g-to-XuZ" eventType="touchUpInside" id="9DA-1u-qw5"/>
+                                    <action selector="saveButtonPressed:" destination="XwD-Ua-7vn" eventType="touchUpInside" id="Yuo-IV-gVg"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pUy-fq-ZIg">
+                                <rect key="frame" x="0.0" y="774" width="414" height="34"/>
+                                <color key="backgroundColor" red="0.18951293829999999" green="0.080823101100000003" blue="0.43108141420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dKL-TP-T3U" firstAttribute="leading" secondItem="R6B-DE-jSX" secondAttribute="leading" id="4n3-iL-oCu"/>
+                            <constraint firstItem="R6B-DE-jSX" firstAttribute="bottom" secondItem="0xh-it-D4W" secondAttribute="bottom" id="8Ry-zx-WZd"/>
                             <constraint firstItem="dKL-TP-T3U" firstAttribute="trailing" secondItem="R6B-DE-jSX" secondAttribute="trailing" id="9Lh-kR-ZJU"/>
+                            <constraint firstAttribute="bottom" secondItem="pUy-fq-ZIg" secondAttribute="bottom" id="EHw-gg-Sti"/>
+                            <constraint firstAttribute="trailing" secondItem="pUy-fq-ZIg" secondAttribute="trailing" id="KDT-13-OHc"/>
+                            <constraint firstItem="0xh-it-D4W" firstAttribute="leading" secondItem="XgL-PS-rpY" secondAttribute="leading" id="XLT-PZ-xRW"/>
                             <constraint firstItem="dKL-TP-T3U" firstAttribute="top" secondItem="R6B-DE-jSX" secondAttribute="top" id="eo3-mk-Voi"/>
-                            <constraint firstAttribute="bottom" secondItem="dKL-TP-T3U" secondAttribute="bottom" id="xdd-Q5-8lf"/>
+                            <constraint firstItem="pUy-fq-ZIg" firstAttribute="leading" secondItem="XgL-PS-rpY" secondAttribute="leading" id="k1r-w7-dUB"/>
+                            <constraint firstItem="0xh-it-D4W" firstAttribute="top" secondItem="dKL-TP-T3U" secondAttribute="bottom" id="lpI-PY-lSm"/>
+                            <constraint firstAttribute="trailing" secondItem="0xh-it-D4W" secondAttribute="trailing" id="tsc-V2-oiV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="R6B-DE-jSX"/>
                     </view>
                     <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="saveButton" destination="0xh-it-D4W" id="L3e-Iw-3Dj"/>
                         <outlet property="tableView" destination="dKL-TP-T3U" id="nub-Te-jh8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Cz-WZ-av5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5588" y="-289"/>
+            <point key="canvasLocation" x="5586.9565217391309" y="-289.28571428571428"/>
         </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

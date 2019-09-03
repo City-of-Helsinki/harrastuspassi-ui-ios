@@ -174,4 +174,8 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         self.dismiss(animated: true, completion: nil);
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
 }

@@ -10,6 +10,7 @@ import UIKit
 
 class SubCategoryListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var tableView: CategoryFilterTableView!
     
 
@@ -22,6 +23,7 @@ class SubCategoryListController: UIViewController, UITableViewDelegate, UITableV
         // Drawing code
     }
     */
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,5 +86,8 @@ class SubCategoryListController: UIViewController, UITableViewDelegate, UITableV
         return true
     }
     
-    
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        
+        self.selectionDelegate?.saveFiltersAndDismiss();
+    }
 }
