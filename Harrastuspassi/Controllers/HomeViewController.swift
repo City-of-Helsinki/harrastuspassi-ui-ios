@@ -7,23 +7,43 @@
 //
 
 import UIKit
+import Hero
+import RevealingSplashView
 
-class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate, UITableViewDataSource, ModalDelegate {
+    
+    
     
     @IBOutlet weak var hobbyTableView: UITableView!
     @IBOutlet weak var errorText: UILabel!
     
     var hobbyData: [HobbyEventData]?
+    var filters = Filters();
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "logo_kelt_lil")!,iconInitialSize: CGSize(width: 250, height: 250), backgroundColor: UIColor(red:0.19, green:0.08, blue:0.43, alpha:1.0))
+        
+        let window = UIApplication.shared.keyWindow
+        window?.addSubview(revealingSplashView)
+        
+        revealingSplashView.startAnimation(){
+            print("Completed")
+            revealingSplashView.removeFromSuperview();
+        }
+        
+        
         hobbyTableView.delegate = self
         hobbyTableView.dataSource = self
         self.errorText.isHidden = true
+        filters = Utils.getDefaultFilters();
         
-        self.fetchUrl(url: Config.API_URL)
+        self.fetchUrl(urlString: Config.API_URL + "hobbyevents")
     }
+    
+    
     
     // Tableview setup
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,17 +57,23 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HobbyTableViewCell", for: indexPath) as! HobbyTableViewCell
         if let d = hobbyData {
+            cell.hobbyImage?.hero.id = "image" + String(indexPath.row);
+            cell.title.hero.id = "title" + String(indexPath.row);
             cell.setHobbyEvents(hobbyEvent: d[indexPath.row])
+            cell.contentView.hero.isEnabled = true;
+            cell.contentView.hero.id = String(indexPath.row);
             cell.selectionStyle = .none
         }
         
         return cell
     }
     
-    func fetchUrl(url: String) {
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        let url : URL? = URL(string: url)
+    func fetchUrl(urlString: String) {
+        let config = URLSessionConfiguration.default;
+        let session = URLSession(configuration: config);
+        var url: URL?;
+        url = applyQueryParamsToUrl(urlString);
+        print(url);
         let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
     
         task.resume();
@@ -64,12 +90,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
                     })
                     return
             }
-            
+            print(eventData)
             DispatchQueue.main.async(execute: {() in
                 if(eventData.count == 0) {
+                    self.hobbyData = eventData
+                    self.hobbyTableView.reloadData()
                     self.errorText.text = "Ei harrastustapahtumia"
                     self.errorText.isHidden = false
                 } else {
+                    self.errorText.isHidden = true
                     self.hobbyData = eventData
                     self.hobbyTableView.reloadData()
                 }
@@ -82,14 +111,83 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let detailViewController = segue.destination as? HobbyDetailViewController,
-            let index = hobbyTableView.indexPathForSelectedRow?.row
-            else {
+        if segue.identifier == Segues.details {
+            guard let detailViewController = segue.destination as? HobbyDetailViewController,
+                let index = hobbyTableView.indexPathForSelectedRow?.row, let path = hobbyTableView.indexPathForSelectedRow
+                else {
+                    return
+            }
+            if let data = hobbyData {
+                detailViewController.hobbyEvent = data[index]
+                detailViewController.heroID = String(index);
+                detailViewController.imageHeroID = "image" + String(index);
+                //detailViewController.titleHeroID = "title" + String(index);
+                detailViewController.hobbyEvent = data[index];
+                detailViewController.image = (hobbyTableView.cellForRow(at: path) as! HobbyTableViewCell).hobbyImage.image;
+            }
+            self.hero.modalAnimationType = .selectBy(presenting:.none, dismissing:.none);
+            detailViewController.hero.modalAnimationType = .selectBy(presenting: .none, dismissing: .none);
+            
+        } else if segue.identifier == Segues.filters {
+            guard let filterModal = segue.destination as? FilterViewController else {
                 return
             }
-        if let data = hobbyData {
-            detailViewController.hobbyEvent = data[index]
+            filterModal.modalDelegate = self
         }
         
+        
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    func didCloseModal(data: Filters?) {
+        
+        if let d = data {
+            filters = d;
+            let defaults = UserDefaults.standard;
+            defaults.set(d.categories, forKey: DefaultKeys.Filters.categories);
+            defaults.set(d.weekdays, forKey: DefaultKeys.Filters.weekdays);
+            defaults.set(d.times.minTime, forKey: DefaultKeys.Filters.startTime);
+            defaults.set(d.times.maxTime, forKey: DefaultKeys.Filters.endTime);
+        }
+        fetchUrl(urlString: Config.API_URL + "hobbyevents")
+    }
+    
+    
+    func applyQueryParamsToUrl(_ url: String) -> URL? {
+        var urlComponents = URLComponents(string: url);
+        urlComponents?.queryItems = []
+        urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"))
+        if filters.categories.count > 0 {
+            for id in filters.categories {
+                urlComponents?.queryItems?.append(URLQueryItem(name: "category", value: String(id)))
+            }
+        }
+        if filters.weekdays.count > 0 {
+            for id in filters.weekdays {
+                urlComponents?.queryItems?.append(URLQueryItem(name: "start_weekday", value: String(id)))
+            }
+        }
+        urlComponents?.queryItems?.append(URLQueryItem(name: "start_time_from", value: Utils.formatTimeFrom(float: filters.times.minTime)));
+        urlComponents?.queryItems?.append(URLQueryItem(name: "start_time_to", value: Utils.formatTimeFrom(float: filters.times.maxTime)));
+        return urlComponents?.url
+    }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let sb = UIStoryboard.init(name: "Main", bundle:nil)
+//        let destinationvc = sb.instantiateViewController(withIdentifier: "DetailsVC") as! HobbyDetailViewController
+//        if let data = hobbyData {
+//            destinationvc.heroID = String(indexPath.row);
+//            destinationvc.imageHeroID = "image" + String(indexPath.row);
+//            destinationvc.titleHeroID = "title" + String(indexPath.row);
+//            destinationvc.hobbyEvent = data[indexPath.row];
+//            destinationvc.image = (tableView.cellForRow(at: indexPath) as! HobbyTableViewCell).hobbyImage.image;
+//        }
+//        self.hero.modalAnimationType = .selectBy(presenting:.zoom, dismissing:.zoomOut);
+//        destinationvc.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
+//        self.navigationController?.pushViewController(destinationvc, animated: true);
+//
+//    }
 }

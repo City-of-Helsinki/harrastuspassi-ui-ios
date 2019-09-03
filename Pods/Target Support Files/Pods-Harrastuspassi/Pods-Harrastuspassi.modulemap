@@ -1,0 +1,6 @@
+framework module Pods_Harrastuspassi {
+  umbrella header "Pods-Harrastuspassi-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -8,12 +8,19 @@
 
 import UIKit
 import GoogleMaps
+import Hero
 
-class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
+class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate {
     
+    var panGR: UIPanGestureRecognizer!
     var hobbyEvent: HobbyEventData?
     var camera: GMSCameraPosition?
+    var heroID: String?
+    var imageHeroID: String?
+    var titleHeroID: String?
     
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var organizerLabel: UILabel!
@@ -24,33 +31,50 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var closeButton: UIButton!
+    
+    var startingOffset: CGFloat = 0;
+    
+    var image: UIImage?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        view.hero.isEnabled = true;
+        view.hero.id = heroID;
+        imageView.hero.id = imageHeroID;
+        titleLabel.hero.id = titleHeroID;
+        panGR = UIPanGestureRecognizer(target: self, action: #selector(handlePan(gestureRecognizer:)));
+        panGR.delegate = self
+        scrollView.addGestureRecognizer(panGR);
+        scrollView.bounces = false;
+        startingOffset = scrollView.contentOffset.y;
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
-        titleLabel.text = hobbyEvent?.name
         if let d = hobbyEvent?.startDayOfWeek {
-            dayOfWeekLabel.text = d
+            dayOfWeekLabel.text = Weekdays().list.first{$0.id == d}?.name
         }
         
+        closeButton.layer.cornerRadius = 15;
+        closeButton.clipsToBounds = true;
+        
         if let event = hobbyEvent {
-            if let imageUrl = event.image {
+            titleLabel.text = event.hobby?.name
+            if let img = image {
+                imageView.image = img
+                
+            } else if let imageUrl = event.hobby?.image {
                 let url = URL (string: imageUrl)
                 imageView.loadurl(url: url!)
             } else {
                 imageView.image = UIImage(named: "ic_panorama")
             }
         }
-        
-        guard let id = hobbyEvent?.id else {
-            return
-        }
-        fetchUrl(url: Config.API_URL + String(id))
+        reloadData();
+        setUpMapView();
     }
     /*
     // MARK: - Navigation
@@ -61,36 +85,6 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    func fetchUrl(url: String) {
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        let url : URL? = URL(string: url)
-        let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
-        
-        task.resume();
-    }
-    
-    func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
-        if let fetchedData = data {
-            guard let eventData = try? JSONDecoder().decode(HobbyEventData.self, from: fetchedData)
-                else {
-                    DispatchQueue.main.async(execute: {() in
-                        HPAlert.presentAlertWithTitle("Virhe", message: "Jokin meni vikaan.", presenter: self, completion: {
-                            (UIAlertAction) in
-                            self.navigationController?.popViewController(animated: true);
-                        })
-                    })
-                    return
-            }
-            
-            DispatchQueue.main.async(execute: {() in
-                self.hobbyEvent = eventData
-                self.reloadData()
-                self.setUpMapView()
-            })
-        }
-    }
     
     func reloadData() {
         let getDateFormatter  = DateFormatter()
@@ -108,12 +102,13 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
         let timeOutputFormatter = DateFormatter()
         timeOutputFormatter.dateFormat = "HH:mm"
         
-        organizerLabel.text = event.organizer
+        organizerLabel.text = event.hobby?.organizer?.name
         if let t = time { timeLabel.text = timeOutputFormatter.string(from: t) }
-        locationLabel.text = event.location?.name
-        descriptionLabel.text = event.description
+        locationLabel.text = event.hobby?.location?.name
+        descriptionLabel.text = event.hobby?.description
+        dateLabel.adjustsFontSizeToFitWidth = true;
         if let d = date { dateLabel.text = dateOutputDateFormatter.string(from: d) }
-        guard let location = event.location else {
+        guard let location = event.hobby?.location else {
             return
         }
         if let zipCode = location.zipCode, let address = location.address, let city = location.city {
@@ -123,7 +118,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func setUpMapView() {
-        guard let lat = hobbyEvent?.location?.lat, let lon = hobbyEvent?.location?.lon, let title = hobbyEvent?.name, let snippet = hobbyEvent?.location?.name else {
+        guard let lat = hobbyEvent?.hobby?.location?.lat, let lon = hobbyEvent?.hobby?.location?.lon, let title = hobbyEvent?.hobby?.name, let snippet = hobbyEvent?.hobby?.location?.name else {
             return
         }
         camera = GMSCameraPosition.camera(withLatitude: Double(lat), longitude: Double(lon), zoom: 12.0)
@@ -139,4 +134,48 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate {
         marker.snippet = snippet
         marker.map = mapView
     }
+    
+    @objc func handlePan(gestureRecognizer:UIPanGestureRecognizer) {
+        let translation = panGR.translation(in: nil)
+        let progress = translation.y / 2 / view.bounds.height
+        print(startingOffset)
+        switch panGR.state {
+        case .began:
+            // begin the transition as normal
+            print("began")
+            print(scrollView.contentOffset)
+            if scrollView.contentOffset.y == self.startingOffset {
+                print("OFFSET 0")
+                dismiss(animated: true, completion: nil)
+                closeButton.isHidden = true;
+                
+            }
+            
+        case .changed:
+            // calculate the progress based on how far the user moved
+            let translation = panGR.translation(in: nil)
+            let progress = translation.y / 2 / view.bounds.height
+            Hero.shared.update(CGFloat(progress))
+        default:
+            if progress + panGR.velocity(in: nil).y / view.bounds.height > 0.3 {
+                Hero.shared.finish()
+            } else {
+                Hero.shared.cancel()
+                closeButton.isHidden = false;
+            }
+        }
+    }
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true;
+    }
+    
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil);
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
 }
