@@ -59,7 +59,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         if let d = hobbyData {
             cell.hobbyImage?.hero.id = "image" + String(indexPath.row);
             cell.title.hero.id = "title" + String(indexPath.row);
-            cell.setHobbyEvents(hobbyEvent: d[indexPath.row])
+            cell.setHobbyEvents(hobbyEvent: d[indexPath.row]);
+            cell.location.hero.id = "location" + String(indexPath.row);
+            cell.date.hero.id = "weekday" + String(indexPath.row);
             cell.contentView.hero.isEnabled = true;
             cell.contentView.hero.id = String(indexPath.row);
             cell.selectionStyle = .none
@@ -121,6 +123,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
                 detailViewController.hobbyEvent = data[index]
                 detailViewController.heroID = String(index);
                 detailViewController.imageHeroID = "image" + String(index);
+                detailViewController.titleHeroID = "title" + String(index);
+                detailViewController.locationHeroID = "location" + String(index);
+                detailViewController.dayOfWeekLabelHeroID = "weekday" + String(index);
                 //detailViewController.titleHeroID = "title" + String(index);
                 detailViewController.hobbyEvent = data[index];
                 detailViewController.image = (hobbyTableView.cellForRow(at: path) as! HobbyTableViewCell).hobbyImage.image;
