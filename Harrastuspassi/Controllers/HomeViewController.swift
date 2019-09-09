@@ -9,6 +9,7 @@
 import UIKit
 import Hero
 import RevealingSplashView
+import CoreLocation
 
 class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate, UITableViewDataSource, ModalDelegate {
     
@@ -19,6 +20,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     
     var hobbyData: [HobbyEventData]?
     var filters = Filters();
+    
+    let locationManager = CLLocationManager();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +34,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         
         revealingSplashView.startAnimation(){
             print("Completed")
-            revealingSplashView.removeFromSuperview();
         }
         
         

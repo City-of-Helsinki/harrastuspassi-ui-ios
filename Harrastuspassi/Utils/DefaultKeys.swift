@@ -20,6 +20,14 @@ struct DefaultKeys {
         static let endTime = "endTime"
     }
     
+    struct Location {
+        static let lon = "lon";
+        static let lat = "lan";
+        static let isAllowed = "isAllowed";
+        static let savedLocations = "savedLocations";
+        static let currentLocation = "currentLocation";
+    }
+    
 }
 
 struct Segues {

@@ -28,3 +28,8 @@ struct LocationData : Codable {
         case lon = "lon"
     }
 }
+
+struct CoordinateData : Codable {
+    let lat : CFloat
+    let lon : CFloat
+}

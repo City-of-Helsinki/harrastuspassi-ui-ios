@@ -56,9 +56,18 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
             self.selectedWeekdays = selectedWeekdays
             weekdayCollectionView.reloadData();
         }
-        if let startTime = defaults.float(forKey: DefaultKeys.Filters.startTime) as Float?, let endTime = defaults.float(forKey: DefaultKeys.Filters.endTime) as Float? {
+        if let startTime = defaults.float(forKey: DefaultKeys.Filters.startTime) as Float?, let endTime = defaults.float(forKey: DefaultKeys.Filters.endTime) as Float?, endTime > 0 {
             let minValue = CGFloat(startTime);
             let maxValue = CGFloat(endTime);
+            
+            timeSlider.selectedMinValue = minValue;
+            timeSlider.selectedMaxValue = maxValue;
+            
+            filters.times.minTime = minValue;
+            filters.times.maxTime = maxValue;
+        } else {
+            let minValue: CGFloat = 480;
+            let maxValue: CGFloat = 1260.0;
             
             timeSlider.selectedMinValue = minValue;
             timeSlider.selectedMaxValue = maxValue;

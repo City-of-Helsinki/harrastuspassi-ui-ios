@@ -1,0 +1,91 @@
+//
+//  SettingsMapViewController.swift
+//  Harrastuspassi
+//
+//  Created by Eetu Kallio on 09/09/2019.
+//  Copyright © 2019 Haltu. All rights reserved.
+//
+
+import UIKit
+import GoogleMaps
+
+class SettingsMapViewController: UIViewController, GMSMapViewDelegate {
+    
+    var locationSelected = false;
+    var selectedLocation = CLLocationCoordinate2D();
+    var locationListDelegate: LocationListDelegate!;
+    
+    @IBOutlet weak var saveSelectedLocationButton: UIButton!
+    @IBOutlet weak var mapView: GMSMapView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        mapView.delegate = self;
+        
+        saveSelectedLocationButton.alpha = 0.0;
+        saveSelectedLocationButton.isEnabled = false;
+        
+        // Do any additional setup after loading the view.
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+    
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        print(coordinate);
+        self.mapView.clear();
+        let marker = GMSMarker(position: coordinate);
+        marker.title = "Valittu sijainti";
+        marker.map = mapView;
+        locationSelected = true;
+        selectedLocation = coordinate;
+        UIView.animate(withDuration: 0.3) {
+            self.saveSelectedLocationButton.alpha = 1;
+        }
+        saveSelectedLocationButton.isEnabled = true;
+    }
+    
+    
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
+    @IBAction func saveLocation(_ sender: Any) {
+        
+        let defaults = UserDefaults.standard;
+        let coordinate = CoordinateData(lat: CFloat(selectedLocation.latitude), lon: CFloat(selectedLocation.longitude));
+        var newLocations = [coordinate]
+        
+        guard let savedLocationsData = defaults.object(forKey: DefaultKeys.Location.savedLocations) as? Data else {
+            defaults.set(try? PropertyListEncoder().encode(newLocations), forKey: DefaultKeys.Location.savedLocations);
+            self.navigationController?.popViewController(animated: true);
+            return;
+        }
+        
+        guard let savedLocations = try? PropertyListDecoder().decode(Array<CoordinateData>.self, from: savedLocationsData) else {
+            print("fail3")
+            return;
+        }
+        newLocations = savedLocations;
+        
+        newLocations.append(coordinate);
+        
+        if newLocations.count > 5 {
+            newLocations.removeFirst();
+        }
+        locationListDelegate.didSaveLocation(newLocations);
+        defaults.set(try? PropertyListEncoder().encode(newLocations), forKey: DefaultKeys.Location.savedLocations);
+        print("wtf")
+        self.navigationController?.popViewController(animated: true);
+    }
+}
