@@ -16,6 +16,7 @@ import CoreLocation
     var locationUsageAllowed: Bool = UserDefaults.standard.bool(forKey: DefaultKeys.Location.isAllowed);
     
     var savedLocations = [CoordinateData]();
+    var selectedLocation = CoordinateData(lat: 0, lon: 0);
     
     @IBOutlet weak var allowLocationUsageButton: UIButton!
     @IBOutlet weak var pickLocationButton: UIButton!
@@ -42,8 +43,17 @@ import CoreLocation
             print("fail2")
             return;
         }
-        self.savedLocations = savedLocations;
+        self.savedLocations = savedLocations.reversed();
         print(self.savedLocations)
+        
+        guard let selectedLocationData = defaults.object(forKey: DefaultKeys.Location.currentLocation) as? Data else {
+            return;
+        }
+        
+        if let selectedLocation = try? PropertyListDecoder().decode(CoordinateData.self, from: selectedLocationData) {
+            
+            self.selectedLocation = selectedLocation;
+        }
         locationTableView.reloadData();
         
         // Do any additional setup after loading the view.
@@ -136,8 +146,10 @@ import CoreLocation
     }
     
     func didSaveLocation(_ coordinates: [CoordinateData]) {
-        savedLocations = coordinates;
+        savedLocations = coordinates.reversed();
+        selectLocation(location: savedLocations[0]);
         locationTableView.reloadData();
+        locationTableView.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .none);
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -147,11 +159,23 @@ import CoreLocation
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let locationForIndex = savedLocations[indexPath.row];
         let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell") as! LocationTableViewCell;
-        cell.addressLabel.text = "Lat: " + String(locationForIndex.lat) + " Lon: " + String(locationForIndex.lon);
+        cell.accessoryType = .none;
+        cell.selectionStyle = .blue;
+        let bgView = UIView(frame: cell.frame);
+        bgView.backgroundColor = Colors.bgMain;
+        cell.selectedBackgroundView = bgView;
+        cell.tintColor = .green;
+        if self.selectedLocation.lat == savedLocations[indexPath.row].lat && self.selectedLocation.lon == savedLocations[indexPath.row].lon {
+            cell.accessoryType = .checkmark;
+        }
+        cell.addressLabel.text =
+            locationForIndex.streetName + " " +
+            locationForIndex.streetNumber + ", " +
+            locationForIndex.zipCode + " " +
+            locationForIndex.city;
+        cell.cityLabel.text = locationForIndex.city.uppercased();
         return cell;
     }
-    
-    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -161,4 +185,49 @@ import CoreLocation
         let destination = segue.destination as! SettingsMapViewController;
         destination.locationListDelegate = self;
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let defaults = UserDefaults.standard;
+        guard let selectedLocationData = defaults.object(forKey: DefaultKeys.Location.currentLocation) as? Data else {
+            return;
+        }
+        
+        if let selectedLocation = try? PropertyListDecoder().decode(CoordinateData.self, from: selectedLocationData) {
+            
+            func shouldSelect() -> Bool {
+                if selectedLocation.lat == savedLocations[indexPath.row].lat && selectedLocation.lon == savedLocations[indexPath.row].lon {
+                    return true;
+                }
+                return false;
+            }
+            
+            if shouldSelect() {
+                tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none);
+            }
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! LocationTableViewCell;
+        cell.accessoryType = .none;
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        setSelectedStyleTo(tableView, indexPath: indexPath);
+        selectLocation(location: savedLocations[indexPath.row]);
+        
+    }
+    
+    func selectLocation(location: CoordinateData) {
+        let defaults = UserDefaults.standard;
+        self.selectedLocation = location;
+        defaults.set(try? PropertyListEncoder().encode(location), forKey: DefaultKeys.Location.currentLocation);
+    }
+    
+    func setSelectedStyleTo(_ tableView: UITableView, indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! LocationTableViewCell;
+        cell.accessoryType = .checkmark;
+    }
+    
 }

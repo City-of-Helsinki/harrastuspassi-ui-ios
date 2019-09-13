@@ -22,7 +22,15 @@ struct Weekday {
 }
 
 struct Weekdays {
-    let list = [Weekday(id: 1, name: "Maanantai"), Weekday(id: 2, name: "Tiistai"), Weekday(id: 3, name: "Keskiviikko"),Weekday(id: 4, name: "Torstai"),Weekday(id: 5, name: "Perjantai"),Weekday(id: 6, name: "Lauantai"),Weekday(id: 7, name: "Sunnuntai")];
+    let list = [
+        Weekday(id: 1, name: NSLocalizedString("Monday", comment: "")),
+        Weekday(id: 2, name: NSLocalizedString("Tuesday", comment: "")),
+        Weekday(id: 3, name: NSLocalizedString("Wednesday", comment: "")),
+        Weekday(id: 4, name: NSLocalizedString("Thursday", comment: "")),
+        Weekday(id: 5, name: NSLocalizedString("Friday", comment: "")),
+        Weekday(id: 6, name: NSLocalizedString("Saturday", comment: "")),
+        Weekday(id: 7, name: NSLocalizedString("Sunday", comment: ""))
+    ];
 }
 
 struct Times {

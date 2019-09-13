@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u52-1f-bvP" userLabel="HobbyEvents">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <color key="backgroundColor" red="0.18823529410000001" green="0.078431372550000003" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HobbyTableViewCell" rowHeight="108" id="p0B-rt-Gmv" userLabel="HobbyTableViewCell" customClass="HobbyTableViewCell" customModule="Harrastuspassi" customModuleProvider="target">
@@ -149,11 +149,10 @@
                             <constraint firstItem="u52-1f-bvP" firstAttribute="top" secondItem="apB-Ih-qbT" secondAttribute="top" id="J1s-HD-XFv"/>
                             <constraint firstItem="u52-1f-bvP" firstAttribute="trailing" secondItem="apB-Ih-qbT" secondAttribute="trailing" id="KVT-5D-eMZ"/>
                             <constraint firstItem="u52-1f-bvP" firstAttribute="leading" secondItem="apB-Ih-qbT" secondAttribute="leading" id="NpO-1b-LzN"/>
-                            <constraint firstItem="u52-1f-bvP" firstAttribute="width" secondItem="apB-Ih-qbT" secondAttribute="width" id="bBL-EN-R7b"/>
                             <constraint firstItem="u52-1f-bvP" firstAttribute="centerX" secondItem="qkG-eW-ZFL" secondAttribute="centerX" id="c1W-SK-8aD"/>
                             <constraint firstItem="u52-1f-bvP" firstAttribute="centerX" secondItem="qkG-eW-ZFL" secondAttribute="centerX" id="fZm-ZG-3Ce"/>
-                            <constraint firstItem="u52-1f-bvP" firstAttribute="height" secondItem="apB-Ih-qbT" secondAttribute="height" id="kpb-r6-Foy"/>
                             <constraint firstItem="8gU-KW-Jqe" firstAttribute="centerX" secondItem="qkG-eW-ZFL" secondAttribute="centerX" id="ou7-IL-FBa"/>
+                            <constraint firstItem="u52-1f-bvP" firstAttribute="bottom" secondItem="qkG-eW-ZFL" secondAttribute="bottom" id="tNN-Wa-lhO"/>
                             <constraint firstItem="8gU-KW-Jqe" firstAttribute="centerY" secondItem="qkG-eW-ZFL" secondAttribute="centerY" id="zEe-MU-ATC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="apB-Ih-qbT"/>
@@ -170,6 +169,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
@@ -197,7 +197,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5UJ-hC-6eT">
-                                                <rect key="frame" x="8" y="8" width="398" height="171"/>
+                                                <rect key="frame" x="8" y="0.0" width="398" height="171"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sijaintini" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQr-vF-0VT">
                                                         <rect key="frame" x="8" y="8" width="382" height="20"/>
@@ -271,7 +271,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oUk-Ep-cTg">
-                                                <rect key="frame" x="8" y="187" width="398" height="621"/>
+                                                <rect key="frame" x="8" y="179" width="398" height="629"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Viimeisimmät sijaintini" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmD-Nn-PpK">
                                                         <rect key="frame" x="8" y="8" width="382" height="20"/>
@@ -280,7 +280,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="BAJ-Ex-Yd5">
-                                                        <rect key="frame" x="8" y="36" width="382" height="577"/>
+                                                        <rect key="frame" x="8" y="36" width="382" height="585"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="locationCell" id="SWF-io-7Vm" customClass="LocationTableViewCell" customModule="Harrastuspassi" customModuleProvider="target">
@@ -295,8 +295,8 @@
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KAUPUNKI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTb-sA-zqP">
                                                                                     <rect key="frame" x="8" y="8" width="322" height="55"/>
-                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                    <nil key="textColor"/>
+                                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                                                    <color key="textColor" red="0.1757505238" green="0.089081831279999996" blue="0.41571131350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OSOITE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHB-eC-eIG">
@@ -356,7 +356,7 @@
                                             <constraint firstAttribute="bottom" secondItem="oUk-Ep-cTg" secondAttribute="bottom" id="MnY-Nz-yKG"/>
                                             <constraint firstItem="oUk-Ep-cTg" firstAttribute="leading" secondItem="P31-Fb-t5G" secondAttribute="leading" constant="8" id="cvX-hj-loc"/>
                                             <constraint firstItem="5UJ-hC-6eT" firstAttribute="leading" secondItem="P31-Fb-t5G" secondAttribute="leading" constant="8" id="hcE-Eh-Pbs"/>
-                                            <constraint firstItem="5UJ-hC-6eT" firstAttribute="top" secondItem="P31-Fb-t5G" secondAttribute="top" constant="8" id="wri-B8-6XC"/>
+                                            <constraint firstItem="5UJ-hC-6eT" firstAttribute="top" secondItem="P31-Fb-t5G" secondAttribute="top" id="wri-B8-6XC"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -418,7 +418,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8bm-Is-rB7"/>
                                 </constraints>
-                                <state key="normal" title="Käytä tätä sijaintia"/>
+                                <state key="normal" title="Use this location"/>
                                 <connections>
                                     <action selector="saveLocation:" destination="aBG-77-KBI" eventType="touchUpInside" id="HkV-i6-TFP"/>
                                 </connections>
@@ -615,25 +615,25 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ei ilmoitettu" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sot-Ua-k9k">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sot-Ua-k9k">
                                                 <rect key="frame" x="43" y="167" width="356" height="19.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ei ilmoitettu" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgM-ym-leG">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgM-ym-leG">
                                                 <rect key="frame" x="43" y="194.5" width="356" height="19.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kuvaus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3b-uU-OzQ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3b-uU-OzQ">
                                                 <rect key="frame" x="15" y="236" width="384" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <color key="textColor" red="0.18823529410000001" green="0.078431372550000003" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ei kuvausta" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jR-Xq-OSU">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No description available for this hobby." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jR-Xq-OSU">
                                                 <rect key="frame" x="15" y="265.5" width="384" height="19.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
@@ -769,7 +769,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Suodattimet" id="fck-N6-7KI">
+                                    <navigationItem title="Filters" id="fck-N6-7KI">
                                         <barButtonItem key="leftBarButtonItem" image="ic_close" id="HUQ-X6-NM5">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
@@ -788,7 +788,7 @@
                                             <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hek-kr-nRL">
                                                 <rect key="frame" x="8" y="143" width="398" height="250"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Viikonpäivä" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nid-CB-x06">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nid-CB-x06">
                                                         <rect key="frame" x="0.0" y="8" width="398" height="20"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
                                                         <color key="textColor" red="0.18823529410000001" green="0.078431372550000003" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -848,7 +848,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbs-Bd-0f9" userLabel="CategoryFilterContainer">
                                                 <rect key="frame" x="8" y="8" width="398" height="120"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Harrastus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQ1-FC-BtT">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQ1-FC-BtT">
                                                         <rect key="frame" x="0.0" y="15" width="398" height="20"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
                                                         <color key="textColor" red="0.18951293829999999" green="0.080823101100000003" blue="0.43108141420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -960,7 +960,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3T-2N-Eva">
                                                 <rect key="frame" x="0.0" y="408" width="414" height="320"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kellonaika" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MW8-uR-KDS">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MW8-uR-KDS">
                                                         <rect key="frame" x="8" y="8" width="406" height="20"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
                                                         <color key="textColor" red="0.13977959752082825" green="0.069326348602771759" blue="0.33335381746292114" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1098,7 +1098,7 @@
                                     <constraint firstAttribute="height" constant="50" id="fmR-gD-V5n"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
-                                <state key="normal" title="Suodata"/>
+                                <state key="normal" title="Filter"/>
                                 <connections>
                                     <action selector="filterButtonPressed:" destination="JI3-Ws-b1T" eventType="touchUpInside" id="jgc-dk-3Gb"/>
                                 </connections>
@@ -1150,7 +1150,7 @@
             </objects>
             <point key="canvasLocation" x="2960.8695652173915" y="-289.28571428571428"/>
         </scene>
-        <!--Kategoriat-->
+        <!--Categories-->
         <scene sceneID="ZpV-Oi-7uY">
             <objects>
                 <viewController id="XwD-Ua-7vn" customClass="CategoryListViewController" customModule="Harrastuspassi" customModuleProvider="target" sceneMemberID="viewController">
@@ -1222,7 +1222,7 @@
                                     <constraint firstAttribute="height" constant="50" id="Rep-j7-k38"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
-                                <state key="normal" title="Tallenna"/>
+                                <state key="normal" title="Save"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="NO"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="saveCategoriesButton"/>
@@ -1259,7 +1259,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RNe-s0-ojh"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Kategoriat" id="Kwj-A5-8fD">
+                    <navigationItem key="navigationItem" title="Categories" id="Kwj-A5-8fD">
                         <barButtonItem key="leftBarButtonItem" image="ic_close" id="QsA-mk-5em">
                             <connections>
                                 <action selector="closeButtonPressed:" destination="XwD-Ua-7vn" id="pcE-nb-jlf"/>
@@ -1340,7 +1340,7 @@
                                     <constraint firstAttribute="height" constant="50" id="ZGz-YD-6va"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
-                                <state key="normal" title="Tallenna"/>
+                                <state key="normal" title="Save"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="NO"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="NO"/>

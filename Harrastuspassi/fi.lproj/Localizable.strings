@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  Harrastuspassi
+
+  Created by Eetu Kallio on 12/09/2019.
+  Copyright © 2019 Haltu. All rights reserved.
+*/
+
+"Something went wrong." = "Jokin meni vikaan.";
+"No hobby events." = "Ei harrastustapahtumia.";
+
+"Monday" = "Maanantai";
+"Tuesday" = "Tiistai";
+"Wednesday" = "Keskiviikko";
+"Thursday" = "Torstai";
+"Friday" = "Perjantai";
+"Saturday" = "Lauantai";
+"Sunday" = "Sunnuntai";

@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  Harrastuspassi
+
+  Created by Eetu Kallio on 12/09/2019.
+  Copyright © 2019 Haltu. All rights reserved.
+*/
+
+"Something went wrong." = "Something went wrong.";
+
+"No hobby events." = "No hobby events.";
+
+"Monday" = "Monday";
+"Tuesday" = "Tuesday";
+"Wednesday" = "Wednesday";
+"Thursday" = "Thursday";
+"Friday" = "Friday";
+"Saturday" = "Saturday";
+"Sunday" = "Sunday";

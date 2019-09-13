@@ -62,12 +62,46 @@ class SettingsMapViewController: UIViewController, GMSMapViewDelegate {
 
     @IBAction func saveLocation(_ sender: Any) {
         
+        let geocoder = CLGeocoder();
+        
+        geocoder.reverseGeocodeLocation(CLLocation(latitude: selectedLocation.latitude, longitude: selectedLocation.longitude), completionHandler: self.dismissalActions)
+        
+    }
+    
+    func dismissalActions(placemarks: [CLPlacemark]?, error: Error?) {
+        
+        guard let pms = placemarks else {
+            self.navigationController?.popViewController(animated: true);
+            return;
+        }
+        
+        let placemark = pms[0];
+        print(placemark);
         let defaults = UserDefaults.standard;
-        let coordinate = CoordinateData(lat: CFloat(selectedLocation.latitude), lon: CFloat(selectedLocation.longitude));
-        var newLocations = [coordinate]
+        var coordinate = CoordinateData(lat: CFloat(selectedLocation.latitude), lon: CFloat(selectedLocation.longitude));
+        if let country = placemark.country {
+            coordinate.country = country;
+        }
+        if let address = placemark.thoroughfare {
+            coordinate.streetName = address;
+        }
+        if let zipCode = placemark.postalCode {
+            coordinate.zipCode = zipCode;
+        }
+        if let streetNumber = placemark.subThoroughfare {
+            coordinate.streetNumber = streetNumber;
+        }
+        if let city = placemark.locality {
+            coordinate.city = city;
+        }
+        if error == nil {
+            coordinate.geoCodingCompleted = true;
+        }
+        var newLocations = [coordinate];
         
         guard let savedLocationsData = defaults.object(forKey: DefaultKeys.Location.savedLocations) as? Data else {
             defaults.set(try? PropertyListEncoder().encode(newLocations), forKey: DefaultKeys.Location.savedLocations);
+            locationListDelegate.didSaveLocation(newLocations);
             self.navigationController?.popViewController(animated: true);
             return;
         }

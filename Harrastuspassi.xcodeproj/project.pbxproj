@@ -50,6 +50,8 @@
 		31CE403222B0E6AC00EEAF78 /* AnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE403122B0E6AC00EEAF78 /* AnimatedTabBarController.swift */; };
 		31CE403522B2118500EEAF78 /* HobbyEventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE403422B2118500EEAF78 /* HobbyEventData.swift */; };
 		6900AB1F19F08B6BE7641B34 /* Pods_Harrastuspassi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4123D35689EF2662512A7B19 /* Pods_Harrastuspassi.framework */; };
+		C23CE0AF232A296F00789E0B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C23CE0B1232A296F00789E0B /* Localizable.strings */; };
+		C23CE0B5232A8B2500789E0B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23CE0B4232A8B2500789E0B /* Colors.swift */; };
 		C276E9C9232641F000BD1087 /* SettingsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C276E9C8232641F000BD1087 /* SettingsMapViewController.swift */; };
 		C276E9CF2326593D00BD1087 /* LocationListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C276E9CE2326593D00BD1087 /* LocationListDelegate.swift */; };
 		C291F7FE232105420068CEB5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291F7FD232105420068CEB5 /* SettingsViewController.swift */; };
@@ -121,6 +123,11 @@
 		31CE403422B2118500EEAF78 /* HobbyEventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyEventData.swift; sourceTree = "<group>"; };
 		4123D35689EF2662512A7B19 /* Pods_Harrastuspassi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Harrastuspassi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D7ACE3BCF49CC1E3F90F1F9 /* Pods-Harrastuspassi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harrastuspassi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi.release.xcconfig"; sourceTree = "<group>"; };
+		C23CE0AC232A217F00789E0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		C23CE0B0232A296F00789E0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C23CE0B2232A297500789E0B /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C23CE0B3232A297600789E0B /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C23CE0B4232A8B2500789E0B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C276E9C8232641F000BD1087 /* SettingsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMapViewController.swift; sourceTree = "<group>"; };
 		C276E9CA23264EF500BD1087 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Main.strings; sourceTree = "<group>"; };
 		C276E9CB23264EF500BD1087 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -220,6 +227,7 @@
 				3117AEB92303E1B3001686DC /* Utils.swift */,
 				3117AEC4230554AB001686DC /* DefaultKeys.swift */,
 				3117AECA2306B688001686DC /* Extensions.swift */,
+				C23CE0B4232A8B2500789E0B /* Colors.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -271,6 +279,7 @@
 				31CE400C22B0E2A900EEAF78 /* LaunchScreen.storyboard */,
 				31CE400F22B0E2A900EEAF78 /* Info.plist */,
 				C2FAD61023169C6000CCF284 /* Config.swift */,
+				C23CE0B1232A296F00789E0B /* Localizable.strings */,
 			);
 			path = Harrastuspassi;
 			sourceTree = "<group>";
@@ -431,6 +440,7 @@
 				31CE400B22B0E2A900EEAF78 /* Assets.xcassets in Resources */,
 				2EB9E13622DDFF620024AA16 /* Roboto-Medium.ttf in Resources */,
 				2EB9E13222DDFF560024AA16 /* Roboto-Bold.ttf in Resources */,
+				C23CE0AF232A296F00789E0B /* Localizable.strings in Resources */,
 				31CE400922B0E2A700EEAF78 /* Main.storyboard in Resources */,
 				2EB9E13E22DDFF770024AA16 /* Roboto-Light.ttf in Resources */,
 			);
@@ -523,6 +533,7 @@
 				31CE403222B0E6AC00EEAF78 /* AnimatedTabBarController.swift in Sources */,
 				C2FAD6132317AC7200CCF284 /* TimeFilterSlider.swift in Sources */,
 				C2EE6E352319237400ADF459 /* PannableScrollView.swift in Sources */,
+				C23CE0B5232A8B2500789E0B /* Colors.swift in Sources */,
 				3117AEC5230554AB001686DC /* DefaultKeys.swift in Sources */,
 				C291F8022321122B0068CEB5 /* LocationTableViewCell.swift in Sources */,
 				3117AEB622FD5940001686DC /* CategoryData.swift in Sources */,
@@ -594,6 +605,7 @@
 				31CE400822B0E2A700EEAF78 /* Base */,
 				C276E9CA23264EF500BD1087 /* fi */,
 				C276E9CC23264EFF00BD1087 /* sv */,
+				C23CE0AC232A217F00789E0B /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -606,6 +618,16 @@
 				C276E9CD23264EFF00BD1087 /* sv */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C23CE0B1232A296F00789E0B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C23CE0B0232A296F00789E0B /* en */,
+				C23CE0B2232A297500789E0B /* fi */,
+				C23CE0B3232A297600789E0B /* sv */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

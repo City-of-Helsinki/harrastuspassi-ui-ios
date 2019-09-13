@@ -1,0 +1,117 @@
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "0xh-it-D4W"; */
+"0xh-it-D4W.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "20X-bg-97e"; */
+"20X-bg-97e.text" = "Label";
+
+/* Class = "UILabel"; text = "00:00"; ObjectID = "40m-DS-TVg"; */
+"40m-DS-TVg.text" = "00:00";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "4BU-5n-gUh"; */
+"4BU-5n-gUh.text" = "Title";
+
+/* Class = "UILabel"; text = "No description available for this hobby."; ObjectID = "4jR-Xq-OSU"; */
+"4jR-Xq-OSU.text" = "No description available for this hobby.";
+
+/* Class = "UIButton"; normalTitle = "Use this location"; ObjectID = "7XH-EQ-LdE"; */
+"7XH-EQ-LdE.normalTitle" = "Use this location";
+
+/* Class = "UILabel"; text = "There was an error while fetching the information"; ObjectID = "8gU-KW-Jqe"; */
+"8gU-KW-Jqe.text" = "There was an error while fetching the information";
+
+/* Class = "UILabel"; text = "00:00"; ObjectID = "BBR-vC-jZW"; */
+"BBR-vC-jZW.text" = "00:00";
+
+/* Class = "UIButton"; normalTitle = "Pick your location from map"; ObjectID = "Dbz-e8-YHI"; */
+"Dbz-e8-YHI.normalTitle" = "Pick your location from map";
+
+/* Class = "UINavigationItem"; title = "Categories"; ObjectID = "Kwj-A5-8fD"; */
+"Kwj-A5-8fD.title" = "Categories";
+
+/* Class = "UILabel"; text = "Starting Time"; ObjectID = "MW8-uR-KDS"; */
+"MW8-uR-KDS.text" = "Starting Time";
+
+/* Class = "UILabel"; text = "Category Name"; ObjectID = "P1w-Cy-Jh6"; */
+"P1w-Cy-Jh6.text" = "Category Name";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Qrc-9U-Scl"; */
+"Qrc-9U-Scl.text" = "Label";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "T3b-uU-OzQ"; */
+"T3b-uU-OzQ.text" = "Description";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "TmE-Hh-2pB"; */
+"TmE-Hh-2pB.text" = "-";
+
+/* Class = "UILabel"; text = "N/A"; ObjectID = "URZ-To-oNH"; */
+"URZ-To-oNH.text" = "N/A";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "VNj-fa-fTS"; */
+"VNj-fa-fTS.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "CITY"; ObjectID = "VTb-sA-zqP"; */
+"VTb-sA-zqP.text" = "CITY";
+
+/* Class = "UILabel"; text = "N/A"; ObjectID = "VgM-ym-leG"; */
+"VgM-ym-leG.text" = "N/A";
+
+/* Class = "UIButton"; normalTitle = "Filter"; ObjectID = "WIG-H8-St5"; */
+"WIG-H8-St5.normalTitle" = "Filter";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "XPq-f4-azY"; */
+"XPq-f4-azY.text" = "-";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "cEt-JC-B6J"; */
+"cEt-JC-B6J.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ev7-0e-jJI"; */
+"ev7-0e-jJI.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Filters"; ObjectID = "fck-N6-7KI"; */
+"fck-N6-7KI.title" = "Filters";
+
+/* Class = "UIViewController"; title = "Home"; ObjectID = "gLY-4E-wIE"; */
+"gLY-4E-wIE.title" = "Home";
+
+/* Class = "UILabel"; text = "Categories"; ObjectID = "gQ1-FC-BtT"; */
+"gQ1-FC-BtT.text" = "Categories";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "iyn-We-wdF"; */
+"iyn-We-wdF.text" = "-";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "lr0-Bf-4nI"; */
+"lr0-Bf-4nI.title" = "Item";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "mjL-rY-x9o"; */
+"mjL-rY-x9o.text" = "Label";
+
+/* Class = "UILabel"; text = "My Recent Locations"; ObjectID = "mmD-Nn-PpK"; */
+"mmD-Nn-PpK.text" = "My Recent Locations";
+
+/* Class = "UILabel"; text = "Weekday"; ObjectID = "nid-CB-x06"; */
+"nid-CB-x06.text" = "Weekday";
+
+/* Class = "UINavigationController"; title = "Home"; ObjectID = "og6-76-G8s"; */
+"og6-76-G8s.title" = "Home";
+
+/* Class = "UILabel"; text = "Category Name"; ObjectID = "pzy-c0-jbb"; */
+"pzy-c0-jbb.text" = "Category Name";
+
+/* Class = "UIViewController"; title = "Settings"; ObjectID = "rd6-a8-1JL"; */
+"rd6-a8-1JL.title" = "Settings";
+
+/* Class = "UILabel"; text = "N/A"; ObjectID = "sot-Ua-k9k"; */
+"sot-Ua-k9k.text" = "N/A";
+
+/* Class = "UIButton"; normalTitle = "Allow locations usage in the Settings app"; ObjectID = "tKz-CQ-IZJ"; */
+"tKz-CQ-IZJ.normalTitle" = "Allow locations usage in the Settings app";
+
+/* Class = "UILabel"; text = "Use my current location"; ObjectID = "tl7-WS-kRr"; */
+"tl7-WS-kRr.text" = "Use my current location";
+
+/* Class = "UILabel"; text = "My location"; ObjectID = "vQr-vF-0VT"; */
+"vQr-vF-0VT.text" = "My location";
+
+/* Class = "UILabel"; text = "ADDRESS"; ObjectID = "xHB-eC-eIG"; */
+"xHB-eC-eIG.text" = "ADDRESS";

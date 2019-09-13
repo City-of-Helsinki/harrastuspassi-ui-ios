@@ -20,6 +20,7 @@ class HobbyTableViewCell: UITableViewCell {
     func setHobbyEvents(hobbyEvent: HobbyEventData) {
         
         if let hobby = hobbyEvent.hobby, let imageUrl = hobby.image {
+            hobbyImage.image = nil;
             let url = URL (string: imageUrl)
             hobbyImage.loadurl(url: url!)
         } else {
