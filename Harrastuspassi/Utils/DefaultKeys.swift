@@ -25,7 +25,7 @@ struct DefaultKeys {
         static let lat = "lan";
         static let isAllowed = "isAllowed";
         static let savedLocations = "savedLocations";
-        static let currentLocation = "currentLocation";
+        static let selectedLocation = "currentLocation";
     }
     
 }

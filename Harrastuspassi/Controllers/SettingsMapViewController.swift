@@ -100,7 +100,6 @@ class SettingsMapViewController: UIViewController, GMSMapViewDelegate {
         var newLocations = [coordinate];
         
         guard let savedLocationsData = defaults.object(forKey: DefaultKeys.Location.savedLocations) as? Data else {
-            defaults.set(try? PropertyListEncoder().encode(newLocations), forKey: DefaultKeys.Location.savedLocations);
             locationListDelegate.didSaveLocation(newLocations);
             self.navigationController?.popViewController(animated: true);
             return;
@@ -118,7 +117,6 @@ class SettingsMapViewController: UIViewController, GMSMapViewDelegate {
             newLocations.removeFirst();
         }
         locationListDelegate.didSaveLocation(newLocations);
-        defaults.set(try? PropertyListEncoder().encode(newLocations), forKey: DefaultKeys.Location.savedLocations);
         print("wtf")
         self.navigationController?.popViewController(animated: true);
     }

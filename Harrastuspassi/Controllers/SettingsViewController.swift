@@ -11,12 +11,11 @@ import CoreLocation
 
 @IBDesignable class SettingsViewController: UIViewController, LocationListDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    
-    
     var locationUsageAllowed: Bool = UserDefaults.standard.bool(forKey: DefaultKeys.Location.isAllowed);
     
     var savedLocations = [CoordinateData]();
     var selectedLocation = CoordinateData(lat: 0, lon: 0);
+    let feedbackGenerator = UISelectionFeedbackGenerator();
     
     @IBOutlet weak var allowLocationUsageButton: UIButton!
     @IBOutlet weak var pickLocationButton: UIButton!
@@ -46,7 +45,7 @@ import CoreLocation
         self.savedLocations = savedLocations.reversed();
         print(self.savedLocations)
         
-        guard let selectedLocationData = defaults.object(forKey: DefaultKeys.Location.currentLocation) as? Data else {
+        guard let selectedLocationData = defaults.object(forKey: DefaultKeys.Location.selectedLocation) as? Data else {
             return;
         }
         
@@ -75,8 +74,6 @@ import CoreLocation
     
     @IBAction func switchValueChanged(_ sender: Any) {
         
-        let defaults = UserDefaults.standard;
-        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate;
         
         if allowLocationSwitch.isOn {
@@ -86,12 +83,12 @@ import CoreLocation
             else if CLLocationManager.authorizationStatus() == .denied {
                 allowLocationSwitch.isOn = false;
             } else {
-                defaults.set(true, forKey: DefaultKeys.Location.isAllowed)
+                locationUsageAllowed = true;
                 fadeOutLocationComponents()
                 appDelegate.startLocationServices();
             }
         } else {
-            defaults.set(false, forKey: DefaultKeys.Location.isAllowed)
+            locationUsageAllowed = false;
             appDelegate.disableLocationServices();
             fadeInLocationComponents()
         }
@@ -161,6 +158,7 @@ import CoreLocation
         let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell") as! LocationTableViewCell;
         cell.accessoryType = .none;
         cell.selectionStyle = .blue;
+        cell.addressLabel.adjustsFontSizeToFitWidth = true;
         let bgView = UIView(frame: cell.frame);
         bgView.backgroundColor = Colors.bgMain;
         cell.selectedBackgroundView = bgView;
@@ -188,7 +186,7 @@ import CoreLocation
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let defaults = UserDefaults.standard;
-        guard let selectedLocationData = defaults.object(forKey: DefaultKeys.Location.currentLocation) as? Data else {
+        guard let selectedLocationData = defaults.object(forKey: DefaultKeys.Location.selectedLocation) as? Data else {
             return;
         }
         
@@ -211,18 +209,20 @@ import CoreLocation
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! LocationTableViewCell;
         cell.accessoryType = .none;
+        cell.addressLabel.textColor = .black
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         setSelectedStyleTo(tableView, indexPath: indexPath);
         selectLocation(location: savedLocations[indexPath.row]);
+        let cell = tableView.cellForRow(at: indexPath) as! LocationTableViewCell;
+        cell.addressLabel.textColor = .white;
+        feedbackGenerator.selectionChanged();
         
     }
     
     func selectLocation(location: CoordinateData) {
-        let defaults = UserDefaults.standard;
         self.selectedLocation = location;
-        defaults.set(try? PropertyListEncoder().encode(location), forKey: DefaultKeys.Location.currentLocation);
     }
     
     func setSelectedStyleTo(_ tableView: UITableView, indexPath: IndexPath) {
@@ -230,4 +230,15 @@ import CoreLocation
         cell.accessoryType = .checkmark;
     }
     
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        let defaults = UserDefaults.standard;
+        defaults.set(try? PropertyListEncoder().encode(selectedLocation), forKey: DefaultKeys.Location.selectedLocation);
+        defaults.set(locationUsageAllowed, forKey: DefaultKeys.Location.isAllowed)
+        var tmpLocations = savedLocations.reversed().filter {
+            $0.lat != selectedLocation.lat && $0.lon != selectedLocation.lon
+        }
+        tmpLocations.append(selectedLocation);
+        defaults.set(try? PropertyListEncoder().encode(tmpLocations), forKey: DefaultKeys.Location.savedLocations);
+        self.dismiss(animated: true, completion: nil);
+    }
 }
