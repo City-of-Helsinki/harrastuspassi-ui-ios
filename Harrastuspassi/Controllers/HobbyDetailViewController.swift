@@ -53,6 +53,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         closeButton.layer.zPosition = CGFloat(Float.greatestFiniteMagnitude);
         closeButton.hero.isEnabled = true;
         closeButton.hero.modifiers = [.duration(0.7), .translate(x:100), .useGlobalCoordinateSpace];
+        dayOfWeekLabel.adjustsFontSizeToFitWidth = true;
         
         panGR = UIPanGestureRecognizer(target: self, action: #selector(handlePan(gestureRecognizer:)));
         panGR.delegate = self
@@ -134,7 +135,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
             return
         }
         self.view.layoutIfNeeded()
-        mapView.animate(to: cam)
+        mapView.camera = cam;
         
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: Double(lat), longitude: Double(lon))

@@ -21,7 +21,12 @@ class SettingsMapViewController: UIViewController, GMSMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let finland = GMSCameraPosition.camera(withLatitude: 61.9241,
+                                               longitude: 25.7482,
+                                               zoom: 6)
+        
         mapView.delegate = self;
+        mapView.camera = finland;
         
         saveSelectedLocationButton.alpha = 0.0;
         saveSelectedLocationButton.isEnabled = false;
