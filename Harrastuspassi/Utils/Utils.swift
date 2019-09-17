@@ -30,12 +30,15 @@ class Utils {
             filters.weekdays = filteredWeekdays
         }
         
-        if let startTime = defaults.float(forKey: DefaultKeys.Filters.startTime) as Float?, let endTime = defaults.float(forKey: DefaultKeys.Filters.endTime) as Float? {
+        if let startTime = defaults.float(forKey: DefaultKeys.Filters.startTime) as Float?, let endTime = defaults.float(forKey: DefaultKeys.Filters.endTime) as Float?, endTime > 0 {
             let minValue = CGFloat(startTime);
             let maxValue = CGFloat(endTime);
             
             filters.times.minTime = minValue;
             filters.times.maxTime = maxValue;
+        } else {
+            filters.times.minTime = 480.0;
+            filters.times.maxTime = 1260.0;
         }
         
         return filters;

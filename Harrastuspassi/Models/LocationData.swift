@@ -28,3 +28,27 @@ struct LocationData : Codable {
         case lon = "lon"
     }
 }
+
+struct CoordinateData : Codable {
+    let lat : CFloat
+    let lon : CFloat
+    var streetName = "";
+    var zipCode = "";
+    var country = "";
+    var locality = "";
+    var streetNumber = "";
+    var city = "";
+    var geoCodingCompleted = false;
+    
+    init(lat: CFloat, lon: CFloat) {
+        self.lat = lat
+        self.lon = lon
+        streetName = "";
+        zipCode = "";
+        country = "";
+        locality = "";
+        streetNumber = "";
+        city = "";
+        geoCodingCompleted = false;
+    }
+}

@@ -18,6 +18,8 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     var heroID: String?
     var imageHeroID: String?
     var titleHeroID: String?
+    var locationHeroID: String?
+    var dayOfWeekLabelHeroID: String?
     
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -46,6 +48,13 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         view.hero.id = heroID;
         imageView.hero.id = imageHeroID;
         titleLabel.hero.id = titleHeroID;
+        locationLabel.hero.id = locationHeroID;
+        dayOfWeekLabel.hero.id = dayOfWeekLabelHeroID;
+        closeButton.layer.zPosition = CGFloat(Float.greatestFiniteMagnitude);
+        closeButton.hero.isEnabled = true;
+        closeButton.hero.modifiers = [.duration(0.7), .translate(x:100), .useGlobalCoordinateSpace];
+        dayOfWeekLabel.adjustsFontSizeToFitWidth = true;
+        
         panGR = UIPanGestureRecognizer(target: self, action: #selector(handlePan(gestureRecognizer:)));
         panGR.delegate = self
         scrollView.addGestureRecognizer(panGR);
@@ -126,7 +135,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
             return
         }
         self.view.layoutIfNeeded()
-        mapView.animate(to: cam)
+        mapView.camera = cam;
         
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: Double(lat), longitude: Double(lon))
@@ -177,5 +186,4 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
 }

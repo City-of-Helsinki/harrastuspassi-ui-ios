@@ -9,6 +9,7 @@
 import UIKit
 import Hero
 import RevealingSplashView
+import CoreLocation
 
 class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate, UITableViewDataSource, ModalDelegate {
     
@@ -19,6 +20,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     
     var hobbyData: [HobbyEventData]?
     var filters = Filters();
+    let refreshControl = UIRefreshControl();
+    
+    let locationManager = CLLocationManager();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +35,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         
         revealingSplashView.startAnimation(){
             print("Completed")
-            revealingSplashView.removeFromSuperview();
         }
         
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged);
+        refreshControl.tintColor = .white;
         
         hobbyTableView.delegate = self
         hobbyTableView.dataSource = self
+        hobbyTableView.refreshControl = refreshControl;
         self.errorText.isHidden = true
         filters = Utils.getDefaultFilters();
         
@@ -59,7 +65,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         if let d = hobbyData {
             cell.hobbyImage?.hero.id = "image" + String(indexPath.row);
             cell.title.hero.id = "title" + String(indexPath.row);
-            cell.setHobbyEvents(hobbyEvent: d[indexPath.row])
+            cell.setHobbyEvents(hobbyEvent: d[indexPath.row]);
+            cell.location.hero.id = "location" + String(indexPath.row);
+            cell.date.hero.id = "weekday" + String(indexPath.row);
             cell.contentView.hero.isEnabled = true;
             cell.contentView.hero.id = String(indexPath.row);
             cell.selectionStyle = .none
@@ -85,7 +93,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
                 else {
                     DispatchQueue.main.async(execute: {() in
                         self.errorText.isHidden = false
-                        self.errorText.text = "Jokin meni vikaan"
+                        self.errorText.text = NSLocalizedString("Something went wrong", comment:"");
                         
                     })
                     return
@@ -95,13 +103,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
                 if(eventData.count == 0) {
                     self.hobbyData = eventData
                     self.hobbyTableView.reloadData()
-                    self.errorText.text = "Ei harrastustapahtumia"
+                    self.errorText.text = NSLocalizedString("No hobby events.", comment: "")
                     self.errorText.isHidden = false
                 } else {
                     self.errorText.isHidden = true
                     self.hobbyData = eventData
                     self.hobbyTableView.reloadData()
                 }
+                self.refreshControl.endRefreshing();
             })
         }
     }
@@ -121,6 +130,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
                 detailViewController.hobbyEvent = data[index]
                 detailViewController.heroID = String(index);
                 detailViewController.imageHeroID = "image" + String(index);
+                detailViewController.titleHeroID = "title" + String(index);
+                detailViewController.locationHeroID = "location" + String(index);
+                detailViewController.dayOfWeekLabelHeroID = "weekday" + String(index);
                 //detailViewController.titleHeroID = "title" + String(index);
                 detailViewController.hobbyEvent = data[index];
                 detailViewController.image = (hobbyTableView.cellForRow(at: path) as! HobbyTableViewCell).hobbyImage.image;
@@ -173,6 +185,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         urlComponents?.queryItems?.append(URLQueryItem(name: "start_time_from", value: Utils.formatTimeFrom(float: filters.times.minTime)));
         urlComponents?.queryItems?.append(URLQueryItem(name: "start_time_to", value: Utils.formatTimeFrom(float: filters.times.maxTime)));
         return urlComponents?.url
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.fetchUrl(urlString: Config.API_URL + "hobbyevents")
+        
     }
     
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
