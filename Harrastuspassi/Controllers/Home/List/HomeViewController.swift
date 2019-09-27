@@ -13,12 +13,14 @@ import CoreLocation
 
 class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate, UITableViewDataSource, ModalDelegate {
     
+    // MARK: - Initialization
     
+    @IBOutlet var containerView: UIView!
     
     @IBOutlet weak var hobbyTableView: UITableView!
     @IBOutlet weak var errorText: UILabel!
     
-    var hobbyData: [HobbyEventData]?
+    var hobbyData = [HobbyEventData]();
     var filters = Filters();
     let refreshControl = UIRefreshControl();
     
@@ -32,7 +34,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         
         let window = UIApplication.shared.keyWindow
         window?.addSubview(revealingSplashView)
-        
+        self.hero.isEnabled = true;
+        navigationController?.hero.navigationAnimationType = .selectBy(presenting: .none, dismissing: .none);
         revealingSplashView.startAnimation(){
             print("Completed")
         }
@@ -45,7 +48,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         hobbyTableView.refreshControl = refreshControl;
         self.errorText.isHidden = true
         filters = Utils.getDefaultFilters();
-        
+        containerView.hero.modifiers = [.forceNonFade];
         self.fetchUrl(urlString: Config.API_URL + "hobbyevents")
     }
     
@@ -53,25 +56,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     
     // Tableview setup
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let d = hobbyData {
-            return d.count
-        } else {
-            return 0;
-        }
+        return hobbyData.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HobbyTableViewCell", for: indexPath) as! HobbyTableViewCell
-        if let d = hobbyData {
-            cell.hobbyImage?.hero.id = "image" + String(indexPath.row);
-            cell.title.hero.id = "title" + String(indexPath.row);
-            cell.setHobbyEvents(hobbyEvent: d[indexPath.row]);
-            cell.location.hero.id = "location" + String(indexPath.row);
-            cell.date.hero.id = "weekday" + String(indexPath.row);
-            cell.contentView.hero.isEnabled = true;
-            cell.contentView.hero.id = String(indexPath.row);
-            cell.selectionStyle = .none
-        }
+        cell.setHobbyEvents(hobbyEvent: hobbyData[indexPath.row]);
+        cell.hobbyImage?.hero.id = "image" + String(indexPath.row);
+        cell.title.hero.id = "title" + String(indexPath.row);
+        cell.location.hero.id = "location" + String(indexPath.row);
+        cell.date.hero.id = "weekday" + String(indexPath.row);
+        cell.contentView.hero.isEnabled = true;
+        cell.contentView.hero.id = String(indexPath.row);
+        cell.selectionStyle = .none
+        
         
         return cell
     }
@@ -81,7 +79,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         let session = URLSession(configuration: config);
         var url: URL?;
         url = applyQueryParamsToUrl(urlString);
-        print(url);
         let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
     
         task.resume();
@@ -101,13 +98,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
             print(eventData)
             DispatchQueue.main.async(execute: {() in
                 if(eventData.count == 0) {
-                    self.hobbyData = eventData
+                    self.hobbyData = Array(Set(eventData));
                     self.hobbyTableView.reloadData()
                     self.errorText.text = NSLocalizedString("No hobby events.", comment: "")
                     self.errorText.isHidden = false
                 } else {
                     self.errorText.isHidden = true
-                    self.hobbyData = eventData
+                    self.hobbyData = Array(Set(eventData));
                     self.hobbyTableView.reloadData()
                 }
                 self.refreshControl.endRefreshing();
@@ -126,17 +123,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
                 else {
                     return
             }
-            if let data = hobbyData {
-                detailViewController.hobbyEvent = data[index]
-                detailViewController.heroID = String(index);
-                detailViewController.imageHeroID = "image" + String(index);
-                detailViewController.titleHeroID = "title" + String(index);
-                detailViewController.locationHeroID = "location" + String(index);
-                detailViewController.dayOfWeekLabelHeroID = "weekday" + String(index);
-                //detailViewController.titleHeroID = "title" + String(index);
-                detailViewController.hobbyEvent = data[index];
-                detailViewController.image = (hobbyTableView.cellForRow(at: path) as! HobbyTableViewCell).hobbyImage.image;
-            }
+            
+            detailViewController.hobbyEvent = hobbyData[index]
+            detailViewController.heroID = String(index);
+            detailViewController.imageHeroID = "image" + String(index);
+            detailViewController.titleHeroID = "title" + String(index);
+            detailViewController.locationHeroID = "location" + String(index);
+            detailViewController.dayOfWeekLabelHeroID = "weekday" + String(index);
+            //detailViewController.titleHeroID = "title" + String(index);
+            detailViewController.image = (hobbyTableView.cellForRow(at: path) as! HobbyTableViewCell).hobbyImage.image;
+            
             self.hero.modalAnimationType = .selectBy(presenting:.none, dismissing:.none);
             detailViewController.hero.modalAnimationType = .selectBy(presenting: .none, dismissing: .none);
             
@@ -191,6 +187,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         self.fetchUrl(urlString: Config.API_URL + "hobbyevents")
         
     }
+    
+    
     
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let sb = UIStoryboard.init(name: "Main", bundle:nil)

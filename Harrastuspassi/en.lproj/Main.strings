@@ -80,8 +80,8 @@
 /* Class = "UILabel"; text = "-"; ObjectID = "iyn-We-wdF"; */
 "iyn-We-wdF.text" = "-";
 
-/* Class = "UITabBarItem"; title = "Item"; ObjectID = "lr0-Bf-4nI"; */
-"lr0-Bf-4nI.title" = "Item";
+/* Class = "UITabBarItem"; title = "List"; ObjectID = "lr0-Bf-4nI"; */
+"lr0-Bf-4nI.title" = "List";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "mjL-rY-x9o"; */
 "mjL-rY-x9o.text" = "Label";

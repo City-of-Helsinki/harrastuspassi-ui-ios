@@ -20,6 +20,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     var titleHeroID: String?
     var locationHeroID: String?
     var dayOfWeekLabelHeroID: String?
+    var dismissStarted = false;
     
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -77,7 +78,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
                 
             } else if let imageUrl = event.hobby?.image {
                 let url = URL (string: imageUrl)
-                imageView.loadurl(url: url!)
+                imageView.loadurl(url: url!, completition: nil);
             } else {
                 imageView.image = UIImage(named: "ic_panorama")
             }
@@ -147,16 +148,11 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     @objc func handlePan(gestureRecognizer:UIPanGestureRecognizer) {
         let translation = panGR.translation(in: nil)
         let progress = translation.y / 2 / view.bounds.height
-        print(startingOffset)
         switch panGR.state {
         case .began:
             // begin the transition as normal
-            print("began")
-            print(scrollView.contentOffset)
             if scrollView.contentOffset.y == self.startingOffset {
                 print("OFFSET 0")
-                dismiss(animated: true, completion: nil)
-                closeButton.isHidden = true;
                 
             }
             
@@ -164,13 +160,19 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
             // calculate the progress based on how far the user moved
             let translation = panGR.translation(in: nil)
             let progress = translation.y / 2 / view.bounds.height
-            Hero.shared.update(CGFloat(progress))
+            if scrollView.isAtTop && panGR.direction == .down && !dismissStarted {
+                dismissStarted = true;
+                dismiss(animated: true, completion: nil)
+            }
+            if dismissStarted {
+                Hero.shared.update(CGFloat(progress))
+            }
         default:
-            if progress + panGR.velocity(in: nil).y / view.bounds.height > 0.3 {
+            if progress + panGR.velocity(in: nil).y / view.bounds.height > 0.3 && dismissStarted {
                 Hero.shared.finish()
             } else {
                 Hero.shared.cancel()
-                closeButton.isHidden = false;
+                dismissStarted = false;
             }
         }
     }

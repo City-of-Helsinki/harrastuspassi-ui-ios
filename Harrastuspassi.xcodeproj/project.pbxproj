@@ -49,14 +49,19 @@
 		31CE402422B0E2AA00EEAF78 /* HarrastuspassiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE402322B0E2AA00EEAF78 /* HarrastuspassiUITests.swift */; };
 		31CE403222B0E6AC00EEAF78 /* AnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE403122B0E6AC00EEAF78 /* AnimatedTabBarController.swift */; };
 		31CE403522B2118500EEAF78 /* HobbyEventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE403422B2118500EEAF78 /* HobbyEventData.swift */; };
-		6900AB1F19F08B6BE7641B34 /* Pods_Harrastuspassi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4123D35689EF2662512A7B19 /* Pods_Harrastuspassi.framework */; };
+		643FCF9E095992DE0F8EED45 /* libPods-Harrastuspassi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF1C1958B02B3799D16AFF4 /* libPods-Harrastuspassi.a */; };
+		C226F8902334E75000D95E04 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C226F88F2334E75000D95E04 /* Colors.xcassets */; };
 		C23CE0AF232A296F00789E0B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C23CE0B1232A296F00789E0B /* Localizable.strings */; };
 		C23CE0B5232A8B2500789E0B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23CE0B4232A8B2500789E0B /* Colors.swift */; };
+		C23CE0C223334A5600789E0B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23CE0C123334A5600789E0B /* MapViewController.swift */; };
 		C276E9C9232641F000BD1087 /* SettingsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C276E9C8232641F000BD1087 /* SettingsMapViewController.swift */; };
 		C276E9CF2326593D00BD1087 /* LocationListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C276E9CE2326593D00BD1087 /* LocationListDelegate.swift */; };
+		C2814C69233CDB6200440ECE /* POIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2814C68233CDB6200440ECE /* POIItem.swift */; };
 		C291F7FE232105420068CEB5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291F7FD232105420068CEB5 /* SettingsViewController.swift */; };
 		C291F80023210FF00068CEB5 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291F7FF23210FF00068CEB5 /* BorderedButton.swift */; };
 		C291F8022321122B0068CEB5 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291F8012321122B0068CEB5 /* LocationTableViewCell.swift */; };
+		C2A3E44D2339E50F003CDB37 /* MapInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2A3E44C2339E50F003CDB37 /* MapInfoView.xib */; };
+		C2A3E4512339E848003CDB37 /* MapInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A3E4502339E848003CDB37 /* MapInfoView.swift */; };
 		C2EE6E352319237400ADF459 /* PannableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EE6E342319237400ADF459 /* PannableScrollView.swift */; };
 		C2FAD61123169C6000CCF284 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FAD61023169C6000CCF284 /* Config.swift */; };
 		C2FAD6132317AC7200CCF284 /* TimeFilterSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FAD6122317AC7200CCF284 /* TimeFilterSlider.swift */; };
@@ -121,22 +126,28 @@
 		31CE402522B0E2AA00EEAF78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31CE403122B0E6AC00EEAF78 /* AnimatedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTabBarController.swift; sourceTree = "<group>"; };
 		31CE403422B2118500EEAF78 /* HobbyEventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyEventData.swift; sourceTree = "<group>"; };
-		4123D35689EF2662512A7B19 /* Pods_Harrastuspassi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Harrastuspassi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BF1C1958B02B3799D16AFF4 /* libPods-Harrastuspassi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Harrastuspassi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D7ACE3BCF49CC1E3F90F1F9 /* Pods-Harrastuspassi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harrastuspassi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi.release.xcconfig"; sourceTree = "<group>"; };
+		C226F88F2334E75000D95E04 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		C23CE0AC232A217F00789E0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		C23CE0B0232A296F00789E0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C23CE0B2232A297500789E0B /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C23CE0B3232A297600789E0B /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C23CE0B4232A8B2500789E0B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C23CE0C123334A5600789E0B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C276E9C8232641F000BD1087 /* SettingsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMapViewController.swift; sourceTree = "<group>"; };
 		C276E9CA23264EF500BD1087 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Main.strings; sourceTree = "<group>"; };
 		C276E9CB23264EF500BD1087 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C276E9CC23264EFF00BD1087 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
 		C276E9CD23264EFF00BD1087 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C276E9CE2326593D00BD1087 /* LocationListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListDelegate.swift; sourceTree = "<group>"; };
+		C2814C65233A145B00440ECE /* GoogleMapsUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoogleMapsUtils.h; sourceTree = "<group>"; };
+		C2814C68233CDB6200440ECE /* POIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIItem.swift; sourceTree = "<group>"; };
 		C291F7FD232105420068CEB5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C291F7FF23210FF00068CEB5 /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		C291F8012321122B0068CEB5 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		C2A3E44C2339E50F003CDB37 /* MapInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapInfoView.xib; sourceTree = "<group>"; };
+		C2A3E4502339E848003CDB37 /* MapInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInfoView.swift; sourceTree = "<group>"; };
 		C2EE6E342319237400ADF459 /* PannableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PannableScrollView.swift; sourceTree = "<group>"; };
 		C2FAD61023169C6000CCF284 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		C2FAD6122317AC7200CCF284 /* TimeFilterSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFilterSlider.swift; sourceTree = "<group>"; };
@@ -147,7 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6900AB1F19F08B6BE7641B34 /* Pods_Harrastuspassi.framework in Frameworks */,
+				643FCF9E095992DE0F8EED45 /* libPods-Harrastuspassi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,7 +182,7 @@
 		0ACF1A2A550E2DDFA7B7D986 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4123D35689EF2662512A7B19 /* Pods_Harrastuspassi.framework */,
+				4BF1C1958B02B3799D16AFF4 /* libPods-Harrastuspassi.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -179,14 +190,11 @@
 		2E6029AF22DDC75700AC665B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3117AEBF23040B94001686DC /* SubCategoryListController.swift */,
-				31CE400322B0E2A700EEAF78 /* HomeViewController.swift */,
+				C23CE0B923320EBB00789E0B /* HobbyDetails */,
+				C23CE0B823320EA900789E0B /* Home */,
+				C23CE0B723320E9000789E0B /* Filters */,
+				C23CE0B623320E7700789E0B /* Settings */,
 				31CE403122B0E6AC00EEAF78 /* AnimatedTabBarController.swift */,
-				2E0CD7B022E9BE1C001E80D3 /* HobbyDetailViewController.swift */,
-				3117AEAF22FC2013001686DC /* FilterViewController.swift */,
-				3117AEB322FD393C001686DC /* CategoryListViewController.swift */,
-				C291F7FD232105420068CEB5 /* SettingsViewController.swift */,
-				C276E9C8232641F000BD1087 /* SettingsMapViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -194,17 +202,13 @@
 		2E6029B022DDC77400AC665B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2E1329A722D74B790060A3A1 /* HobbyTableViewCell.swift */,
-				3117AEB122FC2FC4001686DC /* SelectedCategoriesContainerView.swift */,
-				3117AEB722FD5AD9001686DC /* CategoryFilterTableViewCell.swift */,
-				3117AEBD2304056E001686DC /* CategoryFilterTableView.swift */,
-				3117AEC62306823F001686DC /* CategoryFlagView.swift */,
-				3171419F230FC687005B1F5E /* WeekDayCollectionView.swift */,
-				317141A1230FC6D9005B1F5E /* WeekdayCollectionViewCell.swift */,
+				C2A3E44B2339E4BA003CDB37 /* Xibs */,
+				C23CE0BE23320FB100789E0B /* ContainerViews */,
+				C23CE0BD23320F7900789E0B /* TableViews */,
+				C23CE0BC23320F5A00789E0B /* CollectionViews */,
 				C2FAD6122317AC7200CCF284 /* TimeFilterSlider.swift */,
-				C2EE6E342319237400ADF459 /* PannableScrollView.swift */,
 				C291F7FF23210FF00068CEB5 /* BorderedButton.swift */,
-				C291F8012321122B0068CEB5 /* LocationTableViewCell.swift */,
+				C2A3E4502339E848003CDB37 /* MapInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -245,6 +249,7 @@
 		31CE3FF522B0E2A700EEAF78 = {
 			isa = PBXGroup;
 			children = (
+				C2814C65233A145B00440ECE /* GoogleMapsUtils.h */,
 				31CE400022B0E2A700EEAF78 /* Harrastuspassi */,
 				31CE401722B0E2AA00EEAF78 /* HarrastuspassiTests */,
 				31CE402222B0E2AA00EEAF78 /* HarrastuspassiUITests */,
@@ -280,6 +285,7 @@
 				31CE400F22B0E2A900EEAF78 /* Info.plist */,
 				C2FAD61023169C6000CCF284 /* Config.swift */,
 				C23CE0B1232A296F00789E0B /* Localizable.strings */,
+				C226F88F2334E75000D95E04 /* Colors.xcassets */,
 			);
 			path = Harrastuspassi;
 			sourceTree = "<group>";
@@ -310,6 +316,7 @@
 				3117AEB522FD5940001686DC /* CategoryData.swift */,
 				3117AECE230A87F0001686DC /* Filters.swift */,
 				317141A323140B60005B1F5E /* HobbyData.swift */,
+				C2814C68233CDB6200440ECE /* POIItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -321,6 +328,112 @@
 				5D7ACE3BCF49CC1E3F90F1F9 /* Pods-Harrastuspassi.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C23CE0B623320E7700789E0B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C276E9C8232641F000BD1087 /* SettingsMapViewController.swift */,
+				C291F7FD232105420068CEB5 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		C23CE0B723320E9000789E0B /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				3117AEBF23040B94001686DC /* SubCategoryListController.swift */,
+				3117AEAF22FC2013001686DC /* FilterViewController.swift */,
+				3117AEB322FD393C001686DC /* CategoryListViewController.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		C23CE0B823320EA900789E0B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C23CE0C023334A3F00789E0B /* Map */,
+				C23CE0BF23334A3800789E0B /* List */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C23CE0B923320EBB00789E0B /* HobbyDetails */ = {
+			isa = PBXGroup;
+			children = (
+				2E0CD7B022E9BE1C001E80D3 /* HobbyDetailViewController.swift */,
+			);
+			path = HobbyDetails;
+			sourceTree = "<group>";
+		};
+		C23CE0BA23320EED00789E0B /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				C291F8012321122B0068CEB5 /* LocationTableViewCell.swift */,
+				3117AEB722FD5AD9001686DC /* CategoryFilterTableViewCell.swift */,
+				2E1329A722D74B790060A3A1 /* HobbyTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		C23CE0BB23320F3600789E0B /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				3117AEC62306823F001686DC /* CategoryFlagView.swift */,
+				317141A1230FC6D9005B1F5E /* WeekdayCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		C23CE0BC23320F5A00789E0B /* CollectionViews */ = {
+			isa = PBXGroup;
+			children = (
+				C23CE0BB23320F3600789E0B /* CollectionViewCells */,
+				3171419F230FC687005B1F5E /* WeekDayCollectionView.swift */,
+			);
+			path = CollectionViews;
+			sourceTree = "<group>";
+		};
+		C23CE0BD23320F7900789E0B /* TableViews */ = {
+			isa = PBXGroup;
+			children = (
+				C23CE0BA23320EED00789E0B /* TableViewCells */,
+				3117AEBD2304056E001686DC /* CategoryFilterTableView.swift */,
+			);
+			path = TableViews;
+			sourceTree = "<group>";
+		};
+		C23CE0BE23320FB100789E0B /* ContainerViews */ = {
+			isa = PBXGroup;
+			children = (
+				3117AEB122FC2FC4001686DC /* SelectedCategoriesContainerView.swift */,
+				C2EE6E342319237400ADF459 /* PannableScrollView.swift */,
+			);
+			path = ContainerViews;
+			sourceTree = "<group>";
+		};
+		C23CE0BF23334A3800789E0B /* List */ = {
+			isa = PBXGroup;
+			children = (
+				31CE400322B0E2A700EEAF78 /* HomeViewController.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		C23CE0C023334A3F00789E0B /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				C23CE0C123334A5600789E0B /* MapViewController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		C2A3E44B2339E4BA003CDB37 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				C2A3E44C2339E50F003CDB37 /* MapInfoView.xib */,
+			);
+			path = Xibs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,7 +448,6 @@
 				31CE3FFB22B0E2A700EEAF78 /* Frameworks */,
 				31CE3FFC22B0E2A700EEAF78 /* Resources */,
 				59DF95283B26AC3345B8F88E /* [CP] Copy Pods Resources */,
-				EAF2CAF8BE41E8E864C81AB0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -435,10 +547,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C226F8902334E75000D95E04 /* Colors.xcassets in Resources */,
 				31CE400E22B0E2A900EEAF78 /* LaunchScreen.storyboard in Resources */,
 				2EB9E13A22DDFF6C0024AA16 /* Roboto-Regular.ttf in Resources */,
 				31CE400B22B0E2A900EEAF78 /* Assets.xcassets in Resources */,
 				2EB9E13622DDFF620024AA16 /* Roboto-Medium.ttf in Resources */,
+				C2A3E44D2339E50F003CDB37 /* MapInfoView.xib in Resources */,
 				2EB9E13222DDFF560024AA16 /* Roboto-Bold.ttf in Resources */,
 				C23CE0AF232A296F00789E0B /* Localizable.strings in Resources */,
 				31CE400922B0E2A700EEAF78 /* Main.storyboard in Resources */,
@@ -506,23 +620,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EAF2CAF8BE41E8E864C81AB0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -543,6 +640,7 @@
 				31CE400222B0E2A700EEAF78 /* AppDelegate.swift in Sources */,
 				317141A423140B60005B1F5E /* HobbyData.swift in Sources */,
 				3117AEB222FC2FC4001686DC /* SelectedCategoriesContainerView.swift in Sources */,
+				C23CE0C223334A5600789E0B /* MapViewController.swift in Sources */,
 				3117AEB022FC2013001686DC /* FilterViewController.swift in Sources */,
 				3117AEB822FD5AD9001686DC /* CategoryFilterTableViewCell.swift in Sources */,
 				31CE403522B2118500EEAF78 /* HobbyEventData.swift in Sources */,
@@ -550,10 +648,12 @@
 				3117AECD230A84B4001686DC /* ModalDelegate.swift in Sources */,
 				317141A2230FC6D9005B1F5E /* WeekdayCollectionViewCell.swift in Sources */,
 				3117AEB422FD393C001686DC /* CategoryListViewController.swift in Sources */,
+				C2A3E4512339E848003CDB37 /* MapInfoView.swift in Sources */,
 				3117AEAC22F2CFC2001686DC /* HPAlert.swift in Sources */,
 				317141A0230FC687005B1F5E /* WeekDayCollectionView.swift in Sources */,
 				3117AECB2306B688001686DC /* Extensions.swift in Sources */,
 				C291F80023210FF00068CEB5 /* BorderedButton.swift in Sources */,
+				C2814C69233CDB6200440ECE /* POIItem.swift in Sources */,
 				31CE400422B0E2A700EEAF78 /* HomeViewController.swift in Sources */,
 				C2FAD61123169C6000CCF284 /* Config.swift in Sources */,
 				C276E9CF2326593D00BD1087 /* LocationListDelegate.swift in Sources */,
@@ -771,6 +871,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fi.haltu.harrastuspassi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = GoogleMapsUtils.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -794,6 +895,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fi.haltu.harrastuspassi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = GoogleMapsUtils.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

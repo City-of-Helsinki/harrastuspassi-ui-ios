@@ -23,7 +23,5 @@ class CategoryFlagView: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews();
         print("layout cell")
-    }
-    
-
+    } 
 }

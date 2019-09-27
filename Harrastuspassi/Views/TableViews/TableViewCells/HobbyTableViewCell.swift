@@ -20,9 +20,8 @@ class HobbyTableViewCell: UITableViewCell {
     func setHobbyEvents(hobbyEvent: HobbyEventData) {
         
         if let hobby = hobbyEvent.hobby, let imageUrl = hobby.image {
-            hobbyImage.image = nil;
             let url = URL (string: imageUrl)
-            hobbyImage.loadurl(url: url!)
+            hobbyImage.loadurl(url: url!, completition: nil);
         } else {
             hobbyImage.image = UIImage(named: "ic_panorama")
         }
@@ -42,18 +41,7 @@ class HobbyTableViewCell: UITableViewCell {
         title.text = hobbyEvent.hobby?.name
         icon.image = UIImage(named: "date_range")
     }
+    
 }
 
-extension UIImageView {
-    func loadurl(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
-        }
-    }
-}
+

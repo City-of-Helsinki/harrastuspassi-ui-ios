@@ -8,7 +8,9 @@
 
 import Foundation
 
-struct HobbyEventData : Codable {
+struct HobbyEventData : Codable, Hashable {
+    
+    
     let id : Int?
     let startDayOfWeek : Int?
     let hobby : HobbyData?
@@ -16,6 +18,10 @@ struct HobbyEventData : Codable {
     let endDate: String?
     let startTime : String?
     let endTime : String?
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(hobby?.id);
+    }
     
     enum CodingKeys: String, CodingKey {
         
@@ -26,6 +32,10 @@ struct HobbyEventData : Codable {
         case endDate = "end_date"
         case endTime = "end_time"
         case startTime = "start_time"
+    }
+    
+    static func == (lhs: HobbyEventData, rhs: HobbyEventData) -> Bool {
+        return lhs.hobby?.id == rhs.hobby?.id;
     }
 }
 
