@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GMUClusterManagerDelegate {
+class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GMUClusterManagerDelegate, GMUClusterRendererDelegate {
     
     @IBOutlet weak var mapView: GMSMapView!
     
@@ -71,7 +71,7 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
                 if(eventData.count == 0) {
                     return;
                 } else {
-                    self.hobbyData = Array(Set(eventData));
+                    self.hobbyData = eventData.uniques;
                     self.createMarkers(data: self.hobbyData, mapView: self.mapView);
                 }
             })
@@ -80,6 +80,10 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
     
     func applyQueryParamsToUrl(_ url: String) -> URL? {
         var urlComponents = URLComponents(string: url);
+        let defaults = UserDefaults.standard;
+        let latitude = defaults.float(forKey: DefaultKeys.Location.lat),
+            longitude = defaults.float(forKey: DefaultKeys.Location.lon);
+        print(latitude, longitude);
         urlComponents?.queryItems = []
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"))
         if filters.categories.count > 0 {
@@ -92,8 +96,13 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
                 urlComponents?.queryItems?.append(URLQueryItem(name: "start_weekday", value: String(id)))
             }
         }
+        //ordering=nearest&near_latitude=12.34567&near_longitude=12.34567
         urlComponents?.queryItems?.append(URLQueryItem(name: "start_time_from", value: Utils.formatTimeFrom(float: filters.times.minTime)));
         urlComponents?.queryItems?.append(URLQueryItem(name: "start_time_to", value: Utils.formatTimeFrom(float: filters.times.maxTime)));
+        urlComponents?.queryItems?.append(URLQueryItem(name: "ordering", value: "nearest"));
+        urlComponents?.queryItems?.append(URLQueryItem(name: "near_latitude", value: String(latitude)));
+        urlComponents?.queryItems?.append(URLQueryItem(name: "near_longitude", value: String(longitude)));
+
         return urlComponents?.url
     }
     
@@ -150,7 +159,9 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
         
         mapView.clear();
         
-        
+        let defaults = UserDefaults.standard;
+        let userLongitude = defaults.float(forKey: DefaultKeys.Location.lon);
+        let userLatitude = defaults.float(forKey: DefaultKeys.Location.lat);
 
         clusterManager.clearItems();
         
@@ -165,15 +176,23 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
         }
         
         mapView.clear();
+        let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: Double(userLatitude), longitude: Double(userLongitude)));
+        marker.userData = true;
+        let icon = imageWithImage(image: UIImage(named: "ic_my_location")!, scaledToSize: CGSize(width: 40, height: 40)).withRenderingMode(.alwaysTemplate);
+        let iconView = UIImageView(image: icon);
+        iconView.tintColor = UIColor(named: "mainColorLight");
+        marker.iconView = iconView;
+        marker.map = mapView;
         
         clusterManager.cluster();
     }
     
     func setupClusterManager() {
-        let iconGenerator = GMUDefaultClusterIconGenerator()
+        let iconGenerator = GMUDefaultClusterIconGenerator();
         let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
         let renderer = GMUDefaultClusterRenderer(mapView: mapView,
                                     clusterIconGenerator: iconGenerator)
+        renderer.delegate = self;
         self.clusterManager = GMUClusterManager(map: mapView, algorithm: algorithm,
                                                           renderer: renderer)
         clusterManager.setDelegate(self, mapDelegate: self)
@@ -187,9 +206,25 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
         return true
     }
     
+    func renderer(_ renderer: GMUClusterRenderer, willRenderMarker marker: GMSMarker) {
+        
+        if marker.userData is POIItem {
+            
+            let icon = imageWithImage(image: markerIcon!, scaledToSize: CGSize(width: 40, height: 40)).withRenderingMode(.alwaysTemplate);
+            let iconView = UIImageView(image: icon);
+            iconView.tintColor = UIColor(named: "mainColor");
+            marker.iconView = iconView;
+        } else if let cluster = marker.userData as? GMUCluster {
+            let icon = ClusterIcon(frame: CGRect(x: 0, y: 0, width: 40, height: 40), amountOfItems: cluster.items.count);
+            marker.iconView = icon;
+        }
+    }
+    
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         
-        let item = marker.userData as! POIItem;
+        guard let item = marker.userData as? POIItem else {
+            return nil;
+        }
         
         guard let index = item.id else {
             return nil;

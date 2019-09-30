@@ -104,7 +104,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
                     self.errorText.isHidden = false
                 } else {
                     self.errorText.isHidden = true
-                    self.hobbyData = Array(Set(eventData));
+                    self.hobbyData = eventData.uniques;
                     self.hobbyTableView.reloadData()
                 }
                 self.refreshControl.endRefreshing();
@@ -168,6 +168,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         var urlComponents = URLComponents(string: url);
         urlComponents?.queryItems = []
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"))
+        
+        let defaults = UserDefaults.standard;
+        let latitude = defaults.float(forKey: DefaultKeys.Location.lat),
+            longitude = defaults.float(forKey: DefaultKeys.Location.lon);
+        
         if filters.categories.count > 0 {
             for id in filters.categories {
                 urlComponents?.queryItems?.append(URLQueryItem(name: "category", value: String(id)))
@@ -180,6 +185,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         }
         urlComponents?.queryItems?.append(URLQueryItem(name: "start_time_from", value: Utils.formatTimeFrom(float: filters.times.minTime)));
         urlComponents?.queryItems?.append(URLQueryItem(name: "start_time_to", value: Utils.formatTimeFrom(float: filters.times.maxTime)));
+        urlComponents?.queryItems?.append(URLQueryItem(name: "ordering", value: "nearest"));
+        urlComponents?.queryItems?.append(URLQueryItem(name: "near_latitude", value: String(latitude)));
+        urlComponents?.queryItems?.append(URLQueryItem(name: "near_longitude", value: String(longitude)));
         return urlComponents?.url
     }
     

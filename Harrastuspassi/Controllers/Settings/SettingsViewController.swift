@@ -237,6 +237,10 @@ import CoreLocation
         var tmpLocations = savedLocations.reversed().filter {
             $0.lat != selectedLocation.lat && $0.lon != selectedLocation.lon
         }
+        if !locationUsageAllowed {
+            defaults.set(selectedLocation.lat, forKey: DefaultKeys.Location.lat);
+            defaults.set(selectedLocation.lon, forKey: DefaultKeys.Location.lon);
+        }
         tmpLocations.append(selectedLocation);
         defaults.set(try? PropertyListEncoder().encode(tmpLocations), forKey: DefaultKeys.Location.savedLocations);
         self.dismiss(animated: true, completion: nil);

@@ -56,6 +56,8 @@
 		C23CE0C223334A5600789E0B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23CE0C123334A5600789E0B /* MapViewController.swift */; };
 		C276E9C9232641F000BD1087 /* SettingsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C276E9C8232641F000BD1087 /* SettingsMapViewController.swift */; };
 		C276E9CF2326593D00BD1087 /* LocationListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C276E9CE2326593D00BD1087 /* LocationListDelegate.swift */; };
+		C27F5D69234223E700CBFFA4 /* ClusterIcon.xib in Resources */ = {isa = PBXBuildFile; fileRef = C27F5D68234223E700CBFFA4 /* ClusterIcon.xib */; };
+		C27F5D6B2342244700CBFFA4 /* ClusterIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27F5D6A2342244700CBFFA4 /* ClusterIcon.swift */; };
 		C2814C69233CDB6200440ECE /* POIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2814C68233CDB6200440ECE /* POIItem.swift */; };
 		C291F7FE232105420068CEB5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291F7FD232105420068CEB5 /* SettingsViewController.swift */; };
 		C291F80023210FF00068CEB5 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291F7FF23210FF00068CEB5 /* BorderedButton.swift */; };
@@ -141,6 +143,8 @@
 		C276E9CC23264EFF00BD1087 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
 		C276E9CD23264EFF00BD1087 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C276E9CE2326593D00BD1087 /* LocationListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListDelegate.swift; sourceTree = "<group>"; };
+		C27F5D68234223E700CBFFA4 /* ClusterIcon.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClusterIcon.xib; sourceTree = "<group>"; };
+		C27F5D6A2342244700CBFFA4 /* ClusterIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterIcon.swift; sourceTree = "<group>"; };
 		C2814C65233A145B00440ECE /* GoogleMapsUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoogleMapsUtils.h; sourceTree = "<group>"; };
 		C2814C68233CDB6200440ECE /* POIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIItem.swift; sourceTree = "<group>"; };
 		C291F7FD232105420068CEB5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 				C2FAD6122317AC7200CCF284 /* TimeFilterSlider.swift */,
 				C291F7FF23210FF00068CEB5 /* BorderedButton.swift */,
 				C2A3E4502339E848003CDB37 /* MapInfoView.swift */,
+				C27F5D6A2342244700CBFFA4 /* ClusterIcon.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -432,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				C2A3E44C2339E50F003CDB37 /* MapInfoView.xib */,
+				C27F5D68234223E700CBFFA4 /* ClusterIcon.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -556,6 +562,7 @@
 				2EB9E13222DDFF560024AA16 /* Roboto-Bold.ttf in Resources */,
 				C23CE0AF232A296F00789E0B /* Localizable.strings in Resources */,
 				31CE400922B0E2A700EEAF78 /* Main.storyboard in Resources */,
+				C27F5D69234223E700CBFFA4 /* ClusterIcon.xib in Resources */,
 				2EB9E13E22DDFF770024AA16 /* Roboto-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -650,6 +657,7 @@
 				3117AEB422FD393C001686DC /* CategoryListViewController.swift in Sources */,
 				C2A3E4512339E848003CDB37 /* MapInfoView.swift in Sources */,
 				3117AEAC22F2CFC2001686DC /* HPAlert.swift in Sources */,
+				C27F5D6B2342244700CBFFA4 /* ClusterIcon.swift in Sources */,
 				317141A0230FC687005B1F5E /* WeekDayCollectionView.swift in Sources */,
 				3117AECB2306B688001686DC /* Extensions.swift in Sources */,
 				C291F80023210FF00068CEB5 /* BorderedButton.swift in Sources */,
