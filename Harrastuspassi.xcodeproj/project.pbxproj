@@ -58,6 +58,8 @@
 		C276E9CF2326593D00BD1087 /* LocationListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C276E9CE2326593D00BD1087 /* LocationListDelegate.swift */; };
 		C27F5D69234223E700CBFFA4 /* ClusterIcon.xib in Resources */ = {isa = PBXBuildFile; fileRef = C27F5D68234223E700CBFFA4 /* ClusterIcon.xib */; };
 		C27F5D6B2342244700CBFFA4 /* ClusterIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27F5D6A2342244700CBFFA4 /* ClusterIcon.swift */; };
+		C27F5D6D234328C800CBFFA4 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27F5D6C234328C800CBFFA4 /* EventTableViewCell.swift */; };
+		C27F5D6F23446E6200CBFFA4 /* EventTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27F5D6E23446E6200CBFFA4 /* EventTableView.swift */; };
 		C2814C69233CDB6200440ECE /* POIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2814C68233CDB6200440ECE /* POIItem.swift */; };
 		C291F7FE232105420068CEB5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291F7FD232105420068CEB5 /* SettingsViewController.swift */; };
 		C291F80023210FF00068CEB5 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291F7FF23210FF00068CEB5 /* BorderedButton.swift */; };
@@ -145,6 +147,8 @@
 		C276E9CE2326593D00BD1087 /* LocationListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListDelegate.swift; sourceTree = "<group>"; };
 		C27F5D68234223E700CBFFA4 /* ClusterIcon.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClusterIcon.xib; sourceTree = "<group>"; };
 		C27F5D6A2342244700CBFFA4 /* ClusterIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterIcon.swift; sourceTree = "<group>"; };
+		C27F5D6C234328C800CBFFA4 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		C27F5D6E23446E6200CBFFA4 /* EventTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableView.swift; sourceTree = "<group>"; };
 		C2814C65233A145B00440ECE /* GoogleMapsUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoogleMapsUtils.h; sourceTree = "<group>"; };
 		C2814C68233CDB6200440ECE /* POIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIItem.swift; sourceTree = "<group>"; };
 		C291F7FD232105420068CEB5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -377,6 +381,7 @@
 				C291F8012321122B0068CEB5 /* LocationTableViewCell.swift */,
 				3117AEB722FD5AD9001686DC /* CategoryFilterTableViewCell.swift */,
 				2E1329A722D74B790060A3A1 /* HobbyTableViewCell.swift */,
+				C27F5D6C234328C800CBFFA4 /* EventTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -404,6 +409,7 @@
 			children = (
 				C23CE0BA23320EED00789E0B /* TableViewCells */,
 				3117AEBD2304056E001686DC /* CategoryFilterTableView.swift */,
+				C27F5D6E23446E6200CBFFA4 /* EventTableView.swift */,
 			);
 			path = TableViews;
 			sourceTree = "<group>";
@@ -638,6 +644,7 @@
 				C2FAD6132317AC7200CCF284 /* TimeFilterSlider.swift in Sources */,
 				C2EE6E352319237400ADF459 /* PannableScrollView.swift in Sources */,
 				C23CE0B5232A8B2500789E0B /* Colors.swift in Sources */,
+				C27F5D6F23446E6200CBFFA4 /* EventTableView.swift in Sources */,
 				3117AEC5230554AB001686DC /* DefaultKeys.swift in Sources */,
 				C291F8022321122B0068CEB5 /* LocationTableViewCell.swift in Sources */,
 				3117AEB622FD5940001686DC /* CategoryData.swift in Sources */,
@@ -664,6 +671,7 @@
 				C2814C69233CDB6200440ECE /* POIItem.swift in Sources */,
 				31CE400422B0E2A700EEAF78 /* HomeViewController.swift in Sources */,
 				C2FAD61123169C6000CCF284 /* Config.swift in Sources */,
+				C27F5D6D234328C800CBFFA4 /* EventTableViewCell.swift in Sources */,
 				C276E9CF2326593D00BD1087 /* LocationListDelegate.swift in Sources */,
 				3117AEA522F01497001686DC /* LocationData.swift in Sources */,
 				C291F7FE232105420068CEB5 /* SettingsViewController.swift in Sources */,

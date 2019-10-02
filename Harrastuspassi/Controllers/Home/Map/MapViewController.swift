@@ -66,7 +66,6 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
                 else {
                     return
             }
-            print(eventData)
             DispatchQueue.main.async(execute: {() in
                 if(eventData.count == 0) {
                     return;
@@ -182,6 +181,7 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
         let iconView = UIImageView(image: icon);
         iconView.tintColor = UIColor(named: "mainColorLight");
         marker.iconView = iconView;
+        marker.groundAnchor = CGPoint(x: 0.5, y: 0.5);
         marker.map = mapView;
         
         clusterManager.cluster();

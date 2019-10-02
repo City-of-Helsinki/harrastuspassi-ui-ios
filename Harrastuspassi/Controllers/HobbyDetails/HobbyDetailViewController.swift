@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 import Hero
 
-class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate {
+class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource {
     
     var panGR: UIPanGestureRecognizer!
     var hobbyEvent: HobbyEventData?
@@ -21,6 +21,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     var locationHeroID: String?
     var dayOfWeekLabelHeroID: String?
     var dismissStarted = false;
+    var eventData = [HobbyEventData]();
     
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -30,11 +31,11 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var dayOfWeekLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var eventTableView: EventTableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     
     var startingOffset: CGFloat = 0;
     
@@ -50,24 +51,14 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         imageView.hero.id = imageHeroID;
         titleLabel.hero.id = titleHeroID;
         locationLabel.hero.id = locationHeroID;
-        dayOfWeekLabel.hero.id = dayOfWeekLabelHeroID;
         closeButton.layer.zPosition = CGFloat(Float.greatestFiniteMagnitude);
         closeButton.hero.isEnabled = true;
         closeButton.hero.modifiers = [.duration(0.7), .translate(x:100), .useGlobalCoordinateSpace];
-        dayOfWeekLabel.adjustsFontSizeToFitWidth = true;
-        
         panGR = UIPanGestureRecognizer(target: self, action: #selector(handlePan(gestureRecognizer:)));
         panGR.delegate = self
         scrollView.addGestureRecognizer(panGR);
         scrollView.bounces = false;
         startingOffset = scrollView.contentOffset.y;
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy"
-        if let d = hobbyEvent?.startDayOfWeek {
-            dayOfWeekLabel.text = Weekdays().list.first{$0.id == d}?.name
-        }
-        
         closeButton.layer.cornerRadius = 15;
         closeButton.clipsToBounds = true;
         
@@ -83,6 +74,8 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
                 imageView.image = UIImage(named: "ic_panorama")
             }
         }
+        eventTableView.delegate = self;
+        eventTableView.dataSource = self;
         reloadData();
         setUpMapView();
     }
@@ -101,30 +94,21 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         getDateFormatter.dateFormat = "yyyy-MM-dd"
         let getTimeFormatter = DateFormatter()
         getTimeFormatter.dateFormat = "HH:mm:ss"
-        guard let event = hobbyEvent, let d = hobbyEvent?.startDate, let t = hobbyEvent?.startTime else {
+        guard let event = hobbyEvent else {
             return
         }
-        
-        let date = getDateFormatter.date(from: d)
-        let time = getTimeFormatter.date(from: t)
-        let dateOutputDateFormatter = DateFormatter()
-        dateOutputDateFormatter.dateFormat = "dd.MM.yyyy"
-        let timeOutputFormatter = DateFormatter()
-        timeOutputFormatter.dateFormat = "HH:mm"
-        
         organizerLabel.text = event.hobby?.organizer?.name
-        if let t = time { timeLabel.text = timeOutputFormatter.string(from: t) }
         locationLabel.text = event.hobby?.location?.name
         descriptionLabel.text = event.hobby?.description
-        dateLabel.adjustsFontSizeToFitWidth = true;
-        if let d = date { dateLabel.text = dateOutputDateFormatter.string(from: d) }
         guard let location = event.hobby?.location else {
             return
         }
         if let zipCode = location.zipCode, let address = location.address, let city = location.city {
             addressLabel.text = address + ", " + zipCode + ", " + city
         }
-        
+        activityIndicator.isHidden = false;
+        activityIndicator.startAnimating();
+        fetchUrl(urlString: Config.API_URL + "hobbyevents")
     }
     
     func setUpMapView() {
@@ -187,5 +171,99 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return nil;
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return eventData.count;
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil;
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventTableViewCell;
+        let event = eventData[indexPath.row];
+        if let index = event.startDayOfWeek {
+            cell.weekdayLabel.text = Weekdays().list[index-1].name;
+        }
+        let getDateFormatter  = DateFormatter()
+        getDateFormatter.dateFormat = "yyyy-MM-dd"
+        let getTimeFormatter = DateFormatter()
+        getTimeFormatter.dateFormat = "HH:mm:ss"
+        guard let d = event.startDate, let t = event.startTime, let et = event.endTime else {
+            return UITableViewCell();
+        }
+        let dateOutputDateFormatter = DateFormatter()
+        dateOutputDateFormatter.dateFormat = "dd.MM.yyyy"
+        let timeOutputFormatter = DateFormatter()
+        timeOutputFormatter.dateFormat = "HH:mm"
+        if let date = getDateFormatter.date(from: d), let time = getTimeFormatter.date(from: t), let endTime = getTimeFormatter.date(from: et) {
+            cell.dateLabel.text = dateOutputDateFormatter.string(from: date);
+            cell.timeLabel.text = timeOutputFormatter.string(from: time) + "-" + timeOutputFormatter.string(from: endTime)
+        }
+        return cell;
+    }
+    
+    // MARK: - Data Fetching
+    
+    func fetchUrl(urlString: String) {
+        let config = URLSessionConfiguration.default;
+        let session = URLSession(configuration: config);
+        var url: URL?;
+        url = applyQueryParamsToUrl(urlString);
+        let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
+    
+        task.resume();
+    }
+    
+    func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
+        print(response)
+        if let fetchedData = data {
+            var eventsData = [HobbyEventData]();
+            do {
+                eventsData = try JSONDecoder().decode([HobbyEventData].self, from: fetchedData)
+            } catch {
+                print(error)
+            }
+//            guard let eventsData = try?  else {
+//                    print("FAILED")
+//                    return
+//            }
+            print(eventsData)
+            DispatchQueue.main.async(execute: {() in
+                self.activityIndicator.stopAnimating();
+                self.activityIndicator.isHidden = true;
+                self.activityIndicator.removeFromSuperview();
+                self.eventTableView.tableFooterView = nil
+                if(eventsData.count == 0) {
+                    print("0 events")
+                    return;
+                } else {
+                    self.eventData = Array(eventsData.prefix(5));
+                    print(self.eventData.count)
+                    UIView.transition(with: self.eventTableView,
+                                      duration: 0.35,
+                                      options: .transitionCurlDown,
+                                      animations: { self.eventTableView.reloadData() })
+                }
+            })
+        }
+    }
+    
+    func applyQueryParamsToUrl(_ url: String) -> URL? {
+        var urlComponents = URLComponents(string: url);
+        urlComponents?.queryItems = []
+        urlComponents?.queryItems?.append(URLQueryItem(name: "hobby", value: String(hobbyEvent!.hobby!.id!)));
+        urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"));
+        return urlComponents?.url
     }
 }

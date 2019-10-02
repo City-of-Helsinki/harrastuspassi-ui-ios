@@ -91,11 +91,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
                     DispatchQueue.main.async(execute: {() in
                         self.errorText.isHidden = false
                         self.errorText.text = NSLocalizedString("Something went wrong", comment:"");
-                        
                     })
                     return
             }
-            print(eventData)
             DispatchQueue.main.async(execute: {() in
                 if(eventData.count == 0) {
                     self.hobbyData = Array(Set(eventData));
