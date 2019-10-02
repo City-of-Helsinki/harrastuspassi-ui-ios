@@ -16,105 +16,171 @@
 				D42315111F400C0605ACCD6B5CAF2178 /* PBXTargetDependency */,
 			);
 			name = GooglePlaces;
+			productName = GooglePlaces;
 		};
 		E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 46921981F609C5BA3CB72EC4EA41299D /* Build configuration list for PBXAggregateTarget "GoogleMaps" */;
+			buildConfigurationList = DFF332D8A742C155A131A60BAC940F3B /* Build configuration list for PBXAggregateTarget "GoogleMaps" */;
 			buildPhases = (
 			);
 			dependencies = (
 			);
 			name = GoogleMaps;
+			productName = GoogleMaps;
 		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		041CA92C0D46D81F87C1B18020FE9D92 /* CALayer+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B3CFD4B2E47EE4E9C0DCDBCA702E58 /* CALayer+Hero.swift */; };
-		06B0C6AE124E92EC5809C2A7030F2060 /* MatchPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC432F48B33620DAE9CD0DBEBF6B776 /* MatchPreprocessor.swift */; };
-		06C88826E89A352EACFE13784F08B7F6 /* HeroTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E105F15BDAF5645A15AE1DDB018B7EB4 /* HeroTransition.swift */; };
-		09F712FF369E1E3385EC183AEA98D462 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD608BCCF279B1277BB911F33106997F /* Foundation.framework */; };
-		0CFFBD55760461439DCD2E287895CF0C /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E79E44FF4CD661AF5C2A88044A3FE2E /* Animations.swift */; };
-		0D6BFBEBAF1D18452007F08B6DB37010 /* HeroViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D910A51065F9810268958FABB5E73E1 /* HeroViewControllerDelegate.swift */; };
-		0DCE2C313C121F613D50ACC3FE3EDFD0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 276842F3A283EE87124FE6C3EAAFD184 /* CoreGraphics.framework */; };
-		0FE5A90BC0B6621E2EA004264E3DB35E /* BasePreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2C6C7B8D7E577FE2452E56AFB37D6 /* BasePreprocessor.swift */; };
-		11F8AE060A4566C9D9135514A5C68914 /* HeroTransition+UIViewControllerTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A2D90498A145C4AB4CE5B01823D03A /* HeroTransition+UIViewControllerTransitioningDelegate.swift */; };
-		1808BFCB8294885EF9E8B8A4C8A94D58 /* RangeSeekSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3347AB180AB03A9634356EC8F78772FF /* RangeSeekSlider-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1D4A0EA4421D56B62087B001686F3792 /* HeroTransition+UITabBarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C025CCC4A9CA66D903679C7DDAFA31 /* HeroTransition+UITabBarControllerDelegate.swift */; };
-		27D2BB7855E00D79B875CBC6F3DB6D9F /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10725A5F752586B1F2212B417AB7FE9F /* Lexer.swift */; };
-		2CBBF6F1C1E540A30DC5DB1A53D3E8D9 /* Array+HeroModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C84B9E3392BB0F993CF47C7F507817 /* Array+HeroModifier.swift */; };
-		2D796693C82C88B236B517CC3BF3DD81 /* RevealingSplashView.h in Headers */ = {isa = PBXBuildFile; fileRef = CF8DF777A6E719BCD241E3049EB35C2E /* RevealingSplashView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2E8D7A67F82F92D81D014F2248C09597 /* HeroProgressRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5731417910C14A00A9FFBB2864EEBF0F /* HeroProgressRunner.swift */; };
-		2EF2351AA2011DC27C94F950B7FD8550 /* TapticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDFAB499AB5FAA15AE64DC65BD5C0B5 /* TapticEngine.swift */; };
-		334B4420C1D35AB5E97786B7EC59AF53 /* SplashAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE90204EBACD2754E4E62BEC722E11 /* SplashAnimatable.swift */; };
-		345301588CE2D5818996472BA109A6B2 /* RevealingSplashView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1608182BA82F48880ED117D782811C10 /* RevealingSplashView-dummy.m */; };
-		346F1121DE5579B550A08D85F01E81A7 /* RangeSeekSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D842143D53A439E724522C4E00C24E /* RangeSeekSlider.swift */; };
-		36461766F1FBCA4074DBF606F39F62F4 /* UIView+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761678027AC9F0AA8601C459815A56EB /* UIView+Hero.swift */; };
-		4440E4DBC6F58B3F38F1C30F6713A8A6 /* Pods-Harrastuspassi-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F2B480E4A7B2F3B13B99A1464080FC /* Pods-Harrastuspassi-dummy.m */; };
-		4763B2EC203665F41F33D93CF55EC1F1 /* HeroTransition+Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67A7CE449DF513DC9B0CD94D836D2ED /* HeroTransition+Animate.swift */; };
-		4C8CA3AC7D7E3484EA8B78C20FA345CA /* HeroModifier+Advanced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A14E027FEEAEF84C266178B751ACC8 /* HeroModifier+Advanced.swift */; };
-		52EBA869576A1B7FF128DB43C230EEE8 /* CascadePreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6AD45446F9A42C0259201CB00EEFF8 /* CascadePreprocessor.swift */; };
-		539247331D4D80E4E552FA040A59C197 /* HeroDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBDC25DC6B41BE0C881F18BBFD13F01 /* HeroDebugView.swift */; };
-		55704DD60E8BEE2188893CABB1AADE17 /* HeroContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C358D4A8C4CD1C6A3B7F73A34C55E0 /* HeroContext.swift */; };
-		5DDC3018F680E30345A04B35009712E7 /* CG+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392124FF29EA1D731B596C54F0C17BB /* CG+Hero.swift */; };
-		5DEDE15AAB513151B185392D0209F4BC /* HeroDebugPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418141F4F6C1EA4AFFB58B3619294553 /* HeroDebugPlugin.swift */; };
-		608632DA7CE64A8D37ACF3B8B11BD48D /* HeroModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742AFB441EC2D15DD1F2A54F2A8640CA /* HeroModifier.swift */; };
-		65E7526915C6C92F9DC44F140A3F0E60 /* HeroTargetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1ABAB24B874262FC7F85A1416B75F4 /* HeroTargetState.swift */; };
-		679E1C2EA93185E89E46AC2D7DF8BBB3 /* CAMediaTimingFunction+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060C581265E4088433748B56506CB5A2 /* CAMediaTimingFunction+Hero.swift */; };
-		72177310AEDF6C437F20DF4615CB21DB /* ConditionalPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9BB9EDF2BE6B4B5974F7F4C03608B9 /* ConditionalPreprocessor.swift */; };
-		770168DE52B4855A94437E5EB527EC84 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD608BCCF279B1277BB911F33106997F /* Foundation.framework */; };
-		776C8675E6F20EE4F8C7D7344D670BB1 /* SplashAnimationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99A2C0CCCDD1DF1E817F7AE31DF16D5 /* SplashAnimationType.swift */; };
-		82ECA2D5D9476F2AB4B528C863768A9D /* Pods-Harrastuspassi-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B4B51327F150FAB5F7AFBC78DA1BEAF8 /* Pods-Harrastuspassi-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		85D6216A7732A66EB560593B3A226820 /* HeroPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FCD85EC2F3DECC1E0F47CDD6197A45 /* HeroPlugin.swift */; };
-		86311C5BAE9AD426446199988F3567AF /* HeroCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3812EC91F7F40E81407F0F97DE28B946 /* HeroCompatible.swift */; };
-		8AB1E598B721098E1EB51F45D7D86629 /* HeroCoreAnimationViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F624F2F74C93DF0A8649791034667E0B /* HeroCoreAnimationViewContext.swift */; };
-		90B637ED180D169AF9776CEC5ABC4FE8 /* SwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7997EB9E4510B172D79B5255EC960A /* SwiftSupport.swift */; };
-		941CF8600D86F37CEF165DA6E7F3134A /* RevealingSplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0C1644310828CC62F6A08D0403835B /* RevealingSplashView.swift */; };
-		94C24F4688FC7D72E2EB70186B376B26 /* HeroTransition+Start.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881C56E9F29A4E3E32CDD18C03FA0B0 /* HeroTransition+Start.swift */; };
-		9A446D59771619CADF996E3FB77001EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD608BCCF279B1277BB911F33106997F /* Foundation.framework */; };
-		9A7AB4248E478CDA2C60C0DD5F97B66E /* HeroTransition+CustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0081A9006164405B9C1D144820079475 /* HeroTransition+CustomTransition.swift */; };
-		9AB91EA6A797C9DC7D59ECA44B4E0174 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B900C3C3913F957BEC390CDFED043D /* Regex.swift */; };
-		9B6A092AE6604A4763E6D0EEAD3C3D9B /* HeroTransitionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F3A5B24BFF46FC65B38C6060B6B81B /* HeroTransitionState.swift */; };
-		9E9A48A0F105255850019FF9D639F904 /* IgnoreSubviewModifiersPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF2FF21DABCD80226A29853EA0CEFA5 /* IgnoreSubviewModifiersPreprocessor.swift */; };
-		A5843C82FF9ACE79DDBC357FE61C08CC /* Hero-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2458454DF3AAFA9F7D57B9F985F98391 /* Hero-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A5E29FFF6ECF9FF58C0A9B572D603FD4 /* SourcePreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DEC575FD2FB2E3384B934361497542 /* SourcePreprocessor.swift */; };
-		A6A2559E024B45B600CC3CA211FE5B3A /* DispatchQueue+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D9D051C94B644E6237983004DA0A56 /* DispatchQueue+Hero.swift */; };
-		AA25FDDA3FE1E75463E2067B761761E7 /* UIViewController+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA64240B26E0B2F385A75E8050DABFBC /* UIViewController+Hero.swift */; };
-		BBB562E939DF58537B4EE216C7813FF7 /* UIKit+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9318FCDC5E1776FEC12CC44BAE733AD1 /* UIKit+Hero.swift */; };
-		C22AD7C3CA285C5E4F754B2D4AA71B52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD608BCCF279B1277BB911F33106997F /* Foundation.framework */; };
-		C3AB21A4DC75127283411720780552E8 /* HeroDefaultAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FE448749A78DE9180A4A23707B6B8 /* HeroDefaultAnimator.swift */; };
-		C4646B7D6A6176129F77BD6B565BFE36 /* Nodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CA621051CA9E53CDC722C738D6229 /* Nodes.swift */; };
-		C4DFF2EA6A6AD7648BA02AB0EDB0915A /* HeroStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06035C3F860615F19AEC1034D0BA4EB /* HeroStringConvertible.swift */; };
-		CC776C8B70A6644A8A23B66CE308E096 /* HeroTransition+Interactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB129910C83EFE14F334FC7233F5B0C /* HeroTransition+Interactive.swift */; };
-		CCAF138A54D9CCBE7EE681AB3A2FEE17 /* Hero-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE6D5BE02C75DB36229A05ED193CF8C /* Hero-dummy.m */; };
-		D3C970377C27DBB458631F4B28F6904E /* DefaultAnimationPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4CFA71BD9ECD92E7AFAE2029A23E9A /* DefaultAnimationPreprocessor.swift */; };
-		D5B1E67C77F1C26ED6606BFBB0791D66 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BDA658338AD3813D969D7011B56B8D /* UIKit.framework */; };
-		D91F76CB9193007B6FC71FF6F511B0F8 /* HeroTransition+UINavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8E1D1013C59A5EADF7D6D5C0837BE /* HeroTransition+UINavigationControllerDelegate.swift */; };
-		D9482577B4860BD359C1A55E173E4EE4 /* RangeSeekSliderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7515811393947B96AEBD860B55557E70 /* RangeSeekSliderDelegate.swift */; };
-		D9739FB131C5C02BA12A4E88F628EE12 /* HeroModifier+HeroStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E002F094295C28E7120666BB8DBE2B10 /* HeroModifier+HeroStringConvertible.swift */; };
-		DE80B9AF667DBF5CADB551C10380A9A8 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB23066A6779E2EC9E1B9495864458A /* Parser.swift */; };
-		DE8E776E8C471D1A399FC69AFDBA36DC /* HeroViewPropertyViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354608F4D8A6FFEBA9BF44C9B131D22 /* HeroViewPropertyViewContext.swift */; };
-		E4F1B141B0DD7084DA4002CA4EF6A589 /* HeroAnimatorViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5094ECFE3A7751B0BF2787165741D1 /* HeroAnimatorViewContext.swift */; };
-		F37A71B06EEFF6D96FA6CEC616734061 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BDA658338AD3813D969D7011B56B8D /* UIKit.framework */; };
-		F478B450905B29213993F76A223A52A4 /* RangeSeekSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D7ECFF094B83BD88430378D8FC25E81A /* RangeSeekSlider-dummy.m */; };
-		F5314F2BB4EBA2C5AC7C3EFB485C16DD /* RevealingSplashView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 356A5777CD031CCBFF82616781365516 /* RevealingSplashView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FD4BBEFE1DE51AEBB6E45C878A16A778 /* HeroTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542F8243AE9D4B55B1F33E8904CC8D53 /* HeroTypes.swift */; };
-		FE2F2C0C6E8AE25776E5668D725AC6DF /* HeroTransition+Complete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883B1C552FBB2F837EE9B4154A8F5C9D /* HeroTransition+Complete.swift */; };
+		0057349650F92769C8C81AB3852FF733 /* HeroDefaultAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DF3C31C991578FC30F71018F7EF92B /* HeroDefaultAnimator.swift */; };
+		090F5330D07719F9EFB310979E8BB40B /* GMUGridBasedClusterAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACDA3CDBA6D24AAF517563726C362A3 /* GMUGridBasedClusterAlgorithm.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		0A1E6B04915FF8F19C24F027B2BE3995 /* HeroTransition+UINavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB9101DA6787AD63E63E0D108EB882 /* HeroTransition+UINavigationControllerDelegate.swift */; };
+		0A5ACC85E81052CF8251B67A94E70C24 /* HeroProgressRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E3E0BEAB8A0C980F3A126E168155A9 /* HeroProgressRunner.swift */; };
+		0C4E1298262B0A284E2DF5D39BA8A626 /* HeroCoreAnimationViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FCCA5D5986D698E1729A95642D0E54 /* HeroCoreAnimationViewContext.swift */; };
+		0ED6742F38D9040F46B2315C2FC7A3C7 /* MatchPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BE5E41FE99BEA58FC915C96406B2B7 /* MatchPreprocessor.swift */; };
+		0EEB13715FC70530D31356E49BCC8C04 /* GMUDefaultClusterRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = AE3EC1FD936C3213EE34C613A5051B65 /* GMUDefaultClusterRenderer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1060DB7635874696C7881F1ED4CFF0D9 /* CascadePreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E276B4B4108152DD5B3BEA7C11700D4C /* CascadePreprocessor.swift */; };
+		10924A81EAF42DD63EB3F472F1E4BF4B /* GMUFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = E002EDD5F55803F6A096F1A84C51C77C /* GMUFeature.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		111413D10EB325C966F9EAE38002779E /* GMUNonHierarchicalDistanceBasedAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB800AEEE2DF71A23F462A66ABD172E /* GMUNonHierarchicalDistanceBasedAlgorithm.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		15743F96A5DD92BD3762EBD739A5B8A5 /* GMUGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = C97C7337EFAB8EB4F654385DFCA903BB /* GMUGradient.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		16578B160C197F233F9ACC7ED82523BB /* GMUDefaultClusterIconGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C3B77DCC781A3923A6BDDC8F432583E /* GMUDefaultClusterIconGenerator.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		169C1A0751F02C4E30A6BA7DE423F1D4 /* GMUDefaultClusterRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = AA484217196940C47D296B0D2D468507 /* GMUDefaultClusterRenderer.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		18118F2771E5922C56C08EBF5D258681 /* HeroTransition+Start.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851BCCA2EA321F854A92EB0C89984DAA /* HeroTransition+Start.swift */; };
+		19CD2D29139F168080A189EFFF97F71C /* HeroTransition+Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA004AD41D718A641E8A863BBAEC116 /* HeroTransition+Animate.swift */; };
+		1D013B00A188838729DC46BBF1EE8676 /* GMUStaticCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5FA6CB02F2A164FC5861DC701DF7A5 /* GMUStaticCluster.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		1E582F07B59DB2522959BB2355D734FD /* GMUMarkerClustering.h in Headers */ = {isa = PBXBuildFile; fileRef = 7099AA101C4989FB52FD13918770B69F /* GMUMarkerClustering.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1EB4933ABC82976E677D449C67B5A2DF /* CG+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAC91E8E3F17234455F6C426D27A221 /* CG+Hero.swift */; };
+		2144D57A0E792AFB299BA3B1D805DB04 /* HeroContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D92AEE25D7720F09460E5282FEC911 /* HeroContext.swift */; };
+		223EE73A719B0508312BC2E71727B833 /* HeroTargetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B3F7C2CFE4FA2EE704A905A8B7758 /* HeroTargetState.swift */; };
+		25DF278FE7FE75BFC8083E9367CCFBF9 /* GQTPointQuadTreeChild.m in Sources */ = {isa = PBXBuildFile; fileRef = A84273B6BE026B65E66EE10AAB3269A5 /* GQTPointQuadTreeChild.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		282A210FF127ACF5C96F466E6BC37ADD /* RevealingSplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706758A07A8CAAFF87DD11ADB27D5479 /* RevealingSplashView.swift */; };
+		2BEB75C6D25192C81DC7924952E8C96A /* GMUGroundOverlay.h in Headers */ = {isa = PBXBuildFile; fileRef = D81C4ABDB6C36E82DA05D73200837DDD /* GMUGroundOverlay.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2C4B3F455A6A917F7F227D2D145A3A1B /* HeroViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1897D7B8A88F70CCC4AAD6FFEB5CD0 /* HeroViewControllerDelegate.swift */; };
+		37EC9F6CCB9810BF91DBE51ECB4EDDA5 /* GMUWeightedLatLng.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A622C942220A3384053315D4CA6093 /* GMUWeightedLatLng.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		380E6A8E00B64C3715A65C549501CFEC /* GMUGroundOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CCCAD8F2DAC618BF1209BD889064FFC /* GMUGroundOverlay.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		39FA1087AFAB14D2AB766C2AB9CB0C5D /* UIViewController+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6C60353A45604914E93BBE1937B5FC /* UIViewController+Hero.swift */; };
+		3A422CED50252338054EF6F669DE2B4C /* HeroTransition+Complete.swift in Sources */ = {isa = PBXBuildFile; fileRef = A907E74F50697241529B2F6D9841C82A /* HeroTransition+Complete.swift */; };
+		3AACD23CC70C69D8985C956924C9D466 /* GQTPointQuadTreeItem.h in Headers */ = {isa = PBXBuildFile; fileRef = C0AE6F802A604D6A0A502E346EC716C7 /* GQTPointQuadTreeItem.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3BA8887BAFFC64B94DD3BBC79DBAD56A /* HeroAnimatorViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF112B034C2E976F21019C438C7247FA /* HeroAnimatorViewContext.swift */; };
+		405EDC8E6CF9880CAEA8B6489915BF1F /* Google-Maps-iOS-Utils-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 510AA9C1DC675671400D3C1CC9FCAF55 /* Google-Maps-iOS-Utils-dummy.m */; };
+		467727672DBE49D7F687FB56A49D5577 /* RevealingSplashView.h in Headers */ = {isa = PBXBuildFile; fileRef = BD92474A9B16A01A6288F8366C9E5BAB /* RevealingSplashView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		484D55B9B3A30C62BD6C28D1061E3368 /* GMUGeoJSONParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 52F238051FBA2AF55091C959D9CCBE4B /* GMUGeoJSONParser.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		485F329B07CE24A7A0B199C87F7D500F /* DispatchQueue+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F5184DDBB47DD129CBF2BA2CDE96C0 /* DispatchQueue+Hero.swift */; };
+		48D0278331EE13434A7A058C58D969DD /* GMUGeometryContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 57A6D105E316E65F9994F90BEA46E6E7 /* GMUGeometryContainer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		48D19A25D1B7050536B8D4CC08F38034 /* GMUPolygon.h in Headers */ = {isa = PBXBuildFile; fileRef = B166165CEE5D72C3BBBD164FB92ED507 /* GMUPolygon.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4ABD020D0FBEE4D00C6F1C37133AA45F /* SplashAnimationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103426F3DFAA6280BB6C43CA7CEFC59B /* SplashAnimationType.swift */; };
+		4AF44263D32E9E6004074294CB057988 /* GMUPlacemark.h in Headers */ = {isa = PBXBuildFile; fileRef = D43E7A705CBEF4FFA77D5F08179852CA /* GMUPlacemark.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4B0D15900DC79C04F99184DE6623E510 /* GMUClusterManager+Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = F86B011D09797B4278F4CBD56F2EC5B5 /* GMUClusterManager+Testing.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		50F0C5E94FACCE2CBC0975F049B16A85 /* GMUCluster.h in Headers */ = {isa = PBXBuildFile; fileRef = E2B4AEBC4A08D1FED2C0F77358A8A7B8 /* GMUCluster.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5143CEFDB686B36416E71CFA672940E4 /* IgnoreSubviewModifiersPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE697AD420B33A2DA0A53DC4D291871 /* IgnoreSubviewModifiersPreprocessor.swift */; };
+		53D8D5F703E29E222EB773121B6C1929 /* GMUClusterRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 99077FA5F344031E3C995E8D6F2B3D57 /* GMUClusterRenderer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		53F72857F906E82E8B6941D1B36DA362 /* GMUDefaultClusterRenderer+Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A7C48C81ECF61BA45AB43BA1539F17C /* GMUDefaultClusterRenderer+Testing.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		57ABC5085B43282CCDB8C4686CC13191 /* GQTPointQuadTreeChild.h in Headers */ = {isa = PBXBuildFile; fileRef = DFEAF53F544E4BA8AFB52ED238680E38 /* GQTPointQuadTreeChild.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5C74A9F4ADC2DC8F05D5A0E03E674557 /* Nodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0303BD778DC6A7B60CDE9D98BF2D65 /* Nodes.swift */; };
+		5D947BFC35F98F57DB213E369248D26D /* GMUKMLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = BEB35B3F2EBD318E3FDD3D3316781B94 /* GMUKMLParser.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5DAD0819EA0B87393B629E717AE6D67F /* GMULineString.h in Headers */ = {isa = PBXBuildFile; fileRef = 4866F72DE0A5B145EAA953EC690E0E9C /* GMULineString.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		60ED91849B54965EE9CF73860E840C02 /* GMUGradient.h in Headers */ = {isa = PBXBuildFile; fileRef = BD8D5212BE7A026ABCB0D7728DD1A173 /* GMUGradient.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		62EEFF622617BC49821DAEC5309EAE11 /* GMUWrappingDictionaryKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 454DF515459A03D7E43F4B21416D9617 /* GMUWrappingDictionaryKey.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6307A46297DC4979E7CAB3A2B7C23732 /* HeroTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971C8610CAD302B24BFD5CDF74CA2BBB /* HeroTransition.swift */; };
+		6619C2A3A19D572C385C141DDA84510A /* TapticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E71DBE02127204D999AA3D9BC15CFF8 /* TapticEngine.swift */; };
+		66EDD4BC2B567CFDCC10A62E999C078C /* GMULineString.m in Sources */ = {isa = PBXBuildFile; fileRef = E09E15951F102E04A9B584EB38C829FB /* GMULineString.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		670064340DF7520D59F192D1ECE103E3 /* GMUClusterManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B6545C0046E0D2646AADB6AD2439402F /* GMUClusterManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		67205CD9532ABD6D7502EA36A0F00035 /* GQTBounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D8C5D36CFFC3B278C13378055F308AC /* GQTBounds.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		689C7D176BC86DDC9BA9E45E86F18973 /* HeroTransitionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F8DA583D3ED318758D34A7C19FEB82 /* HeroTransitionState.swift */; };
+		68FB3BEFDB4DECC314E4F6691FBD00F8 /* GMUGridBasedClusterAlgorithm.h in Headers */ = {isa = PBXBuildFile; fileRef = F4E53B4E5F70AED6374B85AAEA4DE59A /* GMUGridBasedClusterAlgorithm.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6A50D90E911304389EACA13F2D9D7F0C /* CALayer+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCA59FA9C552778AE8CC7B5C998988F /* CALayer+Hero.swift */; };
+		6D4C230AE198FB3D31DE9BC3520BC384 /* GMUWeightedLatLng.h in Headers */ = {isa = PBXBuildFile; fileRef = D494B0C04833720D120EAB449810963F /* GMUWeightedLatLng.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6DC4ED736707F625DA73DCCEB00FD3FA /* HeroPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E867EED6C7A047E8E07199BC09B6026 /* HeroPlugin.swift */; };
+		7043110E39D33D1C3FA75CEE7EA47A8E /* GMUHeatmapTileLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = F73E0520B086A8F36DC5D18B6ADE6691 /* GMUHeatmapTileLayer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		70FFB923C58DC90F2E24992FC96CEDE7 /* GMUDefaultClusterIconGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 50330EDD6B3FA635C5D0F22EA465652E /* GMUDefaultClusterIconGenerator.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		716547B8F0E95640F573E93CEB1189AC /* GMUPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCE2C0520A1F3041327B088EB06042 /* GMUPoint.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		74D07586404D967ACF63BC4F98EB1A8B /* GMUPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = D519ECE02F1AADD424CED768BE94C403 /* GMUPolygon.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		771104335D2C3A3FD22699D4D4B55A98 /* HeroTransition+UITabBarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88842C7183B2B5D546C8A71D40C1436B /* HeroTransition+UITabBarControllerDelegate.swift */; };
+		776967DBAC3247C1FE2C79DFBA07731D /* HeroModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C768D8439A31D9D528E2FAE337D4577D /* HeroModifier.swift */; };
+		798A51EECB7DB78CB100F21C47540FE8 /* HeroStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16027B5FD299F132CA47FA51E0B8F170 /* HeroStringConvertible.swift */; };
+		7C9C9CDD06915D67CA40308ECC9C34DB /* HeroCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A2E8CF96B3A648276ABC4B80CE9D52 /* HeroCompatible.swift */; };
+		84A8592C88A9F89BC308D846E400EF41 /* GMUClusterIconGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = A235269D6BBDD95E57E8E1AED9760C2D /* GMUClusterIconGenerator.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		84ED96C229DD4CAAC02FBB7509538247 /* RevealingSplashView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 27076F36C10C899125A9C531F6265016 /* RevealingSplashView-dummy.m */; };
+		8510C4857C610101B976DF71BCAF285E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3BDF73A6CC2915431E9CC362B649A6 /* Parser.swift */; };
+		854D99766A5062F2F9F2E83DDB11ACE0 /* SwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B1443730578520A987C4F580F396D5 /* SwiftSupport.swift */; };
+		8C560F9D675BC01EEBFB2C3A7BE8CB64 /* GMUSimpleClusterAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A44D8CC7A42F2D4C440F7B83B7D4DA /* GMUSimpleClusterAlgorithm.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		907B1233406760F6B8C8A88D5333A1DB /* GMUHeatmapTileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A9382ECC23F14455C7DE551C9E2016D2 /* GMUHeatmapTileLayer.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		91C5730CDDE484B2442CAA0577EB6349 /* HeroDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DAA0EC9BAABC34B7355CD98EC726AD /* HeroDebugView.swift */; };
+		91EF23E215C08AE598D91EA9FCD584DC /* GMUStaticCluster.h in Headers */ = {isa = PBXBuildFile; fileRef = B5D7D3AA75A10E35BACC591DC4D46E27 /* GMUStaticCluster.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9407B5781BE5BD441CFD08BECAB7A4A0 /* GMUPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AD20D3C368D71918046E65E3996D163 /* GMUPoint.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		955F7C7ACB929A1161D06599FB223AC9 /* Pods-Harrastuspassi-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A349E9ADF3A42CDF0EEA5465457F4A6 /* Pods-Harrastuspassi-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		993999DF45CA4A48CC292E02639224BF /* RangeSeekSliderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FEBB3CF73DD503A4E6BE0EFD8C6329 /* RangeSeekSliderDelegate.swift */; };
+		9CA08E3C81BBACE8450B4D404544B33B /* GMUPlacemark.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C8C14A14499F6BA620C40B107AE273 /* GMUPlacemark.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		9D77D260AFC950250D40C418BAE084DC /* HeroModifier+HeroStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63EBEDE7BA652685A3FAC125C1EFD2 /* HeroModifier+HeroStringConvertible.swift */; };
+		9F37CAACB3D9627703C5AA501E28F745 /* GQTPointQuadTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 305553531A1FE568B34AA6D5261E0BFE /* GQTPointQuadTree.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A0AC896AF9712480A3C5938495E77294 /* GMUGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CCBA53EA9D44D8D1CDEAF4472A467CE /* GMUGeometry.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A10779084389E5997C8A079BA639B86B /* RangeSeekSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3F00260B3803B1005E6EBA59D9A668 /* RangeSeekSlider.swift */; };
+		A30F7E71AF2ECFA3574525CE997E1DC9 /* Hero-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B2AE54BDA45DB75E094CE8B818862298 /* Hero-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A6B59B0F9D48B6072C06778C8AA5BE96 /* GQTPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B94DD4C6AAAA9A3A6F2C6FF48FB7E37 /* GQTPoint.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		AA89DF9A812019688F688D93AA68B2A6 /* GMUWrappingDictionaryKey.m in Sources */ = {isa = PBXBuildFile; fileRef = E4CC05C4FBB1A97012F95B3DA8E7619A /* GMUWrappingDictionaryKey.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		AACE59C7207B43254E4A773938B130AD /* GMUGeoJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAC46382E4E78F675AF009BCA787D26 /* GMUGeoJSONParser.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		AD0AB4C07FDB836B401D4624B176FA69 /* GMUStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 831081B0136BACB9A513B6B3312EF065 /* GMUStyle.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		AD361DFEE68410059F6D433775E1F374 /* HeroViewPropertyViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D687582415EEB3F164A0A4B827B389D /* HeroViewPropertyViewContext.swift */; };
+		AF1E3484933B308DB4789D7C2D88A6C4 /* UIKit+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FAF74620107A12BF4D141416DB6F9C /* UIKit+Hero.swift */; };
+		B551593762021D4A63B40EF81F93200D /* Pods-Harrastuspassi-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C6B0561943C7AC7AC4737E6B3FB57B /* Pods-Harrastuspassi-dummy.m */; };
+		B63FB9194609D8D4AF421565E1D9D96E /* GMUGeometryCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = E4BDC45A700A11BA7D1AB379CC45E7B1 /* GMUGeometryCollection.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B80E85D7DBCB7A1A0AE39D3A1E3E3E8F /* RangeSeekSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A665E1DA6F2647AD5337F7A460D784F /* RangeSeekSlider-dummy.m */; };
+		B8161B5847BDFD4DB1C78501EF80CE5C /* GMUGeometryRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 23478BFF7500E8C930439325480E0FDA /* GMUGeometryRenderer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B847512204260978B922F3C2C4D7AF90 /* GMUGeometryCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB8A250319400C7C837EF9DC6C9CCE3 /* GMUGeometryCollection.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		BA60D44EDA0A3C088A9AF9B8B26F49BE /* SplashAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC28A650E10F6BBA27398C0414F0FA7 /* SplashAnimatable.swift */; };
+		BCCBC1475AB7260AC61F040FFDE2700F /* GMUKMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F67FFBA4570032CACFEA3AA8D4752D9 /* GMUKMLParser.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		BD8276F2FCF9B14C71F25CA6ED5C5DD9 /* GQTPointQuadTree.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB6CDCA10A3461492404A4DED3AE759 /* GQTPointQuadTree.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		BE264A26C07B6FD778C3720D8B6C9B1D /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3927E8752E70AD5491FFD91C20F0DC19 /* Animations.swift */; };
+		C02AFC1FAA7ABD546ACC2006F75248C1 /* HeroTransition+CustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6843F398375CE717552A1DC6F26ECCC7 /* HeroTransition+CustomTransition.swift */; };
+		C7E3D3BFB6DF51936B811AFA2A05D515 /* GMUFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A70AA223D51ED743C559943F7E2710F /* GMUFeature.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CC55704591393248B50FB632AEAE3C38 /* GMUGeometryRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E02D4F85F8A51A9FB4E9A3B921CDCE2 /* GMUGeometryRenderer.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
+		CF5150ACC6CA6EAB3FAB288C0C37A460 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5B7769724F35F56E6CE74439ED26C5 /* Regex.swift */; };
+		D22AB84BF8794AFB2BCB8BF643C8FA87 /* GMUDefaultClusterIconGenerator+Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = D022595F6C4E5219EB458D2423498D1B /* GMUDefaultClusterIconGenerator+Testing.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D3AE92FA293787B856F992E036E35B1C /* CAMediaTimingFunction+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED757B2F46F6EA1C1FE6705255E0AE82 /* CAMediaTimingFunction+Hero.swift */; };
+		D3FE3BEFC39AC558100BA810CAC6B5C1 /* BasePreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F2DC57B4BB101C3D77E576A8BACAD /* BasePreprocessor.swift */; };
+		D3FFDF49DCD09629F0934042742EEEEC /* HeroTransition+Interactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3B07E7BFC327EF9E1770AA21DD44C4 /* HeroTransition+Interactive.swift */; };
+		D5993DEB1B7966E605F2FF4027E1BED3 /* HeroTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E521D89B63CE0B05FD6B7B72897A2C1 /* HeroTypes.swift */; };
+		D7EF96076EA56A15920B97FFB9859D43 /* GMUClusterAlgorithm.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D9B2AB9BC062E735D49F025CFAC4DB5 /* GMUClusterAlgorithm.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D8AB3FEC1C1A024EEB3E6C5C77C887A6 /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238F4B853F2F8F16C1EED34D77F0083C /* Lexer.swift */; };
+		D96C47442A6F8F9BF9A988EE2E729326 /* GMUSimpleClusterAlgorithm.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FE8E4BCD6D7057AFFB55A624015D75 /* GMUSimpleClusterAlgorithm.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DB81D97E8173756B809F3F80F683F8AA /* GMUStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 67E61EC8E507BAE03004CE6820E5D532 /* GMUStyle.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DC340BF5E5DCDE31CA79CDE1F1C4C851 /* DefaultAnimationPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1BF3D0AB26A58767AED177E563D31F /* DefaultAnimationPreprocessor.swift */; };
+		E0C2BC9D8E52B5DB2E5AE18D16C06885 /* GMUClusterItem.h in Headers */ = {isa = PBXBuildFile; fileRef = B37832AFD6A7A5BD1F4BE352C6653836 /* GMUClusterItem.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E4267D70611BC3BDC3030833AE829F0E /* HeroTransition+UIViewControllerTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F11405E2E588C3CD2E6CD46EF70210 /* HeroTransition+UIViewControllerTransitioningDelegate.swift */; };
+		E79F500AE8E5FB3BFFB93DE66921EB84 /* HeroModifier+Advanced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDF78D87FFBA0DD050228E7B7D547B3 /* HeroModifier+Advanced.swift */; };
+		E7C297E471811897624FB3562FEFE3F3 /* Array+HeroModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACBECFFE6AC0117CA34B23F088DEA95 /* Array+HeroModifier.swift */; };
+		E8543483BCB3408FCB75EE3653980C37 /* RevealingSplashView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B98E510B8B659A45D0B61AA5925E3BC /* RevealingSplashView-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E9E19DDE553A36E422459CDAF2F95B8B /* UIView+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A1D87AD5A26FBC1C732186626CCB9E /* UIView+Hero.swift */; };
+		EBFECDF100141287E2B36AF8B5DA7DD0 /* HeroDebugPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DA1BBC7663542D6D4F59FDEF5EB38A /* HeroDebugPlugin.swift */; };
+		EC862C49A431CCE89BBEF1DC47A54B1D /* RangeSeekSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A4F6F99528AA7CFFEA7B5BC666D75E2C /* RangeSeekSlider-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		ED15D5A5DEFC73E26C97363508A1BC6B /* ConditionalPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189549C7D57A3E02ACDFAEBD4191698D /* ConditionalPreprocessor.swift */; };
+		F0E99FBCC0E558BDE68B72020F676DF3 /* GMUGeometryRenderer+Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = 68D3F7AD04B385D1A89D965087E474BC /* GMUGeometryRenderer+Testing.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F1061377A9328754F0771BD8E8EDBDD5 /* SourcePreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD01D02A5AE2C84247E51C409030B44D /* SourcePreprocessor.swift */; };
+		F1764A452D0C45B20A1AD88188C0DBA4 /* Hero-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E807F4F603821483974B753F8391C9B9 /* Hero-dummy.m */; };
+		F1CA8C5B712A582E49531041630E6F41 /* GMUNonHierarchicalDistanceBasedAlgorithm.h in Headers */ = {isa = PBXBuildFile; fileRef = 078DEF1A3C0E4960BB7F1764A6902E1D /* GMUNonHierarchicalDistanceBasedAlgorithm.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F4C7B6C50910B290C8DB7C8DA1539AEE /* GMUClusterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E4D65F51E9EDE46AD85101D5B5F42 /* GMUClusterManager.m */; settings = {COMPILER_FLAGS = "-fno-modules"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		38F52EA6CEDF47E486C5DDE5A2CD86F6 /* PBXContainerItemProxy */ = {
+		4758A50C3F18F6D50D2480414A5F90C3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = A16BB753FC705C22DAFCD8B7C1071A09;
 			remoteInfo = RevealingSplashView;
 		};
-		44EEB485769373D8620BE7FF8958CCA7 /* PBXContainerItemProxy */ = {
+		4D17670395AB18A7CDDB3FE3A31E5F4C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B3893AEA4D7DBB9A086E889FC469132D;
 			remoteInfo = Hero;
+		};
+		57B54F8A0B8CC88D8153485B676D67CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5B4BBC6DD552AC8943C7E22772FC1D3;
+			remoteInfo = GoogleMaps;
 		};
 		6EB1C2DD30E6564FC3135C9E8002D8F7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -123,503 +189,710 @@
 			remoteGlobalIDString = E5B4BBC6DD552AC8943C7E22772FC1D3;
 			remoteInfo = GoogleMaps;
 		};
-		ACC783CCF993E74B3A298F77BA555D7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4AFB864B337D1F74C1D79F4FC8F6C67F;
-			remoteInfo = RangeSeekSlider;
-		};
-		BF4912A2B540BABCDF84DC73DF6600C3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0C1885900810601510E0C632060FAF26;
-			remoteInfo = GooglePlaces;
-		};
-		C297423546AFF04388579AB15C0808A5 /* PBXContainerItemProxy */ = {
+		7184D4EFB4213781ABCEFD108BC493F6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E5B4BBC6DD552AC8943C7E22772FC1D3;
 			remoteInfo = GoogleMaps;
 		};
+		81C312DCF7C5F81F418113BA41DF4F92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AFB864B337D1F74C1D79F4FC8F6C67F;
+			remoteInfo = RangeSeekSlider;
+		};
+		DBF48BA9590C012E996EE9EB1CD01FD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0C1885900810601510E0C632060FAF26;
+			remoteInfo = GooglePlaces;
+		};
+		F44C68D89C284C7FDE68F21FFFC433FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5EEC7C2AA5BC7C67CFA2C7578AB62C7;
+			remoteInfo = "Google-Maps-iOS-Utils";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0081A9006164405B9C1D144820079475 /* HeroTransition+CustomTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroTransition+CustomTransition.swift"; path = "Sources/Transition/HeroTransition+CustomTransition.swift"; sourceTree = "<group>"; };
-		01BDA658338AD3813D969D7011B56B8D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		060C581265E4088433748B56506CB5A2 /* CAMediaTimingFunction+Hero.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CAMediaTimingFunction+Hero.swift"; path = "Sources/Extensions/CAMediaTimingFunction+Hero.swift"; sourceTree = "<group>"; };
-		0753C920F765FFB978294EC849BF1077 /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
-		0E79E44FF4CD661AF5C2A88044A3FE2E /* Animations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Animations.swift; path = RevealingSplashView/Animations.swift; sourceTree = "<group>"; };
-		0F6AD45446F9A42C0259201CB00EEFF8 /* CascadePreprocessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CascadePreprocessor.swift; path = Sources/Preprocessors/CascadePreprocessor.swift; sourceTree = "<group>"; };
-		10725A5F752586B1F2212B417AB7FE9F /* Lexer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Lexer.swift; path = Sources/Parser/Lexer.swift; sourceTree = "<group>"; };
-		13E778F4B833EE5D7ABE882406A8215E /* Hero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Hero.framework; path = Hero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1608182BA82F48880ED117D782811C10 /* RevealingSplashView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RevealingSplashView-dummy.m"; sourceTree = "<group>"; };
-		1BF2FF21DABCD80226A29853EA0CEFA5 /* IgnoreSubviewModifiersPreprocessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IgnoreSubviewModifiersPreprocessor.swift; path = Sources/Preprocessors/IgnoreSubviewModifiersPreprocessor.swift; sourceTree = "<group>"; };
-		21B900C3C3913F957BEC390CDFED043D /* Regex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Regex.swift; path = Sources/Parser/Regex.swift; sourceTree = "<group>"; };
-		2458454DF3AAFA9F7D57B9F985F98391 /* Hero-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Hero-umbrella.h"; sourceTree = "<group>"; };
-		247811D9AE8CD5E4627D2077F8E1603F /* Pods-Harrastuspassi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Harrastuspassi.debug.xcconfig"; sourceTree = "<group>"; };
-		24A14E027FEEAEF84C266178B751ACC8 /* HeroModifier+Advanced.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroModifier+Advanced.swift"; path = "Sources/HeroModifier+Advanced.swift"; sourceTree = "<group>"; };
-		276842F3A283EE87124FE6C3EAAFD184 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		28FCD85EC2F3DECC1E0F47CDD6197A45 /* HeroPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroPlugin.swift; path = Sources/HeroPlugin.swift; sourceTree = "<group>"; };
-		29A2D90498A145C4AB4CE5B01823D03A /* HeroTransition+UIViewControllerTransitioningDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroTransition+UIViewControllerTransitioningDelegate.swift"; path = "Sources/Transition/HeroTransition+UIViewControllerTransitioningDelegate.swift"; sourceTree = "<group>"; };
-		2EB23066A6779E2EC9E1B9495864458A /* Parser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Sources/Parser/Parser.swift; sourceTree = "<group>"; };
-		312F7583F0D87A0627ED7386B3557C68 /* RangeSeekSlider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RangeSeekSlider.xcconfig; sourceTree = "<group>"; };
-		3347AB180AB03A9634356EC8F78772FF /* RangeSeekSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RangeSeekSlider-umbrella.h"; sourceTree = "<group>"; };
-		33C84B9E3392BB0F993CF47C7F507817 /* Array+HeroModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+HeroModifier.swift"; path = "Sources/Extensions/Array+HeroModifier.swift"; sourceTree = "<group>"; };
-		356A5777CD031CCBFF82616781365516 /* RevealingSplashView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RevealingSplashView-umbrella.h"; sourceTree = "<group>"; };
-		36FB79F335450BCF8BD8E6FF6464EE31 /* RevealingSplashView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RevealingSplashView.xcconfig; sourceTree = "<group>"; };
-		3812EC91F7F40E81407F0F97DE28B946 /* HeroCompatible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroCompatible.swift; path = Sources/HeroCompatible.swift; sourceTree = "<group>"; };
-		3B4CFA71BD9ECD92E7AFAE2029A23E9A /* DefaultAnimationPreprocessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultAnimationPreprocessor.swift; path = Sources/Preprocessors/DefaultAnimationPreprocessor.swift; sourceTree = "<group>"; };
-		418141F4F6C1EA4AFFB58B3619294553 /* HeroDebugPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroDebugPlugin.swift; path = "Sources/Debug Plugin/HeroDebugPlugin.swift"; sourceTree = "<group>"; };
-		4354608F4D8A6FFEBA9BF44C9B131D22 /* HeroViewPropertyViewContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroViewPropertyViewContext.swift; path = Sources/Animator/HeroViewPropertyViewContext.swift; sourceTree = "<group>"; };
-		465CA621051CA9E53CDC722C738D6229 /* Nodes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Nodes.swift; path = Sources/Parser/Nodes.swift; sourceTree = "<group>"; };
-		474B4FC0411766B636D41C1161FF6640 /* GoogleMaps.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleMaps.xcconfig; sourceTree = "<group>"; };
-		47F2B480E4A7B2F3B13B99A1464080FC /* Pods-Harrastuspassi-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Harrastuspassi-dummy.m"; sourceTree = "<group>"; };
-		4C9372AF6F522A08350D9D7B83E17592 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
-		4DB129910C83EFE14F334FC7233F5B0C /* HeroTransition+Interactive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroTransition+Interactive.swift"; path = "Sources/Transition/HeroTransition+Interactive.swift"; sourceTree = "<group>"; };
-		537A6098603D7EA3FF8E2AC02C5A16E1 /* Pods-Harrastuspassi-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Harrastuspassi-resources.sh"; sourceTree = "<group>"; };
-		542F8243AE9D4B55B1F33E8904CC8D53 /* HeroTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroTypes.swift; path = Sources/HeroTypes.swift; sourceTree = "<group>"; };
-		549C316006723D6DDCDF874A78C0F738 /* Pods-Harrastuspassi-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Harrastuspassi-frameworks.sh"; sourceTree = "<group>"; };
-		55CC5D2BE319566888A7980C04AAA863 /* RevealingSplashView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RevealingSplashView-Info.plist"; sourceTree = "<group>"; };
-		5731417910C14A00A9FFBB2864EEBF0F /* HeroProgressRunner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroProgressRunner.swift; path = Sources/Transition/HeroProgressRunner.swift; sourceTree = "<group>"; };
-		5AC432F48B33620DAE9CD0DBEBF6B776 /* MatchPreprocessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MatchPreprocessor.swift; path = Sources/Preprocessors/MatchPreprocessor.swift; sourceTree = "<group>"; };
-		5CBDC25DC6B41BE0C881F18BBFD13F01 /* HeroDebugView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroDebugView.swift; path = "Sources/Debug Plugin/HeroDebugView.swift"; sourceTree = "<group>"; };
-		5D910A51065F9810268958FABB5E73E1 /* HeroViewControllerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroViewControllerDelegate.swift; path = Sources/HeroViewControllerDelegate.swift; sourceTree = "<group>"; };
-		63F3A5B24BFF46FC65B38C6060B6B81B /* HeroTransitionState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroTransitionState.swift; path = Sources/Transition/HeroTransitionState.swift; sourceTree = "<group>"; };
-		687FA4CE161005CEA7CD9BD823A941B0 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
-		711E628ACE791826D1A1DDC4F95F9ABB /* Pods_Harrastuspassi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Harrastuspassi.framework; path = "Pods-Harrastuspassi.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7305A203177D1DDA68614DBDC36FCCC7 /* Pods-Harrastuspassi-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Harrastuspassi-acknowledgements.markdown"; sourceTree = "<group>"; };
-		73D842143D53A439E724522C4E00C24E /* RangeSeekSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RangeSeekSlider.swift; path = Sources/RangeSeekSlider.swift; sourceTree = "<group>"; };
-		742AFB441EC2D15DD1F2A54F2A8640CA /* HeroModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroModifier.swift; path = Sources/HeroModifier.swift; sourceTree = "<group>"; };
-		7515811393947B96AEBD860B55557E70 /* RangeSeekSliderDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RangeSeekSliderDelegate.swift; path = Sources/RangeSeekSliderDelegate.swift; sourceTree = "<group>"; };
-		761678027AC9F0AA8601C459815A56EB /* UIView+Hero.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Hero.swift"; path = "Sources/Extensions/UIView+Hero.swift"; sourceTree = "<group>"; };
-		7736EF64B12224F3ED07681125FE3952 /* RangeSeekSlider-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RangeSeekSlider-Info.plist"; sourceTree = "<group>"; };
-		78DEC575FD2FB2E3384B934361497542 /* SourcePreprocessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SourcePreprocessor.swift; path = Sources/Preprocessors/SourcePreprocessor.swift; sourceTree = "<group>"; };
-		79DEA5A4C4293AAEBD776110CC3E2A67 /* Hero-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Hero-Info.plist"; sourceTree = "<group>"; };
-		7EACFDFC1E6D01B22C62AE240D1DF272 /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
-		7F9DCC89491A88C66C4E837453679A69 /* RangeSeekSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RangeSeekSlider.modulemap; sourceTree = "<group>"; };
-		81D9D051C94B644E6237983004DA0A56 /* DispatchQueue+Hero.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Hero.swift"; path = "Sources/Extensions/DispatchQueue+Hero.swift"; sourceTree = "<group>"; };
-		8440D461324FAF83A60EB7E97FD720FD /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
-		883B1C552FBB2F837EE9B4154A8F5C9D /* HeroTransition+Complete.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroTransition+Complete.swift"; path = "Sources/Transition/HeroTransition+Complete.swift"; sourceTree = "<group>"; };
-		89D2C6C7B8D7E577FE2452E56AFB37D6 /* BasePreprocessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BasePreprocessor.swift; path = Sources/Preprocessors/BasePreprocessor.swift; sourceTree = "<group>"; };
-		9318FCDC5E1776FEC12CC44BAE733AD1 /* UIKit+Hero.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIKit+Hero.swift"; path = "Sources/Extensions/UIKit+Hero.swift"; sourceTree = "<group>"; };
-		9392124FF29EA1D731B596C54F0C17BB /* CG+Hero.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CG+Hero.swift"; path = "Sources/Extensions/CG+Hero.swift"; sourceTree = "<group>"; };
-		9A0C1644310828CC62F6A08D0403835B /* RevealingSplashView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RevealingSplashView.swift; path = RevealingSplashView/RevealingSplashView.swift; sourceTree = "<group>"; };
-		9B037A72E347AB8F6AAAEEB41EBF7934 /* Pods-Harrastuspassi.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Harrastuspassi.modulemap"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9DDFAB499AB5FAA15AE64DC65BD5C0B5 /* TapticEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapticEngine.swift; path = Sources/TapticEngine.swift; sourceTree = "<group>"; };
-		A06035C3F860615F19AEC1034D0BA4EB /* HeroStringConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroStringConvertible.swift; path = Sources/Parser/HeroStringConvertible.swift; sourceTree = "<group>"; };
-		A881C56E9F29A4E3E32CDD18C03FA0B0 /* HeroTransition+Start.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroTransition+Start.swift"; path = "Sources/Transition/HeroTransition+Start.swift"; sourceTree = "<group>"; };
-		A9283D66132C03C5DF3A7B7F31A21D77 /* Pods-Harrastuspassi-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Harrastuspassi-Info.plist"; sourceTree = "<group>"; };
-		B2B8A70DE81D09780873B47B8FE6FD07 /* Hero.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Hero.xcconfig; sourceTree = "<group>"; };
-		B40F44EBA444C6737ED6E70AB6731FC2 /* Pods-Harrastuspassi-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Harrastuspassi-acknowledgements.plist"; sourceTree = "<group>"; };
-		B4B51327F150FAB5F7AFBC78DA1BEAF8 /* Pods-Harrastuspassi-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Harrastuspassi-umbrella.h"; sourceTree = "<group>"; };
-		B5D8E1D1013C59A5EADF7D6D5C0837BE /* HeroTransition+UINavigationControllerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroTransition+UINavigationControllerDelegate.swift"; path = "Sources/Transition/HeroTransition+UINavigationControllerDelegate.swift"; sourceTree = "<group>"; };
-		B8309E667C80A082423EE2155AE46B10 /* RevealingSplashView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RevealingSplashView.modulemap; sourceTree = "<group>"; };
-		BBC1059E7B167098E5F057D7C15CCCFB /* Pods-Harrastuspassi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Harrastuspassi.release.xcconfig"; sourceTree = "<group>"; };
-		BC9BB9EDF2BE6B4B5974F7F4C03608B9 /* ConditionalPreprocessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConditionalPreprocessor.swift; path = Sources/Preprocessors/ConditionalPreprocessor.swift; sourceTree = "<group>"; };
-		BD56534C888FE385363934C9ABE6E7B4 /* RevealingSplashView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RevealingSplashView.framework; path = RevealingSplashView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C027A7405E856E45431E9E1E7913015F /* RangeSeekSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RangeSeekSlider.framework; path = RangeSeekSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C6B3CFD4B2E47EE4E9C0DCDBCA702E58 /* CALayer+Hero.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CALayer+Hero.swift"; path = "Sources/Extensions/CALayer+Hero.swift"; sourceTree = "<group>"; };
-		C99A2C0CCCDD1DF1E817F7AE31DF16D5 /* SplashAnimationType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SplashAnimationType.swift; path = RevealingSplashView/SplashAnimationType.swift; sourceTree = "<group>"; };
-		CA64240B26E0B2F385A75E8050DABFBC /* UIViewController+Hero.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Hero.swift"; path = "Sources/Extensions/UIViewController+Hero.swift"; sourceTree = "<group>"; };
-		CF8DF777A6E719BCD241E3049EB35C2E /* RevealingSplashView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RevealingSplashView.h; path = RevealingSplashView/RevealingSplashView.h; sourceTree = "<group>"; };
-		D0059E9F2E2260587DC4216186371E87 /* Hero.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Hero.modulemap; sourceTree = "<group>"; };
-		D2BBF83AF820F9CA56C196882567B9E8 /* GooglePlaces.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GooglePlaces.xcconfig; sourceTree = "<group>"; };
-		D3C358D4A8C4CD1C6A3B7F73A34C55E0 /* HeroContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroContext.swift; path = Sources/HeroContext.swift; sourceTree = "<group>"; };
-		D67A7CE449DF513DC9B0CD94D836D2ED /* HeroTransition+Animate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroTransition+Animate.swift"; path = "Sources/Transition/HeroTransition+Animate.swift"; sourceTree = "<group>"; };
-		D7ECFF094B83BD88430378D8FC25E81A /* RangeSeekSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RangeSeekSlider-dummy.m"; sourceTree = "<group>"; };
-		D9402AAD979FC140E1A73392F09B24FE /* Hero-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Hero-prefix.pch"; sourceTree = "<group>"; };
-		E002F094295C28E7120666BB8DBE2B10 /* HeroModifier+HeroStringConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroModifier+HeroStringConvertible.swift"; path = "Sources/HeroModifier+HeroStringConvertible.swift"; sourceTree = "<group>"; };
-		E0C025CCC4A9CA66D903679C7DDAFA31 /* HeroTransition+UITabBarControllerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroTransition+UITabBarControllerDelegate.swift"; path = "Sources/Transition/HeroTransition+UITabBarControllerDelegate.swift"; sourceTree = "<group>"; };
-		E105F15BDAF5645A15AE1DDB018B7EB4 /* HeroTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroTransition.swift; path = Sources/Transition/HeroTransition.swift; sourceTree = "<group>"; };
-		EB1ABAB24B874262FC7F85A1416B75F4 /* HeroTargetState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroTargetState.swift; path = Sources/HeroTargetState.swift; sourceTree = "<group>"; };
-		ECE6D5BE02C75DB36229A05ED193CF8C /* Hero-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Hero-dummy.m"; sourceTree = "<group>"; };
-		ED7997EB9E4510B172D79B5255EC960A /* SwiftSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftSupport.swift; path = Sources/SwiftSupport.swift; sourceTree = "<group>"; };
-		EE0FE448749A78DE9180A4A23707B6B8 /* HeroDefaultAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroDefaultAnimator.swift; path = Sources/Animator/HeroDefaultAnimator.swift; sourceTree = "<group>"; };
-		F5DFB0F421257B8BE316B7EBE492B010 /* RevealingSplashView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RevealingSplashView-prefix.pch"; sourceTree = "<group>"; };
-		F624F2F74C93DF0A8649791034667E0B /* HeroCoreAnimationViewContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroCoreAnimationViewContext.swift; path = Sources/Animator/HeroCoreAnimationViewContext.swift; sourceTree = "<group>"; };
-		F77E296C08CD10232DA585107E48ADF3 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
-		F9FE90204EBACD2754E4E62BEC722E11 /* SplashAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SplashAnimatable.swift; path = RevealingSplashView/SplashAnimatable.swift; sourceTree = "<group>"; };
-		FB5094ECFE3A7751B0BF2787165741D1 /* HeroAnimatorViewContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroAnimatorViewContext.swift; path = Sources/Animator/HeroAnimatorViewContext.swift; sourceTree = "<group>"; };
-		FD608BCCF279B1277BB911F33106997F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		FDAF63E125111CB80CC2D21D1BA1D363 /* RangeSeekSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RangeSeekSlider-prefix.pch"; sourceTree = "<group>"; };
+		06130770EA779CCBFED296D1547AF2D6 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		078DEF1A3C0E4960BB7F1764A6902E1D /* GMUNonHierarchicalDistanceBasedAlgorithm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUNonHierarchicalDistanceBasedAlgorithm.h; path = src/Clustering/Algo/GMUNonHierarchicalDistanceBasedAlgorithm.h; sourceTree = "<group>"; };
+		09E3E0BEAB8A0C980F3A126E168155A9 /* HeroProgressRunner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroProgressRunner.swift; path = Sources/Transition/HeroProgressRunner.swift; sourceTree = "<group>"; };
+		0A349E9ADF3A42CDF0EEA5465457F4A6 /* Pods-Harrastuspassi-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Harrastuspassi-umbrella.h"; sourceTree = "<group>"; };
+		0B94DD4C6AAAA9A3A6F2C6FF48FB7E37 /* GQTPoint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GQTPoint.h; path = src/QuadTree/GQTPoint.h; sourceTree = "<group>"; };
+		0B98E510B8B659A45D0B61AA5925E3BC /* RevealingSplashView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RevealingSplashView-umbrella.h"; sourceTree = "<group>"; };
+		0F1897D7B8A88F70CCC4AAD6FFEB5CD0 /* HeroViewControllerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroViewControllerDelegate.swift; path = Sources/HeroViewControllerDelegate.swift; sourceTree = "<group>"; };
+		103426F3DFAA6280BB6C43CA7CEFC59B /* SplashAnimationType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SplashAnimationType.swift; path = RevealingSplashView/SplashAnimationType.swift; sourceTree = "<group>"; };
+		11D92AEE25D7720F09460E5282FEC911 /* HeroContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroContext.swift; path = Sources/HeroContext.swift; sourceTree = "<group>"; };
+		13E778F4B833EE5D7ABE882406A8215E /* libHero.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHero.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		14BCFDCF1B24BD865C63686EF7A4FEAA /* Google-Maps-iOS-Utils.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Google-Maps-iOS-Utils.xcconfig"; sourceTree = "<group>"; };
+		16027B5FD299F132CA47FA51E0B8F170 /* HeroStringConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroStringConvertible.swift; path = Sources/Parser/HeroStringConvertible.swift; sourceTree = "<group>"; };
+		189549C7D57A3E02ACDFAEBD4191698D /* ConditionalPreprocessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConditionalPreprocessor.swift; path = Sources/Preprocessors/ConditionalPreprocessor.swift; sourceTree = "<group>"; };
+		19A2E8CF96B3A648276ABC4B80CE9D52 /* HeroCompatible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroCompatible.swift; path = Sources/HeroCompatible.swift; sourceTree = "<group>"; };
+		1CCBA53EA9D44D8D1CDEAF4472A467CE /* GMUGeometry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUGeometry.h; path = src/Geometry/Model/GMUGeometry.h; sourceTree = "<group>"; };
+		1DB8A250319400C7C837EF9DC6C9CCE3 /* GMUGeometryCollection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUGeometryCollection.m; path = src/Geometry/Model/GMUGeometryCollection.m; sourceTree = "<group>"; };
+		23478BFF7500E8C930439325480E0FDA /* GMUGeometryRenderer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUGeometryRenderer.h; path = src/Geometry/GMUGeometryRenderer.h; sourceTree = "<group>"; };
+		238F4B853F2F8F16C1EED34D77F0083C /* Lexer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Lexer.swift; path = Sources/Parser/Lexer.swift; sourceTree = "<group>"; };
+		27076F36C10C899125A9C531F6265016 /* RevealingSplashView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RevealingSplashView-dummy.m"; sourceTree = "<group>"; };
+		27921D97129D229A9D2BFBCB45B0768F /* RevealingSplashView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RevealingSplashView.modulemap; sourceTree = "<group>"; };
+		2A3B07E7BFC327EF9E1770AA21DD44C4 /* HeroTransition+Interactive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroTransition+Interactive.swift"; path = "Sources/Transition/HeroTransition+Interactive.swift"; sourceTree = "<group>"; };
+		2ACDA3CDBA6D24AAF517563726C362A3 /* GMUGridBasedClusterAlgorithm.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUGridBasedClusterAlgorithm.m; path = src/Clustering/Algo/GMUGridBasedClusterAlgorithm.m; sourceTree = "<group>"; };
+		2E02D4F85F8A51A9FB4E9A3B921CDCE2 /* GMUGeometryRenderer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUGeometryRenderer.m; path = src/Geometry/GMUGeometryRenderer.m; sourceTree = "<group>"; };
+		2EE697AD420B33A2DA0A53DC4D291871 /* IgnoreSubviewModifiersPreprocessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IgnoreSubviewModifiersPreprocessor.swift; path = Sources/Preprocessors/IgnoreSubviewModifiersPreprocessor.swift; sourceTree = "<group>"; };
+		305553531A1FE568B34AA6D5261E0BFE /* GQTPointQuadTree.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GQTPointQuadTree.h; path = src/QuadTree/GQTPointQuadTree.h; sourceTree = "<group>"; };
+		361611616DA317EF911DCF3F539ACE65 /* RevealingSplashView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RevealingSplashView.xcconfig; sourceTree = "<group>"; };
+		3927E8752E70AD5491FFD91C20F0DC19 /* Animations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Animations.swift; path = RevealingSplashView/Animations.swift; sourceTree = "<group>"; };
+		3A70AA223D51ED743C559943F7E2710F /* GMUFeature.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUFeature.h; path = src/Geometry/Model/GMUFeature.h; sourceTree = "<group>"; };
+		3AA004AD41D718A641E8A863BBAEC116 /* HeroTransition+Animate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroTransition+Animate.swift"; path = "Sources/Transition/HeroTransition+Animate.swift"; sourceTree = "<group>"; };
+		3E71DBE02127204D999AA3D9BC15CFF8 /* TapticEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapticEngine.swift; path = Sources/TapticEngine.swift; sourceTree = "<group>"; };
+		3E867EED6C7A047E8E07199BC09B6026 /* HeroPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroPlugin.swift; path = Sources/HeroPlugin.swift; sourceTree = "<group>"; };
+		41A1D87AD5A26FBC1C732186626CCB9E /* UIView+Hero.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Hero.swift"; path = "Sources/Extensions/UIView+Hero.swift"; sourceTree = "<group>"; };
+		43AA682502379E6C3DF611922DC8BE43 /* Pods-Harrastuspassi-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Harrastuspassi-acknowledgements.plist"; sourceTree = "<group>"; };
+		44DA1BBC7663542D6D4F59FDEF5EB38A /* HeroDebugPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroDebugPlugin.swift; path = "Sources/Debug Plugin/HeroDebugPlugin.swift"; sourceTree = "<group>"; };
+		454DF515459A03D7E43F4B21416D9617 /* GMUWrappingDictionaryKey.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUWrappingDictionaryKey.h; path = src/Clustering/Algo/GMUWrappingDictionaryKey.h; sourceTree = "<group>"; };
+		4866F72DE0A5B145EAA953EC690E0E9C /* GMULineString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMULineString.h; path = src/Geometry/Model/GMULineString.h; sourceTree = "<group>"; };
+		48FEBB3CF73DD503A4E6BE0EFD8C6329 /* RangeSeekSliderDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RangeSeekSliderDelegate.swift; path = Sources/RangeSeekSliderDelegate.swift; sourceTree = "<group>"; };
+		4AD20D3C368D71918046E65E3996D163 /* GMUPoint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUPoint.h; path = src/Geometry/Model/GMUPoint.h; sourceTree = "<group>"; };
+		4C1BF3D0AB26A58767AED177E563D31F /* DefaultAnimationPreprocessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultAnimationPreprocessor.swift; path = Sources/Preprocessors/DefaultAnimationPreprocessor.swift; sourceTree = "<group>"; };
+		4C697F8BD765E99249F254D2E9333E18 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
+		4D5B7769724F35F56E6CE74439ED26C5 /* Regex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Regex.swift; path = Sources/Parser/Regex.swift; sourceTree = "<group>"; };
+		50330EDD6B3FA635C5D0F22EA465652E /* GMUDefaultClusterIconGenerator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUDefaultClusterIconGenerator.m; path = src/Clustering/View/GMUDefaultClusterIconGenerator.m; sourceTree = "<group>"; };
+		5067018CC61D424B31A828E288778737 /* Hero.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Hero.modulemap; sourceTree = "<group>"; };
+		510AA9C1DC675671400D3C1CC9FCAF55 /* Google-Maps-iOS-Utils-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Google-Maps-iOS-Utils-dummy.m"; sourceTree = "<group>"; };
+		52E655F13A80AA84E30B375D665370C2 /* GoogleMaps.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleMaps.xcconfig; sourceTree = "<group>"; };
+		52F238051FBA2AF55091C959D9CCBE4B /* GMUGeoJSONParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUGeoJSONParser.h; path = src/Geometry/GMUGeoJSONParser.h; sourceTree = "<group>"; };
+		57A6D105E316E65F9994F90BEA46E6E7 /* GMUGeometryContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUGeometryContainer.h; path = src/Geometry/Model/GMUGeometryContainer.h; sourceTree = "<group>"; };
+		5A63EBEDE7BA652685A3FAC125C1EFD2 /* HeroModifier+HeroStringConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroModifier+HeroStringConvertible.swift"; path = "Sources/HeroModifier+HeroStringConvertible.swift"; sourceTree = "<group>"; };
+		5A7C48C81ECF61BA45AB43BA1539F17C /* GMUDefaultClusterRenderer+Testing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GMUDefaultClusterRenderer+Testing.h"; path = "src/Clustering/View/GMUDefaultClusterRenderer+Testing.h"; sourceTree = "<group>"; };
+		5ACBECFFE6AC0117CA34B23F088DEA95 /* Array+HeroModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+HeroModifier.swift"; path = "Sources/Extensions/Array+HeroModifier.swift"; sourceTree = "<group>"; };
+		5BBCE2C0520A1F3041327B088EB06042 /* GMUPoint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUPoint.m; path = src/Geometry/Model/GMUPoint.m; sourceTree = "<group>"; };
+		5CA9E6FE438CE79CD76FA3B34CC95836 /* libGoogle-Maps-iOS-Utils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libGoogle-Maps-iOS-Utils.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CCCAD8F2DAC618BF1209BD889064FFC /* GMUGroundOverlay.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUGroundOverlay.m; path = src/Geometry/Model/GMUGroundOverlay.m; sourceTree = "<group>"; };
+		5D1B3F7C2CFE4FA2EE704A905A8B7758 /* HeroTargetState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroTargetState.swift; path = Sources/HeroTargetState.swift; sourceTree = "<group>"; };
+		5D687582415EEB3F164A0A4B827B389D /* HeroViewPropertyViewContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroViewPropertyViewContext.swift; path = Sources/Animator/HeroViewPropertyViewContext.swift; sourceTree = "<group>"; };
+		5F6C60353A45604914E93BBE1937B5FC /* UIViewController+Hero.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Hero.swift"; path = "Sources/Extensions/UIViewController+Hero.swift"; sourceTree = "<group>"; };
+		61C6B0561943C7AC7AC4737E6B3FB57B /* Pods-Harrastuspassi-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Harrastuspassi-dummy.m"; sourceTree = "<group>"; };
+		61C8C14A14499F6BA620C40B107AE273 /* GMUPlacemark.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUPlacemark.m; path = src/Geometry/Model/GMUPlacemark.m; sourceTree = "<group>"; };
+		62F5184DDBB47DD129CBF2BA2CDE96C0 /* DispatchQueue+Hero.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Hero.swift"; path = "Sources/Extensions/DispatchQueue+Hero.swift"; sourceTree = "<group>"; };
+		65DAA0EC9BAABC34B7355CD98EC726AD /* HeroDebugView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroDebugView.swift; path = "Sources/Debug Plugin/HeroDebugView.swift"; sourceTree = "<group>"; };
+		66F9A7FCD2B8A9CF8ACACA584FD831AC /* GooglePlaces.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GooglePlaces.xcconfig; sourceTree = "<group>"; };
+		67E61EC8E507BAE03004CE6820E5D532 /* GMUStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUStyle.h; path = src/Geometry/Model/GMUStyle.h; sourceTree = "<group>"; };
+		6843F398375CE717552A1DC6F26ECCC7 /* HeroTransition+CustomTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroTransition+CustomTransition.swift"; path = "Sources/Transition/HeroTransition+CustomTransition.swift"; sourceTree = "<group>"; };
+		68D3F7AD04B385D1A89D965087E474BC /* GMUGeometryRenderer+Testing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GMUGeometryRenderer+Testing.h"; path = "src/Geometry/GMUGeometryRenderer+Testing.h"; sourceTree = "<group>"; };
+		6AC28A650E10F6BBA27398C0414F0FA7 /* SplashAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SplashAnimatable.swift; path = RevealingSplashView/SplashAnimatable.swift; sourceTree = "<group>"; };
+		6C3B77DCC781A3923A6BDDC8F432583E /* GMUDefaultClusterIconGenerator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUDefaultClusterIconGenerator.h; path = src/Clustering/View/GMUDefaultClusterIconGenerator.h; sourceTree = "<group>"; };
+		6D8C5D36CFFC3B278C13378055F308AC /* GQTBounds.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GQTBounds.h; path = src/QuadTree/GQTBounds.h; sourceTree = "<group>"; };
+		6EAC91E8E3F17234455F6C426D27A221 /* CG+Hero.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CG+Hero.swift"; path = "Sources/Extensions/CG+Hero.swift"; sourceTree = "<group>"; };
+		6EDF78D87FFBA0DD050228E7B7D547B3 /* HeroModifier+Advanced.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroModifier+Advanced.swift"; path = "Sources/HeroModifier+Advanced.swift"; sourceTree = "<group>"; };
+		6F67FFBA4570032CACFEA3AA8D4752D9 /* GMUKMLParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUKMLParser.m; path = src/Geometry/GMUKMLParser.m; sourceTree = "<group>"; };
+		706758A07A8CAAFF87DD11ADB27D5479 /* RevealingSplashView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RevealingSplashView.swift; path = RevealingSplashView/RevealingSplashView.swift; sourceTree = "<group>"; };
+		7099AA101C4989FB52FD13918770B69F /* GMUMarkerClustering.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUMarkerClustering.h; path = src/Clustering/GMUMarkerClustering.h; sourceTree = "<group>"; };
+		711E628ACE791826D1A1DDC4F95F9ABB /* libPods-Harrastuspassi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Harrastuspassi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		79A622C942220A3384053315D4CA6093 /* GMUWeightedLatLng.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUWeightedLatLng.m; path = src/Heatmap/GMUWeightedLatLng.m; sourceTree = "<group>"; };
+		79BE5E41FE99BEA58FC915C96406B2B7 /* MatchPreprocessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MatchPreprocessor.swift; path = Sources/Preprocessors/MatchPreprocessor.swift; sourceTree = "<group>"; };
+		79FCCA5D5986D698E1729A95642D0E54 /* HeroCoreAnimationViewContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroCoreAnimationViewContext.swift; path = Sources/Animator/HeroCoreAnimationViewContext.swift; sourceTree = "<group>"; };
+		7A0BBF6C01818039F3943B97D6476DA8 /* Pods-Harrastuspassi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Harrastuspassi.release.xcconfig"; sourceTree = "<group>"; };
+		7D9B2AB9BC062E735D49F025CFAC4DB5 /* GMUClusterAlgorithm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUClusterAlgorithm.h; path = src/Clustering/Algo/GMUClusterAlgorithm.h; sourceTree = "<group>"; };
+		7E0303BD778DC6A7B60CDE9D98BF2D65 /* Nodes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Nodes.swift; path = Sources/Parser/Nodes.swift; sourceTree = "<group>"; };
+		80B1443730578520A987C4F580F396D5 /* SwiftSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftSupport.swift; path = Sources/SwiftSupport.swift; sourceTree = "<group>"; };
+		831081B0136BACB9A513B6B3312EF065 /* GMUStyle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUStyle.m; path = src/Geometry/Model/GMUStyle.m; sourceTree = "<group>"; };
+		851BCCA2EA321F854A92EB0C89984DAA /* HeroTransition+Start.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroTransition+Start.swift"; path = "Sources/Transition/HeroTransition+Start.swift"; sourceTree = "<group>"; };
+		88842C7183B2B5D546C8A71D40C1436B /* HeroTransition+UITabBarControllerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroTransition+UITabBarControllerDelegate.swift"; path = "Sources/Transition/HeroTransition+UITabBarControllerDelegate.swift"; sourceTree = "<group>"; };
+		8A665E1DA6F2647AD5337F7A460D784F /* RangeSeekSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RangeSeekSlider-dummy.m"; sourceTree = "<group>"; };
+		8CAC46382E4E78F675AF009BCA787D26 /* GMUGeoJSONParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUGeoJSONParser.m; path = src/Geometry/GMUGeoJSONParser.m; sourceTree = "<group>"; };
+		8D25F189244F29322E8AC6692FB7FD23 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		8F3E4D65F51E9EDE46AD85101D5B5F42 /* GMUClusterManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUClusterManager.m; path = src/Clustering/GMUClusterManager.m; sourceTree = "<group>"; };
+		8FB800AEEE2DF71A23F462A66ABD172E /* GMUNonHierarchicalDistanceBasedAlgorithm.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUNonHierarchicalDistanceBasedAlgorithm.m; path = src/Clustering/Algo/GMUNonHierarchicalDistanceBasedAlgorithm.m; sourceTree = "<group>"; };
+		964F2DC57B4BB101C3D77E576A8BACAD /* BasePreprocessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BasePreprocessor.swift; path = Sources/Preprocessors/BasePreprocessor.swift; sourceTree = "<group>"; };
+		971C8610CAD302B24BFD5CDF74CA2BBB /* HeroTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroTransition.swift; path = Sources/Transition/HeroTransition.swift; sourceTree = "<group>"; };
+		972BA53355EC84ABE2E7CDD14899CD87 /* RevealingSplashView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RevealingSplashView-prefix.pch"; sourceTree = "<group>"; };
+		99077FA5F344031E3C995E8D6F2B3D57 /* GMUClusterRenderer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUClusterRenderer.h; path = src/Clustering/View/GMUClusterRenderer.h; sourceTree = "<group>"; };
+		99AB612E3EBA8D4E4E76DA851BF8B5B6 /* RangeSeekSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RangeSeekSlider.modulemap; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E521D89B63CE0B05FD6B7B72897A2C1 /* HeroTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroTypes.swift; path = Sources/HeroTypes.swift; sourceTree = "<group>"; };
+		9FCA59FA9C552778AE8CC7B5C998988F /* CALayer+Hero.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CALayer+Hero.swift"; path = "Sources/Extensions/CALayer+Hero.swift"; sourceTree = "<group>"; };
+		A235269D6BBDD95E57E8E1AED9760C2D /* GMUClusterIconGenerator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUClusterIconGenerator.h; path = src/Clustering/View/GMUClusterIconGenerator.h; sourceTree = "<group>"; };
+		A3EB82B66D51F154B7E6FD27E87597BD /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
+		A3EED54A4651C08BF625408EA648722B /* Pods-Harrastuspassi.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Harrastuspassi.modulemap"; sourceTree = "<group>"; };
+		A4F6F99528AA7CFFEA7B5BC666D75E2C /* RangeSeekSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RangeSeekSlider-umbrella.h"; sourceTree = "<group>"; };
+		A5BB9101DA6787AD63E63E0D108EB882 /* HeroTransition+UINavigationControllerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroTransition+UINavigationControllerDelegate.swift"; path = "Sources/Transition/HeroTransition+UINavigationControllerDelegate.swift"; sourceTree = "<group>"; };
+		A84273B6BE026B65E66EE10AAB3269A5 /* GQTPointQuadTreeChild.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GQTPointQuadTreeChild.m; path = src/QuadTree/GQTPointQuadTreeChild.m; sourceTree = "<group>"; };
+		A907E74F50697241529B2F6D9841C82A /* HeroTransition+Complete.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroTransition+Complete.swift"; path = "Sources/Transition/HeroTransition+Complete.swift"; sourceTree = "<group>"; };
+		A9382ECC23F14455C7DE551C9E2016D2 /* GMUHeatmapTileLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUHeatmapTileLayer.m; path = src/Heatmap/GMUHeatmapTileLayer.m; sourceTree = "<group>"; };
+		AA484217196940C47D296B0D2D468507 /* GMUDefaultClusterRenderer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUDefaultClusterRenderer.m; path = src/Clustering/View/GMUDefaultClusterRenderer.m; sourceTree = "<group>"; };
+		AD01D02A5AE2C84247E51C409030B44D /* SourcePreprocessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SourcePreprocessor.swift; path = Sources/Preprocessors/SourcePreprocessor.swift; sourceTree = "<group>"; };
+		AE3EC1FD936C3213EE34C613A5051B65 /* GMUDefaultClusterRenderer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUDefaultClusterRenderer.h; path = src/Clustering/View/GMUDefaultClusterRenderer.h; sourceTree = "<group>"; };
+		B090E313789A6435A21E511DF97677AD /* Hero-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Hero-prefix.pch"; sourceTree = "<group>"; };
+		B166165CEE5D72C3BBBD164FB92ED507 /* GMUPolygon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUPolygon.h; path = src/Geometry/Model/GMUPolygon.h; sourceTree = "<group>"; };
+		B1A44D8CC7A42F2D4C440F7B83B7D4DA /* GMUSimpleClusterAlgorithm.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUSimpleClusterAlgorithm.m; path = src/Clustering/Algo/GMUSimpleClusterAlgorithm.m; sourceTree = "<group>"; };
+		B2AE54BDA45DB75E094CE8B818862298 /* Hero-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Hero-umbrella.h"; sourceTree = "<group>"; };
+		B37832AFD6A7A5BD1F4BE352C6653836 /* GMUClusterItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUClusterItem.h; path = src/Clustering/GMUClusterItem.h; sourceTree = "<group>"; };
+		B3E8F7EACBB4A6817CE0B1BB81D0AE3A /* Google-Maps-iOS-Utils-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Google-Maps-iOS-Utils-prefix.pch"; sourceTree = "<group>"; };
+		B5D7D3AA75A10E35BACC591DC4D46E27 /* GMUStaticCluster.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUStaticCluster.h; path = src/Clustering/GMUStaticCluster.h; sourceTree = "<group>"; };
+		B6545C0046E0D2646AADB6AD2439402F /* GMUClusterManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUClusterManager.h; path = src/Clustering/GMUClusterManager.h; sourceTree = "<group>"; };
+		B9E3EF4957F3BC07B715F1095EDA4283 /* Pods-Harrastuspassi-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Harrastuspassi-acknowledgements.markdown"; sourceTree = "<group>"; };
+		BD56534C888FE385363934C9ABE6E7B4 /* libRevealingSplashView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRevealingSplashView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD8D5212BE7A026ABCB0D7728DD1A173 /* GMUGradient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUGradient.h; path = src/Heatmap/GMUGradient.h; sourceTree = "<group>"; };
+		BD92474A9B16A01A6288F8366C9E5BAB /* RevealingSplashView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RevealingSplashView.h; path = RevealingSplashView/RevealingSplashView.h; sourceTree = "<group>"; };
+		BDB6CDCA10A3461492404A4DED3AE759 /* GQTPointQuadTree.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GQTPointQuadTree.m; path = src/QuadTree/GQTPointQuadTree.m; sourceTree = "<group>"; };
+		BEB35B3F2EBD318E3FDD3D3316781B94 /* GMUKMLParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUKMLParser.h; path = src/Geometry/GMUKMLParser.h; sourceTree = "<group>"; };
+		C027A7405E856E45431E9E1E7913015F /* libRangeSeekSlider.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRangeSeekSlider.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0AE6F802A604D6A0A502E346EC716C7 /* GQTPointQuadTreeItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GQTPointQuadTreeItem.h; path = src/QuadTree/GQTPointQuadTreeItem.h; sourceTree = "<group>"; };
+		C768D8439A31D9D528E2FAE337D4577D /* HeroModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroModifier.swift; path = Sources/HeroModifier.swift; sourceTree = "<group>"; };
+		C97C7337EFAB8EB4F654385DFCA903BB /* GMUGradient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUGradient.m; path = src/Heatmap/GMUGradient.m; sourceTree = "<group>"; };
+		CE3F00260B3803B1005E6EBA59D9A668 /* RangeSeekSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RangeSeekSlider.swift; path = Sources/RangeSeekSlider.swift; sourceTree = "<group>"; };
+		CF112B034C2E976F21019C438C7247FA /* HeroAnimatorViewContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroAnimatorViewContext.swift; path = Sources/Animator/HeroAnimatorViewContext.swift; sourceTree = "<group>"; };
+		D022595F6C4E5219EB458D2423498D1B /* GMUDefaultClusterIconGenerator+Testing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GMUDefaultClusterIconGenerator+Testing.h"; path = "src/Clustering/View/GMUDefaultClusterIconGenerator+Testing.h"; sourceTree = "<group>"; };
+		D43E7A705CBEF4FFA77D5F08179852CA /* GMUPlacemark.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUPlacemark.h; path = src/Geometry/Model/GMUPlacemark.h; sourceTree = "<group>"; };
+		D494B0C04833720D120EAB449810963F /* GMUWeightedLatLng.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUWeightedLatLng.h; path = src/Heatmap/GMUWeightedLatLng.h; sourceTree = "<group>"; };
+		D4DF3C31C991578FC30F71018F7EF92B /* HeroDefaultAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroDefaultAnimator.swift; path = Sources/Animator/HeroDefaultAnimator.swift; sourceTree = "<group>"; };
+		D519ECE02F1AADD424CED768BE94C403 /* GMUPolygon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUPolygon.m; path = src/Geometry/Model/GMUPolygon.m; sourceTree = "<group>"; };
+		D81C4ABDB6C36E82DA05D73200837DDD /* GMUGroundOverlay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUGroundOverlay.h; path = src/Geometry/Model/GMUGroundOverlay.h; sourceTree = "<group>"; };
+		D8FAF74620107A12BF4D141416DB6F9C /* UIKit+Hero.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIKit+Hero.swift"; path = "Sources/Extensions/UIKit+Hero.swift"; sourceTree = "<group>"; };
+		D8FE8E4BCD6D7057AFFB55A624015D75 /* GMUSimpleClusterAlgorithm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUSimpleClusterAlgorithm.h; path = src/Clustering/Algo/GMUSimpleClusterAlgorithm.h; sourceTree = "<group>"; };
+		DA5FA6CB02F2A164FC5861DC701DF7A5 /* GMUStaticCluster.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUStaticCluster.m; path = src/Clustering/GMUStaticCluster.m; sourceTree = "<group>"; };
+		DB6C88C3A6E9EFC150847DCBF66896D8 /* RangeSeekSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RangeSeekSlider-prefix.pch"; sourceTree = "<group>"; };
+		DFEAF53F544E4BA8AFB52ED238680E38 /* GQTPointQuadTreeChild.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GQTPointQuadTreeChild.h; path = src/QuadTree/GQTPointQuadTreeChild.h; sourceTree = "<group>"; };
+		E002EDD5F55803F6A096F1A84C51C77C /* GMUFeature.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUFeature.m; path = src/Geometry/Model/GMUFeature.m; sourceTree = "<group>"; };
+		E04F1AE366840965A1C3F446BEF469F0 /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		E09E15951F102E04A9B584EB38C829FB /* GMULineString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMULineString.m; path = src/Geometry/Model/GMULineString.m; sourceTree = "<group>"; };
+		E10DF2D581BBA4EC4B3AF183E26166BC /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
+		E276B4B4108152DD5B3BEA7C11700D4C /* CascadePreprocessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CascadePreprocessor.swift; path = Sources/Preprocessors/CascadePreprocessor.swift; sourceTree = "<group>"; };
+		E2B4AEBC4A08D1FED2C0F77358A8A7B8 /* GMUCluster.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUCluster.h; path = src/Clustering/GMUCluster.h; sourceTree = "<group>"; };
+		E4BDC45A700A11BA7D1AB379CC45E7B1 /* GMUGeometryCollection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUGeometryCollection.h; path = src/Geometry/Model/GMUGeometryCollection.h; sourceTree = "<group>"; };
+		E4CC05C4FBB1A97012F95B3DA8E7619A /* GMUWrappingDictionaryKey.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GMUWrappingDictionaryKey.m; path = src/Clustering/Algo/GMUWrappingDictionaryKey.m; sourceTree = "<group>"; };
+		E6BDAD35DAC31691B9276A031C14C8E6 /* Hero.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Hero.xcconfig; sourceTree = "<group>"; };
+		E807F4F603821483974B753F8391C9B9 /* Hero-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Hero-dummy.m"; sourceTree = "<group>"; };
+		EA8C0E86EAE1623A9C4872C5F09DE494 /* Pods-Harrastuspassi-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Harrastuspassi-resources.sh"; sourceTree = "<group>"; };
+		ED757B2F46F6EA1C1FE6705255E0AE82 /* CAMediaTimingFunction+Hero.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CAMediaTimingFunction+Hero.swift"; path = "Sources/Extensions/CAMediaTimingFunction+Hero.swift"; sourceTree = "<group>"; };
+		EFEF4955DB242469A16B44946E5D8DDC /* Pods-Harrastuspassi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Harrastuspassi.debug.xcconfig"; sourceTree = "<group>"; };
+		F0F8DA583D3ED318758D34A7C19FEB82 /* HeroTransitionState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroTransitionState.swift; path = Sources/Transition/HeroTransitionState.swift; sourceTree = "<group>"; };
+		F4E53B4E5F70AED6374B85AAEA4DE59A /* GMUGridBasedClusterAlgorithm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUGridBasedClusterAlgorithm.h; path = src/Clustering/Algo/GMUGridBasedClusterAlgorithm.h; sourceTree = "<group>"; };
+		F4F11405E2E588C3CD2E6CD46EF70210 /* HeroTransition+UIViewControllerTransitioningDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroTransition+UIViewControllerTransitioningDelegate.swift"; path = "Sources/Transition/HeroTransition+UIViewControllerTransitioningDelegate.swift"; sourceTree = "<group>"; };
+		F73E0520B086A8F36DC5D18B6ADE6691 /* GMUHeatmapTileLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMUHeatmapTileLayer.h; path = src/Heatmap/GMUHeatmapTileLayer.h; sourceTree = "<group>"; };
+		F86B011D09797B4278F4CBD56F2EC5B5 /* GMUClusterManager+Testing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GMUClusterManager+Testing.h"; path = "src/Clustering/GMUClusterManager+Testing.h"; sourceTree = "<group>"; };
+		F9310DCB3E93EEF97E61AD38E638A4EB /* RangeSeekSlider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RangeSeekSlider.xcconfig; sourceTree = "<group>"; };
+		FF3BDF73A6CC2915431E9CC362B649A6 /* Parser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Sources/Parser/Parser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0DA7F48C2795D22BFEB9C388CE6501C6 /* Frameworks */ = {
+		0694D4FE9BF02CF9BDFE7CD43CDE100C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09F712FF369E1E3385EC183AEA98D462 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5FCC93895667B12EB28483316005D81E /* Frameworks */ = {
+		1C732F3DF6443E77A1A33CF58DE5E710 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DCE2C313C121F613D50ACC3FE3EDFD0 /* CoreGraphics.framework in Frameworks */,
-				C22AD7C3CA285C5E4F754B2D4AA71B52 /* Foundation.framework in Frameworks */,
-				D5B1E67C77F1C26ED6606BFBB0791D66 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AB6BD99F2DE70F4FDA67AE5E0C9FF8AC /* Frameworks */ = {
+		471206CD7C1A4ED6606CDF1F135FCC8B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A446D59771619CADF996E3FB77001EA /* Foundation.framework in Frameworks */,
-				F37A71B06EEFF6D96FA6CEC616734061 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B759B2C53D4AFDA53541B04006E90D81 /* Frameworks */ = {
+		9C4B55B62CBEEB0E2F0AD9EA57CDA9D5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				770168DE52B4855A94437E5EB527EC84 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C92E0AAD452B6F737DE43266C86F5E6A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		03C5C200A0787E300053CFA8F53CA094 /* Frameworks */ = {
+		00EEB117A9FD024FBEDDB624C5D77A61 /* Geometry */ = {
 			isa = PBXGroup;
 			children = (
-				ABE8076CBFEE71A3B199C34F20F66745 /* iOS */,
+				3A70AA223D51ED743C559943F7E2710F /* GMUFeature.h */,
+				E002EDD5F55803F6A096F1A84C51C77C /* GMUFeature.m */,
+				52F238051FBA2AF55091C959D9CCBE4B /* GMUGeoJSONParser.h */,
+				8CAC46382E4E78F675AF009BCA787D26 /* GMUGeoJSONParser.m */,
+				1CCBA53EA9D44D8D1CDEAF4472A467CE /* GMUGeometry.h */,
+				E4BDC45A700A11BA7D1AB379CC45E7B1 /* GMUGeometryCollection.h */,
+				1DB8A250319400C7C837EF9DC6C9CCE3 /* GMUGeometryCollection.m */,
+				57A6D105E316E65F9994F90BEA46E6E7 /* GMUGeometryContainer.h */,
+				23478BFF7500E8C930439325480E0FDA /* GMUGeometryRenderer.h */,
+				2E02D4F85F8A51A9FB4E9A3B921CDCE2 /* GMUGeometryRenderer.m */,
+				68D3F7AD04B385D1A89D965087E474BC /* GMUGeometryRenderer+Testing.h */,
+				D81C4ABDB6C36E82DA05D73200837DDD /* GMUGroundOverlay.h */,
+				5CCCAD8F2DAC618BF1209BD889064FFC /* GMUGroundOverlay.m */,
+				BEB35B3F2EBD318E3FDD3D3316781B94 /* GMUKMLParser.h */,
+				6F67FFBA4570032CACFEA3AA8D4752D9 /* GMUKMLParser.m */,
+				4866F72DE0A5B145EAA953EC690E0E9C /* GMULineString.h */,
+				E09E15951F102E04A9B584EB38C829FB /* GMULineString.m */,
+				D43E7A705CBEF4FFA77D5F08179852CA /* GMUPlacemark.h */,
+				61C8C14A14499F6BA620C40B107AE273 /* GMUPlacemark.m */,
+				4AD20D3C368D71918046E65E3996D163 /* GMUPoint.h */,
+				5BBCE2C0520A1F3041327B088EB06042 /* GMUPoint.m */,
+				B166165CEE5D72C3BBBD164FB92ED507 /* GMUPolygon.h */,
+				D519ECE02F1AADD424CED768BE94C403 /* GMUPolygon.m */,
+				67E61EC8E507BAE03004CE6820E5D532 /* GMUStyle.h */,
+				831081B0136BACB9A513B6B3312EF065 /* GMUStyle.m */,
+			);
+			name = Geometry;
+			sourceTree = "<group>";
+		};
+		099008BD53B92F28E7EDBA12A66E685D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8D25F189244F29322E8AC6692FB7FD23 /* GoogleMaps.framework */,
+				A3EB82B66D51F154B7E6FD27E87597BD /* GoogleMapsCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		11956E08286334E3927A71D36547DDDE /* Support Files */ = {
+		0C71C0C4794B97F791D7560019CC938D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B8309E667C80A082423EE2155AE46B10 /* RevealingSplashView.modulemap */,
-				36FB79F335450BCF8BD8E6FF6464EE31 /* RevealingSplashView.xcconfig */,
-				1608182BA82F48880ED117D782811C10 /* RevealingSplashView-dummy.m */,
-				55CC5D2BE319566888A7980C04AAA863 /* RevealingSplashView-Info.plist */,
-				F5DFB0F421257B8BE316B7EBE492B010 /* RevealingSplashView-prefix.pch */,
-				356A5777CD031CCBFF82616781365516 /* RevealingSplashView-umbrella.h */,
+				3BE66DD02516F04B3FB1E6B89FD0E179 /* Google-Maps-iOS-Utils */,
+				D420AD4AFE6E41C12815D51FD9CA32AD /* GoogleMaps */,
+				413AFA33C2F04215D915DEDC9ADB12CE /* GooglePlaces */,
+				464E7326A70B02310FA29EF172B733DD /* Hero */,
+				37369A6C044ED8EEE934E65457A29B37 /* RangeSeekSlider */,
+				844BE34FB8BD7EDDFEF4CD23E55F84E6 /* RevealingSplashView */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1CEE388661390225B0C3ABD01E006A0C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5CA9E6FE438CE79CD76FA3B34CC95836 /* libGoogle-Maps-iOS-Utils.a */,
+				13E778F4B833EE5D7ABE882406A8215E /* libHero.a */,
+				711E628ACE791826D1A1DDC4F95F9ABB /* libPods-Harrastuspassi.a */,
+				C027A7405E856E45431E9E1E7913015F /* libRangeSeekSlider.a */,
+				BD56534C888FE385363934C9ABE6E7B4 /* libRevealingSplashView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1EF5E31DE879F8648D4552C50BB18FF9 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				27921D97129D229A9D2BFBCB45B0768F /* RevealingSplashView.modulemap */,
+				361611616DA317EF911DCF3F539ACE65 /* RevealingSplashView.xcconfig */,
+				27076F36C10C899125A9C531F6265016 /* RevealingSplashView-dummy.m */,
+				972BA53355EC84ABE2E7CDD14899CD87 /* RevealingSplashView-prefix.pch */,
+				0B98E510B8B659A45D0B61AA5925E3BC /* RevealingSplashView-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/RevealingSplashView";
 			sourceTree = "<group>";
 		};
-		17E316D7DE99FAC77B5E4778CF734723 /* Resources */ = {
+		337E10FEA98E24C5757E259F6E06CD84 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				0753C920F765FFB978294EC849BF1077 /* GooglePlaces.bundle */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		1E80B50D6CC473494A9DFD75A033B99A /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				7F9DCC89491A88C66C4E837453679A69 /* RangeSeekSlider.modulemap */,
-				312F7583F0D87A0627ED7386B3557C68 /* RangeSeekSlider.xcconfig */,
-				D7ECFF094B83BD88430378D8FC25E81A /* RangeSeekSlider-dummy.m */,
-				7736EF64B12224F3ED07681125FE3952 /* RangeSeekSlider-Info.plist */,
-				FDAF63E125111CB80CC2D21D1BA1D363 /* RangeSeekSlider-prefix.pch */,
-				3347AB180AB03A9634356EC8F78772FF /* RangeSeekSlider-umbrella.h */,
+				99AB612E3EBA8D4E4E76DA851BF8B5B6 /* RangeSeekSlider.modulemap */,
+				F9310DCB3E93EEF97E61AD38E638A4EB /* RangeSeekSlider.xcconfig */,
+				8A665E1DA6F2647AD5337F7A460D784F /* RangeSeekSlider-dummy.m */,
+				DB6C88C3A6E9EFC150847DCBF66896D8 /* RangeSeekSlider-prefix.pch */,
+				A4F6F99528AA7CFFEA7B5BC666D75E2C /* RangeSeekSlider-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/RangeSeekSlider";
 			sourceTree = "<group>";
 		};
-		28894D1E5DE2F170016F49E1CC7FC352 /* Products */ = {
+		37369A6C044ED8EEE934E65457A29B37 /* RangeSeekSlider */ = {
 			isa = PBXGroup;
 			children = (
-				13E778F4B833EE5D7ABE882406A8215E /* Hero.framework */,
-				711E628ACE791826D1A1DDC4F95F9ABB /* Pods_Harrastuspassi.framework */,
-				C027A7405E856E45431E9E1E7913015F /* RangeSeekSlider.framework */,
-				BD56534C888FE385363934C9ABE6E7B4 /* RevealingSplashView.framework */,
+				CE3F00260B3803B1005E6EBA59D9A668 /* RangeSeekSlider.swift */,
+				48FEBB3CF73DD503A4E6BE0EFD8C6329 /* RangeSeekSliderDelegate.swift */,
+				3E71DBE02127204D999AA3D9BC15CFF8 /* TapticEngine.swift */,
+				337E10FEA98E24C5757E259F6E06CD84 /* Support Files */,
 			);
-			name = Products;
+			path = RangeSeekSlider;
 			sourceTree = "<group>";
 		};
-		3BE687E2C609B86C760B38A96AF52663 /* Frameworks */ = {
+		3BE66DD02516F04B3FB1E6B89FD0E179 /* Google-Maps-iOS-Utils */ = {
 			isa = PBXGroup;
 			children = (
-				687FA4CE161005CEA7CD9BD823A941B0 /* GoogleMaps.framework */,
-				8440D461324FAF83A60EB7E97FD720FD /* GoogleMapsCore.framework */,
+				D01A75758088D8E9FAC3468C3EA06EA4 /* Clustering */,
+				00EEB117A9FD024FBEDDB624C5D77A61 /* Geometry */,
+				A8905EBB66D3AE20D24C4CB198CB43DD /* Heatmap */,
+				A8A1420D6840CE55381670677BF07A34 /* QuadTree */,
+				9CD3D9F1D7EB0A0F1EBD3E492844666A /* Support Files */,
 			);
-			name = Frameworks;
+			path = "Google-Maps-iOS-Utils";
 			sourceTree = "<group>";
 		};
-		4377BD05745125C9A55ED696DDDBCB99 /* Maps */ = {
+		413AFA33C2F04215D915DEDC9ADB12CE /* GooglePlaces */ = {
 			isa = PBXGroup;
 			children = (
-				3BE687E2C609B86C760B38A96AF52663 /* Frameworks */,
-				E890B63473CE5C31B49521D6DA9E0231 /* Resources */,
+				A4A97972CEBE2B871000CF5ABA3635CC /* Frameworks */,
+				567DDD11A6E56FEC229FA672993281F3 /* Resources */,
+				5CC8E0364C6FCF08562A9563D570E0DB /* Support Files */,
 			);
-			name = Maps;
+			path = GooglePlaces;
 			sourceTree = "<group>";
 		};
-		4377EB0661E318A84985FCEFF6FD0C23 /* Support Files */ = {
+		464E7326A70B02310FA29EF172B733DD /* Hero */ = {
 			isa = PBXGroup;
 			children = (
-				D2BBF83AF820F9CA56C196882567B9E8 /* GooglePlaces.xcconfig */,
+				5ACBECFFE6AC0117CA34B23F088DEA95 /* Array+HeroModifier.swift */,
+				964F2DC57B4BB101C3D77E576A8BACAD /* BasePreprocessor.swift */,
+				9FCA59FA9C552778AE8CC7B5C998988F /* CALayer+Hero.swift */,
+				ED757B2F46F6EA1C1FE6705255E0AE82 /* CAMediaTimingFunction+Hero.swift */,
+				E276B4B4108152DD5B3BEA7C11700D4C /* CascadePreprocessor.swift */,
+				6EAC91E8E3F17234455F6C426D27A221 /* CG+Hero.swift */,
+				189549C7D57A3E02ACDFAEBD4191698D /* ConditionalPreprocessor.swift */,
+				4C1BF3D0AB26A58767AED177E563D31F /* DefaultAnimationPreprocessor.swift */,
+				62F5184DDBB47DD129CBF2BA2CDE96C0 /* DispatchQueue+Hero.swift */,
+				CF112B034C2E976F21019C438C7247FA /* HeroAnimatorViewContext.swift */,
+				19A2E8CF96B3A648276ABC4B80CE9D52 /* HeroCompatible.swift */,
+				11D92AEE25D7720F09460E5282FEC911 /* HeroContext.swift */,
+				79FCCA5D5986D698E1729A95642D0E54 /* HeroCoreAnimationViewContext.swift */,
+				44DA1BBC7663542D6D4F59FDEF5EB38A /* HeroDebugPlugin.swift */,
+				65DAA0EC9BAABC34B7355CD98EC726AD /* HeroDebugView.swift */,
+				D4DF3C31C991578FC30F71018F7EF92B /* HeroDefaultAnimator.swift */,
+				C768D8439A31D9D528E2FAE337D4577D /* HeroModifier.swift */,
+				6EDF78D87FFBA0DD050228E7B7D547B3 /* HeroModifier+Advanced.swift */,
+				5A63EBEDE7BA652685A3FAC125C1EFD2 /* HeroModifier+HeroStringConvertible.swift */,
+				3E867EED6C7A047E8E07199BC09B6026 /* HeroPlugin.swift */,
+				09E3E0BEAB8A0C980F3A126E168155A9 /* HeroProgressRunner.swift */,
+				16027B5FD299F132CA47FA51E0B8F170 /* HeroStringConvertible.swift */,
+				5D1B3F7C2CFE4FA2EE704A905A8B7758 /* HeroTargetState.swift */,
+				971C8610CAD302B24BFD5CDF74CA2BBB /* HeroTransition.swift */,
+				3AA004AD41D718A641E8A863BBAEC116 /* HeroTransition+Animate.swift */,
+				A907E74F50697241529B2F6D9841C82A /* HeroTransition+Complete.swift */,
+				6843F398375CE717552A1DC6F26ECCC7 /* HeroTransition+CustomTransition.swift */,
+				2A3B07E7BFC327EF9E1770AA21DD44C4 /* HeroTransition+Interactive.swift */,
+				851BCCA2EA321F854A92EB0C89984DAA /* HeroTransition+Start.swift */,
+				A5BB9101DA6787AD63E63E0D108EB882 /* HeroTransition+UINavigationControllerDelegate.swift */,
+				88842C7183B2B5D546C8A71D40C1436B /* HeroTransition+UITabBarControllerDelegate.swift */,
+				F4F11405E2E588C3CD2E6CD46EF70210 /* HeroTransition+UIViewControllerTransitioningDelegate.swift */,
+				F0F8DA583D3ED318758D34A7C19FEB82 /* HeroTransitionState.swift */,
+				9E521D89B63CE0B05FD6B7B72897A2C1 /* HeroTypes.swift */,
+				0F1897D7B8A88F70CCC4AAD6FFEB5CD0 /* HeroViewControllerDelegate.swift */,
+				5D687582415EEB3F164A0A4B827B389D /* HeroViewPropertyViewContext.swift */,
+				2EE697AD420B33A2DA0A53DC4D291871 /* IgnoreSubviewModifiersPreprocessor.swift */,
+				238F4B853F2F8F16C1EED34D77F0083C /* Lexer.swift */,
+				79BE5E41FE99BEA58FC915C96406B2B7 /* MatchPreprocessor.swift */,
+				7E0303BD778DC6A7B60CDE9D98BF2D65 /* Nodes.swift */,
+				FF3BDF73A6CC2915431E9CC362B649A6 /* Parser.swift */,
+				4D5B7769724F35F56E6CE74439ED26C5 /* Regex.swift */,
+				AD01D02A5AE2C84247E51C409030B44D /* SourcePreprocessor.swift */,
+				80B1443730578520A987C4F580F396D5 /* SwiftSupport.swift */,
+				D8FAF74620107A12BF4D141416DB6F9C /* UIKit+Hero.swift */,
+				41A1D87AD5A26FBC1C732186626CCB9E /* UIView+Hero.swift */,
+				5F6C60353A45604914E93BBE1937B5FC /* UIViewController+Hero.swift */,
+				B807B07D93BCE79A496A2E5C4A7D393D /* Support Files */,
+			);
+			path = Hero;
+			sourceTree = "<group>";
+		};
+		567DDD11A6E56FEC229FA672993281F3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E10DF2D581BBA4EC4B3AF183E26166BC /* GooglePlaces.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		5CC8E0364C6FCF08562A9563D570E0DB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				66F9A7FCD2B8A9CF8ACACA584FD831AC /* GooglePlaces.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/GooglePlaces";
 			sourceTree = "<group>";
 		};
-		67F8ABC2C9FB3A4C6B4930A251F0683B /* Frameworks */ = {
+		6D78FBACA73270369D993173D54FFD1D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F77E296C08CD10232DA585107E48ADF3 /* GooglePlaces.framework */,
+				E04F1AE366840965A1C3F446BEF469F0 /* GoogleMaps.bundle */,
 			);
-			name = Frameworks;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		6951AC8E41A413FC0285DCC176E6B661 /* RangeSeekSlider */ = {
+		844BE34FB8BD7EDDFEF4CD23E55F84E6 /* RevealingSplashView */ = {
 			isa = PBXGroup;
 			children = (
-				73D842143D53A439E724522C4E00C24E /* RangeSeekSlider.swift */,
-				7515811393947B96AEBD860B55557E70 /* RangeSeekSliderDelegate.swift */,
-				9DDFAB499AB5FAA15AE64DC65BD5C0B5 /* TapticEngine.swift */,
-				1E80B50D6CC473494A9DFD75A033B99A /* Support Files */,
+				3927E8752E70AD5491FFD91C20F0DC19 /* Animations.swift */,
+				BD92474A9B16A01A6288F8366C9E5BAB /* RevealingSplashView.h */,
+				706758A07A8CAAFF87DD11ADB27D5479 /* RevealingSplashView.swift */,
+				6AC28A650E10F6BBA27398C0414F0FA7 /* SplashAnimatable.swift */,
+				103426F3DFAA6280BB6C43CA7CEFC59B /* SplashAnimationType.swift */,
+				1EF5E31DE879F8648D4552C50BB18FF9 /* Support Files */,
 			);
-			name = RangeSeekSlider;
-			path = RangeSeekSlider;
-			sourceTree = "<group>";
-		};
-		6BD3CC1A62201D80610C9658D724A843 /* GoogleMaps */ = {
-			isa = PBXGroup;
-			children = (
-				C590424FC78F0832AC8B897A3F578F2D /* Base */,
-				4377BD05745125C9A55ED696DDDBCB99 /* Maps */,
-				CA70BDE0563C585D8AE2550F51259C37 /* Support Files */,
-			);
-			name = GoogleMaps;
-			path = GoogleMaps;
-			sourceTree = "<group>";
-		};
-		9174C818F16D48C809031BE91371CB67 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4C9372AF6F522A08350D9D7B83E17592 /* GoogleMapsBase.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		93D58FDF43AF0F0F3486BF77F00C8279 /* Pods-Harrastuspassi */ = {
-			isa = PBXGroup;
-			children = (
-				9B037A72E347AB8F6AAAEEB41EBF7934 /* Pods-Harrastuspassi.modulemap */,
-				7305A203177D1DDA68614DBDC36FCCC7 /* Pods-Harrastuspassi-acknowledgements.markdown */,
-				B40F44EBA444C6737ED6E70AB6731FC2 /* Pods-Harrastuspassi-acknowledgements.plist */,
-				47F2B480E4A7B2F3B13B99A1464080FC /* Pods-Harrastuspassi-dummy.m */,
-				549C316006723D6DDCDF874A78C0F738 /* Pods-Harrastuspassi-frameworks.sh */,
-				A9283D66132C03C5DF3A7B7F31A21D77 /* Pods-Harrastuspassi-Info.plist */,
-				537A6098603D7EA3FF8E2AC02C5A16E1 /* Pods-Harrastuspassi-resources.sh */,
-				B4B51327F150FAB5F7AFBC78DA1BEAF8 /* Pods-Harrastuspassi-umbrella.h */,
-				247811D9AE8CD5E4627D2077F8E1603F /* Pods-Harrastuspassi.debug.xcconfig */,
-				BBC1059E7B167098E5F057D7C15CCCFB /* Pods-Harrastuspassi.release.xcconfig */,
-			);
-			name = "Pods-Harrastuspassi";
-			path = "Target Support Files/Pods-Harrastuspassi";
-			sourceTree = "<group>";
-		};
-		A18AB0D23751F3C33E88A202A816D383 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6BD3CC1A62201D80610C9658D724A843 /* GoogleMaps */,
-				E9263F38491FEE8454E262492B954E2C /* GooglePlaces */,
-				FFDE64B25CD4F48C2669B2192A3DF4FA /* Hero */,
-				6951AC8E41A413FC0285DCC176E6B661 /* RangeSeekSlider */,
-				BD60D481106696BFA397FD86EC8234F1 /* RevealingSplashView */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		ABE8076CBFEE71A3B199C34F20F66745 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				276842F3A283EE87124FE6C3EAAFD184 /* CoreGraphics.framework */,
-				FD608BCCF279B1277BB911F33106997F /* Foundation.framework */,
-				01BDA658338AD3813D969D7011B56B8D /* UIKit.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		B44D94F69B0B32094EFA777BB79A389C /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				93D58FDF43AF0F0F3486BF77F00C8279 /* Pods-Harrastuspassi */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		BD60D481106696BFA397FD86EC8234F1 /* RevealingSplashView */ = {
-			isa = PBXGroup;
-			children = (
-				0E79E44FF4CD661AF5C2A88044A3FE2E /* Animations.swift */,
-				CF8DF777A6E719BCD241E3049EB35C2E /* RevealingSplashView.h */,
-				9A0C1644310828CC62F6A08D0403835B /* RevealingSplashView.swift */,
-				F9FE90204EBACD2754E4E62BEC722E11 /* SplashAnimatable.swift */,
-				C99A2C0CCCDD1DF1E817F7AE31DF16D5 /* SplashAnimationType.swift */,
-				11956E08286334E3927A71D36547DDDE /* Support Files */,
-			);
-			name = RevealingSplashView;
 			path = RevealingSplashView;
 			sourceTree = "<group>";
 		};
-		C590424FC78F0832AC8B897A3F578F2D /* Base */ = {
+		95F72EEE5D975DF5C71B7EBAE0F7F5A0 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
-				9174C818F16D48C809031BE91371CB67 /* Frameworks */,
+				099008BD53B92F28E7EDBA12A66E685D /* Frameworks */,
+				6D78FBACA73270369D993173D54FFD1D /* Resources */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
+		9600DE7063300F46D6B5519BFBCD7F5F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A21EED4A759621E02564BCD2AD95DDD9 /* Frameworks */,
 			);
 			name = Base;
 			sourceTree = "<group>";
 		};
-		CA4F7DB0C4A23AC11B6653D2645D2FB0 /* Support Files */ = {
+		9CD3D9F1D7EB0A0F1EBD3E492844666A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				D0059E9F2E2260587DC4216186371E87 /* Hero.modulemap */,
-				B2B8A70DE81D09780873B47B8FE6FD07 /* Hero.xcconfig */,
-				ECE6D5BE02C75DB36229A05ED193CF8C /* Hero-dummy.m */,
-				79DEA5A4C4293AAEBD776110CC3E2A67 /* Hero-Info.plist */,
-				D9402AAD979FC140E1A73392F09B24FE /* Hero-prefix.pch */,
-				2458454DF3AAFA9F7D57B9F985F98391 /* Hero-umbrella.h */,
+				14BCFDCF1B24BD865C63686EF7A4FEAA /* Google-Maps-iOS-Utils.xcconfig */,
+				510AA9C1DC675671400D3C1CC9FCAF55 /* Google-Maps-iOS-Utils-dummy.m */,
+				B3E8F7EACBB4A6817CE0B1BB81D0AE3A /* Google-Maps-iOS-Utils-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Google-Maps-iOS-Utils";
+			sourceTree = "<group>";
+		};
+		A21EED4A759621E02564BCD2AD95DDD9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				06130770EA779CCBFED296D1547AF2D6 /* GoogleMapsBase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A4A97972CEBE2B871000CF5ABA3635CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C697F8BD765E99249F254D2E9333E18 /* GooglePlaces.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A8905EBB66D3AE20D24C4CB198CB43DD /* Heatmap */ = {
+			isa = PBXGroup;
+			children = (
+				BD8D5212BE7A026ABCB0D7728DD1A173 /* GMUGradient.h */,
+				C97C7337EFAB8EB4F654385DFCA903BB /* GMUGradient.m */,
+				F73E0520B086A8F36DC5D18B6ADE6691 /* GMUHeatmapTileLayer.h */,
+				A9382ECC23F14455C7DE551C9E2016D2 /* GMUHeatmapTileLayer.m */,
+				D494B0C04833720D120EAB449810963F /* GMUWeightedLatLng.h */,
+				79A622C942220A3384053315D4CA6093 /* GMUWeightedLatLng.m */,
+			);
+			name = Heatmap;
+			sourceTree = "<group>";
+		};
+		A8A1420D6840CE55381670677BF07A34 /* QuadTree */ = {
+			isa = PBXGroup;
+			children = (
+				6D8C5D36CFFC3B278C13378055F308AC /* GQTBounds.h */,
+				0B94DD4C6AAAA9A3A6F2C6FF48FB7E37 /* GQTPoint.h */,
+				305553531A1FE568B34AA6D5261E0BFE /* GQTPointQuadTree.h */,
+				BDB6CDCA10A3461492404A4DED3AE759 /* GQTPointQuadTree.m */,
+				DFEAF53F544E4BA8AFB52ED238680E38 /* GQTPointQuadTreeChild.h */,
+				A84273B6BE026B65E66EE10AAB3269A5 /* GQTPointQuadTreeChild.m */,
+				C0AE6F802A604D6A0A502E346EC716C7 /* GQTPointQuadTreeItem.h */,
+			);
+			name = QuadTree;
+			sourceTree = "<group>";
+		};
+		B007BECD3F9E940BC833331EE758B390 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F8C28E85394B905C128FC6DD4CF7C80A /* Pods-Harrastuspassi */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		B807B07D93BCE79A496A2E5C4A7D393D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5067018CC61D424B31A828E288778737 /* Hero.modulemap */,
+				E6BDAD35DAC31691B9276A031C14C8E6 /* Hero.xcconfig */,
+				E807F4F603821483974B753F8391C9B9 /* Hero-dummy.m */,
+				B090E313789A6435A21E511DF97677AD /* Hero-prefix.pch */,
+				B2AE54BDA45DB75E094CE8B818862298 /* Hero-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Hero";
-			sourceTree = "<group>";
-		};
-		CA70BDE0563C585D8AE2550F51259C37 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				474B4FC0411766B636D41C1161FF6640 /* GoogleMaps.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/GoogleMaps";
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
-				A18AB0D23751F3C33E88A202A816D383 /* Pods */,
-				28894D1E5DE2F170016F49E1CC7FC352 /* Products */,
-				B44D94F69B0B32094EFA777BB79A389C /* Targets Support Files */,
+				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
+				0C71C0C4794B97F791D7560019CC938D /* Pods */,
+				1CEE388661390225B0C3ABD01E006A0C /* Products */,
+				B007BECD3F9E940BC833331EE758B390 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		E890B63473CE5C31B49521D6DA9E0231 /* Resources */ = {
+		D01A75758088D8E9FAC3468C3EA06EA4 /* Clustering */ = {
 			isa = PBXGroup;
 			children = (
-				7EACFDFC1E6D01B22C62AE240D1DF272 /* GoogleMaps.bundle */,
+				E2B4AEBC4A08D1FED2C0F77358A8A7B8 /* GMUCluster.h */,
+				7D9B2AB9BC062E735D49F025CFAC4DB5 /* GMUClusterAlgorithm.h */,
+				A235269D6BBDD95E57E8E1AED9760C2D /* GMUClusterIconGenerator.h */,
+				B37832AFD6A7A5BD1F4BE352C6653836 /* GMUClusterItem.h */,
+				B6545C0046E0D2646AADB6AD2439402F /* GMUClusterManager.h */,
+				8F3E4D65F51E9EDE46AD85101D5B5F42 /* GMUClusterManager.m */,
+				F86B011D09797B4278F4CBD56F2EC5B5 /* GMUClusterManager+Testing.h */,
+				99077FA5F344031E3C995E8D6F2B3D57 /* GMUClusterRenderer.h */,
+				6C3B77DCC781A3923A6BDDC8F432583E /* GMUDefaultClusterIconGenerator.h */,
+				50330EDD6B3FA635C5D0F22EA465652E /* GMUDefaultClusterIconGenerator.m */,
+				D022595F6C4E5219EB458D2423498D1B /* GMUDefaultClusterIconGenerator+Testing.h */,
+				AE3EC1FD936C3213EE34C613A5051B65 /* GMUDefaultClusterRenderer.h */,
+				AA484217196940C47D296B0D2D468507 /* GMUDefaultClusterRenderer.m */,
+				5A7C48C81ECF61BA45AB43BA1539F17C /* GMUDefaultClusterRenderer+Testing.h */,
+				F4E53B4E5F70AED6374B85AAEA4DE59A /* GMUGridBasedClusterAlgorithm.h */,
+				2ACDA3CDBA6D24AAF517563726C362A3 /* GMUGridBasedClusterAlgorithm.m */,
+				7099AA101C4989FB52FD13918770B69F /* GMUMarkerClustering.h */,
+				078DEF1A3C0E4960BB7F1764A6902E1D /* GMUNonHierarchicalDistanceBasedAlgorithm.h */,
+				8FB800AEEE2DF71A23F462A66ABD172E /* GMUNonHierarchicalDistanceBasedAlgorithm.m */,
+				D8FE8E4BCD6D7057AFFB55A624015D75 /* GMUSimpleClusterAlgorithm.h */,
+				B1A44D8CC7A42F2D4C440F7B83B7D4DA /* GMUSimpleClusterAlgorithm.m */,
+				B5D7D3AA75A10E35BACC591DC4D46E27 /* GMUStaticCluster.h */,
+				DA5FA6CB02F2A164FC5861DC701DF7A5 /* GMUStaticCluster.m */,
+				454DF515459A03D7E43F4B21416D9617 /* GMUWrappingDictionaryKey.h */,
+				E4CC05C4FBB1A97012F95B3DA8E7619A /* GMUWrappingDictionaryKey.m */,
 			);
-			name = Resources;
+			name = Clustering;
 			sourceTree = "<group>";
 		};
-		E9263F38491FEE8454E262492B954E2C /* GooglePlaces */ = {
+		D420AD4AFE6E41C12815D51FD9CA32AD /* GoogleMaps */ = {
 			isa = PBXGroup;
 			children = (
-				67F8ABC2C9FB3A4C6B4930A251F0683B /* Frameworks */,
-				17E316D7DE99FAC77B5E4778CF734723 /* Resources */,
-				4377EB0661E318A84985FCEFF6FD0C23 /* Support Files */,
+				9600DE7063300F46D6B5519BFBCD7F5F /* Base */,
+				95F72EEE5D975DF5C71B7EBAE0F7F5A0 /* Maps */,
+				E4B6AB38119B63FD92F794A700F488B7 /* Support Files */,
 			);
-			name = GooglePlaces;
-			path = GooglePlaces;
+			path = GoogleMaps;
 			sourceTree = "<group>";
 		};
-		FFDE64B25CD4F48C2669B2192A3DF4FA /* Hero */ = {
+		D89477F20FB1DE18A04690586D7808C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				33C84B9E3392BB0F993CF47C7F507817 /* Array+HeroModifier.swift */,
-				89D2C6C7B8D7E577FE2452E56AFB37D6 /* BasePreprocessor.swift */,
-				C6B3CFD4B2E47EE4E9C0DCDBCA702E58 /* CALayer+Hero.swift */,
-				060C581265E4088433748B56506CB5A2 /* CAMediaTimingFunction+Hero.swift */,
-				0F6AD45446F9A42C0259201CB00EEFF8 /* CascadePreprocessor.swift */,
-				9392124FF29EA1D731B596C54F0C17BB /* CG+Hero.swift */,
-				BC9BB9EDF2BE6B4B5974F7F4C03608B9 /* ConditionalPreprocessor.swift */,
-				3B4CFA71BD9ECD92E7AFAE2029A23E9A /* DefaultAnimationPreprocessor.swift */,
-				81D9D051C94B644E6237983004DA0A56 /* DispatchQueue+Hero.swift */,
-				FB5094ECFE3A7751B0BF2787165741D1 /* HeroAnimatorViewContext.swift */,
-				3812EC91F7F40E81407F0F97DE28B946 /* HeroCompatible.swift */,
-				D3C358D4A8C4CD1C6A3B7F73A34C55E0 /* HeroContext.swift */,
-				F624F2F74C93DF0A8649791034667E0B /* HeroCoreAnimationViewContext.swift */,
-				418141F4F6C1EA4AFFB58B3619294553 /* HeroDebugPlugin.swift */,
-				5CBDC25DC6B41BE0C881F18BBFD13F01 /* HeroDebugView.swift */,
-				EE0FE448749A78DE9180A4A23707B6B8 /* HeroDefaultAnimator.swift */,
-				742AFB441EC2D15DD1F2A54F2A8640CA /* HeroModifier.swift */,
-				24A14E027FEEAEF84C266178B751ACC8 /* HeroModifier+Advanced.swift */,
-				E002F094295C28E7120666BB8DBE2B10 /* HeroModifier+HeroStringConvertible.swift */,
-				28FCD85EC2F3DECC1E0F47CDD6197A45 /* HeroPlugin.swift */,
-				5731417910C14A00A9FFBB2864EEBF0F /* HeroProgressRunner.swift */,
-				A06035C3F860615F19AEC1034D0BA4EB /* HeroStringConvertible.swift */,
-				EB1ABAB24B874262FC7F85A1416B75F4 /* HeroTargetState.swift */,
-				E105F15BDAF5645A15AE1DDB018B7EB4 /* HeroTransition.swift */,
-				D67A7CE449DF513DC9B0CD94D836D2ED /* HeroTransition+Animate.swift */,
-				883B1C552FBB2F837EE9B4154A8F5C9D /* HeroTransition+Complete.swift */,
-				0081A9006164405B9C1D144820079475 /* HeroTransition+CustomTransition.swift */,
-				4DB129910C83EFE14F334FC7233F5B0C /* HeroTransition+Interactive.swift */,
-				A881C56E9F29A4E3E32CDD18C03FA0B0 /* HeroTransition+Start.swift */,
-				B5D8E1D1013C59A5EADF7D6D5C0837BE /* HeroTransition+UINavigationControllerDelegate.swift */,
-				E0C025CCC4A9CA66D903679C7DDAFA31 /* HeroTransition+UITabBarControllerDelegate.swift */,
-				29A2D90498A145C4AB4CE5B01823D03A /* HeroTransition+UIViewControllerTransitioningDelegate.swift */,
-				63F3A5B24BFF46FC65B38C6060B6B81B /* HeroTransitionState.swift */,
-				542F8243AE9D4B55B1F33E8904CC8D53 /* HeroTypes.swift */,
-				5D910A51065F9810268958FABB5E73E1 /* HeroViewControllerDelegate.swift */,
-				4354608F4D8A6FFEBA9BF44C9B131D22 /* HeroViewPropertyViewContext.swift */,
-				1BF2FF21DABCD80226A29853EA0CEFA5 /* IgnoreSubviewModifiersPreprocessor.swift */,
-				10725A5F752586B1F2212B417AB7FE9F /* Lexer.swift */,
-				5AC432F48B33620DAE9CD0DBEBF6B776 /* MatchPreprocessor.swift */,
-				465CA621051CA9E53CDC722C738D6229 /* Nodes.swift */,
-				2EB23066A6779E2EC9E1B9495864458A /* Parser.swift */,
-				21B900C3C3913F957BEC390CDFED043D /* Regex.swift */,
-				78DEC575FD2FB2E3384B934361497542 /* SourcePreprocessor.swift */,
-				ED7997EB9E4510B172D79B5255EC960A /* SwiftSupport.swift */,
-				9318FCDC5E1776FEC12CC44BAE733AD1 /* UIKit+Hero.swift */,
-				761678027AC9F0AA8601C459815A56EB /* UIView+Hero.swift */,
-				CA64240B26E0B2F385A75E8050DABFBC /* UIViewController+Hero.swift */,
-				CA4F7DB0C4A23AC11B6653D2645D2FB0 /* Support Files */,
 			);
-			name = Hero;
-			path = Hero;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E4B6AB38119B63FD92F794A700F488B7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				52E655F13A80AA84E30B375D665370C2 /* GoogleMaps.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/GoogleMaps";
+			sourceTree = "<group>";
+		};
+		F8C28E85394B905C128FC6DD4CF7C80A /* Pods-Harrastuspassi */ = {
+			isa = PBXGroup;
+			children = (
+				A3EED54A4651C08BF625408EA648722B /* Pods-Harrastuspassi.modulemap */,
+				B9E3EF4957F3BC07B715F1095EDA4283 /* Pods-Harrastuspassi-acknowledgements.markdown */,
+				43AA682502379E6C3DF611922DC8BE43 /* Pods-Harrastuspassi-acknowledgements.plist */,
+				61C6B0561943C7AC7AC4737E6B3FB57B /* Pods-Harrastuspassi-dummy.m */,
+				EA8C0E86EAE1623A9C4872C5F09DE494 /* Pods-Harrastuspassi-resources.sh */,
+				0A349E9ADF3A42CDF0EEA5465457F4A6 /* Pods-Harrastuspassi-umbrella.h */,
+				EFEF4955DB242469A16B44946E5D8DDC /* Pods-Harrastuspassi.debug.xcconfig */,
+				7A0BBF6C01818039F3943B97D6476DA8 /* Pods-Harrastuspassi.release.xcconfig */,
+			);
+			name = "Pods-Harrastuspassi";
+			path = "Target Support Files/Pods-Harrastuspassi";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		5AC4CA394125D6504D668CBEA4AEFB57 /* Headers */ = {
+		296582659FDC55D7353AE058AD0830F1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5314F2BB4EBA2C5AC7C3EFB485C16DD /* RevealingSplashView-umbrella.h in Headers */,
-				2D796693C82C88B236B517CC3BF3DD81 /* RevealingSplashView.h in Headers */,
+				A30F7E71AF2ECFA3574525CE997E1DC9 /* Hero-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6B970B31E0D0B17690A82EB2EA5E412C /* Headers */ = {
+		4DFA0F6C2ECD74AB63EFDE29F11492D2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5843C82FF9ACE79DDBC357FE61C08CC /* Hero-umbrella.h in Headers */,
+				EC862C49A431CCE89BBEF1DC47A54B1D /* RangeSeekSlider-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7F760D80D8CE1809977F043D8984C1D1 /* Headers */ = {
+		58A1361A6B34C7C8E029E3C2CDD7901B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82ECA2D5D9476F2AB4B528C863768A9D /* Pods-Harrastuspassi-umbrella.h in Headers */,
+				E8543483BCB3408FCB75EE3653980C37 /* RevealingSplashView-umbrella.h in Headers */,
+				467727672DBE49D7F687FB56A49D5577 /* RevealingSplashView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8C7901E403D0C70A000FE88265FFD74B /* Headers */ = {
+		5D1CB204A149001972ED5A7848263601 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1808BFCB8294885EF9E8B8A4C8A94D58 /* RangeSeekSlider-umbrella.h in Headers */,
+				50F0C5E94FACCE2CBC0975F049B16A85 /* GMUCluster.h in Headers */,
+				D7EF96076EA56A15920B97FFB9859D43 /* GMUClusterAlgorithm.h in Headers */,
+				84A8592C88A9F89BC308D846E400EF41 /* GMUClusterIconGenerator.h in Headers */,
+				E0C2BC9D8E52B5DB2E5AE18D16C06885 /* GMUClusterItem.h in Headers */,
+				4B0D15900DC79C04F99184DE6623E510 /* GMUClusterManager+Testing.h in Headers */,
+				670064340DF7520D59F192D1ECE103E3 /* GMUClusterManager.h in Headers */,
+				53D8D5F703E29E222EB773121B6C1929 /* GMUClusterRenderer.h in Headers */,
+				D22AB84BF8794AFB2BCB8BF643C8FA87 /* GMUDefaultClusterIconGenerator+Testing.h in Headers */,
+				16578B160C197F233F9ACC7ED82523BB /* GMUDefaultClusterIconGenerator.h in Headers */,
+				53F72857F906E82E8B6941D1B36DA362 /* GMUDefaultClusterRenderer+Testing.h in Headers */,
+				0EEB13715FC70530D31356E49BCC8C04 /* GMUDefaultClusterRenderer.h in Headers */,
+				C7E3D3BFB6DF51936B811AFA2A05D515 /* GMUFeature.h in Headers */,
+				484D55B9B3A30C62BD6C28D1061E3368 /* GMUGeoJSONParser.h in Headers */,
+				A0AC896AF9712480A3C5938495E77294 /* GMUGeometry.h in Headers */,
+				B63FB9194609D8D4AF421565E1D9D96E /* GMUGeometryCollection.h in Headers */,
+				48D0278331EE13434A7A058C58D969DD /* GMUGeometryContainer.h in Headers */,
+				F0E99FBCC0E558BDE68B72020F676DF3 /* GMUGeometryRenderer+Testing.h in Headers */,
+				B8161B5847BDFD4DB1C78501EF80CE5C /* GMUGeometryRenderer.h in Headers */,
+				60ED91849B54965EE9CF73860E840C02 /* GMUGradient.h in Headers */,
+				68FB3BEFDB4DECC314E4F6691FBD00F8 /* GMUGridBasedClusterAlgorithm.h in Headers */,
+				2BEB75C6D25192C81DC7924952E8C96A /* GMUGroundOverlay.h in Headers */,
+				7043110E39D33D1C3FA75CEE7EA47A8E /* GMUHeatmapTileLayer.h in Headers */,
+				5D947BFC35F98F57DB213E369248D26D /* GMUKMLParser.h in Headers */,
+				5DAD0819EA0B87393B629E717AE6D67F /* GMULineString.h in Headers */,
+				1E582F07B59DB2522959BB2355D734FD /* GMUMarkerClustering.h in Headers */,
+				F1CA8C5B712A582E49531041630E6F41 /* GMUNonHierarchicalDistanceBasedAlgorithm.h in Headers */,
+				4AF44263D32E9E6004074294CB057988 /* GMUPlacemark.h in Headers */,
+				9407B5781BE5BD441CFD08BECAB7A4A0 /* GMUPoint.h in Headers */,
+				48D19A25D1B7050536B8D4CC08F38034 /* GMUPolygon.h in Headers */,
+				D96C47442A6F8F9BF9A988EE2E729326 /* GMUSimpleClusterAlgorithm.h in Headers */,
+				91EF23E215C08AE598D91EA9FCD584DC /* GMUStaticCluster.h in Headers */,
+				DB81D97E8173756B809F3F80F683F8AA /* GMUStyle.h in Headers */,
+				6D4C230AE198FB3D31DE9BC3520BC384 /* GMUWeightedLatLng.h in Headers */,
+				62EEFF622617BC49821DAEC5309EAE11 /* GMUWrappingDictionaryKey.h in Headers */,
+				67205CD9532ABD6D7502EA36A0F00035 /* GQTBounds.h in Headers */,
+				A6B59B0F9D48B6072C06778C8AA5BE96 /* GQTPoint.h in Headers */,
+				9F37CAACB3D9627703C5AA501E28F745 /* GQTPointQuadTree.h in Headers */,
+				57ABC5085B43282CCDB8C4686CC13191 /* GQTPointQuadTreeChild.h in Headers */,
+				3AACD23CC70C69D8985C956924C9D466 /* GQTPointQuadTreeItem.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2BE942D1D8D8114B5DC3F56708FC3C8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				955F7C7ACB929A1161D06599FB223AC9 /* Pods-Harrastuspassi-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,12 +901,12 @@
 /* Begin PBXNativeTarget section */
 		4AFB864B337D1F74C1D79F4FC8F6C67F /* RangeSeekSlider */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0F92D2D742855D9F023A19D0AA18BCFD /* Build configuration list for PBXNativeTarget "RangeSeekSlider" */;
+			buildConfigurationList = BFB8B902FD88214156B663EF354C755C /* Build configuration list for PBXNativeTarget "RangeSeekSlider" */;
 			buildPhases = (
-				8C7901E403D0C70A000FE88265FFD74B /* Headers */,
-				59C0E08F238FBFE43C70E4A0CC349DF3 /* Sources */,
-				5FCC93895667B12EB28483316005D81E /* Frameworks */,
-				8A41C759955C9F69CFBEB0B7B2B79C40 /* Resources */,
+				4DFA0F6C2ECD74AB63EFDE29F11492D2 /* Headers */,
+				20009593ACCCAB76AA9E04B5AC6D1F88 /* Sources */,
+				9C4B55B62CBEEB0E2F0AD9EA57CDA9D5 /* Frameworks */,
+				4635A735DA0AB2AECEF1B5665F09AFD7 /* Copy generated compatibility header */,
 			);
 			buildRules = (
 			);
@@ -641,17 +914,17 @@
 			);
 			name = RangeSeekSlider;
 			productName = RangeSeekSlider;
-			productReference = C027A7405E856E45431E9E1E7913015F /* RangeSeekSlider.framework */;
-			productType = "com.apple.product-type.framework";
+			productReference = C027A7405E856E45431E9E1E7913015F /* libRangeSeekSlider.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 		A16BB753FC705C22DAFCD8B7C1071A09 /* RevealingSplashView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E0EF856EB00AD6466ED18368545F7459 /* Build configuration list for PBXNativeTarget "RevealingSplashView" */;
+			buildConfigurationList = 0DF75D3E488D5070DC6F1F551C74A584 /* Build configuration list for PBXNativeTarget "RevealingSplashView" */;
 			buildPhases = (
-				5AC4CA394125D6504D668CBEA4AEFB57 /* Headers */,
-				1F38E196797C73D328B4B719F776DF0E /* Sources */,
-				B759B2C53D4AFDA53541B04006E90D81 /* Frameworks */,
-				A806A1901A533170B0EEC9017A39D069 /* Resources */,
+				58A1361A6B34C7C8E029E3C2CDD7901B /* Headers */,
+				4083A58E65A97998D2A777110736C5A2 /* Sources */,
+				C92E0AAD452B6F737DE43266C86F5E6A /* Frameworks */,
+				81D35D70A8BA485392FF414A1C6445D8 /* Copy generated compatibility header */,
 			);
 			buildRules = (
 			);
@@ -659,17 +932,35 @@
 			);
 			name = RevealingSplashView;
 			productName = RevealingSplashView;
-			productReference = BD56534C888FE385363934C9ABE6E7B4 /* RevealingSplashView.framework */;
-			productType = "com.apple.product-type.framework";
+			productReference = BD56534C888FE385363934C9ABE6E7B4 /* libRevealingSplashView.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A5EEC7C2AA5BC7C67CFA2C7578AB62C7 /* Google-Maps-iOS-Utils */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B744777300F72C1CBA8C01689EA87A1A /* Build configuration list for PBXNativeTarget "Google-Maps-iOS-Utils" */;
+			buildPhases = (
+				5D1CB204A149001972ED5A7848263601 /* Headers */,
+				1EEBFE55AC6E34D054F1ECB9A9D2032C /* Sources */,
+				1C732F3DF6443E77A1A33CF58DE5E710 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5AE440D1E5780C5E5E8FE69FF3056B26 /* PBXTargetDependency */,
+			);
+			name = "Google-Maps-iOS-Utils";
+			productName = "Google-Maps-iOS-Utils";
+			productReference = 5CA9E6FE438CE79CD76FA3B34CC95836 /* libGoogle-Maps-iOS-Utils.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 		B3893AEA4D7DBB9A086E889FC469132D /* Hero */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D8A3F00AAB425AED86EEBC6CFA0C1825 /* Build configuration list for PBXNativeTarget "Hero" */;
+			buildConfigurationList = 720E5B9CF7CC0A329437FBCA06D35687 /* Build configuration list for PBXNativeTarget "Hero" */;
 			buildPhases = (
-				6B970B31E0D0B17690A82EB2EA5E412C /* Headers */,
-				DE39CECDA3CDC58FBF0013519EBB9782 /* Sources */,
-				AB6BD99F2DE70F4FDA67AE5E0C9FF8AC /* Frameworks */,
-				96FB5C5368881DFB690E50E64B80D5BF /* Resources */,
+				296582659FDC55D7353AE058AD0830F1 /* Headers */,
+				C549E85B65BC83AC956CEE5A27BCB2F1 /* Sources */,
+				471206CD7C1A4ED6606CDF1F135FCC8B /* Frameworks */,
+				40306DBD8549F0DC828281E11B903A73 /* Copy generated compatibility header */,
 			);
 			buildRules = (
 			);
@@ -677,31 +968,31 @@
 			);
 			name = Hero;
 			productName = Hero;
-			productReference = 13E778F4B833EE5D7ABE882406A8215E /* Hero.framework */;
-			productType = "com.apple.product-type.framework";
+			productReference = 13E778F4B833EE5D7ABE882406A8215E /* libHero.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 		F3E18D4196E29DE5644B4FC67100D612 /* Pods-Harrastuspassi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B9CF48654F6517B26D5254DB8C69C8F /* Build configuration list for PBXNativeTarget "Pods-Harrastuspassi" */;
+			buildConfigurationList = 4119D3A9986629C288BFED2C3181D894 /* Build configuration list for PBXNativeTarget "Pods-Harrastuspassi" */;
 			buildPhases = (
-				7F760D80D8CE1809977F043D8984C1D1 /* Headers */,
-				C0A954A5445A6ACD89FE320BA58B4F09 /* Sources */,
-				0DA7F48C2795D22BFEB9C388CE6501C6 /* Frameworks */,
-				4583BCC95F4D4E8C6B323499821BD2B7 /* Resources */,
+				B2BE942D1D8D8114B5DC3F56708FC3C8 /* Headers */,
+				C357714F0BE0740C83923B4115BB4556 /* Sources */,
+				0694D4FE9BF02CF9BDFE7CD43CDE100C /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F7919CE7AA3C1D887271CA97BD46732B /* PBXTargetDependency */,
-				05D4143FCAE58CDE79A3DC00E941A053 /* PBXTargetDependency */,
-				6A9705C0CDFFE169A215671E37C29D63 /* PBXTargetDependency */,
-				8DB3C6F1433EB43A3E6D77C14FEC78D4 /* PBXTargetDependency */,
-				9ED38572735C08EA407ED208A7AC8088 /* PBXTargetDependency */,
+				A4A72A3D763F1EAF33AAA3303933FBA0 /* PBXTargetDependency */,
+				E265A2BFEAFAC3CCDB979912608B1BAC /* PBXTargetDependency */,
+				5B84F91E783AE5AF125835161908BF6A /* PBXTargetDependency */,
+				35951907DD470754CDB8154BC1EE1592 /* PBXTargetDependency */,
+				516C5ED54B9B1A314E65F2B2040020AE /* PBXTargetDependency */,
+				47F80AFDFE3B81208C384AA4BDB5ED25 /* PBXTargetDependency */,
 			);
 			name = "Pods-Harrastuspassi";
 			productName = "Pods-Harrastuspassi";
-			productReference = 711E628ACE791826D1A1DDC4F95F9ABB /* Pods_Harrastuspassi.framework */;
-			productType = "com.apple.product-type.framework";
+			productReference = 711E628ACE791826D1A1DDC4F95F9ABB /* libPods-Harrastuspassi.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -720,10 +1011,11 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 28894D1E5DE2F170016F49E1CC7FC352 /* Products */;
+			productRefGroup = 1CEE388661390225B0C3ABD01E006A0C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				A5EEC7C2AA5BC7C67CFA2C7578AB62C7 /* Google-Maps-iOS-Utils */,
 				E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */,
 				0C1885900810601510E0C632060FAF26 /* GooglePlaces */,
 				B3893AEA4D7DBB9A086E889FC469132D /* Hero */,
@@ -734,150 +1026,238 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		4583BCC95F4D4E8C6B323499821BD2B7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* Begin PBXShellScriptBuildPhase section */
+		40306DBD8549F0DC828281E11B903A73 /* Copy generated compatibility header */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DERIVED_SOURCES_DIR}/${PRODUCT_MODULE_NAME}-Swift.h",
+				"${PODS_ROOT}/Headers/Public/Hero/Hero.modulemap",
+				"${PODS_ROOT}/Headers/Public/Hero/Hero-umbrella.h",
+			);
+			name = "Copy generated compatibility header";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${BUILT_PRODUCTS_DIR}/${PRODUCT_MODULE_NAME}.modulemap",
+				"${BUILT_PRODUCTS_DIR}/Hero-umbrella.h",
+				"${BUILT_PRODUCTS_DIR}/Swift Compatibility Header/${PRODUCT_MODULE_NAME}-Swift.h",
+			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "COMPATIBILITY_HEADER_PATH=\"${BUILT_PRODUCTS_DIR}/Swift Compatibility Header/${PRODUCT_MODULE_NAME}-Swift.h\"\nMODULE_MAP_PATH=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_MODULE_NAME}.modulemap\"\n\nditto \"${DERIVED_SOURCES_DIR}/${PRODUCT_MODULE_NAME}-Swift.h\" \"${COMPATIBILITY_HEADER_PATH}\"\nditto \"${PODS_ROOT}/Headers/Public/Hero/Hero.modulemap\" \"${MODULE_MAP_PATH}\"\nditto \"${PODS_ROOT}/Headers/Public/Hero/Hero-umbrella.h\" \"${BUILT_PRODUCTS_DIR}\"\nprintf \"\\n\\nmodule ${PRODUCT_MODULE_NAME}.Swift {\\n  header \\\"${COMPATIBILITY_HEADER_PATH}\\\"\\n  requires objc\\n}\\n\" >> \"${MODULE_MAP_PATH}\"\n";
 		};
-		8A41C759955C9F69CFBEB0B7B2B79C40 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+		4635A735DA0AB2AECEF1B5665F09AFD7 /* Copy generated compatibility header */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DERIVED_SOURCES_DIR}/${PRODUCT_MODULE_NAME}-Swift.h",
+				"${PODS_ROOT}/Headers/Public/RangeSeekSlider/RangeSeekSlider.modulemap",
+				"${PODS_ROOT}/Headers/Public/RangeSeekSlider/RangeSeekSlider-umbrella.h",
+			);
+			name = "Copy generated compatibility header";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${BUILT_PRODUCTS_DIR}/${PRODUCT_MODULE_NAME}.modulemap",
+				"${BUILT_PRODUCTS_DIR}/RangeSeekSlider-umbrella.h",
+				"${BUILT_PRODUCTS_DIR}/Swift Compatibility Header/${PRODUCT_MODULE_NAME}-Swift.h",
+			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "COMPATIBILITY_HEADER_PATH=\"${BUILT_PRODUCTS_DIR}/Swift Compatibility Header/${PRODUCT_MODULE_NAME}-Swift.h\"\nMODULE_MAP_PATH=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_MODULE_NAME}.modulemap\"\n\nditto \"${DERIVED_SOURCES_DIR}/${PRODUCT_MODULE_NAME}-Swift.h\" \"${COMPATIBILITY_HEADER_PATH}\"\nditto \"${PODS_ROOT}/Headers/Public/RangeSeekSlider/RangeSeekSlider.modulemap\" \"${MODULE_MAP_PATH}\"\nditto \"${PODS_ROOT}/Headers/Public/RangeSeekSlider/RangeSeekSlider-umbrella.h\" \"${BUILT_PRODUCTS_DIR}\"\nprintf \"\\n\\nmodule ${PRODUCT_MODULE_NAME}.Swift {\\n  header \\\"${COMPATIBILITY_HEADER_PATH}\\\"\\n  requires objc\\n}\\n\" >> \"${MODULE_MAP_PATH}\"\n";
 		};
-		96FB5C5368881DFB690E50E64B80D5BF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+		81D35D70A8BA485392FF414A1C6445D8 /* Copy generated compatibility header */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A806A1901A533170B0EEC9017A39D069 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DERIVED_SOURCES_DIR}/${PRODUCT_MODULE_NAME}-Swift.h",
+				"${PODS_ROOT}/Headers/Public/RevealingSplashView/RevealingSplashView.modulemap",
+				"${PODS_ROOT}/Headers/Public/RevealingSplashView/RevealingSplashView-umbrella.h",
+			);
+			name = "Copy generated compatibility header";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${BUILT_PRODUCTS_DIR}/${PRODUCT_MODULE_NAME}.modulemap",
+				"${BUILT_PRODUCTS_DIR}/RevealingSplashView-umbrella.h",
+				"${BUILT_PRODUCTS_DIR}/Swift Compatibility Header/${PRODUCT_MODULE_NAME}-Swift.h",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "COMPATIBILITY_HEADER_PATH=\"${BUILT_PRODUCTS_DIR}/Swift Compatibility Header/${PRODUCT_MODULE_NAME}-Swift.h\"\nMODULE_MAP_PATH=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_MODULE_NAME}.modulemap\"\n\nditto \"${DERIVED_SOURCES_DIR}/${PRODUCT_MODULE_NAME}-Swift.h\" \"${COMPATIBILITY_HEADER_PATH}\"\nditto \"${PODS_ROOT}/Headers/Public/RevealingSplashView/RevealingSplashView.modulemap\" \"${MODULE_MAP_PATH}\"\nditto \"${PODS_ROOT}/Headers/Public/RevealingSplashView/RevealingSplashView-umbrella.h\" \"${BUILT_PRODUCTS_DIR}\"\nprintf \"\\n\\nmodule ${PRODUCT_MODULE_NAME}.Swift {\\n  header \\\"${COMPATIBILITY_HEADER_PATH}\\\"\\n  requires objc\\n}\\n\" >> \"${MODULE_MAP_PATH}\"\n";
 		};
-/* End PBXResourcesBuildPhase section */
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1F38E196797C73D328B4B719F776DF0E /* Sources */ = {
+		1EEBFE55AC6E34D054F1ECB9A9D2032C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CFFBD55760461439DCD2E287895CF0C /* Animations.swift in Sources */,
-				345301588CE2D5818996472BA109A6B2 /* RevealingSplashView-dummy.m in Sources */,
-				941CF8600D86F37CEF165DA6E7F3134A /* RevealingSplashView.swift in Sources */,
-				334B4420C1D35AB5E97786B7EC59AF53 /* SplashAnimatable.swift in Sources */,
-				776C8675E6F20EE4F8C7D7344D670BB1 /* SplashAnimationType.swift in Sources */,
+				F4C7B6C50910B290C8DB7C8DA1539AEE /* GMUClusterManager.m in Sources */,
+				70FFB923C58DC90F2E24992FC96CEDE7 /* GMUDefaultClusterIconGenerator.m in Sources */,
+				169C1A0751F02C4E30A6BA7DE423F1D4 /* GMUDefaultClusterRenderer.m in Sources */,
+				10924A81EAF42DD63EB3F472F1E4BF4B /* GMUFeature.m in Sources */,
+				AACE59C7207B43254E4A773938B130AD /* GMUGeoJSONParser.m in Sources */,
+				B847512204260978B922F3C2C4D7AF90 /* GMUGeometryCollection.m in Sources */,
+				CC55704591393248B50FB632AEAE3C38 /* GMUGeometryRenderer.m in Sources */,
+				15743F96A5DD92BD3762EBD739A5B8A5 /* GMUGradient.m in Sources */,
+				090F5330D07719F9EFB310979E8BB40B /* GMUGridBasedClusterAlgorithm.m in Sources */,
+				380E6A8E00B64C3715A65C549501CFEC /* GMUGroundOverlay.m in Sources */,
+				907B1233406760F6B8C8A88D5333A1DB /* GMUHeatmapTileLayer.m in Sources */,
+				BCCBC1475AB7260AC61F040FFDE2700F /* GMUKMLParser.m in Sources */,
+				66EDD4BC2B567CFDCC10A62E999C078C /* GMULineString.m in Sources */,
+				111413D10EB325C966F9EAE38002779E /* GMUNonHierarchicalDistanceBasedAlgorithm.m in Sources */,
+				9CA08E3C81BBACE8450B4D404544B33B /* GMUPlacemark.m in Sources */,
+				716547B8F0E95640F573E93CEB1189AC /* GMUPoint.m in Sources */,
+				74D07586404D967ACF63BC4F98EB1A8B /* GMUPolygon.m in Sources */,
+				8C560F9D675BC01EEBFB2C3A7BE8CB64 /* GMUSimpleClusterAlgorithm.m in Sources */,
+				1D013B00A188838729DC46BBF1EE8676 /* GMUStaticCluster.m in Sources */,
+				AD0AB4C07FDB836B401D4624B176FA69 /* GMUStyle.m in Sources */,
+				37EC9F6CCB9810BF91DBE51ECB4EDDA5 /* GMUWeightedLatLng.m in Sources */,
+				AA89DF9A812019688F688D93AA68B2A6 /* GMUWrappingDictionaryKey.m in Sources */,
+				405EDC8E6CF9880CAEA8B6489915BF1F /* Google-Maps-iOS-Utils-dummy.m in Sources */,
+				BD8276F2FCF9B14C71F25CA6ED5C5DD9 /* GQTPointQuadTree.m in Sources */,
+				25DF278FE7FE75BFC8083E9367CCFBF9 /* GQTPointQuadTreeChild.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		59C0E08F238FBFE43C70E4A0CC349DF3 /* Sources */ = {
+		20009593ACCCAB76AA9E04B5AC6D1F88 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F478B450905B29213993F76A223A52A4 /* RangeSeekSlider-dummy.m in Sources */,
-				346F1121DE5579B550A08D85F01E81A7 /* RangeSeekSlider.swift in Sources */,
-				D9482577B4860BD359C1A55E173E4EE4 /* RangeSeekSliderDelegate.swift in Sources */,
-				2EF2351AA2011DC27C94F950B7FD8550 /* TapticEngine.swift in Sources */,
+				B80E85D7DBCB7A1A0AE39D3A1E3E3E8F /* RangeSeekSlider-dummy.m in Sources */,
+				A10779084389E5997C8A079BA639B86B /* RangeSeekSlider.swift in Sources */,
+				993999DF45CA4A48CC292E02639224BF /* RangeSeekSliderDelegate.swift in Sources */,
+				6619C2A3A19D572C385C141DDA84510A /* TapticEngine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C0A954A5445A6ACD89FE320BA58B4F09 /* Sources */ = {
+		4083A58E65A97998D2A777110736C5A2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4440E4DBC6F58B3F38F1C30F6713A8A6 /* Pods-Harrastuspassi-dummy.m in Sources */,
+				BE264A26C07B6FD778C3720D8B6C9B1D /* Animations.swift in Sources */,
+				84ED96C229DD4CAAC02FBB7509538247 /* RevealingSplashView-dummy.m in Sources */,
+				282A210FF127ACF5C96F466E6BC37ADD /* RevealingSplashView.swift in Sources */,
+				BA60D44EDA0A3C088A9AF9B8B26F49BE /* SplashAnimatable.swift in Sources */,
+				4ABD020D0FBEE4D00C6F1C37133AA45F /* SplashAnimationType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DE39CECDA3CDC58FBF0013519EBB9782 /* Sources */ = {
+		C357714F0BE0740C83923B4115BB4556 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CBBF6F1C1E540A30DC5DB1A53D3E8D9 /* Array+HeroModifier.swift in Sources */,
-				0FE5A90BC0B6621E2EA004264E3DB35E /* BasePreprocessor.swift in Sources */,
-				041CA92C0D46D81F87C1B18020FE9D92 /* CALayer+Hero.swift in Sources */,
-				679E1C2EA93185E89E46AC2D7DF8BBB3 /* CAMediaTimingFunction+Hero.swift in Sources */,
-				52EBA869576A1B7FF128DB43C230EEE8 /* CascadePreprocessor.swift in Sources */,
-				5DDC3018F680E30345A04B35009712E7 /* CG+Hero.swift in Sources */,
-				72177310AEDF6C437F20DF4615CB21DB /* ConditionalPreprocessor.swift in Sources */,
-				D3C970377C27DBB458631F4B28F6904E /* DefaultAnimationPreprocessor.swift in Sources */,
-				A6A2559E024B45B600CC3CA211FE5B3A /* DispatchQueue+Hero.swift in Sources */,
-				CCAF138A54D9CCBE7EE681AB3A2FEE17 /* Hero-dummy.m in Sources */,
-				E4F1B141B0DD7084DA4002CA4EF6A589 /* HeroAnimatorViewContext.swift in Sources */,
-				86311C5BAE9AD426446199988F3567AF /* HeroCompatible.swift in Sources */,
-				55704DD60E8BEE2188893CABB1AADE17 /* HeroContext.swift in Sources */,
-				8AB1E598B721098E1EB51F45D7D86629 /* HeroCoreAnimationViewContext.swift in Sources */,
-				5DEDE15AAB513151B185392D0209F4BC /* HeroDebugPlugin.swift in Sources */,
-				539247331D4D80E4E552FA040A59C197 /* HeroDebugView.swift in Sources */,
-				C3AB21A4DC75127283411720780552E8 /* HeroDefaultAnimator.swift in Sources */,
-				4C8CA3AC7D7E3484EA8B78C20FA345CA /* HeroModifier+Advanced.swift in Sources */,
-				D9739FB131C5C02BA12A4E88F628EE12 /* HeroModifier+HeroStringConvertible.swift in Sources */,
-				608632DA7CE64A8D37ACF3B8B11BD48D /* HeroModifier.swift in Sources */,
-				85D6216A7732A66EB560593B3A226820 /* HeroPlugin.swift in Sources */,
-				2E8D7A67F82F92D81D014F2248C09597 /* HeroProgressRunner.swift in Sources */,
-				C4DFF2EA6A6AD7648BA02AB0EDB0915A /* HeroStringConvertible.swift in Sources */,
-				65E7526915C6C92F9DC44F140A3F0E60 /* HeroTargetState.swift in Sources */,
-				4763B2EC203665F41F33D93CF55EC1F1 /* HeroTransition+Animate.swift in Sources */,
-				FE2F2C0C6E8AE25776E5668D725AC6DF /* HeroTransition+Complete.swift in Sources */,
-				9A7AB4248E478CDA2C60C0DD5F97B66E /* HeroTransition+CustomTransition.swift in Sources */,
-				CC776C8B70A6644A8A23B66CE308E096 /* HeroTransition+Interactive.swift in Sources */,
-				94C24F4688FC7D72E2EB70186B376B26 /* HeroTransition+Start.swift in Sources */,
-				D91F76CB9193007B6FC71FF6F511B0F8 /* HeroTransition+UINavigationControllerDelegate.swift in Sources */,
-				1D4A0EA4421D56B62087B001686F3792 /* HeroTransition+UITabBarControllerDelegate.swift in Sources */,
-				11F8AE060A4566C9D9135514A5C68914 /* HeroTransition+UIViewControllerTransitioningDelegate.swift in Sources */,
-				06C88826E89A352EACFE13784F08B7F6 /* HeroTransition.swift in Sources */,
-				9B6A092AE6604A4763E6D0EEAD3C3D9B /* HeroTransitionState.swift in Sources */,
-				FD4BBEFE1DE51AEBB6E45C878A16A778 /* HeroTypes.swift in Sources */,
-				0D6BFBEBAF1D18452007F08B6DB37010 /* HeroViewControllerDelegate.swift in Sources */,
-				DE8E776E8C471D1A399FC69AFDBA36DC /* HeroViewPropertyViewContext.swift in Sources */,
-				9E9A48A0F105255850019FF9D639F904 /* IgnoreSubviewModifiersPreprocessor.swift in Sources */,
-				27D2BB7855E00D79B875CBC6F3DB6D9F /* Lexer.swift in Sources */,
-				06B0C6AE124E92EC5809C2A7030F2060 /* MatchPreprocessor.swift in Sources */,
-				C4646B7D6A6176129F77BD6B565BFE36 /* Nodes.swift in Sources */,
-				DE80B9AF667DBF5CADB551C10380A9A8 /* Parser.swift in Sources */,
-				9AB91EA6A797C9DC7D59ECA44B4E0174 /* Regex.swift in Sources */,
-				A5E29FFF6ECF9FF58C0A9B572D603FD4 /* SourcePreprocessor.swift in Sources */,
-				90B637ED180D169AF9776CEC5ABC4FE8 /* SwiftSupport.swift in Sources */,
-				BBB562E939DF58537B4EE216C7813FF7 /* UIKit+Hero.swift in Sources */,
-				36461766F1FBCA4074DBF606F39F62F4 /* UIView+Hero.swift in Sources */,
-				AA25FDDA3FE1E75463E2067B761761E7 /* UIViewController+Hero.swift in Sources */,
+				B551593762021D4A63B40EF81F93200D /* Pods-Harrastuspassi-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C549E85B65BC83AC956CEE5A27BCB2F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7C297E471811897624FB3562FEFE3F3 /* Array+HeroModifier.swift in Sources */,
+				D3FE3BEFC39AC558100BA810CAC6B5C1 /* BasePreprocessor.swift in Sources */,
+				6A50D90E911304389EACA13F2D9D7F0C /* CALayer+Hero.swift in Sources */,
+				D3AE92FA293787B856F992E036E35B1C /* CAMediaTimingFunction+Hero.swift in Sources */,
+				1060DB7635874696C7881F1ED4CFF0D9 /* CascadePreprocessor.swift in Sources */,
+				1EB4933ABC82976E677D449C67B5A2DF /* CG+Hero.swift in Sources */,
+				ED15D5A5DEFC73E26C97363508A1BC6B /* ConditionalPreprocessor.swift in Sources */,
+				DC340BF5E5DCDE31CA79CDE1F1C4C851 /* DefaultAnimationPreprocessor.swift in Sources */,
+				485F329B07CE24A7A0B199C87F7D500F /* DispatchQueue+Hero.swift in Sources */,
+				F1764A452D0C45B20A1AD88188C0DBA4 /* Hero-dummy.m in Sources */,
+				3BA8887BAFFC64B94DD3BBC79DBAD56A /* HeroAnimatorViewContext.swift in Sources */,
+				7C9C9CDD06915D67CA40308ECC9C34DB /* HeroCompatible.swift in Sources */,
+				2144D57A0E792AFB299BA3B1D805DB04 /* HeroContext.swift in Sources */,
+				0C4E1298262B0A284E2DF5D39BA8A626 /* HeroCoreAnimationViewContext.swift in Sources */,
+				EBFECDF100141287E2B36AF8B5DA7DD0 /* HeroDebugPlugin.swift in Sources */,
+				91C5730CDDE484B2442CAA0577EB6349 /* HeroDebugView.swift in Sources */,
+				0057349650F92769C8C81AB3852FF733 /* HeroDefaultAnimator.swift in Sources */,
+				E79F500AE8E5FB3BFFB93DE66921EB84 /* HeroModifier+Advanced.swift in Sources */,
+				9D77D260AFC950250D40C418BAE084DC /* HeroModifier+HeroStringConvertible.swift in Sources */,
+				776967DBAC3247C1FE2C79DFBA07731D /* HeroModifier.swift in Sources */,
+				6DC4ED736707F625DA73DCCEB00FD3FA /* HeroPlugin.swift in Sources */,
+				0A5ACC85E81052CF8251B67A94E70C24 /* HeroProgressRunner.swift in Sources */,
+				798A51EECB7DB78CB100F21C47540FE8 /* HeroStringConvertible.swift in Sources */,
+				223EE73A719B0508312BC2E71727B833 /* HeroTargetState.swift in Sources */,
+				19CD2D29139F168080A189EFFF97F71C /* HeroTransition+Animate.swift in Sources */,
+				3A422CED50252338054EF6F669DE2B4C /* HeroTransition+Complete.swift in Sources */,
+				C02AFC1FAA7ABD546ACC2006F75248C1 /* HeroTransition+CustomTransition.swift in Sources */,
+				D3FFDF49DCD09629F0934042742EEEEC /* HeroTransition+Interactive.swift in Sources */,
+				18118F2771E5922C56C08EBF5D258681 /* HeroTransition+Start.swift in Sources */,
+				0A1E6B04915FF8F19C24F027B2BE3995 /* HeroTransition+UINavigationControllerDelegate.swift in Sources */,
+				771104335D2C3A3FD22699D4D4B55A98 /* HeroTransition+UITabBarControllerDelegate.swift in Sources */,
+				E4267D70611BC3BDC3030833AE829F0E /* HeroTransition+UIViewControllerTransitioningDelegate.swift in Sources */,
+				6307A46297DC4979E7CAB3A2B7C23732 /* HeroTransition.swift in Sources */,
+				689C7D176BC86DDC9BA9E45E86F18973 /* HeroTransitionState.swift in Sources */,
+				D5993DEB1B7966E605F2FF4027E1BED3 /* HeroTypes.swift in Sources */,
+				2C4B3F455A6A917F7F227D2D145A3A1B /* HeroViewControllerDelegate.swift in Sources */,
+				AD361DFEE68410059F6D433775E1F374 /* HeroViewPropertyViewContext.swift in Sources */,
+				5143CEFDB686B36416E71CFA672940E4 /* IgnoreSubviewModifiersPreprocessor.swift in Sources */,
+				D8AB3FEC1C1A024EEB3E6C5C77C887A6 /* Lexer.swift in Sources */,
+				0ED6742F38D9040F46B2315C2FC7A3C7 /* MatchPreprocessor.swift in Sources */,
+				5C74A9F4ADC2DC8F05D5A0E03E674557 /* Nodes.swift in Sources */,
+				8510C4857C610101B976DF71BCAF285E /* Parser.swift in Sources */,
+				CF5150ACC6CA6EAB3FAB288C0C37A460 /* Regex.swift in Sources */,
+				F1061377A9328754F0771BD8E8EDBDD5 /* SourcePreprocessor.swift in Sources */,
+				854D99766A5062F2F9F2E83DDB11ACE0 /* SwiftSupport.swift in Sources */,
+				AF1E3484933B308DB4789D7C2D88A6C4 /* UIKit+Hero.swift in Sources */,
+				E9E19DDE553A36E422459CDAF2F95B8B /* UIView+Hero.swift in Sources */,
+				39FA1087AFAB14D2AB766C2AB9CB0C5D /* UIViewController+Hero.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		05D4143FCAE58CDE79A3DC00E941A053 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GooglePlaces;
-			target = 0C1885900810601510E0C632060FAF26 /* GooglePlaces */;
-			targetProxy = BF4912A2B540BABCDF84DC73DF6600C3 /* PBXContainerItemProxy */;
-		};
-		6A9705C0CDFFE169A215671E37C29D63 /* PBXTargetDependency */ = {
+		35951907DD470754CDB8154BC1EE1592 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Hero;
 			target = B3893AEA4D7DBB9A086E889FC469132D /* Hero */;
-			targetProxy = 44EEB485769373D8620BE7FF8958CCA7 /* PBXContainerItemProxy */;
+			targetProxy = 4D17670395AB18A7CDDB3FE3A31E5F4C /* PBXContainerItemProxy */;
 		};
-		8DB3C6F1433EB43A3E6D77C14FEC78D4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = RangeSeekSlider;
-			target = 4AFB864B337D1F74C1D79F4FC8F6C67F /* RangeSeekSlider */;
-			targetProxy = ACC783CCF993E74B3A298F77BA555D7F /* PBXContainerItemProxy */;
-		};
-		9ED38572735C08EA407ED208A7AC8088 /* PBXTargetDependency */ = {
+		47F80AFDFE3B81208C384AA4BDB5ED25 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RevealingSplashView;
 			target = A16BB753FC705C22DAFCD8B7C1071A09 /* RevealingSplashView */;
-			targetProxy = 38F52EA6CEDF47E486C5DDE5A2CD86F6 /* PBXContainerItemProxy */;
+			targetProxy = 4758A50C3F18F6D50D2480414A5F90C3 /* PBXContainerItemProxy */;
+		};
+		516C5ED54B9B1A314E65F2B2040020AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RangeSeekSlider;
+			target = 4AFB864B337D1F74C1D79F4FC8F6C67F /* RangeSeekSlider */;
+			targetProxy = 81C312DCF7C5F81F418113BA41DF4F92 /* PBXContainerItemProxy */;
+		};
+		5AE440D1E5780C5E5E8FE69FF3056B26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleMaps;
+			target = E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */;
+			targetProxy = 57B54F8A0B8CC88D8153485B676D67CF /* PBXContainerItemProxy */;
+		};
+		5B84F91E783AE5AF125835161908BF6A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GooglePlaces;
+			target = 0C1885900810601510E0C632060FAF26 /* GooglePlaces */;
+			targetProxy = DBF48BA9590C012E996EE9EB1CD01FD9 /* PBXContainerItemProxy */;
+		};
+		A4A72A3D763F1EAF33AAA3303933FBA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Google-Maps-iOS-Utils";
+			target = A5EEC7C2AA5BC7C67CFA2C7578AB62C7 /* Google-Maps-iOS-Utils */;
+			targetProxy = F44C68D89C284C7FDE68F21FFFC433FF /* PBXContainerItemProxy */;
 		};
 		D42315111F400C0605ACCD6B5CAF2178 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -885,86 +1265,15 @@
 			target = E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */;
 			targetProxy = 6EB1C2DD30E6564FC3135C9E8002D8F7 /* PBXContainerItemProxy */;
 		};
-		F7919CE7AA3C1D887271CA97BD46732B /* PBXTargetDependency */ = {
+		E265A2BFEAFAC3CCDB979912608B1BAC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GoogleMaps;
 			target = E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */;
-			targetProxy = C297423546AFF04388579AB15C0808A5 /* PBXContainerItemProxy */;
+			targetProxy = 7184D4EFB4213781ABCEFD108BC493F6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0DBCC192316151E9CBE4518505D9EB42 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36FB79F335450BCF8BD8E6FF6464EE31 /* RevealingSplashView.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/RevealingSplashView/RevealingSplashView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/RevealingSplashView/RevealingSplashView-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/RevealingSplashView/RevealingSplashView.modulemap";
-				PRODUCT_MODULE_NAME = RevealingSplashView;
-				PRODUCT_NAME = RevealingSplashView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		1C9E146998E747A327BAB85B0BCF6709 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36FB79F335450BCF8BD8E6FF6464EE31 /* RevealingSplashView.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/RevealingSplashView/RevealingSplashView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/RevealingSplashView/RevealingSplashView-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/RevealingSplashView/RevealingSplashView.modulemap";
-				PRODUCT_MODULE_NAME = RevealingSplashView;
-				PRODUCT_NAME = RevealingSplashView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		32C2FB3BD9A2402E2347CE50F405010A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1025,60 +1334,30 @@
 			};
 			name = Release;
 		};
-		4AA46832D8A16AA4E4811383B204D2A4 /* Debug */ = {
+		605CEC7897B12C8B998D9AC281A232B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 474B4FC0411766B636D41C1161FF6640 /* GoogleMaps.xcconfig */;
+			baseConfigurationReference = 361611616DA317EF911DCF3F539ACE65 /* RevealingSplashView.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		4BE1AF6541B5A9CAF9B1E82E12B208C9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BBC1059E7B167098E5F057D7C15CCCFB /* Pods-Harrastuspassi.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi.modulemap";
+				GCC_PREFIX_HEADER = "Target Support Files/RevealingSplashView/RevealingSplashView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MODULEMAP_FILE = Headers/Public/RevealingSplashView/RevealingSplashView.modulemap;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = RevealingSplashView;
+				PRODUCT_NAME = RevealingSplashView;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		65E8432CA1AC1817F746BE6B5C4F067E /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1144,47 +1423,132 @@
 			};
 			name = Debug;
 		};
-		750AE89525A4E9276B18494C2596C303 /* Debug */ = {
+		67EA78C547F2F1C0157F36782BE770AB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 247811D9AE8CD5E4627D2077F8E1603F /* Pods-Harrastuspassi.debug.xcconfig */;
+			baseConfigurationReference = EFEF4955DB242469A16B44946E5D8DDC /* Pods-Harrastuspassi.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6C20D63FA4512173CC3AC9001784F3A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9310DCB3E93EEF97E61AD38E638A4EB /* RangeSeekSlider.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/RangeSeekSlider/RangeSeekSlider-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MODULEMAP_FILE = Headers/Public/RangeSeekSlider/RangeSeekSlider.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = RangeSeekSlider;
+				PRODUCT_NAME = RangeSeekSlider;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7D920EBD9FC3DB57CABCDBEBD14A943D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14BCFDCF1B24BD865C63686EF7A4FEAA /* Google-Maps-iOS-Utils.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/Google-Maps-iOS-Utils/Google-Maps-iOS-Utils-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = Google_Maps_iOS_Utils;
+				PRODUCT_NAME = "Google-Maps-iOS-Utils";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		81B942C11600A7665CBCEA9D149D3055 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6BDAD35DAC31691B9276A031C14C8E6 /* Hero.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/Hero/Hero-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MODULEMAP_FILE = Headers/Public/Hero/Hero.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = Hero;
+				PRODUCT_NAME = Hero;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8F056716449532EA6514263C78C56358 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14BCFDCF1B24BD865C63686EF7A4FEAA /* Google-Maps-iOS-Utils.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/Google-Maps-iOS-Utils/Google-Maps-iOS-Utils-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = Google_Maps_iOS_Utils;
+				PRODUCT_NAME = "Google-Maps-iOS-Utils";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		907050E8ED96EF2CF04EC3D293E73BD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2BBF83AF820F9CA56C196882567B9E8 /* GooglePlaces.xcconfig */;
+			baseConfigurationReference = 66F9A7FCD2B8A9CF8ACACA584FD831AC /* GooglePlaces.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1198,80 +1562,84 @@
 			};
 			name = Debug;
 		};
-		A3DE85BC28312BCFCA03109E1C9E4EB4 /* Release */ = {
+		9A403A41F66D6B10F32977D3AB5C33DF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B2B8A70DE81D09780873B47B8FE6FD07 /* Hero.xcconfig */;
+			baseConfigurationReference = E6BDAD35DAC31691B9276A031C14C8E6 /* Hero.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_PREFIX_HEADER = "Target Support Files/Hero/Hero-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Hero/Hero-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Hero/Hero.modulemap";
+				MODULEMAP_FILE = Headers/Public/Hero/Hero.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_MODULE_NAME = Hero;
 				PRODUCT_NAME = Hero;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		C6377BC51733CC942ACC24AC37EB8EF9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B2B8A70DE81D09780873B47B8FE6FD07 /* Hero.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Hero/Hero-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Hero/Hero-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Hero/Hero.modulemap";
-				PRODUCT_MODULE_NAME = Hero;
-				PRODUCT_NAME = Hero;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		C7565AEA7FCD8F66CAF546DC5AF1404F /* Release */ = {
+		A4331F1F3EBCDB541E8AED8C53F0661F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 474B4FC0411766B636D41C1161FF6640 /* GoogleMaps.xcconfig */;
+			baseConfigurationReference = 7A0BBF6C01818039F3943B97D6476DA8 /* Pods-Harrastuspassi.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BD72D0072908261AACC200DC2EEFDF1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 361611616DA317EF911DCF3F539ACE65 /* RevealingSplashView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/RevealingSplashView/RevealingSplashView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MODULEMAP_FILE = Headers/Public/RevealingSplashView/RevealingSplashView.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = RevealingSplashView;
+				PRODUCT_NAME = RevealingSplashView;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BDEE113CF2B54BF35A8892BCFE69E378 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52E655F13A80AA84E30B375D665370C2 /* GoogleMaps.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1285,10 +1653,26 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
+		};
+		D0827483818C08AF578082004455E13A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52E655F13A80AA84E30B375D665370C2 /* GoogleMaps.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
 		};
 		DC85D7712D8EE6E340F053BC38E1FB63 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2BBF83AF820F9CA56C196882567B9E8 /* GooglePlaces.xcconfig */;
+			baseConfigurationReference = 66F9A7FCD2B8A9CF8ACACA584FD831AC /* GooglePlaces.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1303,85 +1687,40 @@
 			};
 			name = Release;
 		};
-		F54990E188E4C5CF3E32090577128CDF /* Debug */ = {
+		DD309AFF17682692B1D13E15E6E93374 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 312F7583F0D87A0627ED7386B3557C68 /* RangeSeekSlider.xcconfig */;
+			baseConfigurationReference = F9310DCB3E93EEF97E61AD38E638A4EB /* RangeSeekSlider.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_PREFIX_HEADER = "Target Support Files/RangeSeekSlider/RangeSeekSlider-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/RangeSeekSlider/RangeSeekSlider-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/RangeSeekSlider/RangeSeekSlider.modulemap";
+				MODULEMAP_FILE = Headers/Public/RangeSeekSlider/RangeSeekSlider.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_MODULE_NAME = RangeSeekSlider;
 				PRODUCT_NAME = RangeSeekSlider;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		F9A6BE53C7EDBEF1129403646E855903 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 312F7583F0D87A0627ED7386B3557C68 /* RangeSeekSlider.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/RangeSeekSlider/RangeSeekSlider-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/RangeSeekSlider/RangeSeekSlider-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/RangeSeekSlider/RangeSeekSlider.modulemap";
-				PRODUCT_MODULE_NAME = RangeSeekSlider;
-				PRODUCT_NAME = RangeSeekSlider;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0F92D2D742855D9F023A19D0AA18BCFD /* Build configuration list for PBXNativeTarget "RangeSeekSlider" */ = {
+		0DF75D3E488D5070DC6F1F551C74A584 /* Build configuration list for PBXNativeTarget "RevealingSplashView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F54990E188E4C5CF3E32090577128CDF /* Debug */,
-				F9A6BE53C7EDBEF1129403646E855903 /* Release */,
+				605CEC7897B12C8B998D9AC281A232B3 /* Debug */,
+				BD72D0072908261AACC200DC2EEFDF1B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1395,11 +1734,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		46921981F609C5BA3CB72EC4EA41299D /* Build configuration list for PBXAggregateTarget "GoogleMaps" */ = {
+		4119D3A9986629C288BFED2C3181D894 /* Build configuration list for PBXNativeTarget "Pods-Harrastuspassi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4AA46832D8A16AA4E4811383B204D2A4 /* Debug */,
-				C7565AEA7FCD8F66CAF546DC5AF1404F /* Release */,
+				67EA78C547F2F1C0157F36782BE770AB /* Debug */,
+				A4331F1F3EBCDB541E8AED8C53F0661F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1413,29 +1752,38 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B9CF48654F6517B26D5254DB8C69C8F /* Build configuration list for PBXNativeTarget "Pods-Harrastuspassi" */ = {
+		720E5B9CF7CC0A329437FBCA06D35687 /* Build configuration list for PBXNativeTarget "Hero" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				750AE89525A4E9276B18494C2596C303 /* Debug */,
-				4BE1AF6541B5A9CAF9B1E82E12B208C9 /* Release */,
+				9A403A41F66D6B10F32977D3AB5C33DF /* Debug */,
+				81B942C11600A7665CBCEA9D149D3055 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D8A3F00AAB425AED86EEBC6CFA0C1825 /* Build configuration list for PBXNativeTarget "Hero" */ = {
+		B744777300F72C1CBA8C01689EA87A1A /* Build configuration list for PBXNativeTarget "Google-Maps-iOS-Utils" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C6377BC51733CC942ACC24AC37EB8EF9 /* Debug */,
-				A3DE85BC28312BCFCA03109E1C9E4EB4 /* Release */,
+				8F056716449532EA6514263C78C56358 /* Debug */,
+				7D920EBD9FC3DB57CABCDBEBD14A943D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E0EF856EB00AD6466ED18368545F7459 /* Build configuration list for PBXNativeTarget "RevealingSplashView" */ = {
+		BFB8B902FD88214156B663EF354C755C /* Build configuration list for PBXNativeTarget "RangeSeekSlider" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1C9E146998E747A327BAB85B0BCF6709 /* Debug */,
-				0DBCC192316151E9CBE4518505D9EB42 /* Release */,
+				6C20D63FA4512173CC3AC9001784F3A2 /* Debug */,
+				DD309AFF17682692B1D13E15E6E93374 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFF332D8A742C155A131A60BAC940F3B /* Build configuration list for PBXAggregateTarget "GoogleMaps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0827483818C08AF578082004455E13A /* Debug */,
+				BDEE113CF2B54BF35A8892BCFE69E378 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

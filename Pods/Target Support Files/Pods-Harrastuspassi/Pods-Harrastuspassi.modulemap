@@ -1,4 +1,4 @@
-framework module Pods_Harrastuspassi {
+module Pods_Harrastuspassi {
   umbrella header "Pods-Harrastuspassi-umbrella.h"
 
   export *
