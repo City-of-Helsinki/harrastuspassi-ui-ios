@@ -9,11 +9,15 @@
 import UIKit
 import GoogleMaps
 import Hero
+import Firebase
 
 class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource {
     
+    
     var panGR: UIPanGestureRecognizer!
     var hobbyEvent: HobbyEventData?
+    var hobbyEventID: Int?
+    var navigatedFromDynamicLink = false;
     var camera: GMSCameraPosition?
     var heroID: String?
     var imageHeroID: String?
@@ -46,6 +50,19 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        eventTableView.delegate = self;
+        eventTableView.dataSource = self;
+        if !navigatedFromDynamicLink {
+            setupUI();
+        } else {
+            setupUIFromLink();
+        }
+        
+        
+    }
+    
+    func setupUI() {
         view.hero.isEnabled = true;
         view.hero.id = heroID;
         imageView.hero.id = imageHeroID;
@@ -61,7 +78,6 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         startingOffset = scrollView.contentOffset.y;
         closeButton.layer.cornerRadius = 15;
         closeButton.clipsToBounds = true;
-        
         if let event = hobbyEvent {
             titleLabel.text = event.hobby?.name
             if let img = image {
@@ -69,15 +85,27 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
                 
             } else if let imageUrl = event.hobby?.image {
                 let url = URL (string: imageUrl)
-                imageView.loadurl(url: url!, completition: nil);
+                imageView.kf.setImage(with: url);
             } else {
                 imageView.image = UIImage(named: "ic_panorama")
             }
         }
-        eventTableView.delegate = self;
-        eventTableView.dataSource = self;
         reloadData();
         setUpMapView();
+    }
+    
+    func setupUIFromLink() {
+        panGR = UIPanGestureRecognizer(target: self, action: #selector(handlePan(gestureRecognizer:)));
+        panGR.delegate = self
+        scrollView.addGestureRecognizer(panGR);
+        scrollView.bounces = false;
+        startingOffset = scrollView.contentOffset.y;
+        closeButton.layer.zPosition = CGFloat(Float.greatestFiniteMagnitude);
+        closeButton.hero.isEnabled = true;
+        closeButton.hero.modifiers = [.duration(0.7), .translate(x:100), .useGlobalCoordinateSpace];
+        closeButton.layer.cornerRadius = 15;
+        closeButton.clipsToBounds = true;
+        fetchHobbyFromUrl(Config.API_URL + "hobbyevents/" + String(hobbyEventID!) + "?include=hobby_detail");
     }
     /*
     // MARK: - Navigation
@@ -97,6 +125,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         guard let event = hobbyEvent else {
             return
         }
+        titleLabel.text = event.hobby?.name
         organizerLabel.text = event.hobby?.organizer?.name
         locationLabel.text = event.hobby?.location?.name
         descriptionLabel.text = event.hobby?.description
@@ -106,10 +135,18 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         if let zipCode = location.zipCode, let address = location.address, let city = location.city {
             addressLabel.text = address + ", " + zipCode + ", " + city
         }
+        if let imageUrl = event.hobby?.image {
+            let url = URL (string: imageUrl)
+            imageView.kf.setImage(with: url);
+        } else {
+            imageView.image = UIImage(named: "ic_panorama")
+        }
         activityIndicator.isHidden = false;
         activityIndicator.startAnimating();
+        
         fetchUrl(urlString: Config.API_URL + "hobbyevents")
     }
+    
     
     func setUpMapView() {
         guard let lat = hobbyEvent?.hobby?.location?.lat, let lon = hobbyEvent?.hobby?.location?.lon, let title = hobbyEvent?.hobby?.name, let snippet = hobbyEvent?.hobby?.location?.name else {
@@ -226,7 +263,6 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     }
     
     func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
-        print(response)
         if let fetchedData = data {
             var eventsData = [HobbyEventData]();
             do {
@@ -240,9 +276,10 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
 //            }
             print(eventsData)
             DispatchQueue.main.async(execute: {() in
+                
                 self.activityIndicator.stopAnimating();
                 self.activityIndicator.isHidden = true;
-                self.activityIndicator.removeFromSuperview();
+                
                 self.eventTableView.tableFooterView = nil
                 if(eventsData.count == 0) {
                     print("0 events")
@@ -266,4 +303,81 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"));
         return urlComponents?.url
     }
+    
+    func fetchHobbyFromUrl(_ urlString: String) {
+        let config = URLSessionConfiguration.default;
+            let session = URLSession(configuration: config);
+            let url = URL(string: urlString);
+            let task = session.dataTask(with: url!, completionHandler: self.doneFetchingHobby);
+        
+            task.resume();
+    }
+    
+    func doneFetchingHobby(data: Data?, response: URLResponse?, error: Error?) {
+        if let fetchedData = data {
+            var eventData: HobbyEventData?;
+            do {
+                eventData = try JSONDecoder().decode(HobbyEventData.self, from: fetchedData)
+            } catch {
+                print(error)
+            }
+            print(eventData)
+            DispatchQueue.main.async(execute: {() in
+                if let event = eventData {
+                    print(event)
+                    self.hobbyEvent = event;
+                    self.reloadData();
+                    self.setUpMapView();
+                }
+            })
+        }
+    }
+    
+    // Mark: - Sharing
+    
+    @IBAction func shareButtonPressed(_ sender: Any) {
+        guard let link = constructLink() else { return };
+        DynamicLinkComponents.shortenURL(link, options: nil) { url, warnings, error in
+            print(warnings, error)
+            guard let url = url else { return }
+            print("The short URL is: \(url)")
+            let activityViewController = UIActivityViewController(activityItems: [url.absoluteString], applicationActivities: nil);
+            activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.markupAsPDF ];
+            self.present(activityViewController, animated: true, completion: nil);
+        }
+    }
+    
+    func constructLink() -> URL? {
+        guard let link = URL(string: "https://hpassi.page.link/share/?hobbyEvent=" + String(hobbyEvent!.id!)) else { return nil }
+        print(link)
+        let dynamicLinksDomainURIPrefix = "https://hpassi.page.link"
+        let linkBuilder = DynamicLinkComponents(link: link, domainURIPrefix: dynamicLinksDomainURIPrefix)
+        
+        guard let builder = linkBuilder else {
+            return nil;
+        }
+
+        builder.iOSParameters = DynamicLinkIOSParameters(bundleID: "fi.haltu.harrastuspassi")
+        builder.iOSParameters?.appStoreID = "1473780933"
+        builder.iOSParameters?.minimumAppVersion = "0.5.0"
+
+        builder.androidParameters = DynamicLinkAndroidParameters(packageName: "fi.haltu.harrastuspassi")
+        builder.androidParameters?.minimumVersion = 123
+
+        builder.analyticsParameters = DynamicLinkGoogleAnalyticsParameters(source: "iOSMobile",
+                                                                               medium: "social",
+                                                                               campaign: "share")
+
+        builder.socialMetaTagParameters = DynamicLinkSocialMetaTagParameters()
+        builder.socialMetaTagParameters?.title = hobbyEvent?.hobby?.name
+        builder.socialMetaTagParameters?.descriptionText = hobbyEvent?.hobby?.organizer?.name
+        if let image = hobbyEvent?.hobby?.image {
+            builder.socialMetaTagParameters?.imageURL = URL(string: image);
+        }
+        guard let longDynamicLink = builder.url else { return nil }
+        print("The long URL is: \(longDynamicLink)")
+        
+        return longDynamicLink;
+    }
+    
 }

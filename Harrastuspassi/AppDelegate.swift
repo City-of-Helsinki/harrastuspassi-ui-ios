@@ -10,6 +10,7 @@
 
 import UIKit
 import GoogleMaps
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         GMSServices.provideAPIKey(Config.GM_API_KEY)
+        FirebaseApp.configure()
         locationManager.delegate = self
         return true
     }
@@ -113,5 +115,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func startLocationServices() {
         locationManager.startUpdatingLocation();
     }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        let handled = DynamicLinks.dynamicLinks().handleUniversalLink(userActivity.webpageURL!) { (dynamiclink, error) in
+            if let link = dynamiclink {
+                UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: false, completion: nil)
+                self.handleDynamicLink(link);
+            }
+           
+        }
+        
+        return handled;
+    }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+      if let dynamicLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url) {
+        print(dynamicLink);
+        self.handleDynamicLink(dynamicLink);
+        return true
+      }
+      return false
+    }
+    
+    func handleDynamicLink(_ dynamicLink: DynamicLink ) {
+        print("Handling dynamic link", dynamicLink);
+        let queryItems = URLComponents(string: dynamicLink.url!.absoluteString)?.queryItems;
+        var hobbyID = Int();
+        let hasHobbyParam = queryItems?.contains { item in
+            if item.name == "hobbyEvent" {
+                hobbyID = Int(item.value!)!
+                return true;
+            }
+            return false;
+        }
+        
+        if let hasHobby = hasHobbyParam, hasHobby {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil);
+            let destinationVC = storyboard.instantiateViewController(withIdentifier: "DetailsVC") as! HobbyDetailViewController;
+            destinationVC.hobbyEventID = hobbyID;
+            destinationVC.navigatedFromDynamicLink = true;
+            self.window?.rootViewController?.present(destinationVC, animated: true, completion: nil);
+        }
+    }
 }
-

@@ -603,7 +603,7 @@
                                         <rect key="frame" x="0.0" y="250" width="414" height="1000"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tähän otsikko, voi olla kahdellakin rivillä" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4BU-5n-gUh">
-                                                <rect key="frame" x="15" y="15" width="384" height="53"/>
+                                                <rect key="frame" x="15" y="15" width="327" height="53"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                 <color key="textColor" name="mainColor"/>
                                                 <nil key="highlightedColor"/>
@@ -802,6 +802,20 @@
                                                     <constraint firstAttribute="bottom" secondItem="wsb-3h-lV0" secondAttribute="bottom" id="qwj-bw-2lF"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZR3-xk-wwj">
+                                                <rect key="frame" x="358" y="21.5" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="Jpc-6Z-DvG"/>
+                                                    <constraint firstAttribute="width" constant="40" id="fwD-52-0gO"/>
+                                                </constraints>
+                                                <color key="tintColor" name="mainColor"/>
+                                                <state key="normal" image="ic_share">
+                                                    <color key="titleColor" name="mainColorLight"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="shareButtonPressed:" destination="h0w-UW-GsU" eventType="touchUpInside" id="kqb-bT-eRt"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -809,6 +823,7 @@
                                             <constraint firstItem="sot-Ua-k9k" firstAttribute="top" secondItem="URZ-To-oNH" secondAttribute="bottom" constant="8" id="3MG-eB-f9D"/>
                                             <constraint firstItem="sot-Ua-k9k" firstAttribute="leading" secondItem="Qh5-VY-sMW" secondAttribute="trailing" constant="4" id="5pv-Bh-uVd"/>
                                             <constraint firstItem="URZ-To-oNH" firstAttribute="leading" secondItem="Og3-us-WGZ" secondAttribute="leading" constant="15" id="7cX-5n-xaj"/>
+                                            <constraint firstItem="ZR3-xk-wwj" firstAttribute="leading" secondItem="4BU-5n-gUh" secondAttribute="trailing" constant="16" id="AFz-hB-l8o"/>
                                             <constraint firstAttribute="trailing" secondItem="fK6-Ee-UHZ" secondAttribute="trailing" constant="8" id="COV-Ok-92w"/>
                                             <constraint firstItem="T3b-uU-OzQ" firstAttribute="top" secondItem="vOg-UK-dQ4" secondAttribute="bottom" constant="8" id="D9v-q9-Vck"/>
                                             <constraint firstAttribute="trailing" secondItem="VgM-ym-leG" secondAttribute="trailing" constant="15" id="Fpz-wD-rNM"/>
@@ -816,6 +831,7 @@
                                             <constraint firstItem="vOg-UK-dQ4" firstAttribute="top" secondItem="fK6-Ee-UHZ" secondAttribute="bottom" constant="16" id="Lwg-kV-GxV"/>
                                             <constraint firstItem="T3b-uU-OzQ" firstAttribute="leading" secondItem="Og3-us-WGZ" secondAttribute="leading" constant="15" id="OVE-7L-PRJ"/>
                                             <constraint firstItem="URZ-To-oNH" firstAttribute="top" secondItem="4BU-5n-gUh" secondAttribute="bottom" constant="8" id="OtI-gs-Uxc"/>
+                                            <constraint firstItem="ZR3-xk-wwj" firstAttribute="centerY" secondItem="4BU-5n-gUh" secondAttribute="centerY" id="PGR-tX-ad8"/>
                                             <constraint firstItem="fK6-Ee-UHZ" firstAttribute="leading" secondItem="Og3-us-WGZ" secondAttribute="leading" constant="8" id="RgB-Pl-hg8"/>
                                             <constraint firstAttribute="trailing" secondItem="4jR-Xq-OSU" secondAttribute="trailing" constant="15" id="TDe-N3-dmh"/>
                                             <constraint firstAttribute="bottom" secondItem="ILu-Ua-6N6" secondAttribute="bottom" id="U5K-bg-d6v"/>
@@ -823,9 +839,9 @@
                                             <constraint firstAttribute="trailing" secondItem="vOg-UK-dQ4" secondAttribute="trailing" constant="8" id="azi-pB-25j"/>
                                             <constraint firstAttribute="trailing" secondItem="T3b-uU-OzQ" secondAttribute="trailing" constant="15" id="cwi-t2-fWL"/>
                                             <constraint firstItem="4BU-5n-gUh" firstAttribute="leading" secondItem="Og3-us-WGZ" secondAttribute="leading" constant="15" id="d2g-UW-J7I"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZR3-xk-wwj" secondAttribute="trailing" constant="16" id="dpT-sg-A9R"/>
                                             <constraint firstItem="Qh5-VY-sMW" firstAttribute="leading" secondItem="Og3-us-WGZ" secondAttribute="leading" constant="15" id="hXO-uq-7tK"/>
                                             <constraint firstItem="4jR-Xq-OSU" firstAttribute="leading" secondItem="Og3-us-WGZ" secondAttribute="leading" constant="15" id="jvi-gw-TeI"/>
-                                            <constraint firstAttribute="trailing" secondItem="4BU-5n-gUh" secondAttribute="trailing" constant="15" id="kAi-zb-zmk"/>
                                             <constraint firstItem="VgM-ym-leG" firstAttribute="top" secondItem="sot-Ua-k9k" secondAttribute="bottom" constant="8" id="kIL-dJ-Ndx"/>
                                             <constraint firstItem="4jR-Xq-OSU" firstAttribute="top" secondItem="T3b-uU-OzQ" secondAttribute="bottom" constant="8" id="rUn-ui-n1e"/>
                                             <constraint firstItem="fK6-Ee-UHZ" firstAttribute="top" secondItem="VgM-ym-leG" secondAttribute="bottom" constant="20" id="sJD-ZK-WV8"/>
@@ -1640,6 +1656,7 @@
         <image name="ic_location_24pt" width="24" height="24"/>
         <image name="ic_map" width="24" height="24"/>
         <image name="ic_settings" width="24" height="24"/>
+        <image name="ic_share" width="24" height="24"/>
         <image name="ic_time_24pt" width="24" height="24"/>
         <image name="ic_today_24pt" width="24" height="24"/>
         <image name="ic_tune" width="24" height="24"/>

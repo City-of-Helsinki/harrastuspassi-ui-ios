@@ -1,4 +1,3 @@
-use_frameworks!
 source 'https://github.com/CocoaPods/Specs.git'
 target 'Harrastuspassi' do
   pod 'GoogleMaps'
@@ -7,6 +6,9 @@ target 'Harrastuspassi' do
   pod 'Hero'
   pod 'RevealingSplashView'
   pod 'RangeSeekSlider'
+  pod 'Kingfisher', '~> 5.0'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/DynamicLinks'
 end
 
 post_install do |installer|

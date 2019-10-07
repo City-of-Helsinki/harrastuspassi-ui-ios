@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HobbyTableViewCell: UITableViewCell {
 
@@ -21,7 +22,8 @@ class HobbyTableViewCell: UITableViewCell {
         
         if let hobby = hobbyEvent.hobby, let imageUrl = hobby.image {
             let url = URL (string: imageUrl)
-            hobbyImage.loadurl(url: url!, completition: nil);
+            hobbyImage.kf.indicatorType = .activity;
+            hobbyImage.kf.setImage(with: url!)
         } else {
             hobbyImage.image = UIImage(named: "ic_panorama")
         }

@@ -49,7 +49,7 @@
 		31CE402422B0E2AA00EEAF78 /* HarrastuspassiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE402322B0E2AA00EEAF78 /* HarrastuspassiUITests.swift */; };
 		31CE403222B0E6AC00EEAF78 /* AnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE403122B0E6AC00EEAF78 /* AnimatedTabBarController.swift */; };
 		31CE403522B2118500EEAF78 /* HobbyEventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE403422B2118500EEAF78 /* HobbyEventData.swift */; };
-		643FCF9E095992DE0F8EED45 /* libPods-Harrastuspassi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF1C1958B02B3799D16AFF4 /* libPods-Harrastuspassi.a */; };
+		BF8E14E612673C20D9477D1C /* libPods-Harrastuspassi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC1C78DA448E9599ACE3272 /* libPods-Harrastuspassi.a */; };
 		C226F8902334E75000D95E04 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C226F88F2334E75000D95E04 /* Colors.xcassets */; };
 		C23CE0AF232A296F00789E0B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C23CE0B1232A296F00789E0B /* Localizable.strings */; };
 		C23CE0B5232A8B2500789E0B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23CE0B4232A8B2500789E0B /* Colors.swift */; };
@@ -60,6 +60,7 @@
 		C27F5D6B2342244700CBFFA4 /* ClusterIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27F5D6A2342244700CBFFA4 /* ClusterIcon.swift */; };
 		C27F5D6D234328C800CBFFA4 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27F5D6C234328C800CBFFA4 /* EventTableViewCell.swift */; };
 		C27F5D6F23446E6200CBFFA4 /* EventTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27F5D6E23446E6200CBFFA4 /* EventTableView.swift */; };
+		C27F5D7E2346193600CBFFA4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C27F5D7D2346193600CBFFA4 /* GoogleService-Info.plist */; };
 		C2814C69233CDB6200440ECE /* POIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2814C68233CDB6200440ECE /* POIItem.swift */; };
 		C291F7FE232105420068CEB5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291F7FD232105420068CEB5 /* SettingsViewController.swift */; };
 		C291F80023210FF00068CEB5 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291F7FF23210FF00068CEB5 /* BorderedButton.swift */; };
@@ -130,8 +131,8 @@
 		31CE402522B0E2AA00EEAF78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31CE403122B0E6AC00EEAF78 /* AnimatedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTabBarController.swift; sourceTree = "<group>"; };
 		31CE403422B2118500EEAF78 /* HobbyEventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyEventData.swift; sourceTree = "<group>"; };
-		4BF1C1958B02B3799D16AFF4 /* libPods-Harrastuspassi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Harrastuspassi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D7ACE3BCF49CC1E3F90F1F9 /* Pods-Harrastuspassi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harrastuspassi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi.release.xcconfig"; sourceTree = "<group>"; };
+		BAC1C78DA448E9599ACE3272 /* libPods-Harrastuspassi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Harrastuspassi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C226F88F2334E75000D95E04 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		C23CE0AC232A217F00789E0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		C23CE0B0232A296F00789E0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -149,6 +150,8 @@
 		C27F5D6A2342244700CBFFA4 /* ClusterIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterIcon.swift; sourceTree = "<group>"; };
 		C27F5D6C234328C800CBFFA4 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		C27F5D6E23446E6200CBFFA4 /* EventTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableView.swift; sourceTree = "<group>"; };
+		C27F5D702345BE8E00CBFFA4 /* Harrastuspassi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Harrastuspassi.entitlements; sourceTree = "<group>"; };
+		C27F5D7D2346193600CBFFA4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C2814C65233A145B00440ECE /* GoogleMapsUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoogleMapsUtils.h; sourceTree = "<group>"; };
 		C2814C68233CDB6200440ECE /* POIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIItem.swift; sourceTree = "<group>"; };
 		C291F7FD232105420068CEB5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -166,7 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				643FCF9E095992DE0F8EED45 /* libPods-Harrastuspassi.a in Frameworks */,
+				BF8E14E612673C20D9477D1C /* libPods-Harrastuspassi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +193,7 @@
 		0ACF1A2A550E2DDFA7B7D986 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4BF1C1958B02B3799D16AFF4 /* libPods-Harrastuspassi.a */,
+				BAC1C78DA448E9599ACE3272 /* libPods-Harrastuspassi.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 		31CE400022B0E2A700EEAF78 /* Harrastuspassi */ = {
 			isa = PBXGroup;
 			children = (
+				C27F5D702345BE8E00CBFFA4 /* Harrastuspassi.entitlements */,
 				3117AEC123051E8A001686DC /* Protocols */,
 				3117AEAA22F2CF96001686DC /* Utils */,
 				2EB9E13022DDFF060024AA16 /* Fonts */,
@@ -291,6 +295,7 @@
 				31CE400722B0E2A700EEAF78 /* Main.storyboard */,
 				31CE400A22B0E2A900EEAF78 /* Assets.xcassets */,
 				31CE400C22B0E2A900EEAF78 /* LaunchScreen.storyboard */,
+				C27F5D7D2346193600CBFFA4 /* GoogleService-Info.plist */,
 				31CE400F22B0E2A900EEAF78 /* Info.plist */,
 				C2FAD61023169C6000CCF284 /* Config.swift */,
 				C23CE0B1232A296F00789E0B /* Localizable.strings */,
@@ -564,6 +569,7 @@
 				2EB9E13A22DDFF6C0024AA16 /* Roboto-Regular.ttf in Resources */,
 				31CE400B22B0E2A900EEAF78 /* Assets.xcassets in Resources */,
 				2EB9E13622DDFF620024AA16 /* Roboto-Medium.ttf in Resources */,
+				C27F5D7E2346193600CBFFA4 /* GoogleService-Info.plist in Resources */,
 				C2A3E44D2339E50F003CDB37 /* MapInfoView.xib in Resources */,
 				2EB9E13222DDFF560024AA16 /* Roboto-Bold.ttf in Resources */,
 				C23CE0AF232A296F00789E0B /* Localizable.strings in Resources */,
@@ -874,6 +880,7 @@
 			baseConfigurationReference = 1E22FA57BC449116BC77D138 /* Pods-Harrastuspassi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Harrastuspassi/Harrastuspassi.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3P656WGXFZ;
@@ -883,6 +890,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.7.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = fi.haltu.harrastuspassi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -898,6 +906,7 @@
 			baseConfigurationReference = 5D7ACE3BCF49CC1E3F90F1F9 /* Pods-Harrastuspassi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Harrastuspassi/Harrastuspassi.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3P656WGXFZ;
@@ -907,6 +916,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = fi.haltu.harrastuspassi;
 				PRODUCT_NAME = "$(TARGET_NAME)";

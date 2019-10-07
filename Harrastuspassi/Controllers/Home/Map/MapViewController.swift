@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import Hero
 
 class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GMUClusterManagerDelegate, GMUClusterRendererDelegate {
     

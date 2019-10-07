@@ -11,7 +11,7 @@ import Hero
 import RevealingSplashView
 import CoreLocation
 
-class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate, UITableViewDataSource, ModalDelegate {
+class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate, UITableViewDataSource, ModalDelegate, UINavigationControllerDelegate {
     
     // MARK: - Initialization
     
@@ -42,6 +42,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         
         refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged);
         refreshControl.tintColor = .white;
+        
+        navigationController?.delegate = self;
         
         hobbyTableView.delegate = self
         hobbyTableView.dataSource = self
@@ -192,6 +194,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         self.fetchUrl(urlString: Config.API_URL + "hobbyevents")
         
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if viewController == self {
+            self.hobbyTableView.reloadData(with: .top);
+        }
     }
     
     

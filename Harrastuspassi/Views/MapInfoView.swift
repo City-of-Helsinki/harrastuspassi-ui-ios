@@ -66,7 +66,16 @@ class MapInfoView: UIView {
     
     func setImage(urlString: String?, completition: @escaping () -> Void) {
         if let string = urlString, let url = URL(string: string) {
-            imageView.loadurl(url: url, completition: completition);
+            imageView.kf.setImage(with: url) {
+                result in
+                switch result {
+                case .success(let value):
+                    print("Task done for: \(value.source.url?.absoluteString ?? "")")
+                    completition();
+                case .failure(let error):
+                    print("Job failed: \(error.localizedDescription)")
+                }
+            }
         } else {
             imageView.image = UIImage(named: "ic_panorama");
         }
