@@ -139,7 +139,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     func handleDynamicLink(_ dynamicLink: DynamicLink ) {
         print("Handling dynamic link", dynamicLink);
-        let queryItems = URLComponents(string: dynamicLink.url!.absoluteString)?.queryItems;
+        if let url = dynamicLink.url {
+        let queryItems = URLComponents(string: url.absoluteString)?.queryItems;
         var hobbyID = Int();
         let hasHobbyParam = queryItems?.contains { item in
             if item.name == "hobbyEvent" {
@@ -148,13 +149,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             }
             return false;
         }
-        
-        if let hasHobby = hasHobbyParam, hasHobby {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil);
-            let destinationVC = storyboard.instantiateViewController(withIdentifier: "DetailsVC") as! HobbyDetailViewController;
-            destinationVC.hobbyEventID = hobbyID;
-            destinationVC.navigatedFromDynamicLink = true;
-            self.window?.rootViewController?.present(destinationVC, animated: true, completion: nil);
+            if let hasHobby = hasHobbyParam, hasHobby {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil);
+                let destinationVC = storyboard.instantiateViewController(withIdentifier: "DetailsVC") as! HobbyDetailViewController;
+                destinationVC.hobbyEventID = hobbyID;
+                destinationVC.navigatedFromDynamicLink = true;
+                self.window?.rootViewController?.present(destinationVC, animated: true, completion: nil);
+            }
         }
+        
     }
 }

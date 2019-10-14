@@ -40,6 +40,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     @IBOutlet weak var eventTableView: EventTableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var linkActivityIndicator: UIActivityIndicatorView!
     
     var startingOffset: CGFloat = 0;
     
@@ -95,6 +96,8 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     }
     
     func setupUIFromLink() {
+        linkActivityIndicator.isHidden = false;
+        linkActivityIndicator.startAnimating();
         panGR = UIPanGestureRecognizer(target: self, action: #selector(handlePan(gestureRecognizer:)));
         panGR.delegate = self
         scrollView.addGestureRecognizer(panGR);
@@ -326,6 +329,8 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
                 if let event = eventData {
                     print(event)
                     self.hobbyEvent = event;
+                    self.linkActivityIndicator.isHidden = true;
+                self.linkActivityIndicator.stopAnimating();
                     self.reloadData();
                     self.setUpMapView();
                 }
@@ -338,10 +343,9 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     @IBAction func shareButtonPressed(_ sender: Any) {
         guard let link = constructLink() else { return };
         DynamicLinkComponents.shortenURL(link, options: nil) { url, warnings, error in
-            print(warnings, error)
             guard let url = url else { return }
             print("The short URL is: \(url)")
-            let activityViewController = UIActivityViewController(activityItems: [url.absoluteString], applicationActivities: nil);
+            let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil);
             activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.markupAsPDF ];
             self.present(activityViewController, animated: true, completion: nil);
         }
@@ -374,6 +378,8 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         if let image = hobbyEvent?.hobby?.image {
             builder.socialMetaTagParameters?.imageURL = URL(string: image);
         }
+        builder.navigationInfoParameters = DynamicLinkNavigationInfoParameters();
+        builder.navigationInfoParameters?.isForcedRedirectEnabled = true;
         guard let longDynamicLink = builder.url else { return nil }
         print("The long URL is: \(longDynamicLink)")
         
