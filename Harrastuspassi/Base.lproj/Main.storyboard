@@ -819,6 +819,9 @@
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="K2e-zF-D7l">
                                                 <rect key="frame" x="168.5" y="18.5" width="20" height="20"/>
                                             </activityIndicatorView>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Qhd-Je-JCU">
+                                                <rect key="frame" x="368" y="18.5" width="20" height="20"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -826,6 +829,7 @@
                                             <constraint firstItem="sot-Ua-k9k" firstAttribute="top" secondItem="URZ-To-oNH" secondAttribute="bottom" constant="8" id="3MG-eB-f9D"/>
                                             <constraint firstItem="sot-Ua-k9k" firstAttribute="leading" secondItem="Qh5-VY-sMW" secondAttribute="trailing" constant="4" id="5pv-Bh-uVd"/>
                                             <constraint firstItem="URZ-To-oNH" firstAttribute="leading" secondItem="Og3-us-WGZ" secondAttribute="leading" constant="15" id="7cX-5n-xaj"/>
+                                            <constraint firstItem="Qhd-Je-JCU" firstAttribute="centerY" secondItem="ZR3-xk-wwj" secondAttribute="centerY" id="8q3-ZL-HE6"/>
                                             <constraint firstItem="ZR3-xk-wwj" firstAttribute="leading" secondItem="4BU-5n-gUh" secondAttribute="trailing" constant="16" id="AFz-hB-l8o"/>
                                             <constraint firstAttribute="trailing" secondItem="fK6-Ee-UHZ" secondAttribute="trailing" constant="8" id="COV-Ok-92w"/>
                                             <constraint firstItem="T3b-uU-OzQ" firstAttribute="top" secondItem="vOg-UK-dQ4" secondAttribute="bottom" constant="8" id="D9v-q9-Vck"/>
@@ -839,6 +843,7 @@
                                             <constraint firstItem="fK6-Ee-UHZ" firstAttribute="leading" secondItem="Og3-us-WGZ" secondAttribute="leading" constant="8" id="RgB-Pl-hg8"/>
                                             <constraint firstAttribute="trailing" secondItem="4jR-Xq-OSU" secondAttribute="trailing" constant="15" id="TDe-N3-dmh"/>
                                             <constraint firstAttribute="bottom" secondItem="ILu-Ua-6N6" secondAttribute="bottom" id="U5K-bg-d6v"/>
+                                            <constraint firstItem="Qhd-Je-JCU" firstAttribute="centerX" secondItem="ZR3-xk-wwj" secondAttribute="centerX" id="Y73-db-0BK"/>
                                             <constraint firstItem="Qh5-VY-sMW" firstAttribute="top" secondItem="sot-Ua-k9k" secondAttribute="top" id="YRt-hZ-jNX"/>
                                             <constraint firstAttribute="trailing" secondItem="vOg-UK-dQ4" secondAttribute="trailing" constant="8" id="azi-pB-25j"/>
                                             <constraint firstAttribute="trailing" secondItem="T3b-uU-OzQ" secondAttribute="trailing" constant="15" id="cwi-t2-fWL"/>
@@ -915,6 +920,8 @@
                         <outlet property="mapView" destination="ILu-Ua-6N6" id="MJD-Xo-yZ2"/>
                         <outlet property="organizerLabel" destination="URZ-To-oNH" id="zeH-Az-FVP"/>
                         <outlet property="scrollView" destination="e2V-Wi-347" id="Afa-nM-gl4"/>
+                        <outlet property="shareActivityIndicator" destination="Qhd-Je-JCU" id="deQ-Uj-6oj"/>
+                        <outlet property="shareButton" destination="ZR3-xk-wwj" id="75a-bf-2x7"/>
                         <outlet property="titleLabel" destination="4BU-5n-gUh" id="POi-KT-733"/>
                     </connections>
                 </viewController>
@@ -1674,8 +1681,8 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YeX-gY-rOP"/>
-        <segue reference="3Ik-qM-8Nl"/>
+        <segue reference="MLD-KP-9zx"/>
+        <segue reference="N5W-KN-IGa"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

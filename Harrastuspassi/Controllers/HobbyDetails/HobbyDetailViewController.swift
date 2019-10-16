@@ -40,6 +40,10 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     @IBOutlet weak var eventTableView: EventTableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var shareActivityIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var shareButton: UIButton!
+    
     @IBOutlet weak var linkActivityIndicator: UIActivityIndicatorView!
     
     var startingOffset: CGFloat = 0;
@@ -59,7 +63,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         } else {
             setupUIFromLink();
         }
-        
+        shareActivityIndicator.isHidden = true;
         
     }
     
@@ -253,7 +257,11 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         return cell;
     }
     
+    /*
+     
     // MARK: - Data Fetching
+     
+    */
     
     func fetchUrl(urlString: String) {
         let config = URLSessionConfiguration.default;
@@ -338,11 +346,21 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         }
     }
     
+    /*
+     
     // Mark: - Sharing
+     
+    */
     
     @IBAction func shareButtonPressed(_ sender: Any) {
+        shareButton.isHidden = true;
+        shareActivityIndicator.isHidden = false;
+        shareActivityIndicator.startAnimating();
         guard let link = constructLink() else { return };
         DynamicLinkComponents.shortenURL(link, options: nil) { url, warnings, error in
+            self.shareButton.isHidden = false;
+            self.shareActivityIndicator.isHidden = true;
+            self.shareActivityIndicator.stopAnimating();
             guard let url = url else { return }
             print("The short URL is: \(url)")
             let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil);
