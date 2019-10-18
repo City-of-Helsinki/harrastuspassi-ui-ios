@@ -34,6 +34,18 @@ class SettingsMapViewController: UIViewController, GMSMapViewDelegate {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        navigationController?.navigationBar.barTintColor = UIColor(named: "mainColor");
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white];
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated);
+        navigationController?.navigationBar.barTintColor = UIColor.white;
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "mainColor") ?? UIColor.black];
+    }
+    
 
     /*
     // MARK: - Navigation

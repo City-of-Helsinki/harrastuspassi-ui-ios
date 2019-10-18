@@ -27,7 +27,10 @@ struct DefaultKeys {
         static let savedLocations = "savedLocations";
         static let selectedLocation = "currentLocation";
     }
-    
+ 
+    struct Favourites {
+        static let list = "FavouriteList";
+    }
 }
 
 struct Segues {

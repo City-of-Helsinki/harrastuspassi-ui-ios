@@ -40,6 +40,8 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     @IBOutlet weak var eventTableView: EventTableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var favouriteButton: UIButton!
+    
     @IBOutlet weak var shareActivityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var shareButton: UIButton!
@@ -58,12 +60,17 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         
         eventTableView.delegate = self;
         eventTableView.dataSource = self;
+        linkActivityIndicator.isHidden = true;
         if !navigatedFromDynamicLink {
             setupUI();
         } else {
             setupUIFromLink();
         }
         shareActivityIndicator.isHidden = true;
+        if isFavorite() {
+            favouriteButton.setImage(UIImage(named: "ic_favorite")?.withRenderingMode(.alwaysTemplate), for: .normal);
+            favouriteButton.tintColor = UIColor(named: "mainColor");
+        }
         
     }
     
@@ -112,7 +119,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         closeButton.hero.modifiers = [.duration(0.7), .translate(x:100), .useGlobalCoordinateSpace];
         closeButton.layer.cornerRadius = 15;
         closeButton.clipsToBounds = true;
-        fetchHobbyFromUrl(Config.API_URL + "hobbyevents/" + String(hobbyEventID!) + "?include=hobby_detail");
+        fetchHobbyFromUrl(Config.API_URL + "hobbyevents/" + String(hobbyEventID!) + "?include=hobby_detail"+"?include=location_detail"+"?include=organizer_detail");
     }
     /*
     // MARK: - Navigation
@@ -312,6 +319,8 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         urlComponents?.queryItems = []
         urlComponents?.queryItems?.append(URLQueryItem(name: "hobby", value: String(hobbyEvent!.hobby!.id!)));
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"));
+        urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "location_detail"))
+        urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "organizer_detail"))
         return urlComponents?.url
     }
     
@@ -402,6 +411,45 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         print("The long URL is: \(longDynamicLink)")
         
         return longDynamicLink;
+    }
+    
+    
+    @IBAction func favouriteButtonPressed(_ sender: Any) {
+        
+        let defaults = UserDefaults.standard;
+        var favourites: [Int] = [];
+        if let storedFavourites = defaults.array(forKey: DefaultKeys.Favourites.list) as? [Int] {
+            favourites = storedFavourites;
+        }
+        
+        if !isFavorite() {
+            favouriteButton.setImage(UIImage(named: "ic_favorite")?.withRenderingMode(.alwaysTemplate), for: .normal);
+            favouriteButton.tintColor = UIColor(named: "mainColor");
+            if let id = hobbyEvent?.hobby?.id {
+                favourites.append(id);
+            }
+            
+        } else {
+            favouriteButton.setImage(UIImage(named: "ic_favorite_border")?.withRenderingMode(.alwaysTemplate), for: .normal);
+            favouriteButton.tintColor = UIColor(named: "mainColor");
+            favourites = favourites.filter { $0 != hobbyEvent?.hobby?.id }
+        }
+        defaults.set(favourites, forKey: DefaultKeys.Favourites.list);
+        print(favourites);
+    }
+    
+    func isFavorite() -> Bool {
+        let defaults = UserDefaults.standard;
+        var favourites: [Int] = [];
+        if let storedFavourites = defaults.array(forKey: DefaultKeys.Favourites.list) as? [Int] {
+            favourites = storedFavourites;
+        }
+        
+        let isFavourite = favourites.contains {
+            $0 == hobbyEvent?.hobby?.id!
+        }
+        
+        return isFavourite;
     }
     
 }

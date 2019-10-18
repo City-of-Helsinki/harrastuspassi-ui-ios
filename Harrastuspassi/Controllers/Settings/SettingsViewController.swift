@@ -19,7 +19,6 @@ import CoreLocation
     
     @IBOutlet weak var allowLocationUsageButton: UIButton!
     @IBOutlet weak var pickLocationButton: UIButton!
-    @IBOutlet weak var closeButton: UIBarButtonItem!
     @IBOutlet weak var locationListContainer: UIView!
     @IBOutlet weak var allowLocationSwitch: UISwitch!
     @IBOutlet weak var locationTableView: UITableView!
@@ -54,6 +53,15 @@ import CoreLocation
             self.selectedLocation = selectedLocation;
         }
         locationTableView.reloadData();
+        navigationController?.view.backgroundColor = UIColor.white;
+        
+        if !locationUsageAllowed {
+            allowLocationSwitch.setOn(false, animated: false);
+            fadeInLocationComponents();
+        } else {
+            allowLocationSwitch.setOn(true, animated: false);
+            fadeOutLocationComponents();
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -68,9 +76,6 @@ import CoreLocation
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func closeButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil);
-    }
     
     @IBAction func switchValueChanged(_ sender: Any) {
         
@@ -92,6 +97,7 @@ import CoreLocation
             appDelegate.disableLocationServices();
             fadeInLocationComponents()
         }
+        saveStatus();
     }
     
     func fadeOutLocationComponents() {
@@ -99,6 +105,8 @@ import CoreLocation
             self.pickLocationButton.alpha = 0.3;
             self.locationListContainer.alpha = 0.3;
         }, completion: nil);
+        locationTableView.isUserInteractionEnabled = false;
+        pickLocationButton.isEnabled = false;
     }
     func fadeInLocationComponents() {
         self.pickLocationButton.alpha = 0.3;
@@ -107,6 +115,8 @@ import CoreLocation
             self.pickLocationButton.alpha = 1;
             self.locationListContainer.alpha = 1;
         });
+        locationTableView.isUserInteractionEnabled = true;
+        pickLocationButton.isEnabled = true;
     }
     
     @IBAction func openSettingsButtonPressed(_ sender: Any) {
@@ -147,6 +157,7 @@ import CoreLocation
         selectLocation(location: savedLocations[0]);
         locationTableView.reloadData();
         locationTableView.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .none);
+        saveStatus()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -157,7 +168,6 @@ import CoreLocation
         let locationForIndex = savedLocations[indexPath.row];
         let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell") as! LocationTableViewCell;
         cell.accessoryType = .none;
-        cell.selectionStyle = .blue;
         cell.addressLabel.adjustsFontSizeToFitWidth = true;
         let bgView = UIView(frame: cell.frame);
         bgView.backgroundColor = Colors.bgMain;
@@ -176,7 +186,7 @@ import CoreLocation
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return .default
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -216,8 +226,10 @@ import CoreLocation
         setSelectedStyleTo(tableView, indexPath: indexPath);
         selectLocation(location: savedLocations[indexPath.row]);
         let cell = tableView.cellForRow(at: indexPath) as! LocationTableViewCell;
+        
         cell.addressLabel.textColor = .white;
         feedbackGenerator.selectionChanged();
+        saveStatus()
         
     }
     
@@ -230,7 +242,7 @@ import CoreLocation
         cell.accessoryType = .checkmark;
     }
     
-    @IBAction func saveButtonPressed(_ sender: Any) {
+    func saveStatus() {
         let defaults = UserDefaults.standard;
         defaults.set(try? PropertyListEncoder().encode(selectedLocation), forKey: DefaultKeys.Location.selectedLocation);
         defaults.set(locationUsageAllowed, forKey: DefaultKeys.Location.isAllowed)
@@ -243,6 +255,6 @@ import CoreLocation
         }
         tmpLocations.append(selectedLocation);
         defaults.set(try? PropertyListEncoder().encode(tmpLocations), forKey: DefaultKeys.Location.savedLocations);
-        self.dismiss(animated: true, completion: nil);
+        
     }
 }

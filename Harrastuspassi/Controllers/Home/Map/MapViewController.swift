@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 import Hero
 
-class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GMUClusterManagerDelegate, GMUClusterRendererDelegate {
+class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GMUClusterManagerDelegate, GMUClusterRendererDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var mapView: GMSMapView!
     
@@ -21,10 +21,13 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
     var imageCache = Dictionary<Int, UIImage>();
     var markerIcon = UIImage(named:"ic_room")?.withRenderingMode(.alwaysTemplate);
     
+    
     // MARK: - Initialization
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         super.viewWillAppear(animated)
+        createMarkers(data: hobbyData, mapView: mapView)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -43,6 +46,7 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
                                                zoom: 6);
         mapView.camera = finland;
         updateData();
+        navigationController?.delegate = self;
     }
     
     // MARK: - Data Fetching
@@ -86,6 +90,8 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
         print(latitude, longitude);
         urlComponents?.queryItems = []
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"))
+        urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "location_detail"))
+        urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "organizer_detail"))
         if filters.categories.count > 0 {
             for id in filters.categories {
                 urlComponents?.queryItems?.append(URLQueryItem(name: "category", value: String(id)))

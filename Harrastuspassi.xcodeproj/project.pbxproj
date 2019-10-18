@@ -67,6 +67,7 @@
 		C291F8022321122B0068CEB5 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291F8012321122B0068CEB5 /* LocationTableViewCell.swift */; };
 		C2A3E44D2339E50F003CDB37 /* MapInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2A3E44C2339E50F003CDB37 /* MapInfoView.xib */; };
 		C2A3E4512339E848003CDB37 /* MapInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A3E4502339E848003CDB37 /* MapInfoView.swift */; };
+		C2C44AD82358544300AF3E2F /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C44AD72358544300AF3E2F /* FavouritesViewController.swift */; };
 		C2EE6E352319237400ADF459 /* PannableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EE6E342319237400ADF459 /* PannableScrollView.swift */; };
 		C2FAD61123169C6000CCF284 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FAD61023169C6000CCF284 /* Config.swift */; };
 		C2FAD6132317AC7200CCF284 /* TimeFilterSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FAD6122317AC7200CCF284 /* TimeFilterSlider.swift */; };
@@ -159,6 +160,7 @@
 		C291F8012321122B0068CEB5 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		C2A3E44C2339E50F003CDB37 /* MapInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapInfoView.xib; sourceTree = "<group>"; };
 		C2A3E4502339E848003CDB37 /* MapInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInfoView.swift; sourceTree = "<group>"; };
+		C2C44AD72358544300AF3E2F /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		C2EE6E342319237400ADF459 /* PannableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PannableScrollView.swift; sourceTree = "<group>"; };
 		C2FAD61023169C6000CCF284 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		C2FAD6122317AC7200CCF284 /* TimeFilterSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFilterSlider.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 		2E6029AF22DDC75700AC665B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C2C44AD62358541C00AF3E2F /* Favourites */,
 				C23CE0B923320EBB00789E0B /* HobbyDetails */,
 				C23CE0B823320EA900789E0B /* Home */,
 				C23CE0B723320E9000789E0B /* Filters */,
@@ -453,6 +456,14 @@
 			path = Xibs;
 			sourceTree = "<group>";
 		};
+		C2C44AD62358541C00AF3E2F /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				C2C44AD72358544300AF3E2F /* FavouritesViewController.swift */,
+			);
+			path = Favourites;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -659,6 +670,7 @@
 				C276E9C9232641F000BD1087 /* SettingsMapViewController.swift in Sources */,
 				31CE400222B0E2A700EEAF78 /* AppDelegate.swift in Sources */,
 				317141A423140B60005B1F5E /* HobbyData.swift in Sources */,
+				C2C44AD82358544300AF3E2F /* FavouritesViewController.swift in Sources */,
 				3117AEB222FC2FC4001686DC /* SelectedCategoriesContainerView.swift in Sources */,
 				C23CE0C223334A5600789E0B /* MapViewController.swift in Sources */,
 				3117AEB022FC2013001686DC /* FilterViewController.swift in Sources */,
@@ -890,7 +902,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.7.0;
+				MARKETING_VERSION = 0.8.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = fi.haltu.harrastuspassi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -916,7 +928,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.7.0;
+				MARKETING_VERSION = 0.8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = fi.haltu.harrastuspassi;
 				PRODUCT_NAME = "$(TARGET_NAME)";

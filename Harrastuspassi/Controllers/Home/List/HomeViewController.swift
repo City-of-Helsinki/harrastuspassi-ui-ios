@@ -51,9 +51,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         self.errorText.isHidden = true
         filters = Utils.getDefaultFilters();
         containerView.hero.modifiers = [.forceNonFade];
-        self.fetchUrl(urlString: Config.API_URL + "hobbyevents")
+        navigationController?.view.backgroundColor = UIColor(named: "mainColor")
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.fetchUrl(urlString: Config.API_URL + "hobbyevents")
+    }
     
     
     // Tableview setup
@@ -81,12 +84,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         let session = URLSession(configuration: config);
         var url: URL?;
         url = applyQueryParamsToUrl(urlString);
+        print(url);
         let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
     
         task.resume();
     }
     
     func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
+        print(response)
         if let fetchedData = data {
             guard let eventData = try? JSONDecoder().decode([HobbyEventData].self, from: fetchedData)
                 else {
@@ -168,6 +173,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         var urlComponents = URLComponents(string: url);
         urlComponents?.queryItems = []
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"))
+        urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "location_detail"))
+        urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "organizer_detail"))
         
         let defaults = UserDefaults.standard;
         let latitude = defaults.float(forKey: DefaultKeys.Location.lat),
@@ -195,14 +202,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         self.fetchUrl(urlString: Config.API_URL + "hobbyevents")
         
     }
-    
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        if viewController == self {
-            self.hobbyTableView.reloadData(with: .top);
-        }
-    }
-    
-    
     
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let sb = UIStoryboard.init(name: "Main", bundle:nil)
