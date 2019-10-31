@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct HobbyData: Codable {
+struct HobbyData: Codable, Hashable {
     
     let id : Int?
     let name : String?
@@ -17,6 +17,10 @@ struct HobbyData: Codable {
     let category : Int?
     let description : String?
     let organizer : Organizer?
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(location?.id);
+    }
     
     enum CodingKeys: String, CodingKey {
         
@@ -28,6 +32,11 @@ struct HobbyData: Codable {
         case description = "description"
         case organizer = "organizer"
     }
+    
+    static func == (lhs: HobbyData, rhs: HobbyData) -> Bool {
+        return lhs.location?.id == rhs.location?.id;
+    }
+    
 }
 
 struct Organizer: Codable {

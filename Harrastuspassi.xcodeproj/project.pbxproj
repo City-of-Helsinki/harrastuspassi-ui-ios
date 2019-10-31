@@ -54,6 +54,7 @@
 		C23CE0AF232A296F00789E0B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C23CE0B1232A296F00789E0B /* Localizable.strings */; };
 		C23CE0B5232A8B2500789E0B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23CE0B4232A8B2500789E0B /* Colors.swift */; };
 		C23CE0C223334A5600789E0B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23CE0C123334A5600789E0B /* MapViewController.swift */; };
+		C24B3ED6236AA06F00C0A649 /* HobbyListModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24B3ED5236AA06F00C0A649 /* HobbyListModalViewController.swift */; };
 		C276E9C9232641F000BD1087 /* SettingsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C276E9C8232641F000BD1087 /* SettingsMapViewController.swift */; };
 		C276E9CF2326593D00BD1087 /* LocationListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C276E9CE2326593D00BD1087 /* LocationListDelegate.swift */; };
 		C27F5D69234223E700CBFFA4 /* ClusterIcon.xib in Resources */ = {isa = PBXBuildFile; fileRef = C27F5D68234223E700CBFFA4 /* ClusterIcon.xib */; };
@@ -141,6 +142,7 @@
 		C23CE0B3232A297600789E0B /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C23CE0B4232A8B2500789E0B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C23CE0C123334A5600789E0B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		C24B3ED5236AA06F00C0A649 /* HobbyListModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyListModalViewController.swift; sourceTree = "<group>"; };
 		C276E9C8232641F000BD1087 /* SettingsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMapViewController.swift; sourceTree = "<group>"; };
 		C276E9CA23264EF500BD1087 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Main.strings; sourceTree = "<group>"; };
 		C276E9CB23264EF500BD1087 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				C23CE0C123334A5600789E0B /* MapViewController.swift */,
+				C24B3ED5236AA06F00C0A649 /* HobbyListModalViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 				3117AEC023040B94001686DC /* SubCategoryListController.swift in Sources */,
 				3117AEBE2304056E001686DC /* CategoryFilterTableView.swift in Sources */,
 				3117AEC323051EB2001686DC /* SelectionDelegate.swift in Sources */,
+				C24B3ED6236AA06F00C0A649 /* HobbyListModalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

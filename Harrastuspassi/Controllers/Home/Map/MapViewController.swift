@@ -20,13 +20,14 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
     var filters = Filters();
     var imageCache = Dictionary<Int, UIImage>();
     var markerIcon = UIImage(named:"ic_room")?.withRenderingMode(.alwaysTemplate);
+    var hobbies: [HobbyData] = [];
     
     
     // MARK: - Initialization
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         super.viewWillAppear(animated)
-        createMarkers(data: hobbyData, mapView: mapView)
+        createMarkers(data: hobbies, mapView: mapView)
         
     }
     
@@ -76,7 +77,14 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
                     return;
                 } else {
                     self.hobbyData = eventData.uniques;
-                    self.createMarkers(data: self.hobbyData, mapView: self.mapView);
+                    
+                    self.hobbyData.forEach { event in
+                        if let hobby = event.hobby {
+                            self.hobbies.append(hobby);
+                        }
+                    }
+                    self.hobbies = self.hobbies.uniques;
+                    self.createMarkers(data: self.hobbies, mapView: self.mapView);
                 }
             })
         }
@@ -161,7 +169,7 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
     }
     
     // MARK: - Map Setup
-    func createMarkers(data: [HobbyEventData], mapView: GMSMapView) {
+    func createMarkers(data: [HobbyData], mapView: GMSMapView) {
         
         mapView.clear();
         
@@ -171,13 +179,13 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
 
         clusterManager.clearItems();
         
-        for (index, event) in data.enumerated() {
-            if let hobby = event.hobby, let location = hobby.location, let lat = location.lat, let lon = location.lon {
+        for (index, hobby) in data.enumerated() {
+            if let location = hobby.location, let id = location.id, let lat = location.lat, let lon = location.lon {
                 let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: CLLocationDegrees(Float(lat)), longitude: CLLocationDegrees(lon)));
                 let markerView = UIImageView(image: markerIcon);
                 marker.iconView = markerView;
                 marker.map = mapView;
-                self.generatePOIItems(String(format: "%d", index), position: marker.position, id: index)
+                self.generatePOIItems(String(format: "%d", index), position: marker.position, id: id)
             }
         }
         
@@ -229,31 +237,31 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
     
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         
-        guard let item = marker.userData as? POIItem else {
-            return nil;
-        }
-        
-        guard let index = item.id else {
-            return nil;
-        };
-        marker.tracksInfoWindowChanges = true;
-        guard let eventId = hobbyData[index].id else {
-            return UIView();
-        }
-        let infoWindow = MapInfoView(frame: CGRect(x: 0, y: 0, width: 160, height: 190), onPress: {
-            self.navigateToDetailViewWithindex(eventId);
-        });
-        if let hobby = hobbyData[index].hobby {
-            infoWindow.setImage(urlString: hobby.image, completition: {
-                marker.tracksInfoWindowChanges = false;
-                self.imageCache[index] = infoWindow.imageView.image;
-            });
-            infoWindow.imageView.hero.id = "image" + String(index);
-            infoWindow.titleLabel.text = hobby.name;
-            infoWindow.dateLabel.text = hobbyData[index].startDate;
-            infoWindow.contentView.hero.id = "container";
-        }
-        return infoWindow;
+//        guard let item = marker.userData as? POIItem else {
+//            return nil;
+//        }
+//
+//        guard let index = item.id else {
+//            return nil;
+//        };
+//        marker.tracksInfoWindowChanges = true;
+//        guard let eventId = hobbyData[index].id else {
+//            return UIView();
+//        }
+//        let infoWindow = MapInfoView(frame: CGRect(x: 0, y: 0, width: 160, height: 190), onPress: {
+//            self.navigateToDetailViewWithindex(eventId);
+//        });
+//        if let hobby = hobbyData[index].hobby {
+//            infoWindow.setImage(urlString: hobby.image, completition: {
+//                marker.tracksInfoWindowChanges = false;
+//                self.imageCache[index] = infoWindow.imageView.image;
+//            });
+//            infoWindow.imageView.hero.id = "image" + String(index);
+//            infoWindow.titleLabel.text = hobby.name;
+//            infoWindow.dateLabel.text = hobbyData[index].startDate;
+//            infoWindow.contentView.hero.id = "container";
+//        }
+        return nil;
     }
     
     func generatePOIItems(_ accessibilityLabel: String, position: CLLocationCoordinate2D, id: Int) {
@@ -266,6 +274,24 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
             navigateToDetailViewWithindex(id);
         }
         
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        if let id = (marker.userData as? POIItem)?.id {
+            print("Marker tapped. ID:", id);
+            let storyboard = UIStoryboard(name: "Main", bundle: nil);
+            let vc = storyboard.instantiateViewController(withIdentifier: "hobbylistmodal") as! HobbyListModalViewController;
+            vc.events = hobbyData.filter { event in
+                event.hobby?.location?.id == id
+            }
+            let title = hobbyData.first { event in
+                event.hobby?.location?.id == id
+                }?.hobby?.location?.name;
+            print(title)
+            vc.titleText = title;
+            present(vc, animated: true, completion: nil);
+        }
+        return true;
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

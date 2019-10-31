@@ -428,13 +428,15 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
             if let id = hobbyEvent?.hobby?.id {
                 favourites.append(id);
             }
-            
+
+
         } else {
             favouriteButton.setImage(UIImage(named: "ic_favorite_border")?.withRenderingMode(.alwaysTemplate), for: .normal);
             favouriteButton.tintColor = UIColor(named: "mainColor");
             favourites = favourites.filter { $0 != hobbyEvent?.hobby?.id }
         }
         defaults.set(favourites, forKey: DefaultKeys.Favourites.list);
+        
         print(favourites);
     }
     
