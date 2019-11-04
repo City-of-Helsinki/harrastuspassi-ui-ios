@@ -25,7 +25,8 @@ class HobbyTableViewCell: UITableViewCell {
             hobbyImage.kf.indicatorType = .activity;
             hobbyImage.kf.setImage(with: url!)
         } else {
-            hobbyImage.image = UIImage(named: "ic_panorama")
+            let image = UIImage(named: "ic_panorama");
+            hobbyImage.image = image;
         }
         
         if let hobby = hobbyEvent.hobby, let place = hobby.location?.name {

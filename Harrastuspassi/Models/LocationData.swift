@@ -14,8 +14,7 @@ struct LocationData : Codable {
     let address : String?
     let zipCode : String?
     let city : String?
-    let lat : CFloat?
-    let lon : CFloat?
+    let coordinates : Coordinates?
     
     enum CodingKeys: String, CodingKey {
         
@@ -24,8 +23,17 @@ struct LocationData : Codable {
         case address = "address"
         case zipCode = "zip_code"
         case city = "city"
-        case lat = "lat"
-        case lon = "lon"
+        case coordinates = "coordinates"
+    }
+}
+
+struct Coordinates : Codable {
+    let type : String?
+    let coordinates : [Float]?
+    
+    enum CodingKeys: String, CodingKey {
+        case type = "type";
+        case coordinates = "coordinates";
     }
 }
 

@@ -101,6 +101,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
                     })
                     return
             }
+            print(eventData)
             DispatchQueue.main.async(execute: {() in
                 if(eventData.count == 0) {
                     self.hobbyData = Array(Set(eventData));

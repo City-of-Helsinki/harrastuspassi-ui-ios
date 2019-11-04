@@ -180,7 +180,7 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
         clusterManager.clearItems();
         
         for (index, hobby) in data.enumerated() {
-            if let location = hobby.location, let id = location.id, let lat = location.lat, let lon = location.lon {
+            if let location = hobby.location, let id = location.id, let lat = location.coordinates?.coordinates?[1], let lon = location.coordinates?.coordinates?[0] {
                 let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: CLLocationDegrees(Float(lat)), longitude: CLLocationDegrees(lon)));
                 let markerView = UIImageView(image: markerIcon);
                 marker.iconView = markerView;

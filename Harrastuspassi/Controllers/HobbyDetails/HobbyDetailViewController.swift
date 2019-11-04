@@ -163,7 +163,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     
     
     func setUpMapView() {
-        guard let lat = hobbyEvent?.hobby?.location?.lat, let lon = hobbyEvent?.hobby?.location?.lon, let title = hobbyEvent?.hobby?.name, let snippet = hobbyEvent?.hobby?.location?.name else {
+        guard let lat = hobbyEvent?.hobby?.location?.coordinates?.coordinates?[1], let lon = hobbyEvent?.hobby?.location?.coordinates?.coordinates?[0], let title = hobbyEvent?.hobby?.name, let snippet = hobbyEvent?.hobby?.location?.name else {
             return
         }
         camera = GMSCameraPosition.camera(withLatitude: Double(lat), longitude: Double(lon), zoom: 12.0)
