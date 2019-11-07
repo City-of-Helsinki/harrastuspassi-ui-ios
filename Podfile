@@ -9,6 +9,7 @@ target 'Harrastuspassi' do
   pod 'Kingfisher', '~> 5.0'
   pod 'Firebase/Analytics'
   pod 'Firebase/DynamicLinks'
+  pod 'MTSlideToOpen'
 end
 
 post_install do |installer|

@@ -287,8 +287,10 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
             let title = hobbyData.first { event in
                 event.hobby?.location?.id == id
                 }?.hobby?.location?.name;
-            print(title)
+            print(title);
             vc.titleText = title;
+            mapView.preferredFrameRate = .conservative;
+            vc.mapView = mapView;
             present(vc, animated: true, completion: nil);
         }
         return true;

@@ -71,7 +71,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
             favouriteButton.setImage(UIImage(named: "ic_favorite")?.withRenderingMode(.alwaysTemplate), for: .normal);
             favouriteButton.tintColor = UIColor(named: "mainColor");
         }
-        
+        mapView.preferredFrameRate = .conservative;
     }
     
     func setupUI() {
@@ -119,7 +119,9 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         closeButton.hero.modifiers = [.duration(0.7), .translate(x:100), .useGlobalCoordinateSpace];
         closeButton.layer.cornerRadius = 15;
         closeButton.clipsToBounds = true;
-        fetchHobbyFromUrl(Config.API_URL + "hobbyevents/" + String(hobbyEventID!) + "?include=hobby_detail"+"?include=location_detail"+"?include=organizer_detail");
+        let url = Config.API_URL + "hobbyevents/" + String(hobbyEventID!) + "?include=hobby_detail"+"&include=location_detail"+"&include=organizer_detail";
+        print(url);
+        fetchHobbyFromUrl(url);
     }
     /*
     // MARK: - Navigation
@@ -153,7 +155,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
             let url = URL (string: imageUrl)
             imageView.kf.setImage(with: url);
         } else {
-            imageView.image = UIImage(named: "ic_panorama")
+            imageView.image = UIImage(named: "logo_lil_yel")
         }
         activityIndicator.isHidden = false;
         activityIndicator.startAnimating();

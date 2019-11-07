@@ -20,12 +20,15 @@ class HobbyTableViewCell: UITableViewCell {
     
     func setHobbyEvents(hobbyEvent: HobbyEventData) {
         
+        cardView.layer.cornerRadius = 15
+        cardView.layer.masksToBounds = true;
+        
         if let hobby = hobbyEvent.hobby, let imageUrl = hobby.image {
             let url = URL (string: imageUrl)
             hobbyImage.kf.indicatorType = .activity;
             hobbyImage.kf.setImage(with: url!)
         } else {
-            let image = UIImage(named: "ic_panorama");
+            let image = UIImage(named: "logo_lil_yel");
             hobbyImage.image = image;
         }
         

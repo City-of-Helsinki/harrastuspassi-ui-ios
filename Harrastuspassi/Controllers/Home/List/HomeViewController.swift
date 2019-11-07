@@ -91,7 +91,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     }
     
     func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
-        print(response)
         if let fetchedData = data {
             guard let eventData = try? JSONDecoder().decode([HobbyEventData].self, from: fetchedData)
                 else {
@@ -101,7 +100,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
                     })
                     return
             }
-            print(eventData)
             DispatchQueue.main.async(execute: {() in
                 if(eventData.count == 0) {
                     self.hobbyData = Array(Set(eventData));

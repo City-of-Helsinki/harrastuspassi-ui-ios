@@ -36,6 +36,21 @@ class FavouritesViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        if #available(iOS 13.0, *) {
+            let navBarAppearance = UINavigationBarAppearance()
+            navBarAppearance.configureWithOpaqueBackground()
+            navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            navBarAppearance.backgroundColor = UIColor(named: "mainColor")
+            self.navigationController!.navigationBar.standardAppearance = navBarAppearance
+            self.navigationController!.navigationBar.scrollEdgeAppearance = navBarAppearance
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
 
     /*
     // MARK: - Navigation

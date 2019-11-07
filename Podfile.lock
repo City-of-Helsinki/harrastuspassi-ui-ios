@@ -93,6 +93,7 @@ PODS:
   - Kingfisher (5.8.3):
     - Kingfisher/Core (= 5.8.3)
   - Kingfisher/Core (5.8.3)
+  - MTSlideToOpen (1.4.2)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -109,6 +110,7 @@ DEPENDENCIES:
   - GooglePlaces
   - Hero
   - Kingfisher (~> 5.0)
+  - MTSlideToOpen
   - RangeSeekSlider
   - RevealingSplashView
 
@@ -131,6 +133,7 @@ SPEC REPOS:
     - GoogleUtilities
     - Hero
     - Kingfisher
+    - MTSlideToOpen
     - nanopb
     - RangeSeekSlider
     - RevealingSplashView
@@ -153,10 +156,11 @@ SPEC CHECKSUMS:
   GoogleUtilities: f895fde57977df4e0233edda0dbeac490e3703b6
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   Kingfisher: b7e4cb65ff24c264bd2a1284b75b974d907afd94
+  MTSlideToOpen: 16c26a4ecf72383751e01a4294746ea48b45231c
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   RangeSeekSlider: 650b11fa1edcb92e1e0ede797669d98622570fb5
   RevealingSplashView: 40c5a770894459736acdc95655eeba0dd30ce91c
 
-PODFILE CHECKSUM: 12a7fa98b6186da179fbe31cad181d7809272ab6
+PODFILE CHECKSUM: 0511f91ed654c9a9cbb6527f57a0f0021eea1fdf
 
 COCOAPODS: 1.8.3

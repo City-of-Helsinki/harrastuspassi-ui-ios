@@ -12,6 +12,7 @@ class HobbyListModalViewController: UIViewController, UITableViewDelegate, UITab
     
     var events: [HobbyEventData] = [];
     var titleText: String?
+    var mapView: GMSMapView!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -77,5 +78,10 @@ class HobbyListModalViewController: UIViewController, UITableViewDelegate, UITab
             detailViewController.hero.modalAnimationType = .selectBy(presenting: .none, dismissing: .none);
             
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated);
+        mapView.preferredFrameRate = .maximum;
     }
 }
