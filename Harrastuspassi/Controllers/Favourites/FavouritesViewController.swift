@@ -13,6 +13,7 @@ class FavouritesViewController: UIViewController, UITableViewDelegate, UITableVi
     var hobbyData = [HobbyEventData]();
     
     @IBOutlet weak var favoritesTableView: UITableView!
+    @IBOutlet weak var placeholderTextLabel: UILabel!
     
     let refreshControl = UIRefreshControl();
     
@@ -33,6 +34,11 @@ class FavouritesViewController: UIViewController, UITableViewDelegate, UITableVi
         favorites = UserDefaults.standard.array(forKey: DefaultKeys.Favourites.list) as? [Int];
         if !(favorites?.count == 0) {
             self.fetchUrl(urlString: Config.API_URL + "hobbyevents");
+            placeholderTextLabel.isHidden = true;
+        } else {
+            hobbyData = [];
+            favoritesTableView.reloadData();
+            placeholderTextLabel.isHidden = false;
         }
     }
     

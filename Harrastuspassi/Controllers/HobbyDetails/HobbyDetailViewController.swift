@@ -159,7 +159,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         }
         activityIndicator.isHidden = false;
         activityIndicator.startAnimating();
-        
+        print(Config.API_URL + "hobbyevents")
         fetchUrl(urlString: Config.API_URL + "hobbyevents")
     }
     
@@ -277,6 +277,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         let session = URLSession(configuration: config);
         var url: URL?;
         url = applyQueryParamsToUrl(urlString);
+        print(url)
         let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
     
         task.resume();

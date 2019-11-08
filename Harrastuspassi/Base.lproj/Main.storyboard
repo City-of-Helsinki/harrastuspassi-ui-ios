@@ -640,19 +640,19 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="398" height="44"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="31.12.2020" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8G-Ie-dlu" userLabel="Date Label">
-                                                                            <rect key="frame" x="108" y="12" width="182" height="20"/>
+                                                                            <rect key="frame" x="105.5" y="12" width="187" height="20"/>
                                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00-00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2l-Ea-vI7" userLabel="Time Label">
-                                                                            <rect key="frame" x="298" y="12" width="92" height="20"/>
+                                                                            <rect key="frame" x="300.5" y="12" width="89.5" height="20"/>
                                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ow7-ZT-EGl" userLabel="Weekday Label">
-                                                                            <rect key="frame" x="8" y="12" width="92" height="20"/>
+                                                                            <rect key="frame" x="8" y="12" width="89.5" height="20"/>
                                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -784,7 +784,7 @@
                                                 <rect key="frame" x="368" y="18.5" width="20" height="20"/>
                                             </activityIndicatorView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hav-cw-20a">
-                                                <rect key="frame" x="354" y="56.5" width="48" height="48"/>
+                                                <rect key="frame" x="366" y="56.5" width="24" height="24"/>
                                                 <state key="normal" image="ic_favorite_border"/>
                                                 <connections>
                                                     <action selector="favouriteButtonPressed:" destination="h0w-UW-GsU" eventType="touchUpInside" id="ZDB-Nb-Gp6"/>
@@ -1745,27 +1745,30 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="mainContainer"/>
                                 </userDefinedRuntimeAttributes>
                             </tableView>
-                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uqg-FT-rDn">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
-                                <color key="backgroundColor" name="mainColor"/>
-                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add hobbies as favorites and you will see them here." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiY-KQ-qLw">
+                                <rect key="frame" x="16" y="342" width="382" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="mainColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Uqg-FT-rDn" secondAttribute="trailing" id="24j-si-HBr"/>
                             <constraint firstItem="7by-Dd-37M" firstAttribute="top" secondItem="3lC-ak-x1J" secondAttribute="top" id="A6z-9G-T9k"/>
+                            <constraint firstItem="aiY-KQ-qLw" firstAttribute="leading" secondItem="3lC-ak-x1J" secondAttribute="leading" constant="16" id="Ay0-FJ-Xra"/>
+                            <constraint firstItem="3lC-ak-x1J" firstAttribute="trailing" secondItem="aiY-KQ-qLw" secondAttribute="trailing" constant="16" id="KnL-DL-cnr"/>
                             <constraint firstItem="7by-Dd-37M" firstAttribute="trailing" secondItem="3lC-ak-x1J" secondAttribute="trailing" constant="-8" id="LUv-Xz-Hu5"/>
                             <constraint firstItem="7by-Dd-37M" firstAttribute="leading" secondItem="3lC-ak-x1J" secondAttribute="leading" constant="8" id="SKb-p0-kLx"/>
-                            <constraint firstItem="Uqg-FT-rDn" firstAttribute="top" secondItem="lVZ-PW-aTB" secondAttribute="top" id="VT3-x5-MmT"/>
-                            <constraint firstItem="Uqg-FT-rDn" firstAttribute="leading" secondItem="lVZ-PW-aTB" secondAttribute="leading" id="dgl-3Z-8Xg"/>
                             <constraint firstItem="3lC-ak-x1J" firstAttribute="bottom" secondItem="7by-Dd-37M" secondAttribute="bottom" id="gob-LM-ndb"/>
-                            <constraint firstItem="7by-Dd-37M" firstAttribute="top" secondItem="Uqg-FT-rDn" secondAttribute="bottom" id="zbw-hY-hDH"/>
+                            <constraint firstItem="aiY-KQ-qLw" firstAttribute="centerX" secondItem="lVZ-PW-aTB" secondAttribute="centerX" id="hFQ-iy-5nP"/>
+                            <constraint firstItem="aiY-KQ-qLw" firstAttribute="centerY" secondItem="lVZ-PW-aTB" secondAttribute="centerY" id="p8T-md-Bby"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3lC-ak-x1J"/>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" largeTitleDisplayMode="always" id="TI2-5Y-oJc"/>
                     <connections>
                         <outlet property="favoritesTableView" destination="7by-Dd-37M" id="lzS-tn-ERx"/>
+                        <outlet property="placeholderTextLabel" destination="aiY-KQ-qLw" id="JPT-wV-wcT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b8w-L7-do1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2304,7 +2307,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="N5W-KN-IGa"/>
-        <segue reference="xTG-DC-zUu"/>
+        <segue reference="BZT-no-DMH"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

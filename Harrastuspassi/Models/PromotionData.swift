@@ -15,6 +15,7 @@ struct PromotionData : Codable {
     var startTime = Date();
     var endTime = Date();
     var image: String?
+    var hobby: HobbyData?;
     
     enum CodingKeys : String, CodingKey {
         case id = "id";
@@ -23,5 +24,6 @@ struct PromotionData : Codable {
         case startTime = "start_time";
         case endTime = "end_time";
         case image = "cover_image";
+        case hobby = "hobby";
     }
 }
