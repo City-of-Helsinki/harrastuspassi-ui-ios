@@ -8,7 +8,6 @@
 
 import UIKit
 import Hero
-import RevealingSplashView
 import CoreLocation
 
 class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate, UITableViewDataSource, ModalDelegate, UINavigationControllerDelegate {
@@ -30,15 +29,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "logo_kelt_lil")!,iconInitialSize: CGSize(width: 250, height: 250), backgroundColor: UIColor(red:0.19, green:0.08, blue:0.43, alpha:1.0))
         
-        let window = UIApplication.shared.keyWindow
-        window?.addSubview(revealingSplashView)
         self.hero.isEnabled = true;
         navigationController?.hero.navigationAnimationType = .selectBy(presenting: .none, dismissing: .none);
-        revealingSplashView.startAnimation(){
-            print("Completed")
-        }
+        
         
         refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged);
         refreshControl.tintColor = .white;

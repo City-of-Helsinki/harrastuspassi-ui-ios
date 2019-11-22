@@ -10,7 +10,7 @@ import UIKit
 
 class PromotionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var promotions: [PromotionData] = [PromotionData(),PromotionData(),PromotionData(),PromotionData(),];
+    var promotions: [PromotionData] = [];
 
     @IBOutlet weak var tableView: PromotionsTableView!
     
