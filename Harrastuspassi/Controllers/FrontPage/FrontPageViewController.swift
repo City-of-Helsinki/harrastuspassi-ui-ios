@@ -12,13 +12,20 @@ import RevealingSplashView
 
 class FrontPageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    var promotionData = [1,2,3,4,5,6,7,8]
+    var promotionData: [Int] = [];
+    var hobbyData: [HobbyData] = [];
 
     @IBOutlet weak var promotionCollectionView: UICollectionView!
     @IBOutlet weak var promotionBannerContainer: UIView!
     @IBOutlet weak var hobbyCollectionView: UICollectionView!
     @IBOutlet weak var hobbyBannerContainer: UIView!
+    @IBOutlet weak var promotionSectionTitleView: UIView!
+    @IBOutlet weak var hobbySectionTitleLabel: UILabel!
     
+    @IBOutlet weak var hobbyBannerImageView: UIImageView!
+    @IBOutlet weak var hobbyBannerTitleLabel: UILabel!
+    @IBOutlet weak var hobbyBannerDescriptionLabel: UILabel!
+    @IBOutlet weak var hobbyBannerDateLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +42,22 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         hobbyBannerContainer.layer.cornerRadius = 15;
         hobbyBannerContainer.layer.masksToBounds = true;
         
+        if promotionData.count == 0 {
+            promotionBannerContainer.isHidden = true;
+            promotionSectionTitleView.isHidden = true;
+            
+        }
+        if promotionData.count <= 1 {
+            promotionCollectionView.isHidden = true;
+        }
+        if hobbyData.count == 0 {
+            hobbyBannerContainer.isHidden = true;
+            hobbySectionTitleLabel.isHidden = true;
+        }
+        if hobbyData.count <= 1 {
+            hobbyCollectionView.isHidden = true;
+        }
+        
         let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "logo_kelt_lil")!,iconInitialSize: CGSize(width: 250, height: 250), backgroundColor: UIColor(red:0.19, green:0.08, blue:0.43, alpha:1.0))
         
         
@@ -47,6 +70,8 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         
         setupNavBar()
+        
+        fetchUrl(urlString: Config.API_URL + "hobbies/");
     }
     
 
@@ -99,14 +124,87 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return promotionData.count;
+        if collectionView == promotionCollectionView {
+            return promotionData.count - 1;
+        } else {
+            return hobbyData.count - 1;
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = promotionCollectionView.dequeueReusableCell(withReuseIdentifier: "PromotionCollectionCell", for: indexPath) as! PromotionCollectionViewCell;
-        cell.setPromotion(PromotionData());
-        cell.layer.cornerRadius = 15;
-        cell.layer.masksToBounds = true;
-        return cell;
+        if collectionView == self.promotionCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PromotionCollectionCell", for: indexPath) as! PromotionCollectionViewCell;
+            cell.setPromotion(PromotionData());
+            cell.layer.cornerRadius = 15;
+            cell.layer.masksToBounds = true;
+            return cell;
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HobbyCollectionCell", for: indexPath) as! HobbyCollectionViewCell;
+            cell.setHobby(hobbyData[indexPath.row + 1]);
+            cell.layer.cornerRadius = 15;
+            cell.layer.masksToBounds = true;
+            return cell;
+        }
+        
+    }
+    
+    func fetchUrl(urlString: String) {
+        let config = URLSessionConfiguration.default;
+        let session = URLSession(configuration: config);
+        var url: URL?;
+        url = applyQueryParamsToUrl(urlString);
+        print(url);
+        let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
+    
+        task.resume();
+    }
+    
+    func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
+        if let fetchedData = data {
+            guard let hobbyData = try? JSONDecoder().decode([HobbyData].self, from: fetchedData)
+                else {
+                    return
+            }
+            DispatchQueue.main.async(execute: {() in
+                if(hobbyData.count == 0) {
+                    self.hobbyData = hobbyData;
+                    self.hobbyCollectionView.reloadData()
+                } else {
+                    self.hobbyData = Array(hobbyData.prefix(7));
+                    self.hobbyCollectionView.reloadData()
+                    
+                    self.hobbyBannerContainer.isHidden = false;
+                    self.hobbySectionTitleLabel.isHidden = false;
+                    self.setHobbyBanner(hobbyData[0]);
+                    
+                    if hobbyData.count > 1 {
+                        self.hobbyCollectionView.isHidden = false;
+                    }
+                }
+            })
+        }
+    }
+    
+    func applyQueryParamsToUrl(_ url: String) -> URL? {
+        var urlComponents = URLComponents(string: url);
+        urlComponents?.queryItems = []
+        urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "location_detail"))
+        urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "organizer_detail"))
+        
+        let defaults = UserDefaults.standard;
+        let latitude = defaults.float(forKey: DefaultKeys.Location.lat),
+            longitude = defaults.float(forKey: DefaultKeys.Location.lon);
+        urlComponents?.queryItems?.append(URLQueryItem(name: "ordering", value: "nearest"));
+        urlComponents?.queryItems?.append(URLQueryItem(name: "near_latitude", value: String(latitude)));
+        urlComponents?.queryItems?.append(URLQueryItem(name: "near_longitude", value: String(longitude)));
+        return urlComponents?.url
+    }
+    
+    func setHobbyBanner(_ hobby: HobbyData) {
+        if let image = hobby.image {
+            hobbyBannerImageView.kf.setImage(with: URL(string: image));
+        }
+        hobbyBannerTitleLabel.text = hobby.name;
+        hobbyBannerDescriptionLabel.text = hobby.description;
     }
 }

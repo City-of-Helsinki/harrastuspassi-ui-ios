@@ -31,6 +31,10 @@ struct DefaultKeys {
     struct Favourites {
         static let list = "FavouriteList";
     }
+    
+    struct Promotions {
+        static let usedPromotions = "UsedPromotions";
+    }
 }
 
 struct Segues {

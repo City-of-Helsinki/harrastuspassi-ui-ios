@@ -44,7 +44,6 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
 
         // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation
@@ -59,6 +58,7 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
     func mtSlideToOpenDelegateDidFinish(_ sender: MTSlideToOpenView) {
         print("Slide completed!");
         feedbackGenerator.impactOccurred();
+        promotion.use();
         self.offerStateLabel.transform = CGAffineTransform(scaleX: 0, y: 0);
         UIView.animate(withDuration: 0.2, animations: {
             self.slideButton.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)

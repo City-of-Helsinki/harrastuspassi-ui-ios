@@ -13,6 +13,7 @@ class HobbyCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
@@ -22,14 +23,15 @@ class HobbyCollectionViewCell: UICollectionViewCell {
         self.contentView.layer.masksToBounds = true;
     }
     
-    func setPromotion(_ promotion: PromotionData) {
-        if let image = promotion.image {
+    func setHobby(_ hobby: HobbyData) {
+        if let image = hobby.image {
             imageView.kf.setImage(with: URL(string: image));
         } else {
             imageView.image = UIImage(named: "logo_lil_yel")
         }
-        titleLabel.text = promotion.name;
-        dateLabel.text = "Voimassa: XX XX XX";
+        titleLabel.text = hobby.name;
+        descriptionLabel.text = hobby.description;
+        dateLabel.text = "";
     }
     
 }

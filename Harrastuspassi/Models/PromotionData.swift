@@ -17,6 +17,29 @@ struct PromotionData : Codable {
     var image: String?
     var hobby: HobbyData?;
     
+    func isUsed() -> Bool {
+        let defaults = UserDefaults.standard;
+        if let usedPromotions = defaults.array(forKey: DefaultKeys.Promotions.usedPromotions) as? [Int] {
+            if (usedPromotions.contains { id in
+                id == self.id
+            }) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    func use() {
+        let defaults = UserDefaults.standard;
+        if let usedPromotions = defaults.array(forKey: DefaultKeys.Promotions.usedPromotions) {
+            var updatedPromotions = usedPromotions;
+            updatedPromotions.append(self.id);
+            defaults.set(updatedPromotions, forKey: DefaultKeys.Promotions.usedPromotions);
+        } else {
+            defaults.set([self.id], forKey: DefaultKeys.Promotions.usedPromotions);
+        }
+    }
+    
     enum CodingKeys : String, CodingKey {
         case id = "id";
         case name = "name";
