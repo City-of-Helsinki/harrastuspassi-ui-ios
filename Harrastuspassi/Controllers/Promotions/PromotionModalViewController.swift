@@ -41,6 +41,11 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
         slideButton.defaultLabelText = "Slide use this offer"
         slideButton.thumnailImageView.image = UIImage(named: "ic_local_activity")
         slideButton.defaultThumbnailColor = UIColor(named: "mainColor")!
+        
+        if promotion.isUsed() {
+            slideButton.isHidden = true;
+            offerStateLabel.isHidden = false;
+        }
 
         // Do any additional setup after loading the view.
     }

@@ -63,6 +63,8 @@ import CoreLocation
             fadeOutLocationComponents();
         }
         
+        setupNavBar()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -255,6 +257,40 @@ import CoreLocation
         }
         tmpLocations.append(selectedLocation);
         defaults.set(try? PropertyListEncoder().encode(tmpLocations), forKey: DefaultKeys.Location.savedLocations);
+        
+    }
+    
+    func setupNavBar() {
+        if #available(iOS 13, *) {
+            let appearance = UINavigationBarAppearance()
+
+            // title color
+            appearance.titleTextAttributes = [.foregroundColor: UIColor(named: "mainColor") ?? UIColor.black]
+
+            // large title color
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "mainColor") ?? UIColor.black]
+
+            // background color
+            appearance.backgroundColor = UIColor.white
+
+            // bar button styling
+            let barButtonItemApperance = UIBarButtonItemAppearance()
+            barButtonItemApperance.normal.titleTextAttributes = [.foregroundColor: UIColor(named: "mainColor") ?? UIColor.black]
+
+            appearance.backButtonAppearance = barButtonItemApperance
+
+            // set the navigation bar appearance to the color we have set above
+            self.navigationController?.navigationBar.standardAppearance = appearance
+
+            // when the navigation bar has a neighbouring scroll view item (eg: scroll view, table view etc)
+            // the "scrollEdgeAppearance" will be used
+            // by default, scrollEdgeAppearance will have a transparent background
+            self.navigationController?.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+            self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+            UINavigationBar.appearance().tintColor = UIColor(named: "mainColor")
+        }
+
+        // the back icon color
         
     }
 }

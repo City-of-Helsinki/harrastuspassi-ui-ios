@@ -23,15 +23,17 @@ class HobbyCollectionViewCell: UICollectionViewCell {
         self.contentView.layer.masksToBounds = true;
     }
     
-    func setHobby(_ hobby: HobbyData) {
-        if let image = hobby.image {
+    func setHobby(_ hobbyEvent: HobbyEventData) {
+        if let image = hobbyEvent.hobby?.image {
             imageView.kf.setImage(with: URL(string: image));
         } else {
             imageView.image = UIImage(named: "logo_lil_yel")
         }
-        titleLabel.text = hobby.name;
-        descriptionLabel.text = hobby.description;
-        dateLabel.text = "";
+        if let hobby = hobbyEvent.hobby {
+            titleLabel.text = hobby.name;
+            descriptionLabel.text = hobby.description;
+            dateLabel.text = "";
+        }
     }
     
 }

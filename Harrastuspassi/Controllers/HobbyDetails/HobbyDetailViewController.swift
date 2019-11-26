@@ -72,6 +72,21 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
             favouriteButton.tintColor = UIColor(named: "mainColor");
         }
         mapView.preferredFrameRate = .conservative;
+        
+        if #available(iOS 13.0, *) {
+            self.hero.isEnabled = true;
+            closeButton.hero.isEnabled = true;
+            closeButton.layer.zPosition = CGFloat(Float.greatestFiniteMagnitude);
+            closeButton.hero.modifiers = [.duration(0.7), .translate(x:100), .useGlobalCoordinateSpace];
+        } else {
+            self.hero.isEnabled = false;
+        }
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated);
+        self.dismiss(animated: false, completion: nil);
     }
     
     func setupUI() {
@@ -80,9 +95,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         imageView.hero.id = imageHeroID;
         titleLabel.hero.id = titleHeroID;
         locationLabel.hero.id = locationHeroID;
-        closeButton.layer.zPosition = CGFloat(Float.greatestFiniteMagnitude);
-        closeButton.hero.isEnabled = true;
-        closeButton.hero.modifiers = [.duration(0.7), .translate(x:100), .useGlobalCoordinateSpace];
+        
         panGR = UIPanGestureRecognizer(target: self, action: #selector(handlePan(gestureRecognizer:)));
         panGR.delegate = self
         scrollView.addGestureRecognizer(panGR);
@@ -114,9 +127,6 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         scrollView.addGestureRecognizer(panGR);
         scrollView.bounces = false;
         startingOffset = scrollView.contentOffset.y;
-        closeButton.layer.zPosition = CGFloat(Float.greatestFiniteMagnitude);
-        closeButton.hero.isEnabled = true;
-        closeButton.hero.modifiers = [.duration(0.7), .translate(x:100), .useGlobalCoordinateSpace];
         closeButton.layer.cornerRadius = 15;
         closeButton.clipsToBounds = true;
         let url = Config.API_URL + "hobbyevents/" + String(hobbyEventID!) + "?include=hobby_detail"+"&include=location_detail"+"&include=organizer_detail";

@@ -11,13 +11,18 @@ import UIKit
 class PromotionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var promotions: [PromotionData] = [];
+    
 
     @IBOutlet weak var tableView: PromotionsTableView!
+    @IBOutlet weak var placeHolderLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        placeHolderLabel.isHidden = true;
+        if promotions.count == 0 {
+            placeHolderLabel.isHidden = false;
+        }
         // Do any additional setup after loading the view.
         
         tableView.delegate = self;
@@ -58,6 +63,9 @@ class PromotionsViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "promocell", for: indexPath) as! PromotionTableViewCell;
         let promotion = promotions[indexPath.row];
         cell.setPromotion(promotion);
+        if promotion.isUsed() {
+            cell.layer.opacity = 0.5
+        }
         return cell;
     }
     

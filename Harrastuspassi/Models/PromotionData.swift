@@ -35,9 +35,11 @@ struct PromotionData : Codable {
             var updatedPromotions = usedPromotions;
             updatedPromotions.append(self.id);
             defaults.set(updatedPromotions, forKey: DefaultKeys.Promotions.usedPromotions);
+            print(usedPromotions)
         } else {
             defaults.set([self.id], forKey: DefaultKeys.Promotions.usedPromotions);
         }
+        print(id)
     }
     
     enum CodingKeys : String, CodingKey {

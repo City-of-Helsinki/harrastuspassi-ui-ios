@@ -13,7 +13,7 @@ import RevealingSplashView
 class FrontPageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var promotionData: [Int] = [];
-    var hobbyData: [HobbyData] = [];
+    var hobbyEventData: [HobbyEventData] = [];
 
     @IBOutlet weak var promotionCollectionView: UICollectionView!
     @IBOutlet weak var promotionBannerContainer: UIView!
@@ -42,6 +42,12 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         hobbyBannerContainer.layer.cornerRadius = 15;
         hobbyBannerContainer.layer.masksToBounds = true;
         
+        if #available(iOS 13.0, *) {
+            self.hero.isEnabled = true;
+        } else {
+            self.hero.isEnabled = false;
+        }
+        
         if promotionData.count == 0 {
             promotionBannerContainer.isHidden = true;
             promotionSectionTitleView.isHidden = true;
@@ -50,11 +56,11 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         if promotionData.count <= 1 {
             promotionCollectionView.isHidden = true;
         }
-        if hobbyData.count == 0 {
+        if hobbyEventData.count == 0 {
             hobbyBannerContainer.isHidden = true;
             hobbySectionTitleLabel.isHidden = true;
         }
-        if hobbyData.count <= 1 {
+        if hobbyEventData.count <= 1 {
             hobbyCollectionView.isHidden = true;
         }
         
@@ -71,7 +77,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         
         setupNavBar()
         
-        fetchUrl(urlString: Config.API_URL + "hobbies/");
+        fetchUrl(urlString: Config.API_URL + "hobbyevents/");
     }
     
 
@@ -111,10 +117,11 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
             // the "scrollEdgeAppearance" will be used
             // by default, scrollEdgeAppearance will have a transparent background
             self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+            UINavigationBar.appearance().tintColor = .white
         }
 
         // the back icon color
-        UINavigationBar.appearance().tintColor = .white
+        
     }
     
     // MARK: - CollectionView setup
@@ -127,7 +134,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         if collectionView == promotionCollectionView {
             return promotionData.count - 1;
         } else {
-            return hobbyData.count - 1;
+            return hobbyEventData.count - 1;
         }
     }
     
@@ -140,12 +147,27 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
             return cell;
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HobbyCollectionCell", for: indexPath) as! HobbyCollectionViewCell;
-            cell.setHobby(hobbyData[indexPath.row + 1]);
+            cell.setHobby(hobbyEventData[indexPath.row + 1]);
             cell.layer.cornerRadius = 15;
             cell.layer.masksToBounds = true;
+            cell.hero.id = String(indexPath.row);
+            cell.imageView.hero.id = "image" + String(indexPath.row);
             return cell;
         }
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == self.hobbyCollectionView {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "DetailsVC") as! HobbyDetailViewController
+            newViewController.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
+            self.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
+            newViewController.hobbyEvent = hobbyEventData[(indexPath.row+1)];
+            newViewController.heroID = String(indexPath.row);
+            newViewController.imageHeroID = "image" + String(indexPath.row);
+            present(newViewController, animated: true);
+        }
     }
     
     func fetchUrl(urlString: String) {
@@ -161,21 +183,21 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
         if let fetchedData = data {
-            guard let hobbyData = try? JSONDecoder().decode([HobbyData].self, from: fetchedData)
+            guard let hobbyData = try? JSONDecoder().decode([HobbyEventData].self, from: fetchedData)
                 else {
                     return
             }
             DispatchQueue.main.async(execute: {() in
                 if(hobbyData.count == 0) {
-                    self.hobbyData = hobbyData;
+                    self.hobbyEventData = hobbyData;
                     self.hobbyCollectionView.reloadData()
                 } else {
-                    self.hobbyData = Array(hobbyData.prefix(7));
+                    self.hobbyEventData = Array(hobbyData.prefix(7)).uniques;
                     self.hobbyCollectionView.reloadData()
                     
                     self.hobbyBannerContainer.isHidden = false;
                     self.hobbySectionTitleLabel.isHidden = false;
-                    self.setHobbyBanner(hobbyData[0]);
+                    self.setHobbyBanner(self.hobbyEventData[0]);
                     
                     if hobbyData.count > 1 {
                         self.hobbyCollectionView.isHidden = false;
@@ -190,6 +212,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         urlComponents?.queryItems = []
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "location_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "organizer_detail"))
+        urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"))
         
         let defaults = UserDefaults.standard;
         let latitude = defaults.float(forKey: DefaultKeys.Location.lat),
@@ -200,11 +223,31 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         return urlComponents?.url
     }
     
-    func setHobbyBanner(_ hobby: HobbyData) {
-        if let image = hobby.image {
+    func setHobbyBanner(_ hobbyEvent: HobbyEventData) {
+        if let image = hobbyEvent.hobby?.image {
             hobbyBannerImageView.kf.setImage(with: URL(string: image));
         }
-        hobbyBannerTitleLabel.text = hobby.name;
-        hobbyBannerDescriptionLabel.text = hobby.description;
+        hobbyBannerTitleLabel.text = hobbyEvent.hobby?.name;
+        hobbyBannerDescriptionLabel.text = hobbyEvent.hobby?.description;
+        let gestureRec = UITapGestureRecognizer(target: self, action:  #selector (self.presentDetails));
+        hobbyBannerContainer.addGestureRecognizer(gestureRec)
+        hobbyBannerContainer.hero.id = "Hobby" + String(-1);
+        hobbyBannerImageView.hero.id = "hobbyimage" + String(-1);
     }
+    
+    @objc func presentDetails(sender:UITapGestureRecognizer) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "DetailsVC") as! HobbyDetailViewController
+        newViewController.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
+        self.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
+        newViewController.hobbyEvent = hobbyEventData[0];
+        newViewController.heroID = "Hobby" + String(-1);
+        newViewController.imageHeroID = "hobbyimage" + String(-1);
+        present(newViewController, animated: true);
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
 }

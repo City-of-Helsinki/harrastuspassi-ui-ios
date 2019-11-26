@@ -50,6 +50,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     
     override func viewDidAppear(_ animated: Bool) {
         self.fetchUrl(urlString: Config.API_URL + "hobbyevents")
+        if #available(iOS 13.0, *) {
+            self.hero.isEnabled = true;
+        } else {
+            self.hero.isEnabled = false;
+        }
     }
     
     
@@ -65,11 +70,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         cell.title.hero.id = "title" + String(indexPath.row);
         cell.location.hero.id = "location" + String(indexPath.row);
         cell.date.hero.id = "weekday" + String(indexPath.row);
-        cell.contentView.hero.isEnabled = true;
-        cell.contentView.hero.id = String(indexPath.row);
-        cell.selectionStyle = .none
-        
-        
+        if #available(iOS 13.0, *) {
+            cell.contentView.hero.isEnabled = true;
+            cell.contentView.hero.id = String(indexPath.row);
+            cell.selectionStyle = .none
+        } else {
+            self.hero.isEnabled = false;
+        }
         return cell
     }
     
