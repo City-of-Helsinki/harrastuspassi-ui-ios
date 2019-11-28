@@ -947,7 +947,7 @@
 				CODE_SIGN_ENTITLEMENTS = Harrastuspassi/Harrastuspassi.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3P656WGXFZ;
 				INFOPLIST_FILE = Harrastuspassi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -974,7 +974,7 @@
 				CODE_SIGN_ENTITLEMENTS = Harrastuspassi/Harrastuspassi.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3P656WGXFZ;
 				INFOPLIST_FILE = Harrastuspassi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

@@ -287,7 +287,6 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         let session = URLSession(configuration: config);
         var url: URL?;
         url = applyQueryParamsToUrl(urlString);
-        print(url)
         let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
     
         task.resume();
@@ -354,7 +353,6 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
             } catch {
                 print(error)
             }
-            print(eventData)
             DispatchQueue.main.async(execute: {() in
                 if let event = eventData {
                     print(event)
@@ -387,6 +385,8 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
             print("The short URL is: \(url)")
             let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil);
             activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.markupAsPDF ];
+            activityViewController.popoverPresentationController?.sourceView = self.shareButton;
+            activityViewController.popoverPresentationController?.sourceRect = self.shareButton.bounds;
             self.present(activityViewController, animated: true, completion: nil);
         }
     }
