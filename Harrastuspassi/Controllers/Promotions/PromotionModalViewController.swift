@@ -11,12 +11,14 @@ import MTSlideToOpen
 
 class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
     
+    @IBOutlet weak var availableLabel: UILabel!
     @IBOutlet weak var slideButton: MTSlideToOpenView!
     @IBOutlet weak var promotionImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var offerStateLabel: UILabel!
+    var completionHandler: (()->Void)?;
     
     var promotion = PromotionData();
     
@@ -29,9 +31,15 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
         } else {
             promotionImageView.image = UIImage(named: "logo_lil_yel");
         }
+        if promotion.isUsable() {
+            availableLabel.text = "Jäljellä: " + String(promotion.availableCount - promotion.usedCount);
+        } else {
+            availableLabel.isHidden = true;
+        }
         offerStateLabel.isHidden = true;
         titleLabel.text = promotion.name;
         descriptionLabel.text = promotion.description;
+        dateLabel.text = "Voimassa: " + Utils.formatDateFromString(promotion.endDate);
         slideButton.sliderViewTopDistance = 0;
         slideButton.sliderCornerRadius = 30
         slideButton.sliderHolderView.frame = slideButton.frame;
@@ -45,6 +53,10 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
         if promotion.isUsed() {
             slideButton.isHidden = true;
             offerStateLabel.isHidden = false;
+        } else if !promotion.isUsable() {
+            slideButton.isHidden = true;
+            offerStateLabel.isHidden = false;
+            offerStateLabel.text = "Käytetty loppuun"
         }
 
         // Do any additional setup after loading the view.
@@ -64,6 +76,9 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
         print("Slide completed!");
         feedbackGenerator.impactOccurred();
         promotion.use();
+        if let completion = self.completionHandler {
+            completion();
+        }
         self.offerStateLabel.transform = CGAffineTransform(scaleX: 0, y: 0);
         UIView.animate(withDuration: 0.2, animations: {
             self.slideButton.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)

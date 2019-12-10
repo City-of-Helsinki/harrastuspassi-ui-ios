@@ -58,6 +58,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
 
         // Do any additional setup after loading the view.
         
+        
         eventTableView.delegate = self;
         eventTableView.dataSource = self;
         linkActivityIndicator.isHidden = true;
@@ -82,6 +83,10 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
             self.hero.isEnabled = false;
         }
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated);
     }
     
     override func viewWillDisappear(_ animated: Bool) {

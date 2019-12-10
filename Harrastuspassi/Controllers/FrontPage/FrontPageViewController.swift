@@ -8,11 +8,12 @@
 
 import UIKit
 import RevealingSplashView
+import Firebase
 
 
 class FrontPageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    var promotionData: [Int] = [];
+    var promotionData: [PromotionData] = [];
     var hobbyEventData: [HobbyEventData] = [];
 
     @IBOutlet weak var promotionCollectionView: UICollectionView!
@@ -26,6 +27,12 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet weak var hobbyBannerTitleLabel: UILabel!
     @IBOutlet weak var hobbyBannerDescriptionLabel: UILabel!
     @IBOutlet weak var hobbyBannerDateLabel: UILabel!
+    
+    @IBOutlet weak var promotionBannerImageView: UIImageView!
+    @IBOutlet weak var promotionBannerTitleLabel: UILabel!
+    @IBOutlet weak var promotionBannerDescriptionLabel: UILabel!
+    @IBOutlet weak var promotionBannerDateLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +85,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         setupNavBar()
         
         fetchUrl(urlString: Config.API_URL + "hobbyevents/");
+        fetchPromotionsUrl(urlString: Config.API_URL + "promotions/")
     }
     
 
@@ -99,7 +107,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
             appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
 
             // large title color
-            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "clusterIconBg")!]
 
             // background color
             appearance.backgroundColor = UIColor(named: "mainColor")
@@ -141,7 +149,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.promotionCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PromotionCollectionCell", for: indexPath) as! PromotionCollectionViewCell;
-            cell.setPromotion(PromotionData());
+            cell.setPromotion(promotionData[indexPath.row + 1]);
             cell.layer.cornerRadius = 15;
             cell.layer.masksToBounds = true;
             return cell;
@@ -166,6 +174,27 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
             newViewController.hobbyEvent = hobbyEventData[(indexPath.row+1)];
             newViewController.heroID = String(indexPath.row);
             newViewController.imageHeroID = "image" + String(indexPath.row);
+            present(newViewController, animated: true);
+            if let hobby = hobbyEventData[(indexPath.row+1)].hobby {
+                
+                var params = [
+                    "hobbyId": hobby.id ?? 0,
+                    "hobbyName": hobby.name!,
+                    "organizerName": hobby.organizer?.name ?? "",
+                    "free": true,
+                    "postalCode": hobby.location?.zipCode ?? "",
+                    "municipality": hobby.location?.city ?? ""
+                    ] as [String : Any];
+                
+                debugPrint("ANALYTICS EVENT");
+                Analytics.logEvent("viewHobby", parameters: params)
+            };
+        } else {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "PromotionModal") as! PromotionModalViewController
+            newViewController.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
+            self.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
+            newViewController.promotion = promotionData[(indexPath.row + 1)];
             present(newViewController, animated: true);
         }
     }
@@ -207,6 +236,40 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         }
     }
     
+    func fetchPromotionsUrl(urlString: String) {
+        let config = URLSessionConfiguration.default;
+        let session = URLSession(configuration: config);
+        var url: URL?;
+        url = applyQueryParamsToUrl(urlString);
+        let task = session.dataTask(with: url!, completionHandler: self.doneFetchingPromotions);
+        task.resume();
+    }
+    
+    func doneFetchingPromotions(data: Data?, response: URLResponse?, error: Error?) {
+        if let fetchedData = data {
+            guard let promotions = try? JSONDecoder().decode([PromotionData].self, from: fetchedData)
+                else {
+                    return
+            }
+            DispatchQueue.main.async(execute: {() in
+                if(promotions.count == 0) {
+                    self.promotionData = promotions;
+                    self.promotionCollectionView.reloadData();
+                    
+                } else {
+                    self.promotionData = promotions;
+                    self.promotionCollectionView.reloadData();
+                    self.promotionBannerContainer.isHidden = false;
+                    self.promotionSectionTitleView.isHidden = false;
+                    self.setPromotionBanner(promotions[0]);
+                    if promotions.count > 1 {
+                        self.promotionCollectionView.isHidden = false;
+                    }
+                }
+            })
+        }
+    }
+    
     func applyQueryParamsToUrl(_ url: String) -> URL? {
         var urlComponents = URLComponents(string: url);
         urlComponents?.queryItems = []
@@ -235,6 +298,16 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         hobbyBannerImageView.hero.id = "hobbyimage" + String(-1);
     }
     
+    func setPromotionBanner(_ promotion: PromotionData) {
+        if let image = promotion.image {
+            promotionBannerImageView.kf.setImage(with: URL(string: image));
+        }
+        promotionBannerTitleLabel.text = promotion.name;
+        promotionBannerDescriptionLabel.text = promotion.description;
+        let gestureRec = UITapGestureRecognizer(target: self, action:  #selector (self.presentPromotionDetails));
+        promotionBannerContainer.addGestureRecognizer(gestureRec);
+    }
+    
     @objc func presentDetails(sender:UITapGestureRecognizer) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "DetailsVC") as! HobbyDetailViewController
@@ -243,6 +316,29 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         newViewController.hobbyEvent = hobbyEventData[0];
         newViewController.heroID = "Hobby" + String(-1);
         newViewController.imageHeroID = "hobbyimage" + String(-1);
+        present(newViewController, animated: true);
+        if let hobby = hobbyEventData[0].hobby {
+            
+            var params = [
+                "hobbyId": hobby.id ?? 0,
+                "hobbyName": hobby.name!,
+                "organizerName": hobby.organizer?.name ?? "",
+                "free": true,
+                "postalCode": hobby.location?.zipCode ?? "",
+                "municipality": hobby.location?.city ?? ""
+                ] as [String : Any];
+            
+            debugPrint("ANALYTICS EVENT");
+            Analytics.logEvent("viewHobby", parameters: params)
+        };
+    }
+    
+    @objc func presentPromotionDetails(sender:UITapGestureRecognizer) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "PromotionModal") as! PromotionModalViewController
+        newViewController.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
+        self.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
+        newViewController.promotion = promotionData[0];
         present(newViewController, animated: true);
     }
     

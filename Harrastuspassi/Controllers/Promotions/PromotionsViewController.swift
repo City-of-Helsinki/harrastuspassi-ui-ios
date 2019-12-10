@@ -11,7 +11,6 @@ import UIKit
 class PromotionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var promotions: [PromotionData] = [];
-    
 
     @IBOutlet weak var tableView: PromotionsTableView!
     @IBOutlet weak var placeHolderLabel: UILabel!
@@ -31,6 +30,7 @@ class PromotionsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
+        reloadData();
         if #available(iOS 13.0, *) {
             let navBarAppearance = UINavigationBarAppearance()
             navBarAppearance.configureWithOpaqueBackground()
@@ -42,6 +42,10 @@ class PromotionsViewController: UIViewController, UITableViewDelegate, UITableVi
         } else {
             // Fallback on earlier versions
         }
+    }
+    
+    func reloadData() {
+        fetchUrl(urlString: Config.API_URL + "promotions/");
     }
     
 
@@ -63,8 +67,9 @@ class PromotionsViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "promocell", for: indexPath) as! PromotionTableViewCell;
         let promotion = promotions[indexPath.row];
         cell.setPromotion(promotion);
+        print(promotion.isUsed());
         if promotion.isUsed() {
-            cell.layer.opacity = 0.5
+            cell.setUsedAppearance();
         }
         return cell;
     }
@@ -75,9 +80,68 @@ class PromotionsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! PromotionModalViewController;
+        vc.completionHandler = { self.reloadData() };
         if let index = self.tableView.indexPathForSelectedRow?.row {
             vc.promotion = promotions[index];
         }
+    }
+    
+    func fetchUrl(urlString: String) {
+        let config = URLSessionConfiguration.default;
+        let session = URLSession(configuration: config);
+        var url: URL?;
+        url = applyQueryParamsToUrl(urlString);
+        print(url);
+        let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
+    
+        task.resume();
+    }
+    
+    func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
+        if let fetchedData = data {
+        
+            do {
+                let promotionData = try JSONDecoder().decode([PromotionData].self, from: fetchedData)
+            } catch {
+                print(error)
+            }
+            
+            guard let promotionData = try? JSONDecoder().decode([PromotionData].self, from: fetchedData)
+                else {
+                    DispatchQueue.main.async(execute: {() in
+                        self.placeHolderLabel.isHidden = false
+                        self.placeHolderLabel.text = NSLocalizedString("Something went wrong", comment:"");
+                    })
+                    return
+            }
+            DispatchQueue.main.async(execute: {() in
+                if(promotionData.count == 0) {
+                    self.promotions = promotionData;
+                    self.tableView.reloadData();
+                } else {
+                    self.placeHolderLabel.isHidden = true
+                    self.promotions = promotionData;
+                    self.tableView.reloadData()
+                }
+            })
+        }
+    }
+    
+    func applyQueryParamsToUrl(_ url: String) -> URL? {
+        var urlComponents = URLComponents(string: url);
+        urlComponents?.queryItems = []
+        urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"))
+        urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "location_detail"))
+        urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "organizer_detail"))
+        
+        let defaults = UserDefaults.standard;
+        let latitude = defaults.float(forKey: DefaultKeys.Location.lat),
+            longitude = defaults.float(forKey: DefaultKeys.Location.lon);
+        
+        urlComponents?.queryItems?.append(URLQueryItem(name: "ordering", value: "nearest"));
+        urlComponents?.queryItems?.append(URLQueryItem(name: "near_latitude", value: String(latitude)));
+        urlComponents?.queryItems?.append(URLQueryItem(name: "near_longitude", value: String(longitude)));
+        return urlComponents?.url
     }
     
 }

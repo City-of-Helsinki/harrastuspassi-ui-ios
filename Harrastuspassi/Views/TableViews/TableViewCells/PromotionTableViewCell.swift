@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PromotionTableViewCell: UITableViewCell {
     
@@ -15,29 +16,28 @@ class PromotionTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
-    
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        cardView.layer.cornerRadius = 15;
-        cardView.layer.masksToBounds = true;
-    }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func setUsedAppearance() {
+        cardView.layer.opacity = 0.5;
     }
 
     func setPromotion(_ promotion: PromotionData) {
+        cardView.layer.cornerRadius = 15;
+        cardView.layer.masksToBounds = true;
         titleLabel.text = promotion.name;
         descriptionLabel.text = promotion.description;
+        dateLabel.text = "Voimassa: " + Utils.formatDateFromString(promotion.endDate)
+        let placeholderImage = UIImage(named: "logo_lil_yel");
         if let image = promotion.image {
-            promotionImage.kf.setImage(with: URL(string: image)!);
+            print(image);
+            promotionImage.kf.indicatorType = .activity;
+            promotionImage.kf.setImage(with: URL(string: image)!, placeholder: placeholderImage) { _ in
+                self.setNeedsLayout()
+                self.layoutIfNeeded()
+            };
         } else {
-            promotionImage.image = UIImage(named: "logo_lil_yel");
+            promotionImage.image = placeholderImage;
         }
     }
     

@@ -9,6 +9,7 @@
 import UIKit
 import Hero
 import CoreLocation
+import Firebase
 
 class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate, UITableViewDataSource, ModalDelegate, UINavigationControllerDelegate {
     
@@ -28,8 +29,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        
+
         self.hero.isEnabled = true;
         navigationController?.hero.navigationAnimationType = .selectBy(presenting: .none, dismissing: .none);
         
@@ -87,9 +87,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         url = applyQueryParamsToUrl(urlString);
         print(url);
         let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
-    
         task.resume();
     }
+    
+    
     
     func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
         if let fetchedData = data {
@@ -128,6 +129,24 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
                 else {
                     return
             }
+            
+            if let hobby = hobbyData[index].hobby {
+                
+                var params = [
+                    "hobbyId": hobby.id ?? 0,
+                    "hobbyName": hobby.name!,
+                    "organizerName": hobby.organizer?.name ?? "",
+                    "free": true,
+                    "postalCode": hobby.location?.zipCode ?? "",
+                    "municipality": hobby.location?.city ?? ""
+                    ] as [String : Any];
+                for (index, category) in filters.categories.enumerated() {
+                    params["category"+String(index)] = category;
+                }
+                
+                debugPrint("ANALYTICS EVENT");
+                Analytics.logEvent("viewHobby", parameters: params)
+            };
             
             detailViewController.hobbyEvent = hobbyData[index]
             detailViewController.heroID = String(index);

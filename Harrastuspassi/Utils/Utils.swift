@@ -18,6 +18,18 @@ class Utils {
         return String(format: "%02d:%02d", h, m);
     }
     
+    class func formatDateFromString(_ string:String) -> String {
+        let getDateFormatter  = DateFormatter()
+        getDateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateOutputDateFormatter = DateFormatter()
+        dateOutputDateFormatter.dateFormat = "dd.MM.yyyy"
+        if let date = getDateFormatter.date(from: string) {
+            return dateOutputDateFormatter.string(from: date)
+        }
+        return "N/A"
+        
+    }
+    
     class func getDefaultFilters() -> Filters {
         let defaults = UserDefaults.standard;
         var filters = Filters();

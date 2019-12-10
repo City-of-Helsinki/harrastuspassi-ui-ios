@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.0.0-rc.3)
   - Firebase/Analytics (6.10.0):
     - Firebase/Core
   - Firebase/Core (6.10.0):
@@ -103,6 +104,7 @@ PODS:
   - RevealingSplashView (0.6.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.0.0-rc.3)
   - Firebase/Analytics
   - Firebase/DynamicLinks
   - Google-Maps-iOS-Utils
@@ -116,6 +118,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Alamofire
     - Firebase
     - FirebaseAnalytics
     - FirebaseAnalyticsInterop
@@ -139,6 +142,7 @@ SPEC REPOS:
     - RevealingSplashView
 
 SPEC CHECKSUMS:
+  Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
   Firebase: 5e6b7b12bf9adb90986688edc06b156c37e109cd
   FirebaseAnalytics: 0e3ecff2c5d86070f7d4325e21f1edabfbd558dc
   FirebaseAnalyticsInterop: d48b6ab67bcf016a05e55b71fc39c61c0cb6b7f3
@@ -161,6 +165,6 @@ SPEC CHECKSUMS:
   RangeSeekSlider: 650b11fa1edcb92e1e0ede797669d98622570fb5
   RevealingSplashView: 40c5a770894459736acdc95655eeba0dd30ce91c
 
-PODFILE CHECKSUM: 0511f91ed654c9a9cbb6527f57a0f0021eea1fdf
+PODFILE CHECKSUM: a847ac34bad02d006bb3476baf7b80211659bed7
 
 COCOAPODS: 1.8.3

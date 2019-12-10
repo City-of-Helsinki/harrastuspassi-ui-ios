@@ -10,6 +10,7 @@ target 'Harrastuspassi' do
   pod 'Firebase/Analytics'
   pod 'Firebase/DynamicLinks'
   pod 'MTSlideToOpen'
+  pod 'Alamofire', '~> 5.0.0-rc.3'
 end
 
 post_install do |installer|
