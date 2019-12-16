@@ -29,7 +29,7 @@ class PromotionCollectionViewCell: UICollectionViewCell {
             imageView.image = UIImage(named: "logo_lil_yel")
         }
         titleLabel.text = promotion.name;
-        dateLabel.text = "Voimassa: XX XX XX";
+        dateLabel.text = "Voimassa " + Utils.formatDateFromString(promotion.endDate) + " saakka";
     }
     
 }

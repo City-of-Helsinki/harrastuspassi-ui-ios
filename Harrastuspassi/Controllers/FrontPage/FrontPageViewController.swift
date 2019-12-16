@@ -9,12 +9,17 @@
 import UIKit
 import RevealingSplashView
 import Firebase
+import Alamofire
 
 
-class FrontPageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class FrontPageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIGestureRecognizerDelegate {
+    
+    
     
     var promotionData: [PromotionData] = [];
     var hobbyEventData: [HobbyEventData] = [];
+    var categories: [CategoryData] = [];
+    var searchOptions: [CategoryData] = [];
 
     @IBOutlet weak var promotionCollectionView: UICollectionView!
     @IBOutlet weak var promotionBannerContainer: UIView!
@@ -32,6 +37,11 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet weak var promotionBannerTitleLabel: UILabel!
     @IBOutlet weak var promotionBannerDescriptionLabel: UILabel!
     @IBOutlet weak var promotionBannerDateLabel: UILabel!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    @IBOutlet weak var searchResultsHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var searchResultsTableView: UITableView!
     
     
     override func viewDidLoad() {
@@ -73,7 +83,10 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         
         let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "logo_kelt_lil")!,iconInitialSize: CGSize(width: 250, height: 250), backgroundColor: UIColor(red:0.19, green:0.08, blue:0.43, alpha:1.0))
         
+        self.searchResultsTableView.dataSource = self;
+        self.searchResultsTableView.delegate = self;
         
+        self.searchBar.delegate = self;
         
         let window = UIApplication.shared.keyWindow
         window?.addSubview(revealingSplashView)
@@ -82,10 +95,43 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
             print("Completed")
         }
         
+        let categoryUrl = Config.API_URL + "hobbycategories/";
+        
+        AF.request(categoryUrl, method: .get).response { response in
+            debugPrint(response);
+            if let fetchedData = response.data {
+                guard let categoryData = try? JSONDecoder().decode([CategoryData].self, from: fetchedData)
+                    else {
+                        return
+                }
+                DispatchQueue.main.async(execute: {() in
+                    self.categories = categoryData;
+                    self.searchResultsHeightConstraint.constant = self.searchResultsTableView.contentSize.height;
+                })
+            }
+        }
+        let gr = UITapGestureRecognizer(target: self, action:#selector(self.dismissKeyboard(_:)));
+        gr.delegate = self;
+        view.addGestureRecognizer(gr);
+        
         setupNavBar()
         
         fetchUrl(urlString: Config.API_URL + "hobbyevents/");
         fetchPromotionsUrl(urlString: Config.API_URL + "promotions/")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated);
+        searchBar.endEditing(true);
+        searchBar.text = "";
+        searchBar.resignFirstResponder();
+        searchOptions = [];
+        searchResultsTableView.reloadData();
+        searchResultsHeightConstraint.constant = searchResultsTableView.contentSize.height;
+    }
+    
+    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer? = nil) {
+        self.searchBar.endEditing(true);
     }
     
 
@@ -98,6 +144,17 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if (touch.view!.isDescendant(of: searchResultsTableView) || touch.view!.isDescendant(of: promotionCollectionView) || touch.view!.isDescendant(of: hobbyCollectionView)) {
+
+            // Don't let selections of auto-complete entries fire the
+            // gesture recognizer
+            return false;
+        }
+
+        return true;
+    }
     
     func setupNavBar() {
         if #available(iOS 13, *) {
@@ -304,6 +361,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         promotionBannerTitleLabel.text = promotion.name;
         promotionBannerDescriptionLabel.text = promotion.description;
+        promotionBannerDateLabel.text = "Voimassa " + Utils.formatDateFromString(promotion.endDate) + " saakka";
         let gestureRec = UITapGestureRecognizer(target: self, action:  #selector (self.presentPromotionDetails));
         promotionBannerContainer.addGestureRecognizer(gestureRec);
     }
@@ -333,6 +391,8 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         };
     }
     
+    
+    
     @objc func presentPromotionDetails(sender:UITapGestureRecognizer) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "PromotionModal") as! PromotionModalViewController
@@ -346,4 +406,41 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         return .lightContent
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchOptions.count;
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let defaults = UserDefaults.standard;
+        if let id = searchOptions[indexPath.row].id {
+            print("SELECT: ", id)
+            var categoryList: [Int] = [];
+            categoryList.append(id);
+            defaults.set(categoryList, forKey: DefaultKeys.Filters.categories);
+            self.tabBarController?.selectedIndex = 1;
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = searchResultsTableView.dequeueReusableCell(withIdentifier: "ResultCell") as! SearchResultsTableViewCell;
+        cell.nameLabel.text = searchOptions[indexPath.row].name;
+        return cell;
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchOptions = categories.filter { item in
+            
+            if let name = item.name?.uppercased(), let searchCount = self.searchBar.text?.count{
+                if searchCount > 0 {
+                    return name.contains(searchText.uppercased());
+                }
+                
+            }
+            
+            return false;
+        };
+        searchResultsTableView.reloadData();
+        searchResultsHeightConstraint.constant = searchResultsTableView.contentSize.height;
+    }
 }

@@ -52,6 +52,7 @@
 		BF8E14E612673C20D9477D1C /* libPods-Harrastuspassi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC1C78DA448E9599ACE3272 /* libPods-Harrastuspassi.a */; };
 		C20B4E942386863A00FFB726 /* PromotionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B4E932386863A00FFB726 /* PromotionCollectionViewCell.swift */; };
 		C20B4E962386B97E00FFB726 /* HobbyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B4E952386B97E00FFB726 /* HobbyCollectionViewCell.swift */; };
+		C213D60C23A74B030042538E /* SearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C213D60B23A74B030042538E /* SearchResultsTableViewCell.swift */; };
 		C226F8902334E75000D95E04 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C226F88F2334E75000D95E04 /* Colors.xcassets */; };
 		C229C11823851052009101AC /* FrontPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C229C11723851052009101AC /* FrontPageViewController.swift */; };
 		C23CE0AF232A296F00789E0B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C23CE0B1232A296F00789E0B /* Localizable.strings */; };
@@ -145,6 +146,7 @@
 		BAC1C78DA448E9599ACE3272 /* libPods-Harrastuspassi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Harrastuspassi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C20B4E932386863A00FFB726 /* PromotionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCollectionViewCell.swift; sourceTree = "<group>"; };
 		C20B4E952386B97E00FFB726 /* HobbyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyCollectionViewCell.swift; sourceTree = "<group>"; };
+		C213D60B23A74B030042538E /* SearchResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCell.swift; sourceTree = "<group>"; };
 		C226F88F2334E75000D95E04 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		C229C11723851052009101AC /* FrontPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontPageViewController.swift; sourceTree = "<group>"; };
 		C23CE0AC232A217F00789E0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 				2E1329A722D74B790060A3A1 /* HobbyTableViewCell.swift */,
 				C27F5D6C234328C800CBFFA4 /* EventTableViewCell.swift */,
 				C2A813EB2371535F000B6903 /* PromotionTableViewCell.swift */,
+				C213D60B23A74B030042538E /* SearchResultsTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -702,6 +705,7 @@
 			files = (
 				31CE403222B0E6AC00EEAF78 /* AnimatedTabBarController.swift in Sources */,
 				C2FAD6132317AC7200CCF284 /* TimeFilterSlider.swift in Sources */,
+				C213D60C23A74B030042538E /* SearchResultsTableViewCell.swift in Sources */,
 				C2EE6E352319237400ADF459 /* PannableScrollView.swift in Sources */,
 				C23CE0B5232A8B2500789E0B /* Colors.swift in Sources */,
 				C27F5D6F23446E6200CBFFA4 /* EventTableView.swift in Sources */,

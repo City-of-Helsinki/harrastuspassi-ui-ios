@@ -8,6 +8,7 @@
 
 import UIKit
 import MTSlideToOpen
+import Firebase
 
 class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
     
@@ -58,6 +59,10 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
             offerStateLabel.isHidden = false;
             offerStateLabel.text = "Käytetty loppuun"
         }
+        
+        Analytics.logEvent("viewPromotion", parameters: [
+            "promotionName": promotion.name
+        ]);
 
         // Do any additional setup after loading the view.
     }

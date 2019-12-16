@@ -8,6 +8,7 @@
 
 import UIKit
 import RangeSeekSlider
+import Firebase
 
 class FilterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ModalDelegate, RangeSeekSliderDelegate {
     
@@ -307,6 +308,16 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         if let delegate = self.modalDelegate {
             delegate.didCloseModal(data: filters);
         }
+        var params = [String:Any]();
+        for (index,category) in filters.categories.enumerated() {
+            params["filterCategory" + String(index)] = category;
+        }
+        for (index,weekday) in filters.weekdays.enumerated() {
+            params["weekDay" + String(index)] = weekday;
+        }
+        params["minTime"] = Utils.formatTimeFrom(float: filters.times.minTime);
+        params["maxTime"] = Utils.formatTimeFrom(float: filters.times.maxTime);
+        Analytics.logEvent("hobbyFilter", parameters: params)
         self.dismiss(animated: true, completion: nil);
     }
     

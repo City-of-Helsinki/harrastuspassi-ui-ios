@@ -49,6 +49,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        filters = Utils.getDefaultFilters();
         self.fetchUrl(urlString: Config.API_URL + "hobbyevents")
         if #available(iOS 13.0, *) {
             self.hero.isEnabled = true;

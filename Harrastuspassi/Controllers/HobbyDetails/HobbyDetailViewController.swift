@@ -73,6 +73,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
             favouriteButton.tintColor = UIColor(named: "mainColor");
         }
         mapView.preferredFrameRate = .conservative;
+        mapView.isUserInteractionEnabled = false;
         
         if #available(iOS 13.0, *) {
             self.hero.isEnabled = true;
@@ -183,7 +184,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         guard let lat = hobbyEvent?.hobby?.location?.coordinates?.coordinates?[1], let lon = hobbyEvent?.hobby?.location?.coordinates?.coordinates?[0], let title = hobbyEvent?.hobby?.name, let snippet = hobbyEvent?.hobby?.location?.name else {
             return
         }
-        camera = GMSCameraPosition.camera(withLatitude: Double(lat), longitude: Double(lon), zoom: 12.0)
+        camera = GMSCameraPosition.camera(withLatitude: Double(lat), longitude: Double(lon), zoom: 16.0)
         guard let cam = camera else {
             return
         }
@@ -392,7 +393,13 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
             activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.markupAsPDF ];
             activityViewController.popoverPresentationController?.sourceView = self.shareButton;
             activityViewController.popoverPresentationController?.sourceRect = self.shareButton.bounds;
-            self.present(activityViewController, animated: true, completion: nil);
+            self.present(activityViewController, animated: true, completion: {
+                Analytics.logEvent("share", parameters: [
+                    "hobbyId": self.hobbyEvent?.hobby?.id,
+                    "hobbyName": self.hobbyEvent?.hobby?.name,
+                    "provider": self.hobbyEvent?.hobby?.organizer?.name
+                ]);
+            });
         }
     }
     
@@ -446,10 +453,10 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
             if let id = hobbyEvent?.hobby?.id {
                 favourites.append(id);
             }
-            Analytics.logEvent("set_favorite", parameters: [
-                AnalyticsParameterItemID: "\(hobbyEvent?.hobby?.id ?? 0)",
-                AnalyticsParameterItemName: hobbyEvent?.hobby?.name,
-                AnalyticsParameterContentType: "hobby",
+            Analytics.logEvent("addFavorite", parameters: [
+                "hobbyId": "\(hobbyEvent?.hobby?.id ?? 0)",
+                "hobbyName": hobbyEvent?.hobby?.name,
+                "organizerName": hobbyEvent?.hobby?.organizer?.name,
             ])
 
 
@@ -457,10 +464,10 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
             favouriteButton.setImage(UIImage(named: "ic_favorite_border")?.withRenderingMode(.alwaysTemplate), for: .normal);
             favouriteButton.tintColor = UIColor(named: "mainColor");
             favourites = favourites.filter { $0 != hobbyEvent?.hobby?.id }
-            Analytics.logEvent("remove_favorite", parameters: [
-                AnalyticsParameterItemID: "\(hobbyEvent?.hobby?.id ?? 0)",
-                AnalyticsParameterItemName: hobbyEvent?.hobby?.name,
-                AnalyticsParameterContentType: "hobby",
+            Analytics.logEvent("removeFavorite", parameters: [
+                "hobbyId": "\(hobbyEvent?.hobby?.id ?? 0)",
+                "hobbyName": hobbyEvent?.hobby?.name,
+                "organizerName": hobbyEvent?.hobby?.organizer?.name,
             ])
         }
         defaults.set(favourites, forKey: DefaultKeys.Favourites.list);

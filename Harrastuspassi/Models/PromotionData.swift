@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import Firebase
 
 struct PromotionData : Codable {
     var id = -1;
@@ -20,6 +21,7 @@ struct PromotionData : Codable {
     var image: String?
     var availableCount = 0;
     var usedCount = 0;
+    //var organizer = Organizer(name: "Ei järjestäjän tietoja");
     
     func isUsed() -> Bool {
         let defaults = UserDefaults.standard;
@@ -57,6 +59,10 @@ struct PromotionData : Codable {
         } else {
             defaults.set([self.id], forKey: DefaultKeys.Promotions.usedPromotions);
         }
+        Analytics.logEvent("usePromotion", parameters: [
+            "promotionId": self.id,
+            "promotionName": self.name
+        ]);
         print(id)
     }
     
@@ -80,5 +86,6 @@ struct PromotionData : Codable {
         case image = "cover_image";
         case availableCount = "available_count";
         case usedCount = "used_count";
+        //case organizer = "organizer";
     }
 }
