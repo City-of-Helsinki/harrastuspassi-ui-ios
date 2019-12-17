@@ -16,10 +16,12 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
     
     
     
-    var promotionData: [PromotionData] = [];
-    var hobbyEventData: [HobbyEventData] = [];
+    var promotions: [PromotionData] = [];
+    var hobbyEvents: [HobbyEventData] = [];
     var categories: [CategoryData] = [];
     var searchOptions: [CategoryData] = [];
+    var recommendedHobbies: [HobbyEventData] = [];
+    var recommendedPromotions: [PromotionData] = [];
 
     @IBOutlet weak var promotionCollectionView: UICollectionView!
     @IBOutlet weak var promotionBannerContainer: UIView!
@@ -42,6 +44,8 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @IBOutlet weak var searchResultsHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchResultsTableView: UITableView!
+    @IBOutlet weak var recommendedPromotionsCollectionView: UICollectionView!
+    @IBOutlet weak var recommendedHobbiesCollectionView: UICollectionView!
     
     
     override func viewDidLoad() {
@@ -53,6 +57,11 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         promotionCollectionView.dataSource = self;
         hobbyCollectionView.delegate = self;
         hobbyCollectionView.dataSource = self;
+        recommendedHobbiesCollectionView.dataSource = self;
+        recommendedPromotionsCollectionView.dataSource = self;
+        recommendedHobbiesCollectionView.delegate = self;
+        recommendedPromotionsCollectionView.delegate = self;
+        
         
         promotionBannerContainer.layer.cornerRadius = 15;
         promotionBannerContainer.layer.masksToBounds = true;
@@ -65,19 +74,21 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
             self.hero.isEnabled = false;
         }
         
-        if promotionData.count == 0 {
+        if promotions.count == 0 {
             promotionBannerContainer.isHidden = true;
             promotionSectionTitleView.isHidden = true;
+            recommendedPromotionsCollectionView.isHidden = true;
             
         }
-        if promotionData.count <= 1 {
+        if promotions.count <= 1 {
             promotionCollectionView.isHidden = true;
         }
-        if hobbyEventData.count == 0 {
+        if hobbyEvents.count == 0 {
             hobbyBannerContainer.isHidden = true;
             hobbySectionTitleLabel.isHidden = true;
+            recommendedHobbiesCollectionView.isHidden = true;
         }
-        if hobbyEventData.count <= 1 {
+        if hobbyEvents.count <= 1 {
             hobbyCollectionView.isHidden = true;
         }
         
@@ -146,7 +157,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
     */
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if (touch.view!.isDescendant(of: searchResultsTableView) || touch.view!.isDescendant(of: promotionCollectionView) || touch.view!.isDescendant(of: hobbyCollectionView)) {
+        if (touch.view!.isDescendant(of: searchResultsTableView) || touch.view!.isDescendant(of: promotionCollectionView) || touch.view!.isDescendant(of: hobbyCollectionView) || touch.view!.isDescendant(of: recommendedHobbiesCollectionView) || touch.view!.isDescendant(of: recommendedPromotionsCollectionView)) {
 
             // Don't let selections of auto-complete entries fire the
             // gesture recognizer
@@ -197,26 +208,44 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == promotionCollectionView {
-            return promotionData.count - 1;
+            return promotions.count - 1;
+        } else if collectionView == hobbyCollectionView {
+            return hobbyEvents.count - 1;
+        } else if collectionView == recommendedHobbiesCollectionView {
+            return recommendedHobbies.count;
         } else {
-            return hobbyEventData.count - 1;
+            return recommendedPromotions.count;
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.promotionCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PromotionCollectionCell", for: indexPath) as! PromotionCollectionViewCell;
-            cell.setPromotion(promotionData[indexPath.row + 1]);
+            cell.setPromotion(promotions[indexPath.row + 1]);
             cell.layer.cornerRadius = 15;
             cell.layer.masksToBounds = true;
             return cell;
-        } else {
+        } else if collectionView == self.hobbyCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HobbyCollectionCell", for: indexPath) as! HobbyCollectionViewCell;
-            cell.setHobby(hobbyEventData[indexPath.row + 1]);
+            cell.setHobby(hobbyEvents[indexPath.row + 1]);
             cell.layer.cornerRadius = 15;
             cell.layer.masksToBounds = true;
             cell.hero.id = String(indexPath.row);
             cell.imageView.hero.id = "image" + String(indexPath.row);
+            return cell;
+        } else if collectionView == self.recommendedHobbiesCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HobbyCollectionCell", for: indexPath) as! HobbyCollectionViewCell;
+            cell.setHobby(recommendedHobbies[indexPath.row]);
+            cell.layer.cornerRadius = 15;
+            cell.layer.masksToBounds = true;
+            cell.hero.id = String(indexPath.row);
+            cell.imageView.hero.id = "image" + String(indexPath.row);
+            return cell;
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PromotionCollectionCell", for: indexPath) as! PromotionCollectionViewCell;
+            cell.setPromotion(recommendedPromotions[indexPath.row]);
+            cell.layer.cornerRadius = 15;
+            cell.layer.masksToBounds = true;
             return cell;
         }
         
@@ -228,13 +257,43 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "DetailsVC") as! HobbyDetailViewController
             newViewController.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
             self.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
-            newViewController.hobbyEvent = hobbyEventData[(indexPath.row+1)];
+            newViewController.hobbyEvent = hobbyEvents[(indexPath.row+1)];
             newViewController.heroID = String(indexPath.row);
             newViewController.imageHeroID = "image" + String(indexPath.row);
             present(newViewController, animated: true);
-            if let hobby = hobbyEventData[(indexPath.row+1)].hobby {
+            if let hobby = hobbyEvents[(indexPath.row+1)].hobby {
                 
                 var params = [
+                    "hobbyId": hobby.id ?? 0,
+                    "hobbyName": hobby.name!,
+                    "organizerName": hobby.organizer?.name ?? "",
+                    "free": true,
+                    "postalCode": hobby.location?.zipCode ?? "",
+                    "municipality": hobby.location?.city ?? ""
+                    ] as [String : Any];
+                
+                debugPrint("ANALYTICS EVENT");
+                Analytics.logEvent("viewHobby", parameters: params)
+            };
+        } else if collectionView == self.promotionCollectionView {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "PromotionModal") as! PromotionModalViewController
+            newViewController.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
+            self.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
+            newViewController.promotion = promotions[(indexPath.row + 1)];
+            present(newViewController, animated: true);
+        } else if collectionView == self.recommendedHobbiesCollectionView {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "DetailsVC") as! HobbyDetailViewController
+            newViewController.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
+            self.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
+            newViewController.hobbyEvent = recommendedHobbies[(indexPath.row)];
+            newViewController.heroID = String(indexPath.row);
+            newViewController.imageHeroID = "image" + String(indexPath.row);
+            present(newViewController, animated: true);
+            if let hobby = hobbyEvents[(indexPath.row)].hobby {
+                
+                let params = [
                     "hobbyId": hobby.id ?? 0,
                     "hobbyName": hobby.name!,
                     "organizerName": hobby.organizer?.name ?? "",
@@ -251,7 +310,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "PromotionModal") as! PromotionModalViewController
             newViewController.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
             self.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
-            newViewController.promotion = promotionData[(indexPath.row + 1)];
+            newViewController.promotion = recommendedPromotions[(indexPath.row)];
             present(newViewController, animated: true);
         }
     }
@@ -275,15 +334,19 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
             }
             DispatchQueue.main.async(execute: {() in
                 if(hobbyData.count == 0) {
-                    self.hobbyEventData = hobbyData;
+                    self.hobbyEvents = hobbyData;
                     self.hobbyCollectionView.reloadData()
                 } else {
-                    self.hobbyEventData = Array(hobbyData.prefix(7)).uniques;
+                    self.hobbyEvents = Array(hobbyData.prefix(7)).uniques.shuffled();
+                    self.recommendedHobbies = Array(hobbyData.prefix(7)).uniques;
                     self.hobbyCollectionView.reloadData()
-                    
+                    self.recommendedHobbiesCollectionView.reloadData()
+                    if self.recommendedHobbies.count > 0 {
+                        self.recommendedHobbiesCollectionView.isHidden = false;
+                    }
                     self.hobbyBannerContainer.isHidden = false;
                     self.hobbySectionTitleLabel.isHidden = false;
-                    self.setHobbyBanner(self.hobbyEventData[0]);
+                    self.setHobbyBanner(self.hobbyEvents[0]);
                     
                     if hobbyData.count > 1 {
                         self.hobbyCollectionView.isHidden = false;
@@ -310,17 +373,22 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
             }
             DispatchQueue.main.async(execute: {() in
                 if(promotions.count == 0) {
-                    self.promotionData = promotions;
+                    self.promotions = promotions;
                     self.promotionCollectionView.reloadData();
                     
                 } else {
-                    self.promotionData = promotions;
+                    self.promotions = promotions.shuffled();
+                    self.recommendedPromotions = promotions;
                     self.promotionCollectionView.reloadData();
                     self.promotionBannerContainer.isHidden = false;
                     self.promotionSectionTitleView.isHidden = false;
                     self.setPromotionBanner(promotions[0]);
                     if promotions.count > 1 {
                         self.promotionCollectionView.isHidden = false;
+                    }
+                    self.recommendedPromotionsCollectionView.reloadData()
+                    if self.recommendedPromotions.count > 0 {
+                        self.recommendedPromotionsCollectionView.isHidden = false;
                     }
                 }
             })
@@ -371,11 +439,11 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "DetailsVC") as! HobbyDetailViewController
         newViewController.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
         self.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
-        newViewController.hobbyEvent = hobbyEventData[0];
+        newViewController.hobbyEvent = hobbyEvents[0];
         newViewController.heroID = "Hobby" + String(-1);
         newViewController.imageHeroID = "hobbyimage" + String(-1);
         present(newViewController, animated: true);
-        if let hobby = hobbyEventData[0].hobby {
+        if let hobby = hobbyEvents[0].hobby {
             
             var params = [
                 "hobbyId": hobby.id ?? 0,
@@ -398,7 +466,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "PromotionModal") as! PromotionModalViewController
         newViewController.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
         self.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
-        newViewController.promotion = promotionData[0];
+        newViewController.promotion = promotions[0];
         present(newViewController, animated: true);
     }
     

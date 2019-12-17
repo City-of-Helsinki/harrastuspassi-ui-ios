@@ -2136,6 +2136,8 @@
                         <outlet property="promotionBannerTitleLabel" destination="UaU-GA-nk2" id="ZAD-nC-Kvc"/>
                         <outlet property="promotionCollectionView" destination="NH1-s1-XbL" id="Ohy-q9-VYq"/>
                         <outlet property="promotionSectionTitleView" destination="9h1-Rj-6La" id="7P5-4i-v3A"/>
+                        <outlet property="recommendedHobbiesCollectionView" destination="jZN-Ue-PDO" id="h8Q-Z1-4kV"/>
+                        <outlet property="recommendedPromotionsCollectionView" destination="fJC-SL-r3P" id="fhR-M5-gQO"/>
                         <outlet property="searchBar" destination="WZ6-Tb-37v" id="BA1-HH-nD4"/>
                         <outlet property="searchResultsHeightConstraint" destination="9w1-rQ-uxo" id="15L-0E-QEV"/>
                         <outlet property="searchResultsTableView" destination="uOH-sr-4Hj" id="0Oq-e8-gnF"/>

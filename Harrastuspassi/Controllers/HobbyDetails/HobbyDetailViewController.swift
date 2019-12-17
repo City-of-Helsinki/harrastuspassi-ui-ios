@@ -208,22 +208,24 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
                 print("OFFSET 0")
                 
             }
-            
-        case .changed:
-            // calculate the progress based on how far the user moved
-            let translation = panGR.translation(in: nil)
-            let progress = translation.y / 2 / view.bounds.height
             if scrollView.isAtTop && panGR.direction == .down && !dismissStarted {
                 dismissStarted = true;
                 dismiss(animated: true, completion: nil)
             }
+        case .changed:
+            // calculate the progress based on how far the user moved
+            let translation = panGR.translation(in: nil)
+            let progress = translation.y / 2 / view.bounds.height
+            
             if dismissStarted {
                 Hero.shared.update(CGFloat(progress))
             }
         default:
             if progress + panGR.velocity(in: nil).y / view.bounds.height > 0.3 && dismissStarted {
                 Hero.shared.finish()
+                
             } else {
+                print("ELSE", progress + panGR.velocity(in: nil).y / view.bounds.height)
                 Hero.shared.cancel()
                 dismissStarted = false;
             }
