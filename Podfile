@@ -11,6 +11,7 @@ target 'Harrastuspassi' do
   pod 'Firebase/DynamicLinks'
   pod 'MTSlideToOpen'
   pod 'Alamofire', '~> 5.0.0-rc.3'
+  pod 'GoogleIDFASupport'
 end
 
 post_install do |installer|

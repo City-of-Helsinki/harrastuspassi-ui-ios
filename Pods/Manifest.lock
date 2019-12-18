@@ -65,6 +65,7 @@ PODS:
   - GoogleDataTransportCCTSupport (1.2.1):
     - GoogleDataTransport (~> 3.0)
     - nanopb (~> 0.3.901)
+  - GoogleIDFASupport (3.14.0)
   - GoogleMaps (3.5.0):
     - GoogleMaps/Maps (= 3.5.0)
   - GoogleMaps/Base (3.5.0)
@@ -108,6 +109,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/DynamicLinks
   - Google-Maps-iOS-Utils
+  - GoogleIDFASupport
   - GoogleMaps
   - GooglePlaces
   - Hero
@@ -131,6 +133,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
+    - GoogleIDFASupport
     - GoogleMaps
     - GooglePlaces
     - GoogleUtilities
@@ -155,6 +158,7 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 434cc7be25e71dc04b8d0e3079125127b330e84a
   GoogleDataTransport: 166f9b9f82cbf60a204e8fe2daa9db3e3ec1fb15
   GoogleDataTransportCCTSupport: f6ab1962e9dc05ab1fb938b795e5b310209edeec
+  GoogleIDFASupport: aaf8c10bd429abb1c15349d5252244f5eda8ead1
   GoogleMaps: 32ca02de09de357a10ac773f2c70f1986751392d
   GooglePlaces: be6f19fe8aa6ff0b5bcccfa1b8805cc977ea1450
   GoogleUtilities: f895fde57977df4e0233edda0dbeac490e3703b6
@@ -165,6 +169,6 @@ SPEC CHECKSUMS:
   RangeSeekSlider: 650b11fa1edcb92e1e0ede797669d98622570fb5
   RevealingSplashView: 40c5a770894459736acdc95655eeba0dd30ce91c
 
-PODFILE CHECKSUM: a847ac34bad02d006bb3476baf7b80211659bed7
+PODFILE CHECKSUM: 8ccb10d3c64ca239b83cfad083b40ca5cefa882d
 
 COCOAPODS: 1.8.3

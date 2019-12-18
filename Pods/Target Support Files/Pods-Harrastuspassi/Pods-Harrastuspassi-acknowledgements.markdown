@@ -1879,6 +1879,10 @@ Copyright 2019 Google
    limitations under the License.
 
 
+## GoogleIDFASupport
+
+Copyright 2015 Google Inc.
+
 ## GoogleMaps
 
 Copyright 2019 Google

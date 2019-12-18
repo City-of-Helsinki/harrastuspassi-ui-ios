@@ -53,6 +53,7 @@
 		C20B4E942386863A00FFB726 /* PromotionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B4E932386863A00FFB726 /* PromotionCollectionViewCell.swift */; };
 		C20B4E962386B97E00FFB726 /* HobbyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B4E952386B97E00FFB726 /* HobbyCollectionViewCell.swift */; };
 		C213D60C23A74B030042538E /* SearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C213D60B23A74B030042538E /* SearchResultsTableViewCell.swift */; };
+		C213D60E23A8D5100042538E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C213D60D23A8D5100042538E /* AdSupport.framework */; };
 		C226F8902334E75000D95E04 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C226F88F2334E75000D95E04 /* Colors.xcassets */; };
 		C229C11823851052009101AC /* FrontPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C229C11723851052009101AC /* FrontPageViewController.swift */; };
 		C23CE0AF232A296F00789E0B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C23CE0B1232A296F00789E0B /* Localizable.strings */; };
@@ -147,6 +148,7 @@
 		C20B4E932386863A00FFB726 /* PromotionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCollectionViewCell.swift; sourceTree = "<group>"; };
 		C20B4E952386B97E00FFB726 /* HobbyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyCollectionViewCell.swift; sourceTree = "<group>"; };
 		C213D60B23A74B030042538E /* SearchResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCell.swift; sourceTree = "<group>"; };
+		C213D60D23A8D5100042538E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		C226F88F2334E75000D95E04 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		C229C11723851052009101AC /* FrontPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontPageViewController.swift; sourceTree = "<group>"; };
 		C23CE0AC232A217F00789E0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF8E14E612673C20D9477D1C /* libPods-Harrastuspassi.a in Frameworks */,
+				C213D60E23A8D5100042538E /* AdSupport.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +218,7 @@
 		0ACF1A2A550E2DDFA7B7D986 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C213D60D23A8D5100042538E /* AdSupport.framework */,
 				BAC1C78DA448E9599ACE3272 /* libPods-Harrastuspassi.a */,
 			);
 			name = Frameworks;
@@ -951,7 +955,7 @@
 				CODE_SIGN_ENTITLEMENTS = Harrastuspassi/Harrastuspassi.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 3P656WGXFZ;
 				INFOPLIST_FILE = Harrastuspassi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -959,7 +963,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.9.0;
+				MARKETING_VERSION = 0.10.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = fi.haltu.harrastuspassi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -978,7 +982,7 @@
 				CODE_SIGN_ENTITLEMENTS = Harrastuspassi/Harrastuspassi.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 3P656WGXFZ;
 				INFOPLIST_FILE = Harrastuspassi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -986,7 +990,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.9.0;
+				MARKETING_VERSION = 0.10.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = fi.haltu.harrastuspassi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
