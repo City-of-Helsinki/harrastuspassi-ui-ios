@@ -116,6 +116,16 @@
 /* Class = "UILabel"; text = "ADDRESS"; ObjectID = "xHB-eC-eIG"; */
 "xHB-eC-eIG.text" = "ADDRESS";
 
+"vQr-vF-0VT.text" = "My location";
+
+"R1V-lO-ViV.title" = "Map";
+
+"TI2-5Y-oJc.title" = "Favorites";
+
+"RNg-JY-lz1.title" = "Hobbies";
+
+"i14-Gu-Dh9.title" = "Settings";
+
 "dWj-tH-NLT.title" = "Favorites";
 
 "lr0-Bf-4nI.title" = "List";
@@ -125,3 +135,17 @@
 "jFN-rY-BEP.title" = "Promotions";
 
 "k43-ga-gSQ.title" = "Promotions";
+
+"aiY-KQ-qLw.text" = "Add hobbies as favorites and you will see them here.";
+
+"WZ6-Tb-37v.placeholder" = "Search hobbies";
+
+"caO-9g-9ya.text" = "Popular coupons";
+
+"gxp-Ih-rhM.text" = "Coupons for you";
+
+"2nu-nh-xvQ.text" = "Popular hobbies";
+
+"R2r-sK-IAN.text" = "Hobbies for you";
+
+"vq3-HU-1gp.text" = "Coupon already used";

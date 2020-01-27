@@ -10,6 +10,8 @@
 
 "No hobby events." = "No hobby events.";
 
+"AddFavorites" = "Add hobbies as favorites and you will see them here.";
+
 "Monday" = "Monday";
 "Tuesday" = "Tuesday";
 "Wednesday" = "Wednesday";
@@ -17,3 +19,7 @@
 "Friday" = "Friday";
 "Saturday" = "Saturday";
 "Sunday" = "Sunday";
+
+"ValidUntil" = "Valid until %@";
+"Remaining" = "Remaining: %@";
+

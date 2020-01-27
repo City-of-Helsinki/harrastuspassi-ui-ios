@@ -33,14 +33,14 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
             promotionImageView.image = UIImage(named: "logo_lil_yel");
         }
         if promotion.isUsable() {
-            availableLabel.text = "Jäljellä: " + String(promotion.availableCount - promotion.usedCount);
+            availableLabel.text = String(format: NSLocalizedString("Remaining", comment: ""), String(promotion.availableCount - promotion.usedCount));
         } else {
             availableLabel.isHidden = true;
         }
         offerStateLabel.isHidden = true;
         titleLabel.text = promotion.name;
         descriptionLabel.text = promotion.description;
-        dateLabel.text = "Voimassa: " + Utils.formatDateFromString(promotion.endDate);
+        dateLabel.text = String(format: NSLocalizedString("ValidUntil", comment: ""), Utils.formatDateFromString(promotion.endDate));
         slideButton.sliderViewTopDistance = 0;
         slideButton.sliderCornerRadius = 30
         slideButton.sliderHolderView.frame = slideButton.frame;
@@ -93,6 +93,7 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
             UIView.animate(withDuration: 0.2) {
                 self.offerStateLabel.transform = CGAffineTransform(scaleX: 1, y: 1);
             }
+            self.availableLabel.text = String(format: NSLocalizedString("Remaining", comment: ""), String(self.promotion.availableCount - self.promotion.usedCount - 1));
         })
     };
 }

@@ -8,6 +8,7 @@
 
 "Something went wrong." = "Jokin meni vikaan.";
 "No hobby events." = "Ei harrastustapahtumia.";
+"AddFavorites" = "Lisää harrastuksia suosikeiksi ja näet ne täällä.";
 
 "Monday" = "Maanantai";
 "Tuesday" = "Tiistai";
@@ -16,3 +17,7 @@
 "Friday" = "Perjantai";
 "Saturday" = "Lauantai";
 "Sunday" = "Sunnuntai";
+
+"ValidUntil" = "Voimassa %@ saakka";
+"Remaining" = "Jäljellä: %@";
+

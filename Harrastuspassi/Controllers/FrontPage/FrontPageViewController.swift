@@ -46,6 +46,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet weak var searchResultsTableView: UITableView!
     @IBOutlet weak var recommendedPromotionsCollectionView: UICollectionView!
     @IBOutlet weak var recommendedHobbiesCollectionView: UICollectionView!
+    @IBOutlet weak var recommendedPromotionsTitleLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -367,14 +368,18 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func doneFetchingPromotions(data: Data?, response: URLResponse?, error: Error?) {
         if let fetchedData = data {
-            guard let promotions = try? JSONDecoder().decode([PromotionData].self, from: fetchedData)
+            guard var promotions = try? JSONDecoder().decode([PromotionData].self, from: fetchedData)
                 else {
                     return
             }
             DispatchQueue.main.async(execute: {() in
+                promotions = promotions.filter { item in
+                    return !item.isUsed();
+                }
                 if(promotions.count == 0) {
                     self.promotions = promotions;
-                    self.promotionCollectionView.reloadData();
+                self.promotionCollectionView.reloadData();
+                    self.recommendedPromotionsTitleLabel.isHidden = true;
                     
                 } else {
                     self.promotions = promotions.shuffled();
@@ -382,6 +387,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
                     self.promotionCollectionView.reloadData();
                     self.promotionBannerContainer.isHidden = false;
                     self.promotionSectionTitleView.isHidden = false;
+                    self.recommendedPromotionsTitleLabel.isHidden = false;
                     self.setPromotionBanner(promotions[0]);
                     if promotions.count > 1 {
                         self.promotionCollectionView.isHidden = false;
@@ -429,7 +435,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         promotionBannerTitleLabel.text = promotion.name;
         promotionBannerDescriptionLabel.text = promotion.description;
-        promotionBannerDateLabel.text = "Voimassa " + Utils.formatDateFromString(promotion.endDate) + " saakka";
+        promotionBannerDateLabel.text = String(format: NSLocalizedString("ValidUntil", comment: ""), Utils.formatDateFromString(promotion.endDate));
         let gestureRec = UITapGestureRecognizer(target: self, action:  #selector (self.presentPromotionDetails));
         promotionBannerContainer.addGestureRecognizer(gestureRec);
     }

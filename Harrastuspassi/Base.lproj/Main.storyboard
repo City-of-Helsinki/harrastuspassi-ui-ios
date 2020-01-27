@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -642,7 +642,7 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="398" height="44"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="31.12.2020" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8G-Ie-dlu" userLabel="Date Label">
-                                                                            <rect key="frame" x="105.5" y="12" width="187" height="20"/>
+                                                                            <rect key="frame" x="108" y="12" width="182" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="330" id="leY-gZ-zZn"/>
                                                                             </constraints>
@@ -651,13 +651,13 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00-00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2l-Ea-vI7" userLabel="Time Label">
-                                                                            <rect key="frame" x="300.5" y="12" width="89.5" height="20"/>
+                                                                            <rect key="frame" x="298" y="12" width="92" height="20"/>
                                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ow7-ZT-EGl" userLabel="Weekday Label">
-                                                                            <rect key="frame" x="8" y="12" width="89.5" height="20"/>
+                                                                            <rect key="frame" x="8" y="12" width="92" height="20"/>
                                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -789,7 +789,7 @@
                                                 <rect key="frame" x="368" y="18.5" width="20" height="20"/>
                                             </activityIndicatorView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hav-cw-20a">
-                                                <rect key="frame" x="366" y="56.5" width="24" height="24"/>
+                                                <rect key="frame" x="354" y="56.5" width="48" height="48"/>
                                                 <state key="normal" image="ic_favorite_border"/>
                                                 <connections>
                                                     <action selector="favouriteButtonPressed:" destination="h0w-UW-GsU" eventType="touchUpInside" id="ZDB-Nb-Gp6"/>
@@ -1558,10 +1558,13 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOI-S1-Olp">
                                                         <rect key="frame" x="0.0" y="0.0" width="384" height="356"/>
                                                         <subviews>
-                                                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Etsi harrastuksia" translatesAutoresizingMaskIntoConstraints="NO" id="WZ6-Tb-37v">
+                                                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Etsi harrastuksia" translatesAutoresizingMaskIntoConstraints="NO" id="WZ6-Tb-37v" propertyAccessControl="none">
                                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="56"/>
                                                                 <color key="barTintColor" name="mainColor"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <attributedString key="userComments">
+                                                                    <fragment content="Search bar"/>
+                                                                </attributedString>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="searchField.textColor">
                                                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1626,6 +1629,9 @@
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                                 <color key="textColor" name="clusterIconBg"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <attributedString key="userComments">
+                                                                    <fragment content="Popular coupons"/>
+                                                                </attributedString>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="HeroID" value="HobbyTitle"/>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
@@ -1652,20 +1658,20 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Etuuden otsikko" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UaU-GA-nk2">
-                                                                <rect key="frame" x="15" y="215" width="354" height="28.5"/>
+                                                                <rect key="frame" x="15" y="215" width="354" height="29.5"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="24"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SER-Hs-DLm">
-                                                                <rect key="frame" x="15" y="258.5" width="354" height="80"/>
+                                                                <rect key="frame" x="15" y="259.5" width="354" height="79.5"/>
                                                                 <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voimassa 1.1.2019 - 1.1.2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QR6-az-ohv">
-                                                                <rect key="frame" x="15" y="353.5" width="354" height="21.5"/>
+                                                                <rect key="frame" x="15" y="354" width="354" height="21"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -1768,6 +1774,9 @@
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                         <color key="textColor" name="clusterIconBg"/>
                                                         <nil key="highlightedColor"/>
+                                                        <attributedString key="userComments">
+                                                            <fragment content="Coupons for you"/>
+                                                        </attributedString>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="HeroID" value="HobbyTitle"/>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
@@ -1855,6 +1864,9 @@
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                         <color key="textColor" name="clusterIconBg"/>
                                                         <nil key="highlightedColor"/>
+                                                        <attributedString key="userComments">
+                                                            <fragment content="Popular hobbies"/>
+                                                        </attributedString>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="HeroID" value="HobbyTitle"/>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
@@ -1872,13 +1884,13 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Harrastuksen otsikko" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbX-Kt-mD6">
-                                                                <rect key="frame" x="15" y="215" width="354" height="28.5"/>
+                                                                <rect key="frame" x="15" y="215" width="354" height="28"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="24"/>
                                                                 <color key="textColor" name="mainColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbl-mr-wsm">
-                                                                <rect key="frame" x="15" y="258.5" width="354" height="116.5"/>
+                                                                <rect key="frame" x="15" y="258" width="354" height="117"/>
                                                                 <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1990,6 +2002,9 @@
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                         <color key="textColor" name="clusterIconBg"/>
                                                         <nil key="highlightedColor"/>
+                                                        <attributedString key="userComments">
+                                                            <fragment content="Hobbies for you"/>
+                                                        </attributedString>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="HeroID" value="HobbyTitle"/>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
@@ -2034,13 +2049,13 @@
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeE-bA-g2E">
-                                                                                    <rect key="frame" x="135" y="41" width="140" height="59"/>
+                                                                                    <rect key="frame" x="135" y="40.5" width="140" height="59.5"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQ7-fW-c3h">
-                                                                                    <rect key="frame" x="135" y="15" width="140" height="18"/>
+                                                                                    <rect key="frame" x="135" y="15" width="140" height="17.5"/>
                                                                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
                                                                                     <color key="textColor" name="mainColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -2144,6 +2159,7 @@
                         <outlet property="promotionSectionTitleView" destination="9h1-Rj-6La" id="7P5-4i-v3A"/>
                         <outlet property="recommendedHobbiesCollectionView" destination="jZN-Ue-PDO" id="h8Q-Z1-4kV"/>
                         <outlet property="recommendedPromotionsCollectionView" destination="fJC-SL-r3P" id="fhR-M5-gQO"/>
+                        <outlet property="recommendedPromotionsTitleLabel" destination="gxp-Ih-rhM" id="BTb-7s-gqm"/>
                         <outlet property="searchBar" destination="WZ6-Tb-37v" id="BA1-HH-nD4"/>
                         <outlet property="searchResultsHeightConstraint" destination="9w1-rQ-uxo" id="15L-0E-QEV"/>
                         <outlet property="searchResultsTableView" destination="uOH-sr-4Hj" id="0Oq-e8-gnF"/>
@@ -2773,7 +2789,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voimassa: 12.12.2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ZJ-Cq-NZq">
-                                                <rect key="frame" x="8" y="411.5" width="366" height="17"/>
+                                                <rect key="frame" x="8" y="411" width="366" height="17"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
                                                 <color key="textColor" name="mainColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2785,9 +2801,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jäljellä: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tK-Rp-4Z7">
-                                                <rect key="frame" x="8" y="443.5" width="359" height="16.5"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                                <color key="textColor" name="mainColor"/>
+                                                <rect key="frame" x="8" y="443" width="359" height="17"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
