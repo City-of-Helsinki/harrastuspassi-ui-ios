@@ -21,6 +21,7 @@ struct PromotionData : Codable {
     var image: String?
     var availableCount = 0;
     var usedCount = 0;
+    var location: LocationData?;
     //var organizer = Organizer(name: "Ei järjestäjän tietoja");
     
     func isUsed() -> Bool {
@@ -86,6 +87,7 @@ struct PromotionData : Codable {
         case image = "cover_image";
         case availableCount = "available_count";
         case usedCount = "used_count";
+        case location = "location";
         //case organizer = "organizer";
     }
 }

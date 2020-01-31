@@ -302,12 +302,14 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     
     func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
         if let fetchedData = data {
-            var eventsData = [HobbyEventData]();
-            do {
-                eventsData = try JSONDecoder().decode([HobbyEventData].self, from: fetchedData)
-            } catch {
-                print(error)
+            guard let response = try? JSONDecoder().decode(HobbyEventResponse.self, from: fetchedData)
+                else {
+                    DispatchQueue.main.async(execute: {() in
+                        print("error")
+                    })
+                    return
             }
+            guard let eventsData = response.results else {return};
 //            guard let eventsData = try?  else {
 //                    print("FAILED")
 //                    return

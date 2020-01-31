@@ -78,6 +78,7 @@
 		C2A813EC2371535F000B6903 /* PromotionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A813EB2371535F000B6903 /* PromotionTableViewCell.swift */; };
 		C2A813EE23715BE1000B6903 /* PromotionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A813ED23715BE1000B6903 /* PromotionData.swift */; };
 		C2A813F2237179B4000B6903 /* PromotionModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A813F1237179B4000B6903 /* PromotionModalViewController.swift */; };
+		C2BF0B2C23E15F78004267B7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BF0B2B23E15F78004267B7 /* API.swift */; };
 		C2C44AD82358544300AF3E2F /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C44AD72358544300AF3E2F /* FavouritesViewController.swift */; };
 		C2EE6E352319237400ADF459 /* PannableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EE6E342319237400ADF459 /* PannableScrollView.swift */; };
 		C2FAD61123169C6000CCF284 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FAD61023169C6000CCF284 /* Config.swift */; };
@@ -182,6 +183,7 @@
 		C2A813EB2371535F000B6903 /* PromotionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionTableViewCell.swift; sourceTree = "<group>"; };
 		C2A813ED23715BE1000B6903 /* PromotionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionData.swift; sourceTree = "<group>"; };
 		C2A813F1237179B4000B6903 /* PromotionModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionModalViewController.swift; sourceTree = "<group>"; };
+		C2BF0B2B23E15F78004267B7 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		C2C44AD72358544300AF3E2F /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		C2EE6E342319237400ADF459 /* PannableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PannableScrollView.swift; sourceTree = "<group>"; };
 		C2FAD61023169C6000CCF284 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				317141A323140B60005B1F5E /* HobbyData.swift */,
 				C2814C68233CDB6200440ECE /* POIItem.swift */,
 				C2A813ED23715BE1000B6903 /* PromotionData.swift */,
+				C2BF0B2B23E15F78004267B7 /* API.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -741,6 +744,7 @@
 				C2A3E4512339E848003CDB37 /* MapInfoView.swift in Sources */,
 				3117AEAC22F2CFC2001686DC /* HPAlert.swift in Sources */,
 				C27F5D6B2342244700CBFFA4 /* ClusterIcon.swift in Sources */,
+				C2BF0B2C23E15F78004267B7 /* API.swift in Sources */,
 				317141A0230FC687005B1F5E /* WeekDayCollectionView.swift in Sources */,
 				3117AECB2306B688001686DC /* Extensions.swift in Sources */,
 				C291F80023210FF00068CEB5 /* BorderedButton.swift in Sources */,

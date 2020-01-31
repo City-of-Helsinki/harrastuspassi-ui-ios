@@ -329,10 +329,12 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
         if let fetchedData = data {
-            guard let hobbyData = try? JSONDecoder().decode([HobbyEventData].self, from: fetchedData)
+            guard let response = try? JSONDecoder().decode(HobbyEventResponse.self, from: fetchedData)
                 else {
                     return
             }
+            print(response.results);
+            guard let hobbyData = response.results else {return};
             DispatchQueue.main.async(execute: {() in
                 if(hobbyData.count == 0) {
                     self.hobbyEvents = hobbyData;
@@ -382,13 +384,14 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
                     self.recommendedPromotionsTitleLabel.isHidden = true;
                     
                 } else {
+                    
                     self.promotions = promotions.shuffled();
                     self.recommendedPromotions = promotions;
                     self.promotionCollectionView.reloadData();
                     self.promotionBannerContainer.isHidden = false;
                     self.promotionSectionTitleView.isHidden = false;
                     self.recommendedPromotionsTitleLabel.isHidden = false;
-                    self.setPromotionBanner(promotions[0]);
+                    self.setPromotionBanner(self.promotions[0]);
                     if promotions.count > 1 {
                         self.promotionCollectionView.isHidden = false;
                     }
@@ -473,6 +476,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         newViewController.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
         self.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
         newViewController.promotion = promotions[0];
+        print(promotions)
         present(newViewController, animated: true);
     }
     

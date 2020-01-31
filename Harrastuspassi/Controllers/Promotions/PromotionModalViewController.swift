@@ -12,6 +12,9 @@ import Firebase
 
 class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
     
+    @IBOutlet weak var locationNameLabel: UILabel!
+    @IBOutlet weak var streetAddressLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var availableLabel: UILabel!
     @IBOutlet weak var slideButton: MTSlideToOpenView!
     @IBOutlet weak var promotionImageView: UIImageView!
@@ -39,6 +42,12 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
         }
         offerStateLabel.isHidden = true;
         titleLabel.text = promotion.name;
+        streetAddressLabel.text = promotion.location?.address;
+        if let zipCode = promotion.location?.zipCode, let city = promotion.location?.city, let name = promotion.location?.name {
+            addressLabel.text = zipCode + " " + city;
+            streetAddressLabel.text = promotion.location?.address;
+            locationNameLabel.text = promotion.location?.name;
+        }
         descriptionLabel.text = promotion.description;
         dateLabel.text = String(format: NSLocalizedString("ValidUntil", comment: ""), Utils.formatDateFromString(promotion.endDate));
         slideButton.sliderViewTopDistance = 0;

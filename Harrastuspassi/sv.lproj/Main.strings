@@ -1,6 +1,6 @@
 
 /* Class = "UIButton"; normalTitle = "Tallenna"; ObjectID = "0xh-it-D4W"; */
-"0xh-it-D4W.normalTitle" = "Tallenna";
+"0xh-it-D4W.normalTitle" = "Spara";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "20X-bg-97e"; */
 "20X-bg-97e.text" = "Label";
@@ -12,13 +12,13 @@
 "4BU-5n-gUh.text" = "Laddar...";
 
 /* Class = "UILabel"; text = "Ei kuvausta"; ObjectID = "4jR-Xq-OSU"; */
-"4jR-Xq-OSU.text" = "Ei kuvausta";
+"4jR-Xq-OSU.text" = "Ingen beskrivning";
 
 /* Class = "UIButton"; normalTitle = "Käytä tätä sijaintia"; ObjectID = "7XH-EQ-LdE"; */
-"7XH-EQ-LdE.normalTitle" = "Käytä tätä sijaintia";
+"7XH-EQ-LdE.normalTitle" = "Använd den här platsen";
 
 /* Class = "UILabel"; text = "Tietoja ei saatu haettua"; ObjectID = "8gU-KW-Jqe"; */
-"8gU-KW-Jqe.text" = "Tietoja ei saatu haettua";
+"8gU-KW-Jqe.text" = "Det gick inte att hämta data";
 
 /* Class = "UILabel"; text = "Osoitekatu 1, 33333 Kaupunki"; ObjectID = "8oZ-pf-EvC"; */
 "8oZ-pf-EvC.text" = "Osoitekatu 1, 33333 Kaupunki";
@@ -27,37 +27,37 @@
 "BBR-vC-jZW.text" = "00:00";
 
 /* Class = "UIButton"; normalTitle = "Valitse sijainti kartalta"; ObjectID = "Dbz-e8-YHI"; */
-"Dbz-e8-YHI.normalTitle" = "Valitse sijainti kartalta";
+"Dbz-e8-YHI.normalTitle" = "Välj en plats på kartan";
 
 /* Class = "UINavigationItem"; title = "Kategoriat"; ObjectID = "Kwj-A5-8fD"; */
-"Kwj-A5-8fD.title" = "Kategoriat";
+"Kwj-A5-8fD.title" = "Kategorier";
 
 /* Class = "UILabel"; text = "Kellonaika"; ObjectID = "MW8-uR-KDS"; */
-"MW8-uR-KDS.text" = "Kellonaika";
+"MW8-uR-KDS.text" = "Tid";
 
 /* Class = "UILabel"; text = "Category Name"; ObjectID = "P1w-Cy-Jh6"; */
-"P1w-Cy-Jh6.text" = "Category Name";
+"P1w-Cy-Jh6.text" = "Kategori namn";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "Qrc-9U-Scl"; */
 "Qrc-9U-Scl.text" = "Label";
 
 /* Class = "UILabel"; text = "Kuvaus"; ObjectID = "T3b-uU-OzQ"; */
-"T3b-uU-OzQ.text" = "Kuvaus";
+"T3b-uU-OzQ.text" = "Beskrivning";
 
 /* Class = "UILabel"; text = "-"; ObjectID = "TmE-Hh-2pB"; */
 "TmE-Hh-2pB.text" = "-";
 
 /* Class = "UILabel"; text = "Ei ilmoitettu"; ObjectID = "URZ-To-oNH"; */
-"URZ-To-oNH.text" = "Ei ilmoitettu";
+"URZ-To-oNH.text" = "Inte rapporterat";
 
 /* Class = "UIButton"; normalTitle = "Tallenna"; ObjectID = "VNj-fa-fTS"; */
-"VNj-fa-fTS.normalTitle" = "Tallenna";
+"VNj-fa-fTS.normalTitle" = "Spara";
 
 /* Class = "UILabel"; text = "Ei ilmoitettu"; ObjectID = "VgM-ym-leG"; */
-"VgM-ym-leG.text" = "Ei ilmoitettu";
+"VgM-ym-leG.text" = "Inte rapporterat";
 
 /* Class = "UIButton"; normalTitle = "Suodata"; ObjectID = "WIG-H8-St5"; */
-"WIG-H8-St5.normalTitle" = "Suodata";
+"WIG-H8-St5.normalTitle" = "Filter";
 
 /* Class = "UILabel"; text = "-"; ObjectID = "XPq-f4-azY"; */
 "XPq-f4-azY.text" = "-";
@@ -69,13 +69,13 @@
 "ev7-0e-jJI.text" = "Label";
 
 /* Class = "UINavigationItem"; title = "Suodattimet"; ObjectID = "fck-N6-7KI"; */
-"fck-N6-7KI.title" = "Suodattimet";
+"fck-N6-7KI.title" = "Filter";
 
 /* Class = "UIViewController"; title = "Home"; ObjectID = "gLY-4E-wIE"; */
-"gLY-4E-wIE.title" = "Home";
+"gLY-4E-wIE.title" = "Hem";
 
 /* Class = "UILabel"; text = "Harrastus"; ObjectID = "gQ1-FC-BtT"; */
-"gQ1-FC-BtT.text" = "Harrastus";
+"gQ1-FC-BtT.text" = "Hobby";
 
 /* Class = "UILabel"; text = "-"; ObjectID = "iyn-We-wdF"; */
 "iyn-We-wdF.text" = "-";
@@ -87,52 +87,52 @@
 "mjL-rY-x9o.text" = "Label";
 
 /* Class = "UILabel"; text = "Viimeisimmät sijaintini"; ObjectID = "mmD-Nn-PpK"; */
-"mmD-Nn-PpK.text" = "Viimeisimmät sijaintini";
+"mmD-Nn-PpK.text" = "Mina senaste platser";
 
 /* Class = "UILabel"; text = "Viikonpäivä"; ObjectID = "nid-CB-x06"; */
-"nid-CB-x06.text" = "Viikonpäivä";
+"nid-CB-x06.text" = "Veckodag";
 
 /* Class = "UINavigationController"; title = "Home"; ObjectID = "og6-76-G8s"; */
-"og6-76-G8s.title" = "Home";
+"og6-76-G8s.title" = "Hem";
 
 /* Class = "UILabel"; text = "Category Name"; ObjectID = "pzy-c0-jbb"; */
-"pzy-c0-jbb.text" = "Category Name";
+"pzy-c0-jbb.text" = "Kategori namn";
 
 /* Class = "UIViewController"; title = "Asetukset"; ObjectID = "rd6-a8-1JL"; */
-"rd6-a8-1JL.title" = "Asetukset";
+"rd6-a8-1JL.title" = "Inställningar";
 
 /* Class = "UILabel"; text = "Ei ilmoitettu"; ObjectID = "sot-Ua-k9k"; */
-"sot-Ua-k9k.text" = "Ei ilmoitettu";
+"sot-Ua-k9k.text" = "Inte rapporterat";
 
 /* Class = "UIButton"; normalTitle = "Salli sijainnin käyttö asetuksista"; ObjectID = "tKz-CQ-IZJ"; */
-"tKz-CQ-IZJ.normalTitle" = "Salli sijainnin käyttö asetuksista";
+"tKz-CQ-IZJ.normalTitle" = "Tillåt platsåtkomst från inställningarna";
 
 /* Class = "UILabel"; text = "Käytä nykyistä sijaintiani"; ObjectID = "tl7-WS-kRr"; */
-"tl7-WS-kRr.text" = "Käytä nykyistä sijaintiani";
+"tl7-WS-kRr.text" = "Använd min nuvarande plats";
 
 /* Class = "UILabel"; text = "KAUPUNKI"; ObjectID = "tqf-Uu-4vO"; */
-"tqf-Uu-4vO.text" = "KAUPUNKI";
+"tqf-Uu-4vO.text" = "Stad";
 
 /* Class = "UILabel"; text = "Sijaintini"; ObjectID = "vQr-vF-0VT"; */
-"vQr-vF-0VT.text" = "Sijaintini";
+"vQr-vF-0VT.text" = "Min plats";
 
-"R1V-lO-ViV.title" = "Kartta";
+"R1V-lO-ViV.title" = "Map";
 
-"TI2-5Y-oJc.title" = "Suosikit";
+"TI2-5Y-oJc.title" = "Favoriter";
 
-"RNg-JY-lz1.title" = "Harrastukset";
+"RNg-JY-lz1.title" = "Hobbies";
 
-"i14-Gu-Dh9.title" = "Asetukset";
+"i14-Gu-Dh9.title" = "Inställningar";
 
-"dWj-tH-NLT.title" = "Suosikit";
+"dWj-tH-NLT.title" = "Favoriter";
 
 "lr0-Bf-4nI.title" = "Lista";
 
-"ABs-rF-7Ug.title" = "Asetukset";
+"ABs-rF-7Ug.title" = "Inställningar";
 
-"jFN-rY-BEP.title" = "Etuudet";
+"jFN-rY-BEP.title" = "Kuponger";
 
-"k43-ga-gSQ.title" = "Etuudet";
+"k43-ga-gSQ.title" = "Kuponger";
 
 "aiY-KQ-qLw.text" = "Lägg till hobbyer som favoriter så ser du dem här.";
 

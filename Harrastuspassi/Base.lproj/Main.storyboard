@@ -2806,17 +2806,44 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Osoite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="844-xE-r2b">
+                                                <rect key="frame" x="8" y="374" width="366" height="17"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                                <color key="textColor" name="mainColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Osoite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDM-nc-sbK">
+                                                <rect key="frame" x="8" y="349" width="366" height="17"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                                <color key="textColor" name="mainColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Osoite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOZ-Vp-mdx">
+                                                <rect key="frame" x="8" y="324" width="366" height="17"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                                <color key="textColor" name="mainColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Lw0-OX-gZ1" secondAttribute="trailing" constant="8" id="2tL-WJ-1NF"/>
+                                            <constraint firstItem="844-xE-r2b" firstAttribute="leading" secondItem="ClK-jS-lkT" secondAttribute="leading" constant="8" id="DFL-GU-1MM"/>
                                             <constraint firstAttribute="trailing" secondItem="hlw-7c-i8a" secondAttribute="trailing" constant="8" id="GLq-Bx-fbi"/>
+                                            <constraint firstItem="2ZJ-Cq-NZq" firstAttribute="top" secondItem="844-xE-r2b" secondAttribute="bottom" constant="20" id="QcH-1B-6iM"/>
                                             <constraint firstItem="Lw0-OX-gZ1" firstAttribute="leading" secondItem="ClK-jS-lkT" secondAttribute="leading" constant="8" id="S74-94-ffN"/>
+                                            <constraint firstItem="zOZ-Vp-mdx" firstAttribute="leading" secondItem="ClK-jS-lkT" secondAttribute="leading" constant="8" id="TSb-z0-Rpw"/>
+                                            <constraint firstAttribute="trailing" secondItem="GDM-nc-sbK" secondAttribute="trailing" constant="8" id="Vx5-Z6-QJT"/>
+                                            <constraint firstAttribute="trailing" secondItem="844-xE-r2b" secondAttribute="trailing" constant="8" id="VzI-c2-HcN"/>
                                             <constraint firstItem="6tK-Rp-4Z7" firstAttribute="top" secondItem="2ZJ-Cq-NZq" secondAttribute="bottom" constant="15" id="ZeA-Bb-Lpu"/>
                                             <constraint firstItem="hlw-7c-i8a" firstAttribute="top" secondItem="ClK-jS-lkT" secondAttribute="top" id="ZqT-ub-erV"/>
                                             <constraint firstAttribute="bottom" secondItem="6tK-Rp-4Z7" secondAttribute="bottom" constant="15" id="g53-Y8-2F7"/>
                                             <constraint firstAttribute="trailing" secondItem="2ZJ-Cq-NZq" secondAttribute="trailing" constant="8" id="hex-NE-hDD"/>
+                                            <constraint firstItem="GDM-nc-sbK" firstAttribute="top" secondItem="zOZ-Vp-mdx" secondAttribute="bottom" constant="8" id="ic1-ZK-HSl"/>
+                                            <constraint firstAttribute="trailing" secondItem="zOZ-Vp-mdx" secondAttribute="trailing" constant="8" id="pRW-3s-wJG"/>
                                             <constraint firstAttribute="trailing" secondItem="6tK-Rp-4Z7" secondAttribute="trailing" constant="15" id="ptp-M3-Fb5"/>
+                                            <constraint firstItem="844-xE-r2b" firstAttribute="top" secondItem="GDM-nc-sbK" secondAttribute="bottom" constant="8" id="q6N-Mw-Z7X"/>
+                                            <constraint firstItem="GDM-nc-sbK" firstAttribute="leading" secondItem="ClK-jS-lkT" secondAttribute="leading" constant="8" id="qhf-Zn-djG"/>
                                             <constraint firstItem="2ZJ-Cq-NZq" firstAttribute="leading" secondItem="ClK-jS-lkT" secondAttribute="leading" constant="8" id="qjQ-lw-bIx"/>
                                             <constraint firstItem="6tK-Rp-4Z7" firstAttribute="leading" secondItem="ClK-jS-lkT" secondAttribute="leading" constant="8" id="vPD-a4-6tG"/>
                                             <constraint firstItem="hlw-7c-i8a" firstAttribute="leading" secondItem="ClK-jS-lkT" secondAttribute="leading" constant="8" id="vY2-OS-tcP"/>
@@ -2868,12 +2895,15 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addressLabel" destination="844-xE-r2b" id="zPB-gl-hrJ"/>
                         <outlet property="availableLabel" destination="6tK-Rp-4Z7" id="LhL-ZA-N6V"/>
                         <outlet property="dateLabel" destination="2ZJ-Cq-NZq" id="QBj-ay-0FE"/>
                         <outlet property="descriptionLabel" destination="Lw0-OX-gZ1" id="FP4-FG-Hgx"/>
+                        <outlet property="locationNameLabel" destination="zOZ-Vp-mdx" id="FxG-2r-ECJ"/>
                         <outlet property="offerStateLabel" destination="vq3-HU-1gp" id="wlP-qf-Zur"/>
                         <outlet property="promotionImageView" destination="d1z-el-gLz" id="hJu-1y-x1e"/>
                         <outlet property="slideButton" destination="Q1b-Py-nJy" id="Rn1-Y5-HwR"/>
+                        <outlet property="streetAddressLabel" destination="GDM-nc-sbK" id="GVR-wu-zLU"/>
                         <outlet property="titleLabel" destination="hlw-7c-i8a" id="ty6-MD-8FF"/>
                     </connections>
                 </viewController>

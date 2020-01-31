@@ -99,30 +99,45 @@ class FavouritesViewController: UIViewController, UITableViewDelegate, UITableVi
         let session = URLSession(configuration: config);
         var url: URL?;
         url = applyQueryParamsToUrl(urlString);
+        print(url)
         let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
     
         task.resume();
     }
     
+    func fetchNext(urlString: String) {
+        let config = URLSessionConfiguration.default;
+        let session = URLSession(configuration: config);
+        let url = URL(string: urlString);
+        print(url)
+        let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
+        task.resume();
+    }
+    
     func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
         if let fetchedData = data {
-            guard let eventData = try? JSONDecoder().decode([HobbyEventData].self, from: fetchedData)
+            guard let response = try? JSONDecoder().decode(HobbyEventResponse.self, from: fetchedData)
                 else {
                     DispatchQueue.main.async(execute: {() in
                         print("error")
                     })
                     return
             }
+            guard let eventData = response.results else {return};
             DispatchQueue.main.async(execute: {() in
                 if(eventData.count == 0) {
-                    self.hobbyData = Array(Set(eventData));
+                    self.hobbyData += Array(Set(eventData));
                     self.favoritesTableView.reloadData()
                 } else {
-                    self.hobbyData = self.filteredFavoriteHobbiesFrom(eventData.uniques);
+                    self.hobbyData += self.filteredFavoriteHobbiesFrom(eventData.uniques);
                     self.favoritesTableView.reloadData()
                 }
+                print(self.hobbyData);
                 self.refreshControl.endRefreshing();
             })
+            if let next = response.next {
+                fetchNext(urlString: next)
+            }
         }
     }
     
