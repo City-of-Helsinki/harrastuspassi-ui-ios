@@ -49,8 +49,8 @@ class Utils {
             filters.times.minTime = minValue;
             filters.times.maxTime = maxValue;
         } else {
-            filters.times.minTime = 480.0;
-            filters.times.maxTime = 1260.0;
+            filters.times.minTime = 0.0;
+            filters.times.maxTime = 1439.0;
         }
         
         return filters;

@@ -30,7 +30,7 @@ class PromotionTableViewCell: UITableViewCell {
         dateLabel.text = String(format: NSLocalizedString("ValidUntil", comment: ""), Utils.formatDateFromString(promotion.endDate));
         let placeholderImage = UIImage(named: "logo_lil_yel");
         if let image = promotion.image {
-            print(image);
+        
             promotionImage.kf.indicatorType = .activity;
             promotionImage.kf.setImage(with: URL(string: image)!, placeholder: placeholderImage) { _ in
                 self.setNeedsLayout()

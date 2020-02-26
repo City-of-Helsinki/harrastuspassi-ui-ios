@@ -14,7 +14,7 @@ import CoreLocation
     var locationUsageAllowed: Bool = UserDefaults.standard.bool(forKey: DefaultKeys.Location.isAllowed);
     
     var savedLocations = [CoordinateData]();
-    var selectedLocation = CoordinateData(lat: 0, lon: 0);
+    var selectedLocation: CoordinateData?;
     let feedbackGenerator = UISelectionFeedbackGenerator();
     
     @IBOutlet weak var allowLocationUsageButton: UIButton!
@@ -175,8 +175,10 @@ import CoreLocation
         bgView.backgroundColor = Colors.bgMain;
         cell.selectedBackgroundView = bgView;
         cell.tintColor = .green;
-        if self.selectedLocation.lat == savedLocations[indexPath.row].lat && self.selectedLocation.lon == savedLocations[indexPath.row].lon {
-            cell.accessoryType = .checkmark;
+        if let currentLocation = selectedLocation {
+            if currentLocation.lat == savedLocations[indexPath.row].lat && currentLocation.lon == savedLocations[indexPath.row].lon {
+                cell.accessoryType = .checkmark;
+            }
         }
         cell.addressLabel.text =
             locationForIndex.streetName + " " +
@@ -248,16 +250,19 @@ import CoreLocation
         let defaults = UserDefaults.standard;
         defaults.set(try? PropertyListEncoder().encode(selectedLocation), forKey: DefaultKeys.Location.selectedLocation);
         defaults.set(locationUsageAllowed, forKey: DefaultKeys.Location.isAllowed)
-        var tmpLocations = savedLocations.reversed().filter {
-            $0.lat != selectedLocation.lat && $0.lon != selectedLocation.lon
+        if let currentLocation = selectedLocation {
+            
+            
+            var tmpLocations = savedLocations.reversed().filter {
+                $0.lat != currentLocation.lat && $0.lon != currentLocation.lon
+            }
+            if !locationUsageAllowed {
+                defaults.set(currentLocation.lat, forKey: DefaultKeys.Location.lat);
+                defaults.set(currentLocation.lon, forKey: DefaultKeys.Location.lon);
+            }
+            tmpLocations.append(currentLocation);
+            defaults.set(try? PropertyListEncoder().encode(tmpLocations), forKey: DefaultKeys.Location.savedLocations);
         }
-        if !locationUsageAllowed {
-            defaults.set(selectedLocation.lat, forKey: DefaultKeys.Location.lat);
-            defaults.set(selectedLocation.lon, forKey: DefaultKeys.Location.lon);
-        }
-        tmpLocations.append(selectedLocation);
-        defaults.set(try? PropertyListEncoder().encode(tmpLocations), forKey: DefaultKeys.Location.savedLocations);
-        
     }
     
     func setupNavBar() {

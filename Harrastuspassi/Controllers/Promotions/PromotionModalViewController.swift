@@ -66,7 +66,7 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
         } else if !promotion.isUsable() {
             slideButton.isHidden = true;
             offerStateLabel.isHidden = false;
-            offerStateLabel.text = "Käytetty loppuun"
+            offerStateLabel.text = NSLocalizedString("AllUsed", comment: "");
         }
         
         Analytics.logEvent("viewPromotion", parameters: [

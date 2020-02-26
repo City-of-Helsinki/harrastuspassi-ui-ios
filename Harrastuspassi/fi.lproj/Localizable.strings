@@ -20,4 +20,5 @@
 
 "ValidUntil" = "Voimassa %@ saakka";
 "Remaining" = "Jäljellä: %@";
+"AllUsed" = "Käytetty loppuun";
 

@@ -60,13 +60,11 @@ class CategoryFilterTableViewCell: UITableViewCell {
         }
         
         if !categorySelected {
-            print("Not selected, changing state to: selected")
             self.selectionDelegate?.addSelection(selectedItem: data)
             categorySelected = true
             checkmarkButton.alpha = 1
             checkmarkButton.tintColor = .green
         } else {
-            print("Selected, changing state to not selected")
             self.selectionDelegate?.removeSelection(removedItem: data)
             categorySelected = false
             checkmarkButton.alpha = 0.3

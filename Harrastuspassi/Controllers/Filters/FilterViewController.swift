@@ -67,8 +67,8 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
             filters.times.minTime = minValue;
             filters.times.maxTime = maxValue;
         } else {
-            let minValue: CGFloat = 480;
-            let maxValue: CGFloat = 1260.0;
+            let minValue: CGFloat = 0;
+            let maxValue: CGFloat = 1439;
             
             timeSlider.selectedMinValue = minValue;
             timeSlider.selectedMaxValue = maxValue;

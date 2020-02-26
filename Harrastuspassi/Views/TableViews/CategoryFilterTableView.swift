@@ -35,7 +35,7 @@ class CategoryFilterTableView: UITableView, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryFilterCell", for: indexPath) as! CategoryFilterTableViewCell
         
-        print("Setting cell for:")
+        
         if let data = categoryData {
             cell.setCategory(category: data[indexPath.row]);
             cell.selectionStyle = .none;

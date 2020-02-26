@@ -239,7 +239,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
             cell.setHobby(recommendedHobbies[indexPath.row]);
             cell.layer.cornerRadius = 15;
             cell.layer.masksToBounds = true;
-            cell.hero.id = String(indexPath.row);
+            cell.hero.id = "recommended" + String(indexPath.row);
             cell.imageView.hero.id = "image" + String(indexPath.row);
             return cell;
         } else {
@@ -520,5 +520,19 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         };
         searchResultsTableView.reloadData();
         searchResultsHeightConstraint.constant = searchResultsTableView.contentSize.height;
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let defaults = UserDefaults.standard;
+        guard searchOptions.count > 0 else {
+            return;
+        }
+        if let id = searchOptions[0].id {
+            print("SELECT: ", id)
+            var categoryList: [Int] = [];
+            categoryList.append(id);
+            defaults.set(categoryList, forKey: DefaultKeys.Filters.categories);
+            self.tabBarController?.selectedIndex = 1;
+        }
     }
 }

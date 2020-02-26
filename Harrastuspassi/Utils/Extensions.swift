@@ -80,12 +80,11 @@ extension UIButton {
 
 extension UIImageView {
     func loadurl(url: URL, completition: (() -> Void)?) {
-        print("fetching image")
+        
         DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url) {
                 if let image = UIImage(data: data) {
                     DispatchQueue.main.async {
-                        print("setting image in main thread")
                         self?.image = image
                         if let c = completition {
                             c();
