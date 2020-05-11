@@ -34,12 +34,12 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     @IBOutlet weak var organizerLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var eventTableView: EventTableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var favouriteButton: UIButton!
     
     @IBOutlet weak var shareActivityIndicator: UIActivityIndicatorView!
@@ -74,6 +74,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         }
         mapView.preferredFrameRate = .conservative;
         mapView.isUserInteractionEnabled = false;
+        descriptionTextView.dataDetectorTypes = .link;
         
         if #available(iOS 13.0, *) {
             self.hero.isEnabled = true;
@@ -160,7 +161,10 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         titleLabel.text = event.hobby?.name
         organizerLabel.text = event.hobby?.organizer?.name
         locationLabel.text = event.hobby?.location?.name
-        descriptionLabel.text = event.hobby?.description
+        if let description = event.hobby?.description {
+            descriptionTextView.text = description;
+        }
+        
         guard let location = event.hobby?.location else {
             return
         }

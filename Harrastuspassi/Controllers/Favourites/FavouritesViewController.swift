@@ -170,6 +170,7 @@ class FavouritesViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.hobbyData = [];
         self.fetchUrl(urlString: Config.API_URL + "hobbyevents")
         
     }

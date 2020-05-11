@@ -68,7 +68,7 @@ class PromotionsViewController: UIViewController, UITableViewDelegate, UITableVi
         let promotion = promotions[indexPath.row];
         cell.setPromotion(promotion);
         print(promotion.isUsed());
-        if promotion.isUsed() {
+        if !promotion.isUsable() || promotion.isUsed() {
             cell.setUsedAppearance();
         }
         return cell;
@@ -120,7 +120,7 @@ class PromotionsViewController: UIViewController, UITableViewDelegate, UITableVi
                     self.tableView.reloadData();
                 } else {
                     self.placeHolderLabel.isHidden = true
-                    self.promotions = promotionData;
+                    self.promotions = promotionData.sorted {$0.isUsable() && !$1.isUsable()};
                     self.tableView.reloadData()
                 }
             })

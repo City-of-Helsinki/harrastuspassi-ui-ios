@@ -39,10 +39,11 @@ struct PromotionData : Codable {
     func isUsable() -> Bool {
         if availableCount > 0 {
             return availableCount - usedCount > 0;
+        } else if isUsed() {
+            return false;
         } else {
             return true;
         }
-        
     }
     
     func getUsesLeft() -> Int {
