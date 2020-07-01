@@ -22,6 +22,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
     var searchOptions: [CategoryData] = [];
     var recommendedHobbies: [HobbyEventData] = [];
     var recommendedPromotions: [PromotionData] = [];
+    var searchValue = "";
 
     @IBOutlet weak var promotionCollectionView: UICollectionView!
     @IBOutlet weak var promotionBannerContainer: UIView!
@@ -69,6 +70,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         hobbyBannerContainer.layer.cornerRadius = 15;
         hobbyBannerContainer.layer.masksToBounds = true;
         
+        NotificationCenter.default.addObserver(self, selector: #selector(locationPermissionUpdated), name:.locationPermissionsUpdated, object: nil);
         if #available(iOS 13.0, *) {
             self.hero.isEnabled = true;
         } else {
@@ -118,6 +120,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
                 }
                 DispatchQueue.main.async(execute: {() in
                     self.categories = categoryData;
+                    print(self.categories)
                     self.searchResultsHeightConstraint.constant = self.searchResultsTableView.contentSize.height;
                 })
             }
@@ -156,6 +159,12 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @objc
+    func locationPermissionUpdated() {
+        fetchUrl(urlString: Config.API_URL + "hobbyevents/");
+        fetchPromotionsUrl(urlString: Config.API_URL + "promotions/")
+    }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if (touch.view!.isDescendant(of: searchResultsTableView) || touch.view!.isDescendant(of: promotionCollectionView) || touch.view!.isDescendant(of: hobbyCollectionView) || touch.view!.isDescendant(of: recommendedHobbiesCollectionView) || touch.view!.isDescendant(of: recommendedPromotionsCollectionView)) {
@@ -410,7 +419,8 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "location_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "organizer_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"))
-        
+        urlComponents?.queryItems?.append(URLQueryItem(name: "exclude_past_events", value: "true"))
+    
         let defaults = UserDefaults.standard;
         let latitude = defaults.float(forKey: DefaultKeys.Location.lat),
             longitude = defaults.float(forKey: DefaultKeys.Location.lon);
@@ -490,12 +500,12 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let defaults = UserDefaults.standard;
-        if let id = searchOptions[indexPath.row].id {
-            print("SELECT: ", id)
-            var categoryList: [Int] = [];
-            categoryList.append(id);
-            defaults.set(categoryList, forKey: DefaultKeys.Filters.categories);
+        if let name = searchOptions[indexPath.row].name {
+            searchBar.text = name;
+            searchValue = name;
+            let navVc = self.tabBarController?.viewControllers![1] as! UINavigationController;
+            let vc = navVc.topViewController as! HomeViewController;
+            vc.searchValue = searchValue;
             self.tabBarController?.selectedIndex = 1;
         }
     }
@@ -520,19 +530,14 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         };
         searchResultsTableView.reloadData();
         searchResultsHeightConstraint.constant = searchResultsTableView.contentSize.height;
+        searchValue = searchText;
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let defaults = UserDefaults.standard;
-        guard searchOptions.count > 0 else {
-            return;
-        }
-        if let id = searchOptions[0].id {
-            print("SELECT: ", id)
-            var categoryList: [Int] = [];
-            categoryList.append(id);
-            defaults.set(categoryList, forKey: DefaultKeys.Filters.categories);
-            self.tabBarController?.selectedIndex = 1;
-        }
+        let navVc = self.tabBarController?.viewControllers![1] as! UINavigationController;
+        let vc = navVc.topViewController as! HomeViewController;
+        vc.searchValue = searchValue;
+        self.tabBarController?.selectedIndex = 1;
+        
     }
 }

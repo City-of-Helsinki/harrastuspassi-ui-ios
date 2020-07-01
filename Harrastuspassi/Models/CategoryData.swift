@@ -15,6 +15,9 @@ struct CategoryData : Codable {
     let level : Int?
     let parent : Int?
     let childCategories : [CategoryData]?
+    let nameFI: String?
+    let nameSV: String?
+    let nameEN: String?
     
     enum CodingKeys: String, CodingKey {
         
@@ -24,5 +27,8 @@ struct CategoryData : Codable {
         case level = "level"
         case parent  = "parent"
         case childCategories = "child_categories"
+        case nameFI = "name_fi"
+        case nameSV = "name_sv"
+        case nameEN = "name_en"
     }
 }

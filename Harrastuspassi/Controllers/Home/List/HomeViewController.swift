@@ -11,7 +11,7 @@ import Hero
 import CoreLocation
 import Firebase
 
-class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate, UITableViewDataSource, ModalDelegate, UINavigationControllerDelegate {
+class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate, UITableViewDataSource, ModalDelegate, UINavigationControllerDelegate, UISearchBarDelegate {
     
     // MARK: - Initialization
     
@@ -19,26 +19,33 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     
     @IBOutlet weak var hobbyTableView: UITableView!
     @IBOutlet weak var errorText: UILabel!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var rightButton: UIButton!
+    
     
     var hobbyData = [HobbyEventData]();
     var filters = Filters();
     let refreshControl = UIRefreshControl();
+    var searchValue: String? = nil;
     
     let locationManager = CLLocationManager();
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
         self.hero.isEnabled = true;
+        rightButton.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        rightButton.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        rightButton.imageView?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         navigationController?.hero.navigationAnimationType = .selectBy(presenting: .none, dismissing: .none);
-        
         
         refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged);
         refreshControl.tintColor = .white;
         
         navigationController?.delegate = self;
-        
+        searchBar.delegate = self;
         hobbyTableView.delegate = self
         hobbyTableView.dataSource = self
         hobbyTableView.refreshControl = refreshControl;
@@ -50,14 +57,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     
     override func viewDidAppear(_ animated: Bool) {
         filters = Utils.getDefaultFilters();
-        self.fetchUrl(urlString: Config.API_URL + "hobbyevents")
+        
         if #available(iOS 13.0, *) {
             self.hero.isEnabled = true;
         } else {
             self.hero.isEnabled = false;
         }
+        if let search = searchValue {
+            searchBar.text = search;
+            
+        } else {
+        }
+        self.fetchUrl(urlString: Config.API_URL + "hobbyevents")
     }
-    
     
     // Tableview setup
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,8 +102,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
         task.resume();
     }
-    
-    
     
     func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
         if let fetchedData = data {
@@ -185,6 +195,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
             defaults.set(d.weekdays, forKey: DefaultKeys.Filters.weekdays);
             defaults.set(d.times.minTime, forKey: DefaultKeys.Filters.startTime);
             defaults.set(d.times.maxTime, forKey: DefaultKeys.Filters.endTime);
+            defaults.set(d.price_type, forKey: DefaultKeys.Filters.priceType);
         }
         fetchUrl(urlString: Config.API_URL + "hobbyevents")
     }
@@ -196,6 +207,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "location_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "organizer_detail"))
+        urlComponents?.queryItems?.append(URLQueryItem(name: "exclude_past_events", value: "true"))
         
         let defaults = UserDefaults.standard;
         let latitude = defaults.float(forKey: DefaultKeys.Location.lat),
@@ -211,11 +223,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
                 urlComponents?.queryItems?.append(URLQueryItem(name: "start_weekday", value: String(id)))
             }
         }
+        if let priceType = filters.price_type {
+            if priceType == "free" {
+                urlComponents?.queryItems?.append(URLQueryItem(name: "price_type", value: priceType))
+            }
+            
+        }
         urlComponents?.queryItems?.append(URLQueryItem(name: "start_time_from", value: Utils.formatTimeFrom(float: filters.times.minTime)));
         urlComponents?.queryItems?.append(URLQueryItem(name: "start_time_to", value: Utils.formatTimeFrom(float: filters.times.maxTime)));
         urlComponents?.queryItems?.append(URLQueryItem(name: "ordering", value: "nearest"));
         urlComponents?.queryItems?.append(URLQueryItem(name: "near_latitude", value: String(latitude)));
         urlComponents?.queryItems?.append(URLQueryItem(name: "near_longitude", value: String(longitude)));
+        if let search = searchValue {
+            urlComponents?.queryItems?.append(URLQueryItem(name: "search", value: search));
+        }
         return urlComponents?.url
     }
     
@@ -223,6 +244,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         self.fetchUrl(urlString: Config.API_URL + "hobbyevents")
         
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.fetchUrl(urlString: Config.API_URL + "hobbyevents");
+        searchBar.resignFirstResponder();
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchValue = nil;
+        self.fetchUrl(urlString: Config.API_URL + "hobbyevents");
+        searchBar.resignFirstResponder();
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchValue = searchText;
+    }
+    
     
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let sb = UIStoryboard.init(name: "Main", bundle:nil)

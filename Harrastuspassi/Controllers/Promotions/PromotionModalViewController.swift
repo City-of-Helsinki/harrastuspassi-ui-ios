@@ -57,7 +57,8 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
         slideButton.defaultSliderBackgroundColor = UIColor(named: "mainColorAlpha")!
         slideButton.defaultSlidingColor = UIColor(named: "mainColor")!
         slideButton.delegate = self
-        slideButton.defaultLabelText = "Vedä käyttääksesi"
+        
+        slideButton.defaultLabelText = NSLocalizedString("SwipeToUse", comment: "");
         slideButton.thumnailImageView.image = UIImage(named: "ic_local_activity")
         slideButton.defaultThumbnailColor = UIColor(named: "mainColor")!
         

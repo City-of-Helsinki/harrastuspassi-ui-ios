@@ -21,4 +21,5 @@
 "ValidUntil" = "Gäller till %@";
 "Remaining" = "Återstående %@";
 "AllUsed" = "Alla kuponger som används";
+"SwipeToUse" = "Svep för att använda";
 

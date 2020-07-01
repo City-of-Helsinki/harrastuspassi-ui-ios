@@ -8,12 +8,14 @@
 
 import UIKit
 
-class PromotionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PromotionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     var promotions: [PromotionData] = [];
+    var searchValue = "";
 
     @IBOutlet weak var tableView: PromotionsTableView!
     @IBOutlet weak var placeHolderLabel: UILabel!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     
     override func viewDidLoad() {
@@ -23,14 +25,18 @@ class PromotionsViewController: UIViewController, UITableViewDelegate, UITableVi
             placeHolderLabel.isHidden = false;
         }
         // Do any additional setup after loading the view.
-        
+        searchBar.delegate = self;
         tableView.delegate = self;
         tableView.dataSource = self;
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated);
+        reloadData();
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
-        reloadData();
         if #available(iOS 13.0, *) {
             let navBarAppearance = UINavigationBarAppearance()
             navBarAppearance.configureWithOpaqueBackground()
@@ -133,6 +139,7 @@ class PromotionsViewController: UIViewController, UITableViewDelegate, UITableVi
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "location_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "organizer_detail"))
+        urlComponents?.queryItems?.append(URLQueryItem(name: "search", value: searchValue))
         
         let defaults = UserDefaults.standard;
         let latitude = defaults.float(forKey: DefaultKeys.Location.lat),
@@ -144,4 +151,19 @@ class PromotionsViewController: UIViewController, UITableViewDelegate, UITableVi
         return urlComponents?.url
     }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchValue = searchText;
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder();
+
+        reloadData();
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        reloadData();
+        searchBar.resignFirstResponder();
+    }
 }

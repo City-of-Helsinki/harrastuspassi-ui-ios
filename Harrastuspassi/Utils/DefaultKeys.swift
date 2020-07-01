@@ -18,6 +18,7 @@ struct DefaultKeys {
         static let weekdays = "weekdays"
         static let startTime = "startTime"
         static let endTime = "endTime"
+        static let priceType = "priceType"
     }
     
     struct Location {

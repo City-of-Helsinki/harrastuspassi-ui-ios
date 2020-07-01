@@ -40,7 +40,6 @@ class MapInfoView: UIView {
     }
     
     func commonInit() {
-        print("Custom view here I come")
         Bundle.main.loadNibNamed("MapInfoView", owner: self, options: nil);
         addSubview(contentView);
         contentView.frame = self.bounds;
@@ -70,7 +69,6 @@ class MapInfoView: UIView {
                 result in
                 switch result {
                 case .success(let value):
-                    print("Task done for: \(value.source.url?.absoluteString ?? "")")
                     completition();
                 case .failure(let error):
                     print("Job failed: \(error.localizedDescription)")

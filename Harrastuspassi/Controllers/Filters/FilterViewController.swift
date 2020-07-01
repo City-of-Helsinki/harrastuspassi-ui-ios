@@ -21,6 +21,7 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     var weekdays = Weekdays().list;
     var filters = Filters();
     var defaults = UserDefaults.standard;
+    var freeOnly = false;
     
     
     
@@ -39,6 +40,9 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     @IBOutlet weak var categoryCollectionContainerHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var freeOnlySwitch: UISwitch!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,6 +51,7 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         weekdayCollectionView.delegate = self
         weekdayCollectionView.dataSource = self
         timeSlider.delegate = self;
+        freeOnlySwitch.setOn(false, animated: false);
         navBar.layer.zPosition = .greatestFiniteMagnitude
         
         // Do any additional setup after loading the view.
@@ -75,6 +80,15 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
             
             filters.times.minTime = minValue;
             filters.times.maxTime = maxValue;
+        }
+        if let priceType = defaults.string(forKey: DefaultKeys.Filters.priceType) {
+            if priceType == "free" {
+                freeOnlySwitch.setOn(true, animated: false);
+                freeOnly = true;
+            } else {
+                freeOnlySwitch.setOn(false, animated: false);
+                freeOnly = false;
+            }
         }
         minTimeLabel.text = Utils.formatTimeFrom(float: filters.times.minTime);
         maxTimeLabel.text = Utils.formatTimeFrom(float: filters.times.maxTime);
@@ -305,6 +319,7 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         filters.weekdays = selectedWeekdays;
         filters.times.maxTime = self.filters.times.maxTime;
         filters.times.minTime = self.filters.times.minTime;
+        filters.price_type = self.filters.price_type;
         if let delegate = self.modalDelegate {
             delegate.didCloseModal(data: filters);
         }
@@ -341,6 +356,13 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         
         print(filters);
+    }
+    @IBAction func toggleFreeOnlySwitch(_ sender: Any) {
+        if(self.freeOnlySwitch.isOn) {
+            self.filters.price_type = "free";
+        } else {
+            self.filters.price_type = nil;
+        }
     }
 }
 

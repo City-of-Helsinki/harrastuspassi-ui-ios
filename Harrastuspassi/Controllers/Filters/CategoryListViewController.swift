@@ -81,6 +81,9 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
         
         print("Setting cell for:")
         if let data = categoryData {
+            if data[indexPath.row].childCategories?.count == 0 {
+                cell.accessoryType = .none
+            }
             cell.setCategory(category: data[indexPath.row]);
             cell.selectionStyle = .none;
             if selectedItems.contains(where: { $0 == data[indexPath.row].id}) {
@@ -134,6 +137,16 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
         filters.categories = selectedItems;
         modalDelegate?.didCloseModal(data: filters);
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "subCategories" {
+            let index = containerTableView.indexPathForSelectedRow?.row
+            if let i = index, let d = categoryData, let cg = d[i].childCategories, cg.count == 0 {
+                return false
+            }
+        }
+        return true
     }
     @IBAction func saveButtonPressed(_ sender: Any) {
         saveFiltersAndDismiss()

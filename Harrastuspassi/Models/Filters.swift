@@ -13,6 +13,7 @@ struct Filters {
     var categories:[Int] = [];
     var weekdays:[Int] = [];
     var times = Times();
+    var price_type: String?;
 }
 
 struct Weekday {

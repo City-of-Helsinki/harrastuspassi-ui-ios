@@ -53,6 +53,10 @@ class Utils {
             filters.times.maxTime = 1439.0;
         }
         
+        if let priceType = defaults.string(forKey: DefaultKeys.Filters.priceType) {
+            filters.price_type = priceType;
+        }
+        
         return filters;
     }
 }

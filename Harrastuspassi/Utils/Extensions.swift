@@ -161,3 +161,7 @@ extension UITableView {
         reloadSections(IndexSet(integersIn: 0..<numberOfSections), with: animation)
     }
 }
+
+extension Notification.Name {
+    static let locationPermissionsUpdated = Notification.Name("locationPermissionsUpdated");
+}
