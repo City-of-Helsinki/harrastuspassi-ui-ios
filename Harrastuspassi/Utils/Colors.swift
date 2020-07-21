@@ -10,5 +10,5 @@ import Foundation
 import UIKit
 
 struct Colors {
-    static let bgMain = UIColor(red:0.19, green:0.08, blue:0.43, alpha:1.0);
+    static let bgMain = UIColor(red:0.051, green:0.043, blue:0.71, alpha:1.0);
 }

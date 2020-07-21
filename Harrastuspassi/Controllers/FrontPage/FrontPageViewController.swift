@@ -95,7 +95,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
             hobbyCollectionView.isHidden = true;
         }
         
-        let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "logo_kelt_lil")!,iconInitialSize: CGSize(width: 250, height: 250), backgroundColor: UIColor(red:0.19, green:0.08, blue:0.43, alpha:1.0))
+        let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "logo_kelt_lil")!,iconInitialSize: CGSize(width: 250, height: 250), backgroundColor: Colors.bgMain)
         
         self.searchResultsTableView.dataSource = self;
         self.searchResultsTableView.delegate = self;

@@ -188,29 +188,31 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
                 cell.titleLabel.text = data[selectedCategories[indexPath.item]]?.name
                 cell.titleLabel.sizeToFit()
             }
+            cell.layer.cornerRadius = 10;
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weekdayCell", for: indexPath) as! WeekdayCollectionViewCell
             
             print("Setting cell for:")
             cell.titleLabel.adjustsFontSizeToFitWidth = true;
+            cell.layer.cornerRadius = 20;
             if indexPath.section == 0 {
                 cell.titleLabel.text = weekdays[indexPath.item].name
                 if selectedWeekdays.count > 0, selectedWeekdays.contains(weekdays[indexPath.item].id) {
-                    cell.backgroundColor = UIColor(red:0.19, green:0.08, blue:0.43, alpha:1.0);
+                    cell.backgroundColor = Colors.bgMain;
                     cell.titleLabel.textColor = .white;
                 } else {
                     cell.backgroundColor = .white;
-                    cell.titleLabel.textColor = UIColor(red:0.19, green:0.08, blue:0.43, alpha:1.0);
+                    cell.titleLabel.textColor = UIColor.init(named: "darkGrey");
                 }
             } else {
                 cell.titleLabel.text = weekdays[6].name
                 if selectedWeekdays.contains(7) {
-                    cell.backgroundColor = UIColor(red:0.19, green:0.08, blue:0.43, alpha:1.0);
+                    cell.backgroundColor = Colors.bgMain;
                     cell.titleLabel.textColor = .white;
                 } else {
                     cell.backgroundColor = .white;
-                    cell.titleLabel.textColor = UIColor(red:0.19, green:0.08, blue:0.43, alpha:1.0);
+                    cell.titleLabel.textColor = UIColor.init(named: "darkGrey");
                 }
             }
             

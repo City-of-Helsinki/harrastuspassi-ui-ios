@@ -1,87 +1,79 @@
-
-/* Class = "UIButton"; normalTitle = "Tallenna"; ObjectID = "0xh-it-D4W"; */
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "0xh-it-D4W"; */
 "0xh-it-D4W.normalTitle" = "Tallenna";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "20X-bg-97e"; */
 "20X-bg-97e.text" = "Label";
 
+/* Class = "UILabel"; text = "Suosituimmat harrastukset"; ObjectID = "2nu-nh-xvQ"; Note = "Popular hobbies"; */
+"2nu-nh-xvQ.text" = "Suosituimmat harrastukset";
+
 /* Class = "UILabel"; text = "00:00"; ObjectID = "40m-DS-TVg"; */
 "40m-DS-TVg.text" = "00:00";
 
-/* Class = "UILabel"; text = "Tähän otsikko, voi olla kahdellakin rivillä"; ObjectID = "4BU-5n-gUh"; */
+/* Class = "UILabel"; text = "Loading..."; ObjectID = "4BU-5n-gUh"; */
 "4BU-5n-gUh.text" = "Ladataan...";
 
-/* Class = "UILabel"; text = "Ei kuvausta"; ObjectID = "4jR-Xq-OSU"; */
-"4jR-Xq-OSU.text" = "Ei kuvausta";
-
-/* Class = "UIButton"; normalTitle = "Käytä tätä sijaintia"; ObjectID = "7XH-EQ-LdE"; */
+/* Class = "UIButton"; normalTitle = "Use this location"; ObjectID = "7XH-EQ-LdE"; */
 "7XH-EQ-LdE.normalTitle" = "Käytä tätä sijaintia";
 
 /* Class = "UILabel"; text = "Tietoja ei saatu haettua"; ObjectID = "8gU-KW-Jqe"; */
 "8gU-KW-Jqe.text" = "Tietoja ei saatu haettua";
 
-/* Class = "UILabel"; text = "Osoitekatu 1, 33333 Kaupunki"; ObjectID = "8oZ-pf-EvC"; */
-"8oZ-pf-EvC.text" = "Osoitekatu 1, 33333 Kaupunki";
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "ABs-rF-7Ug"; */
+"ABs-rF-7Ug.title" = "Asetukset";
+
+/* Class = "UILabel"; text = "Lisää harrastuksia suosikeiksi ja näet ne täällä."; ObjectID = "aiY-KQ-qLw"; */
+"aiY-KQ-qLw.text" = "Lisää harrastuksia suosikeiksi ja näet ne täällä."
+
+"R1V-lO-ViV.title" = "Kartta";
 
 /* Class = "UILabel"; text = "00:00"; ObjectID = "BBR-vC-jZW"; */
 "BBR-vC-jZW.text" = "00:00";
 
-/* Class = "UIButton"; normalTitle = "Valitse sijainti kartalta"; ObjectID = "Dbz-e8-YHI"; */
-"Dbz-e8-YHI.normalTitle" = "Valitse sijainti kartalta";
-
-/* Class = "UINavigationItem"; title = "Kategoriat"; ObjectID = "Kwj-A5-8fD"; */
-"Kwj-A5-8fD.title" = "Kategoriat";
-
-/* Class = "UILabel"; text = "Kellonaika"; ObjectID = "MW8-uR-KDS"; */
-"MW8-uR-KDS.text" = "Kellonaika";
-
-/* Class = "UILabel"; text = "Category Name"; ObjectID = "P1w-Cy-Jh6"; */
-"P1w-Cy-Jh6.text" = "Kategorian nimi";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "Qrc-9U-Scl"; */
-"Qrc-9U-Scl.text" = "Label";
-
-/* Class = "UILabel"; text = "Kuvaus"; ObjectID = "T3b-uU-OzQ"; */
-"T3b-uU-OzQ.text" = "Kuvaus";
-
-/* Class = "UILabel"; text = "-"; ObjectID = "TmE-Hh-2pB"; */
-"TmE-Hh-2pB.text" = "-";
-
-/* Class = "UILabel"; text = "Ei ilmoitettu"; ObjectID = "URZ-To-oNH"; */
-"URZ-To-oNH.text" = "Ei ilmoitettu";
-
-/* Class = "UIButton"; normalTitle = "Tallenna"; ObjectID = "VNj-fa-fTS"; */
-"VNj-fa-fTS.normalTitle" = "Tallenna";
-
-/* Class = "UILabel"; text = "Ei ilmoitettu"; ObjectID = "VgM-ym-leG"; */
-"VgM-ym-leG.text" = "Ei ilmoitettu";
-
-/* Class = "UIButton"; normalTitle = "Suodata"; ObjectID = "WIG-H8-St5"; */
-"WIG-H8-St5.normalTitle" = "Suodata";
-
-/* Class = "UILabel"; text = "-"; ObjectID = "XPq-f4-azY"; */
-"XPq-f4-azY.text" = "-";
+/* Class = "UILabel"; text = "Suosituimmat etuudet"; ObjectID = "caO-9g-9ya"; Note = "Popular coupons"; */
+"caO-9g-9ya.text" = "Suositut etuudet";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "cEt-JC-B6J"; */
 "cEt-JC-B6J.text" = "Otsikko";
 
+/* Class = "UIButton"; normalTitle = "Valitse sijainti kartalta"; ObjectID = "Dbz-e8-YHI"; */
+"Dbz-e8-YHI.normalTitle" = "Valitse sijainti kartalta";
+
+/* Class = "UITabBarItem"; title = "Favourites"; ObjectID = "dWj-tH-NLT"; */
+"dWj-tH-NLT.title" = "Suosikit";
+
 /* Class = "UILabel"; text = "Label"; ObjectID = "ev7-0e-jJI"; */
 "ev7-0e-jJI.text" = "Otsikko";
 
-/* Class = "UINavigationItem"; title = "Suodattimet"; ObjectID = "fck-N6-7KI"; */
+/* Class = "UINavigationItem"; title = "Filters"; ObjectID = "fck-N6-7KI"; */
 "fck-N6-7KI.title" = "Suodattimet";
 
 /* Class = "UIViewController"; title = "Home"; ObjectID = "gLY-4E-wIE"; */
 "gLY-4E-wIE.title" = "Home";
 
-/* Class = "UILabel"; text = "Harrastus"; ObjectID = "gQ1-FC-BtT"; */
+/* Class = "UILabel"; text = "Categories"; ObjectID = "gQ1-FC-BtT"; */
 "gQ1-FC-BtT.text" = "Harrastus";
 
-/* Class = "UILabel"; text = "-"; ObjectID = "iyn-We-wdF"; */
-"iyn-We-wdF.text" = "-";
+/* Class = "UILabel"; text = "Etuja sinulle"; ObjectID = "gxp-Ih-rhM"; Note = "Coupons for you"; */
+"gxp-Ih-rhM.text" = "Etuja sinulle";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "i14-Gu-Dh9"; */
+"i14-Gu-Dh9.title" = "Asetukset";
+
+/* Class = "UITabBarItem"; title = "Promotions"; ObjectID = "jFN-rY-BEP"; */
+"jFN-rY-BEP.title" = "Etuudet";
+
+/* Class = "UINavigationItem"; title = "Promotions"; ObjectID = "k43-ga-gSQ"; */
+"k43-ga-gSQ.title" = "Etuudet";
+
+/* Class = "UINavigationItem"; title = "Categories"; ObjectID = "Kwj-A5-8fD"; */
+"Kwj-A5-8fD.title" = "Kategoriat";
 
 /* Class = "UITabBarItem"; title = "List"; ObjectID = "lr0-Bf-4nI"; */
 "lr0-Bf-4nI.title" = "Lista";
+
+/* Class = "UISearchBar"; placeholder = "Etsi harrastuksia"; ObjectID = "lUa-xN-aUL"; */
+"lUa-xN-aUL.placeholder" = "Etsi harrastuksia";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "mjL-rY-x9o"; */
 "mjL-rY-x9o.text" = "Label";
@@ -89,20 +81,41 @@
 /* Class = "UILabel"; text = "Viimeisimmät sijaintini"; ObjectID = "mmD-Nn-PpK"; */
 "mmD-Nn-PpK.text" = "Viimeisimmät sijaintini";
 
-/* Class = "UILabel"; text = "Viikonpäivä"; ObjectID = "nid-CB-x06"; */
+/* Class = "UILabel"; text = "Starting Time"; ObjectID = "MW8-uR-KDS"; */
+"MW8-uR-KDS.text" = "Kellonaika";
+
+/* Class = "UILabel"; text = "Weekday"; ObjectID = "nid-CB-x06"; */
 "nid-CB-x06.text" = "Viikonpäivä";
 
 /* Class = "UINavigationController"; title = "Home"; ObjectID = "og6-76-G8s"; */
 "og6-76-G8s.title" = "Koti";
 
+/* Class = "UILabel"; text = "Category Name"; ObjectID = "P1w-Cy-Jh6"; */
+"P1w-Cy-Jh6.text" = "Kategorian nimi";
+
 /* Class = "UILabel"; text = "Category Name"; ObjectID = "pzy-c0-jbb"; */
 "pzy-c0-jbb.text" = "Kategorian nimi";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Qrc-9U-Scl"; */
+"Qrc-9U-Scl.text" = "Label";
+
+/* Class = "UILabel"; text = "Harrastuksia sinulle"; ObjectID = "R2r-sK-IAN"; Note = "Hobbies for you"; */
+"R2r-sK-IAN.text" = "Harrastuksia sinulle";
 
 /* Class = "UIViewController"; title = "Asetukset"; ObjectID = "rd6-a8-1JL"; */
 "rd6-a8-1JL.title" = "Asetukset";
 
-/* Class = "UILabel"; text = "Ei ilmoitettu"; ObjectID = "sot-Ua-k9k"; */
+/* Class = "UINavigationItem"; title = "Home"; ObjectID = "RNg-JY-lz1"; */
+"RNg-JY-lz1.title" = "Harrastukset";
+
+/* Class = "UILabel"; text = "N/A"; ObjectID = "sot-Ua-k9k"; */
 "sot-Ua-k9k.text" = "Ei ilmoitettu";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "T3b-uU-OzQ"; */
+"T3b-uU-OzQ.text" = "Kuvaus";
+
+/* Class = "UINavigationItem"; title = "Favorites"; ObjectID = "TI2-5Y-oJc"; */
+"TI2-5Y-oJc.title" = "Suosikit";
 
 /* Class = "UIButton"; normalTitle = "Salli sijainnin käyttö asetuksista"; ObjectID = "tKz-CQ-IZJ"; */
 "tKz-CQ-IZJ.normalTitle" = "Salli sijainnin käyttö asetuksista";
@@ -110,48 +123,167 @@
 /* Class = "UILabel"; text = "Käytä nykyistä sijaintiani"; ObjectID = "tl7-WS-kRr"; */
 "tl7-WS-kRr.text" = "Käytä nykyistä sijaintiani";
 
-/* Class = "UILabel"; text = "KAUPUNKI"; ObjectID = "tqf-Uu-4vO"; */
-"tqf-Uu-4vO.text" = "KAUPUNKI";
+/* Class = "UILabel"; text = "Ei ilmoitettu"; ObjectID = "URZ-To-oNH"; */
+"URZ-To-oNH.text" = "Ei ilmoitettu";
+
+/* Class = "UILabel"; text = "N/A"; ObjectID = "VgM-ym-leG"; */
+"VgM-ym-leG.text" = "Ei ilmoitettu";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "VNj-fa-fTS"; */
+"VNj-fa-fTS.normalTitle" = "Tallenna";
+
+/* Class = "UILabel"; text = "Etuus käytetty"; ObjectID = "vq3-HU-1gp"; */
+"vq3-HU-1gp.text" = "Etuus käytetty";
 
 /* Class = "UILabel"; text = "Sijaintini"; ObjectID = "vQr-vF-0VT"; */
 "vQr-vF-0VT.text" = "Sijaintini";
 
-"aiY-KQ-qLw.text" = "Lisää harrastuksia suosikeiksi ja näet ne täällä."
+/* Class = "UIButton"; normalTitle = "Filter"; ObjectID = "WIG-H8-St5"; */
+"WIG-H8-St5.normalTitle" = "Suodata";
 
-"R1V-lO-ViV.title" = "Kartta";
-
-"TI2-5Y-oJc.title" = "Suosikit";
-
-"RNg-JY-lz1.title" = "Harrastukset";
-
-"i14-Gu-Dh9.title" = "Asetukset";
-
-"dWj-tH-NLT.title" = "Suosikit";
-
-"lr0-Bf-4nI.title" = "Lista";
-
-"ABs-rF-7Ug.title" = "Asetukset";
-
-"jFN-rY-BEP.title" = "Etuudet";
-
-"k43-ga-gSQ.title" = "Etuudet";
-
+/* Class = "UISearchBar"; placeholder = "Etsi harrastuksia"; ObjectID = "WZ6-Tb-37v"; Note = "Search bar"; */
 "WZ6-Tb-37v.placeholder" = "Etsi harrastuksia";
 
-"caO-9g-9ya.text" = "Suositut etuudet";
-
-"gxp-Ih-rhM.text" = "Etuja sinulle";
-
-"2nu-nh-xvQ.text" = "Suosituimmat harrastukset";
-
-"R2r-sK-IAN.text" = "Harrastuksia sinulle";
-
-"vq3-HU-1gp.text" = "Etuus käytetty";
-
+/* Class = "UILabel"; text = "Vain maksuttomat harrastukset"; ObjectID = "Zk4-bD-wHP"; */
 "Zk4-bD-wHP.text" = "Näytä vain maksuttomat";
 
-"u52-1f-bvP.placeholder" = "Etsi harrastuksia";
+/* Class = "UILabel"; text = "Näet täällä alueellasi tarjottavia etuuksia kun niitä lisätään Harrastuspassiin."; ObjectID = "1PF-m8-oZl"; */
+"1PF-m8-oZl.text" = "Näet täällä alueellasi tarjottavia etuuksia kun niitä lisätään Harrastuspassiin.";
 
-"lUa-xN-aUL.placeholder" = "Etsi harrastuksia";
+/* Class = "UILabel"; text = "Label"; ObjectID = "21q-nF-zd9"; */
+"21q-nF-zd9.text" = "Label";
 
-"RNg-JY-lz1.title" = "Lista";
+/* Class = "UILabel"; text = "Voimassa: 12.12.2020"; ObjectID = "2ZJ-Cq-NZq"; */
+"2ZJ-Cq-NZq.text" = "Voimassa: 12.12.2020";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "5Tf-zg-UIg"; */
+"5Tf-zg-UIg.title" = "Koti";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "5U9-C5-IO0"; */
+"5U9-C5-IO0.text" = "Label";
+
+/* Class = "UILabel"; text = "Jäljellä: 0"; ObjectID = "6tK-Rp-4Z7"; */
+"6tK-Rp-4Z7.text" = "Jäljellä";
+
+/* Class = "UILabel"; text = "Osoite"; ObjectID = "844-xE-r2b"; */
+"844-xE-r2b.text" = "Osoite";
+
+/* Class = "UINavigationController"; title = "Harrastuspassi"; ObjectID = "8Ee-6B-kea"; */
+"8Ee-6B-kea.title" = "Harrastuspassi";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "a4f-LN-xxh"; */
+"a4f-LN-xxh.text" = "Label";
+
+/* Class = "UILabel"; text = "31.12.2020"; ObjectID = "a8G-Ie-dlu"; */
+"a8G-Ie-dlu.text" = "31.12.2020";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "AH9-Vc-YAE"; */
+"AH9-Vc-YAE.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Suodata"; ObjectID = "aYq-xw-ybl"; */
+"aYq-xw-ybl.normalTitle" = "Suodata";
+
+/* Class = "UINavigationItem"; title = "Harrastuspassi"; ObjectID = "bxh-ak-Rah"; */
+"bxh-ak-Rah.title" = "Harrastuspassi";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "d5v-4M-suJ"; */
+"d5v-4M-suJ.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "dDK-Lj-10l"; */
+"dDK-Lj-10l.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "dqe-kk-BGv"; */
+"dqe-kk-BGv.text" = "Label";
+
+/* Class = "UILabel"; text = "Osoite"; ObjectID = "GDM-nc-sbK"; */
+"GDM-nc-sbK.text" = "Osoite";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Gjq-Zz-1hg"; */
+"Gjq-Zz-1hg.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "gUf-n3-jpJ"; */
+"gUf-n3-jpJ.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "GXf-gG-1Gd"; */
+"GXf-gG-1Gd.text" = "Label";
+
+/* Class = "UIViewController"; title = "Harrastuspassi"; ObjectID = "Hh2-0W-Qfq"; */
+"Hh2-0W-Qfq.title" = "Harrastuspassi";
+
+/* Class = "UILabel"; text = "Etuuden otsikko"; ObjectID = "hlw-7c-i8a"; */
+"hlw-7c-i8a.text" = "Etuuden otsikko";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "ksN-ie-c9s"; */
+"ksN-ie-c9s.title" = "Item";
+
+/* Class = "UILabel"; text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."; ObjectID = "mbl-mr-wsm"; */
+"mbl-mr-wsm.text" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+
+/* Class = "UIButton"; normalTitle = "Kartta"; ObjectID = "MJv-59-6zt"; */
+"MJv-59-6zt.normalTitle" = "Kartta";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "mWW-bW-n8r"; */
+"mWW-bW-n8r.text" = "Label";
+
+/* Class = "UILabel"; text = "Harrastuksen otsikko"; ObjectID = "NbX-Kt-mD6"; */
+"NbX-Kt-mD6.text" = "Harrastuksen otsikko";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "oeE-bA-g2E"; */
+"oeE-bA-g2E.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "OnR-fS-HYY"; */
+"OnR-fS-HYY.title" = "Item";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Ot3-sG-ciV"; */
+"Ot3-sG-ciV.text" = "Label";
+
+/* Class = "UILabel"; text = "Wednesday"; ObjectID = "Ow7-ZT-EGl"; */
+"Ow7-ZT-EGl.text" = "Keskiviikko";
+
+/* Class = "UILabel"; text = "00:00-00:00"; ObjectID = "q2l-Ea-vI7"; */
+"q2l-Ea-vI7.text" = "00:00-00:00";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Qbt-Nn-HVL"; */
+"Qbt-Nn-HVL.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "QjK-gV-43D"; */
+"QjK-gV-43D.text" = "Label";
+
+/* Class = "UILabel"; text = "Voimassa 1.1.2019 - 1.1.2020"; ObjectID = "QR6-az-ohv"; */
+"QR6-az-ohv.text" = "Voimassa 1.1.2019 - 1.1.2020";
+
+/* Class = "UILabel"; text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."; ObjectID = "SER-Hs-DLm"; */
+"SER-Hs-DLm.text" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+
+/* Class = "UINavigationItem"; title = "Map"; ObjectID = "Shj-Hm-w15"; */
+"Shj-Hm-w15.title" = "Kartta";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "SQ7-fW-c3h"; */
+"SQ7-fW-c3h.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Tf7-Gx-kyC"; */
+"Tf7-Gx-kyC.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "tJF-Vn-AvP"; */
+"tJF-Vn-AvP.text" = "Label";
+
+/* Class = "UILabel"; text = "Etuuden otsikko"; ObjectID = "UaU-GA-nk2"; */
+"UaU-GA-nk2.text" = "Etuuden otsikko";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "uYH-V1-f9E"; */
+"uYH-V1-f9E.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "v0h-hI-FQP"; */
+"v0h-hI-FQP.text" = "Label";
+
+/* Class = "UILabel"; text = "KAUPUNKI"; ObjectID = "VTb-sA-zqP"; */
+"VTb-sA-zqP.text" = "KAUPUNKI";
+
+/* Class = "UILabel"; text = "OSOITE"; ObjectID = "xHB-eC-eIG"; */
+"xHB-eC-eIG.text" = "OSOITE";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "zit-eP-jhR"; */
+"zit-eP-jhR.text" = "Label";
+
+/* Class = "UILabel"; text = "Osoite"; ObjectID = "zOZ-Vp-mdx"; */
+"zOZ-Vp-mdx.text" = "Osoite";

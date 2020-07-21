@@ -54,7 +54,7 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
         slideButton.sliderViewTopDistance = 0;
         slideButton.sliderCornerRadius = 30
         slideButton.sliderHolderView.frame = slideButton.frame;
-        slideButton.defaultSliderBackgroundColor = UIColor(named: "mainColorAlpha")!
+        slideButton.defaultSliderBackgroundColor = UIColor(named: "accentTeal")!
         slideButton.defaultSlidingColor = UIColor(named: "mainColor")!
         slideButton.delegate = self
         

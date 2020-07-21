@@ -1,3 +1,23 @@
+"AddFavorites" = "Lisää harrastuksia suosikeiksi ja näet ne täällä.";
+
+/* No comment provided by engineer. */
+"AllUsed" = "Käytetty loppuun";
+
+/* No comment provided by engineer. */
+"Friday" = "Perjantai";
+
+/* No comment provided by engineer. */
+"Monday" = "Maanantai";
+
+/* No comment provided by engineer. */
+"No hobby events." = "Ei harrastustapahtumia.";
+
+/* No comment provided by engineer. */
+"Remaining" = "Jäljellä: %@";
+
+/* No comment provided by engineer. */
+"Saturday" = "Lauantai";
+
 /* 
   Localizable.strings
   Harrastuspassi
@@ -5,21 +25,103 @@
   Created by Eetu Kallio on 12/09/2019.
   Copyright © 2019 Haltu. All rights reserved.
 */
-
 "Something went wrong." = "Jokin meni vikaan.";
-"No hobby events." = "Ei harrastustapahtumia.";
-"AddFavorites" = "Lisää harrastuksia suosikeiksi ja näet ne täällä.";
 
-"Monday" = "Maanantai";
-"Tuesday" = "Tiistai";
-"Wednesday" = "Keskiviikko";
-"Thursday" = "Torstai";
-"Friday" = "Perjantai";
-"Saturday" = "Lauantai";
+/* No comment provided by engineer. */
 "Sunday" = "Sunnuntai";
 
-"ValidUntil" = "Voimassa %@ saakka";
-"Remaining" = "Jäljellä: %@";
-"AllUsed" = "Käytetty loppuun";
+/* No comment provided by engineer. */
 "SwipeToUse" = "Vedä käyttääksesi";
 
+/* No comment provided by engineer. */
+"Thursday" = "Torstai";
+
+/* No comment provided by engineer. */
+"Tuesday" = "Tiistai";
+
+/* No comment provided by engineer. */
+"ValidUntil" = "Voimassa %@ saakka";
+
+/* No comment provided by engineer. */
+"Wednesday" = "Keskiviikko";
+
+/* Error message */
+"Already retrieving link" = "";
+
+/* Error reason message when API key is missing */
+"API key is missing." = "";
+
+/* The name of the app to display in a navigation bar along with a placeholder for the SDK version number */
+"App.NameAndVersion" = "";
+
+/* Back */
+"Back" = "";
+
+/* Prompt to enter text for autocomplete demo */
+"Demo.Content.Autocomplete.EnterTextPrompt" = "";
+
+/* Format string for 'autocomplete failed with error' message */
+"Demo.Content.Autocomplete.FailedErrorMessage" = "";
+
+/* Button title for 'show autocomplete widget' */
+"Demo.Content.Autocomplete.ShowWidgetButton" = "";
+
+/* Button title for the 'BlueColors' styled autocomplete widget. */
+"Demo.Content.Autocomplete.Styling.Colors.BlueColors" = "";
+
+/* Button title for the 'Hot Dog Stand' styled autocomplete widget. */
+"Demo.Content.Autocomplete.Styling.Colors.HotDogStand" = "";
+
+/* Button title for the 'WhiteOnBlack' styled autocomplete widget. */
+"Demo.Content.Autocomplete.Styling.Colors.WhiteOnBlack" = "";
+
+/* Button title for the 'Yellow and Brown' styled autocomplete widget. */
+"Demo.Content.Autocomplete.Styling.Colors.YellowAndBrown" = "";
+
+/* String for 'autocomplete canceled message' */
+"Demo.Content.Autocomplete.WasCanceledMessage" = "";
+
+/* Title of the autocomplete demo section */
+"Demo.Section.Title.Autocomplete" = "";
+
+/* Title of the findPlaceLikelihood demo section */
+"Demo.Section.Title.FindPlaceLikelihood" = "";
+
+/* Title of the full-screen autocomplete demo for display in a list or nav header */
+"Demo.Title.Autocomplete.FullScreen" = "";
+
+/* Title of the pushed autocomplete demo for display in a list or nav header */
+"Demo.Title.Autocomplete.Push" = "";
+
+/* Title of the Styling autocomplete demo for display in a list or nav header */
+"Demo.Title.Autocomplete.Styling" = "";
+
+/* Title of the UISearchController autocomplete demo for display in a list or nav header */
+"Demo.Title.Autocomplete.UISearchController" = "";
+
+/* Title of the UITextField autocomplete demo for display in a list or nav header */
+"Demo.Title.Autocomplete.UITextField" = "";
+
+/* Button title for 'Photos' */
+"Demo.Title.Photos" = "";
+
+/* Error message */
+"Link was already retrieved" = "";
+
+/* Maps SDK Demos */
+"Maps SDK Demos" = "";
+
+/* Message when dynamic link was not found */
+"Pending dynamic link not found" = "";
+
+/* Samples */
+"Samples" = "";
+
+/* No comment provided by engineer. */
+"Something went wrong" = "";
+
+/* Error reason when long url can't be produced */
+"Unable to produce long URL" = "";
+
+/* Error reason message when server response can't be parsed */
+"Unrecognized server response" = "";
