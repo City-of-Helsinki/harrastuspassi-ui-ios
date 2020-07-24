@@ -282,8 +282,14 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         let timeOutputFormatter = DateFormatter()
         timeOutputFormatter.dateFormat = "HH:mm"
         if let date = getDateFormatter.date(from: d), let time = getTimeFormatter.date(from: t), let endTime = getTimeFormatter.date(from: et) {
-            cell.dateLabel.text = dateOutputDateFormatter.string(from: date);
-            cell.timeLabel.text = timeOutputFormatter.string(from: time) + "-" + timeOutputFormatter.string(from: endTime)
+            if timeOutputFormatter.string(from: time) == "00:00" && timeOutputFormatter.string(from: endTime) == "00:00" {
+                cell.timeLabel.text = "-"
+            } else {
+                cell.dateLabel.text = dateOutputDateFormatter.string(from: date);
+                cell.timeLabel.text = timeOutputFormatter.string(from: time) + "-" + timeOutputFormatter.string(from: endTime)
+
+            }
+            
         }
         return cell;
     }
