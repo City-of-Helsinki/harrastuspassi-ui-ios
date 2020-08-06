@@ -143,7 +143,7 @@
 "WZ6-Tb-37v.placeholder" = "Sök";
 
 /* Class = "UILabel"; text = "Vain maksuttomat harrastukset"; ObjectID = "Zk4-bD-wHP"; */
-"Zk4-bD-wHP.text" = "Näytä vain maksuttomat";
+"Zk4-bD-wHP.text" = "Visa bara gratis";
 
 "u52-1f-bvP.placeholder" = "Sök";
 
@@ -154,7 +154,7 @@
 "21q-nF-zd9.text" = "";
 
 /* Class = "UILabel"; text = "Voimassa: 12.12.2020"; ObjectID = "2ZJ-Cq-NZq"; */
-"2ZJ-Cq-NZq.text" = "";
+"2ZJ-Cq-NZq.text" = "Giltig 12.12.2020";
 
 /* Class = "UITabBarItem"; title = "Home"; ObjectID = "5Tf-zg-UIg"; */
 "5Tf-zg-UIg.title" = "Hem";
@@ -163,7 +163,7 @@
 "5U9-C5-IO0.text" = "";
 
 /* Class = "UILabel"; text = "Jäljellä: 0"; ObjectID = "6tK-Rp-4Z7"; */
-"6tK-Rp-4Z7.text" = "";
+"6tK-Rp-4Z7.text" = "Kvar";
 
 /* Class = "UILabel"; text = "Osoite"; ObjectID = "844-xE-r2b"; */
 "844-xE-r2b.text" = "Adress";
@@ -210,8 +210,8 @@
 /* Class = "UIViewController"; title = "Harrastuspassi"; ObjectID = "Hh2-0W-Qfq"; */
 "Hh2-0W-Qfq.title" = "Harrastuspassi";
 
-/* Class = "UILabel"; text = "Etuuden otiskko"; ObjectID = "hlw-7c-i8a"; */
-"hlw-7c-i8a.text" = "";
+/* Class = "UILabel"; text = "Etuuden otsikko"; ObjectID = "hlw-7c-i8a"; */
+"hlw-7c-i8a.text" = "Förmånens titel";
 
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "ksN-ie-c9s"; */
 "ksN-ie-c9s.title" = "";
@@ -226,7 +226,7 @@
 "mWW-bW-n8r.text" = "";
 
 /* Class = "UILabel"; text = "Harrastuksen otsikko"; ObjectID = "NbX-Kt-mD6"; */
-"NbX-Kt-mD6.text" = "";
+"NbX-Kt-mD6.text" = "Hobby titel";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "oeE-bA-g2E"; */
 "oeE-bA-g2E.text" = "";
@@ -238,7 +238,7 @@
 "Ot3-sG-ciV.text" = "";
 
 /* Class = "UILabel"; text = "Wednesday"; ObjectID = "Ow7-ZT-EGl"; */
-"Ow7-ZT-EGl.text" = "";
+"Ow7-ZT-EGl.text" = "Onsdag";
 
 /* Class = "UILabel"; text = "00:00-00:00"; ObjectID = "q2l-Ea-vI7"; */
 "q2l-Ea-vI7.text" = "";
@@ -250,7 +250,7 @@
 "QjK-gV-43D.text" = "";
 
 /* Class = "UILabel"; text = "Voimassa 1.1.2019 - 1.1.2020"; ObjectID = "QR6-az-ohv"; */
-"QR6-az-ohv.text" = "";
+"QR6-az-ohv.text" = "Giltig 1.1.2019 - 1.1.2020";
 
 /* Class = "UILabel"; text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."; ObjectID = "SER-Hs-DLm"; */
 "SER-Hs-DLm.text" = "";
@@ -268,7 +268,7 @@
 "tJF-Vn-AvP.text" = "";
 
 /* Class = "UILabel"; text = "Etuuden otsikko"; ObjectID = "UaU-GA-nk2"; */
-"UaU-GA-nk2.text" = "";
+"UaU-GA-nk2.text" = "Förmånens titel";
 
 /* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "uYH-V1-f9E"; */
 "uYH-V1-f9E.text" = "";
@@ -277,10 +277,10 @@
 "v0h-hI-FQP.text" = "";
 
 /* Class = "UILabel"; text = "KAUPUNKI"; ObjectID = "VTb-sA-zqP"; */
-"VTb-sA-zqP.text" = "";
+"VTb-sA-zqP.text" = "STAD";
 
 /* Class = "UILabel"; text = "OSOITE"; ObjectID = "xHB-eC-eIG"; */
-"xHB-eC-eIG.text" = "";
+"xHB-eC-eIG.text" = "ADRESS";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "zit-eP-jhR"; */
 "zit-eP-jhR.text" = "";
