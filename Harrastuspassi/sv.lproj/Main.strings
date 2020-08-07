@@ -29,7 +29,7 @@
 "BBR-vC-jZW.text" = "00:00";
 
 /* Class = "UILabel"; text = "Suosituimmat etuudet"; ObjectID = "caO-9g-9ya"; Note = "Popular coupons"; */
-"caO-9g-9ya.text" = "Populära kuponger";
+"caO-9g-9ya.text" = "Populära förmåner";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "cEt-JC-B6J"; */
 "cEt-JC-B6J.text" = "Label";
@@ -53,16 +53,16 @@
 "gQ1-FC-BtT.text" = "Hobby";
 
 /* Class = "UILabel"; text = "Etuja sinulle"; ObjectID = "gxp-Ih-rhM"; Note = "Coupons for you"; */
-"gxp-Ih-rhM.text" = "Kuponger för dig";
+"gxp-Ih-rhM.text" = "Förmåner för dig";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "i14-Gu-Dh9"; */
 "i14-Gu-Dh9.title" = "Inställningar";
 
 /* Class = "UITabBarItem"; title = "Promotions"; ObjectID = "jFN-rY-BEP"; */
-"jFN-rY-BEP.title" = "Kuponger";
+"jFN-rY-BEP.title" = "Förmåner";
 
 /* Class = "UINavigationItem"; title = "Promotions"; ObjectID = "k43-ga-gSQ"; */
-"k43-ga-gSQ.title" = "Kuponger";
+"k43-ga-gSQ.title" = "Förmåner";
 
 /* Class = "UINavigationItem"; title = "Categories"; ObjectID = "Kwj-A5-8fD"; */
 "Kwj-A5-8fD.title" = "Kategorier";
@@ -131,7 +131,7 @@
 "VNj-fa-fTS.normalTitle" = "Spara";
 
 /* Class = "UILabel"; text = "Etuus käytetty"; ObjectID = "vq3-HU-1gp"; */
-"vq3-HU-1gp.text" = "Kupongen redan används";
+"vq3-HU-1gp.text" = "Förmånen redan används";
 
 /* Class = "UILabel"; text = "Sijaintini"; ObjectID = "vQr-vF-0VT"; */
 "vQr-vF-0VT.text" = "Min plats";
@@ -288,4 +288,4 @@
 /* Class = "UILabel"; text = "Osoite"; ObjectID = "zOZ-Vp-mdx"; */
 "zOZ-Vp-mdx.text" = "Adress";
 
-"XQB-cY-IRG.placeholder" = "Sök kuponger";
+"XQB-cY-IRG.placeholder" = "Sök förmåner";
