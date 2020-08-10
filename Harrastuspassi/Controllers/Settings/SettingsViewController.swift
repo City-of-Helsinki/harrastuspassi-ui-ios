@@ -267,17 +267,17 @@ import CoreLocation
             let appearance = UINavigationBarAppearance()
 
             // title color
-            appearance.titleTextAttributes = [.foregroundColor: UIColor(named: "mainColor") ?? UIColor.black]
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
 
             // large title color
-            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "mainColor") ?? UIColor.black]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
 
             // background color
-            appearance.backgroundColor = UIColor.white
+            appearance.backgroundColor = UIColor(named: "mainColor")
 
             // bar button styling
             let barButtonItemApperance = UIBarButtonItemAppearance()
-            barButtonItemApperance.normal.titleTextAttributes = [.foregroundColor: UIColor(named: "mainColor") ?? UIColor.black]
+            barButtonItemApperance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
 
             appearance.backButtonAppearance = barButtonItemApperance
 
@@ -289,7 +289,7 @@ import CoreLocation
             // by default, scrollEdgeAppearance will have a transparent background
             self.navigationController?.navigationController?.navigationBar.scrollEdgeAppearance = appearance
             self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
-            UINavigationBar.appearance().tintColor = UIColor(named: "mainColor")
+            UINavigationBar.appearance().tintColor = .white
         }
 
         // the back icon color
