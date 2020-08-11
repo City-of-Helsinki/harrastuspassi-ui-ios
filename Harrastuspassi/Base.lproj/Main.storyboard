@@ -1385,7 +1385,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Unk-uH-SFt">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="724"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="bgGrey"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryFilterCell" rowHeight="48" id="DrX-js-aNf" customClass="CategoryFilterTableViewCell" customModule="Harrastuspassi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="48"/>
@@ -1401,6 +1401,14 @@
                                                         <constraint firstAttribute="width" constant="30" id="tni-X1-TWC"/>
                                                     </constraints>
                                                     <state key="normal" image="ic_check"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="checkmarkButtonPressed:" destination="DrX-js-aNf" eventType="touchUpInside" id="z0Q-OF-Tkn"/>
                                                     </connections>
@@ -1462,7 +1470,6 @@
                                 <color key="backgroundColor" name="mainColor"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="VNj-fa-fTS" firstAttribute="trailing" secondItem="RNe-s0-ojh" secondAttribute="trailing" id="6e8-GM-6Wz"/>
                             <constraint firstItem="VNj-fa-fTS" firstAttribute="bottom" secondItem="RNe-s0-ojh" secondAttribute="bottom" id="Ae2-wE-Bsq"/>
