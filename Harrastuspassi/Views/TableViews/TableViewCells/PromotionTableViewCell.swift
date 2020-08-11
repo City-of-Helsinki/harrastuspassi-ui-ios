@@ -19,7 +19,7 @@ class PromotionTableViewCell: UITableViewCell {
 
     
     func setUsedAppearance() {
-        cardView.layer.opacity = 0.5;
+        cardView.layer.opacity = 0.2;
     }
 
     func setPromotion(_ promotion: PromotionData) {
