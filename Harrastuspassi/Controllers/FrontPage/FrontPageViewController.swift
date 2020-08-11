@@ -185,7 +185,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
             appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
 
             // large title color
-            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "clusterIconBg")!]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
 
             // background color
             appearance.backgroundColor = UIColor(named: "mainColor")

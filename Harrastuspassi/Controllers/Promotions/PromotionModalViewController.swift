@@ -18,6 +18,7 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var availableLabel: UILabel!
     @IBOutlet weak var slideButton: MTSlideToOpenView!
+    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var promotionImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -61,6 +62,8 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
         slideButton.defaultLabelText = NSLocalizedString("SwipeToUse", comment: "");
         slideButton.thumnailImageView.image = UIImage(named: "ic_local_activity")
         slideButton.defaultThumbnailColor = UIColor(named: "mainColor")!
+        closeButton.layer.cornerRadius = 15;
+        closeButton.clipsToBounds = true;
         
         if promotion.isUsed() {
             slideButton.isHidden = true;
@@ -77,7 +80,12 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
 
         // Do any additional setup after loading the view.
     }
-
+    
+    
+    @IBAction func closeButtonClicked(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil);
+    }
+    
     /*
     // MARK: - Navigation
 

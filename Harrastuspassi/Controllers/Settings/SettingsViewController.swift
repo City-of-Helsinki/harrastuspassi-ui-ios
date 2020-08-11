@@ -171,7 +171,11 @@ import CoreLocation
         let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell") as! LocationTableViewCell;
         cell.accessoryType = .none;
         cell.addressLabel.adjustsFontSizeToFitWidth = true;
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.clear
+        cell.selectedBackgroundView = bgColorView
         cell.tintColor = .green;
+        cell.backgroundColor = .clear
         if let currentLocation = selectedLocation {
             if currentLocation.lat == savedLocations[indexPath.row].lat && currentLocation.lon == savedLocations[indexPath.row].lon {
                 cell.accessoryType = .checkmark;
@@ -228,7 +232,7 @@ import CoreLocation
         selectLocation(location: savedLocations[indexPath.row]);
         let cell = tableView.cellForRow(at: indexPath) as! LocationTableViewCell;
         
-        cell.addressLabel.textColor = .white;
+        cell.addressLabel.textColor = .black;
         feedbackGenerator.selectionChanged();
         saveStatus()
         
@@ -267,17 +271,17 @@ import CoreLocation
             let appearance = UINavigationBarAppearance()
 
             // title color
-            appearance.titleTextAttributes = [.foregroundColor: UIColor(named: "mainColor") ?? UIColor.black]
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
 
             // large title color
-            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "mainColor") ?? UIColor.black]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
 
             // background color
-            appearance.backgroundColor = UIColor.white
+            appearance.backgroundColor = UIColor(named: "mainColor")
 
             // bar button styling
             let barButtonItemApperance = UIBarButtonItemAppearance()
-            barButtonItemApperance.normal.titleTextAttributes = [.foregroundColor: UIColor(named: "mainColor") ?? UIColor.black]
+            barButtonItemApperance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
 
             appearance.backButtonAppearance = barButtonItemApperance
 
@@ -289,7 +293,7 @@ import CoreLocation
             // by default, scrollEdgeAppearance will have a transparent background
             self.navigationController?.navigationController?.navigationBar.scrollEdgeAppearance = appearance
             self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
-            UINavigationBar.appearance().tintColor = UIColor(named: "mainColor")
+            UINavigationBar.appearance().tintColor = .white
         }
 
         // the back icon color
