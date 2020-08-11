@@ -171,7 +171,11 @@ import CoreLocation
         let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell") as! LocationTableViewCell;
         cell.accessoryType = .none;
         cell.addressLabel.adjustsFontSizeToFitWidth = true;
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.clear
+        cell.selectedBackgroundView = bgColorView
         cell.tintColor = .green;
+        cell.backgroundColor = .clear
         if let currentLocation = selectedLocation {
             if currentLocation.lat == savedLocations[indexPath.row].lat && currentLocation.lon == savedLocations[indexPath.row].lon {
                 cell.accessoryType = .checkmark;
@@ -228,7 +232,7 @@ import CoreLocation
         selectLocation(location: savedLocations[indexPath.row]);
         let cell = tableView.cellForRow(at: indexPath) as! LocationTableViewCell;
         
-        cell.addressLabel.textColor = .white;
+        cell.addressLabel.textColor = .black;
         feedbackGenerator.selectionChanged();
         saveStatus()
         

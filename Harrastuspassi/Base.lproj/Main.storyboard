@@ -426,7 +426,6 @@
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                             </subviews>
-                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstItem="VTb-sA-zqP" firstAttribute="leading" secondItem="0YS-Wa-uKr" secondAttribute="leading" constant="8" id="NMI-3M-cNG"/>
                                                                                 <constraint firstItem="VTb-sA-zqP" firstAttribute="top" secondItem="0YS-Wa-uKr" secondAttribute="top" constant="8" id="NRh-k9-GEr"/>
@@ -439,14 +438,12 @@
                                                                             </constraints>
                                                                         </view>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" name="bgGrey"/>
                                                                     <constraints>
                                                                         <constraint firstItem="0YS-Wa-uKr" firstAttribute="top" secondItem="rzR-uZ-hmr" secondAttribute="top" id="Pjo-7x-Cq9"/>
                                                                         <constraint firstAttribute="bottom" secondItem="0YS-Wa-uKr" secondAttribute="bottom" id="jqq-7R-xKN"/>
                                                                         <constraint firstItem="0YS-Wa-uKr" firstAttribute="leading" secondItem="rzR-uZ-hmr" secondAttribute="leading" id="vVG-6m-wSZ"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
-                                                                <color key="backgroundColor" name="bgGrey"/>
                                                                 <connections>
                                                                     <outlet property="addressLabel" destination="xHB-eC-eIG" id="GqB-bY-txU"/>
                                                                     <outlet property="cityLabel" destination="VTb-sA-zqP" id="CPW-fd-s91"/>
