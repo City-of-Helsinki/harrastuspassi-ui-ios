@@ -342,6 +342,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
                                       options: .transitionCurlDown,
                                       animations: { self.eventTableView.reloadData() })
                 }
+                self.setUpMapView()
             })
         }
     }
