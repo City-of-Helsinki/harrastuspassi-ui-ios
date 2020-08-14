@@ -75,7 +75,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let defaults = UserDefaults.standard;
-        print("LOCATION UPDATED")
         defaults.set(locations.last?.coordinate.latitude, forKey: DefaultKeys.Location.lat);
         defaults.set(locations.last?.coordinate.longitude, forKey: DefaultKeys.Location.lon);
         if firstRun {
