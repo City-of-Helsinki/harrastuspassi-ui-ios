@@ -12,6 +12,7 @@ class SubCategoryListController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var tableView: CategoryFilterTableView!
+    let cellSpacingHeight: CGFloat = 10
     
 
     var data: [CategoryData]?
@@ -31,28 +32,50 @@ class SubCategoryListController: UIViewController, UITableViewDelegate, UITableV
         tableView.delegate = self
     }
     
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//
+//        if let d = data {
+//            print(d)
+//            return d.count
+//        } else {
+//            return 0
+//        }
+//    }
+    func numberOfSections(in tableView: UITableView) -> Int {
         if let d = data {
-            print(d)
             return d.count
         } else {
-            return 0
+            return 0;
         }
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return cellSpacingHeight
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FilterCell", for: indexPath) as! CategoryFilterTableViewCell
         
         print("Setting cell for:")
         if let d = data {
-            cell.setCategory(category: d[indexPath.row]);
+            cell.setCategory(category: d[indexPath.section]);
             cell.selectionStyle = .none;
-            if d[indexPath.row].childCategories?.count == 0 {
+            if d[indexPath.section].childCategories?.count == 0 {
                 cell.accessoryType = .none
             }
-            if let delegate = selectionDelegate, let id = d[indexPath.row].id {
+            if let delegate = selectionDelegate, let id = d[indexPath.section].id {
                 if delegate.selectedItems.contains(id) {
                     print("selected")
                     cell.categorySelected = true
@@ -60,12 +83,16 @@ class SubCategoryListController: UIViewController, UITableViewDelegate, UITableV
             }
             cell.selectionDelegate = self.selectionDelegate
         }
+        cell.backgroundColor = UIColor.white
+        cell.layer.cornerRadius = 16
+        cell.clipsToBounds = true
+
         return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let subvc = segue.destination as? SubCategoryListController,
-            let index = tableView.indexPathForSelectedRow?.row
+            let index = tableView.indexPathForSelectedRow?.section
             else {
                 return
         }
@@ -78,7 +105,7 @@ class SubCategoryListController: UIViewController, UITableViewDelegate, UITableV
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "showSub" {
-            let index = tableView.indexPathForSelectedRow?.row
+            let index = tableView.indexPathForSelectedRow?.section
             if let i = index, let d = data, let cg = d[i].childCategories, cg.count == 0 {
                 return false
             }

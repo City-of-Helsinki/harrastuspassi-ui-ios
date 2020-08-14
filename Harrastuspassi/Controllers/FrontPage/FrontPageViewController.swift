@@ -54,7 +54,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+//        addNavBarImage()
         promotionCollectionView.delegate = self;
         promotionCollectionView.dataSource = self;
         hobbyCollectionView.delegate = self;
@@ -110,7 +110,6 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         
         let categoryUrl = Config.API_URL + "hobbycategories/";
-        
         AF.request(categoryUrl, method: .get).response { response in
             debugPrint(response);
             if let fetchedData = response.data {
@@ -176,6 +175,19 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
 
         return true;
     }
+    
+//    func addNavBarImage() {
+//        let navController = navigationController!
+//        let image = UIImage(named: "frontpage_logo")
+//        let imageView = UIImageView(image: image)
+//        let bannerWidth = navController.navigationBar.frame.size.width
+//        let bannerHeight = navController.navigationBar.frame.size.height
+//        let bannerX = bannerWidth / 2 - (image?.size.width)! / 2
+//        let bannerY = bannerHeight / 2 - (image?.size.height)! / 2
+//        imageView.frame = CGRect(x: 16, y: 16, width: bannerWidth, height: bannerHeight)
+//        imageView.contentMode = .scaleAspectFit
+//        navigationItem.titleView = imageView
+//    }
     
     func setupNavBar() {
         if #available(iOS 13, *) {
