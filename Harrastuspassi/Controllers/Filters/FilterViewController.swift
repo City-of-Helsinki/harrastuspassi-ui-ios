@@ -21,6 +21,7 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     var weekdays = Weekdays().list;
     var filters = Filters();
     var defaults = UserDefaults.standard;
+    var freeOnly = false;
     
     
     
@@ -39,6 +40,9 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     @IBOutlet weak var categoryCollectionContainerHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var freeOnlySwitch: UISwitch!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,6 +51,7 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         weekdayCollectionView.delegate = self
         weekdayCollectionView.dataSource = self
         timeSlider.delegate = self;
+        freeOnlySwitch.setOn(false, animated: false);
         navBar.layer.zPosition = .greatestFiniteMagnitude
         
         // Do any additional setup after loading the view.
@@ -67,14 +72,23 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
             filters.times.minTime = minValue;
             filters.times.maxTime = maxValue;
         } else {
-            let minValue: CGFloat = 480;
-            let maxValue: CGFloat = 1260.0;
+            let minValue: CGFloat = 0;
+            let maxValue: CGFloat = 1439;
             
             timeSlider.selectedMinValue = minValue;
             timeSlider.selectedMaxValue = maxValue;
             
             filters.times.minTime = minValue;
             filters.times.maxTime = maxValue;
+        }
+        if let priceType = defaults.string(forKey: DefaultKeys.Filters.priceType) {
+            if priceType == "free" {
+                freeOnlySwitch.setOn(true, animated: false);
+                freeOnly = true;
+            } else {
+                freeOnlySwitch.setOn(false, animated: false);
+                freeOnly = false;
+            }
         }
         minTimeLabel.text = Utils.formatTimeFrom(float: filters.times.minTime);
         maxTimeLabel.text = Utils.formatTimeFrom(float: filters.times.maxTime);
@@ -174,29 +188,31 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
                 cell.titleLabel.text = data[selectedCategories[indexPath.item]]?.name
                 cell.titleLabel.sizeToFit()
             }
+            cell.layer.cornerRadius = 10;
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weekdayCell", for: indexPath) as! WeekdayCollectionViewCell
             
             print("Setting cell for:")
             cell.titleLabel.adjustsFontSizeToFitWidth = true;
+            cell.layer.cornerRadius = 20;
             if indexPath.section == 0 {
                 cell.titleLabel.text = weekdays[indexPath.item].name
                 if selectedWeekdays.count > 0, selectedWeekdays.contains(weekdays[indexPath.item].id) {
-                    cell.backgroundColor = UIColor(red:0.19, green:0.08, blue:0.43, alpha:1.0);
+                    cell.backgroundColor = Colors.bgMain;
                     cell.titleLabel.textColor = .white;
                 } else {
                     cell.backgroundColor = .white;
-                    cell.titleLabel.textColor = UIColor(red:0.19, green:0.08, blue:0.43, alpha:1.0);
+                    cell.titleLabel.textColor = UIColor.init(named: "darkGrey");
                 }
             } else {
                 cell.titleLabel.text = weekdays[6].name
                 if selectedWeekdays.contains(7) {
-                    cell.backgroundColor = UIColor(red:0.19, green:0.08, blue:0.43, alpha:1.0);
+                    cell.backgroundColor = Colors.bgMain;
                     cell.titleLabel.textColor = .white;
                 } else {
                     cell.backgroundColor = .white;
-                    cell.titleLabel.textColor = UIColor(red:0.19, green:0.08, blue:0.43, alpha:1.0);
+                    cell.titleLabel.textColor = UIColor.init(named: "darkGrey");
                 }
             }
             
@@ -305,6 +321,7 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         filters.weekdays = selectedWeekdays;
         filters.times.maxTime = self.filters.times.maxTime;
         filters.times.minTime = self.filters.times.minTime;
+        filters.price_type = self.filters.price_type;
         if let delegate = self.modalDelegate {
             delegate.didCloseModal(data: filters);
         }
@@ -341,6 +358,13 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         
         print(filters);
+    }
+    @IBAction func toggleFreeOnlySwitch(_ sender: Any) {
+        if(self.freeOnlySwitch.isOn) {
+            self.filters.price_type = "free";
+        } else {
+            self.filters.price_type = nil;
+        }
     }
 }
 

@@ -102,3 +102,5 @@ iOSInjectionProject/
 
 # End of https://www.gitignore.io/api/xcode,swift
 Harrastuspassi/Config.swift
+
+Harrastuspassi/GoogleService-Info.plist

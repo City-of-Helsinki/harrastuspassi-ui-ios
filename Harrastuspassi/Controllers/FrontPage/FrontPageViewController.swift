@@ -22,6 +22,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
     var searchOptions: [CategoryData] = [];
     var recommendedHobbies: [HobbyEventData] = [];
     var recommendedPromotions: [PromotionData] = [];
+    var searchValue = "";
 
     @IBOutlet weak var promotionCollectionView: UICollectionView!
     @IBOutlet weak var promotionBannerContainer: UIView!
@@ -46,13 +47,14 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet weak var searchResultsTableView: UITableView!
     @IBOutlet weak var recommendedPromotionsCollectionView: UICollectionView!
     @IBOutlet weak var recommendedHobbiesCollectionView: UICollectionView!
+    @IBOutlet weak var recommendedPromotionsTitleLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+//        addNavBarImage()
         promotionCollectionView.delegate = self;
         promotionCollectionView.dataSource = self;
         hobbyCollectionView.delegate = self;
@@ -68,6 +70,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         hobbyBannerContainer.layer.cornerRadius = 15;
         hobbyBannerContainer.layer.masksToBounds = true;
         
+        NotificationCenter.default.addObserver(self, selector: #selector(locationPermissionUpdated), name:.locationPermissionsUpdated, object: nil);
         if #available(iOS 13.0, *) {
             self.hero.isEnabled = true;
         } else {
@@ -92,7 +95,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
             hobbyCollectionView.isHidden = true;
         }
         
-        let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "logo_kelt_lil")!,iconInitialSize: CGSize(width: 250, height: 250), backgroundColor: UIColor(red:0.19, green:0.08, blue:0.43, alpha:1.0))
+        let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "logo_kelt_lil")!,iconInitialSize: CGSize(width: 250, height: 250), backgroundColor: Colors.bgMain)
         
         self.searchResultsTableView.dataSource = self;
         self.searchResultsTableView.delegate = self;
@@ -107,7 +110,6 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         
         let categoryUrl = Config.API_URL + "hobbycategories/";
-        
         AF.request(categoryUrl, method: .get).response { response in
             debugPrint(response);
             if let fetchedData = response.data {
@@ -117,6 +119,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
                 }
                 DispatchQueue.main.async(execute: {() in
                     self.categories = categoryData;
+                    print(self.categories)
                     self.searchResultsHeightConstraint.constant = self.searchResultsTableView.contentSize.height;
                 })
             }
@@ -156,6 +159,12 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     */
     
+    @objc
+    func locationPermissionUpdated() {
+        fetchUrl(urlString: Config.API_URL + "hobbyevents/");
+        fetchPromotionsUrl(urlString: Config.API_URL + "promotions/")
+    }
+    
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if (touch.view!.isDescendant(of: searchResultsTableView) || touch.view!.isDescendant(of: promotionCollectionView) || touch.view!.isDescendant(of: hobbyCollectionView) || touch.view!.isDescendant(of: recommendedHobbiesCollectionView) || touch.view!.isDescendant(of: recommendedPromotionsCollectionView)) {
 
@@ -167,6 +176,19 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         return true;
     }
     
+//    func addNavBarImage() {
+//        let navController = navigationController!
+//        let image = UIImage(named: "frontpage_logo")
+//        let imageView = UIImageView(image: image)
+//        let bannerWidth = navController.navigationBar.frame.size.width
+//        let bannerHeight = navController.navigationBar.frame.size.height
+//        let bannerX = bannerWidth / 2 - (image?.size.width)! / 2
+//        let bannerY = bannerHeight / 2 - (image?.size.height)! / 2
+//        imageView.frame = CGRect(x: 16, y: 16, width: bannerWidth, height: bannerHeight)
+//        imageView.contentMode = .scaleAspectFit
+//        navigationItem.titleView = imageView
+//    }
+    
     func setupNavBar() {
         if #available(iOS 13, *) {
             let appearance = UINavigationBarAppearance()
@@ -175,7 +197,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
             appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
 
             // large title color
-            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "clusterIconBg")!]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
 
             // background color
             appearance.backgroundColor = UIColor(named: "mainColor")
@@ -238,7 +260,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
             cell.setHobby(recommendedHobbies[indexPath.row]);
             cell.layer.cornerRadius = 15;
             cell.layer.masksToBounds = true;
-            cell.hero.id = String(indexPath.row);
+            cell.hero.id = "recommended" + String(indexPath.row);
             cell.imageView.hero.id = "image" + String(indexPath.row);
             return cell;
         } else {
@@ -328,10 +350,12 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
         if let fetchedData = data {
-            guard let hobbyData = try? JSONDecoder().decode([HobbyEventData].self, from: fetchedData)
+            guard let response = try? JSONDecoder().decode(HobbyEventResponse.self, from: fetchedData)
                 else {
                     return
             }
+            print(response.results);
+            guard let hobbyData = response.results else {return};
             DispatchQueue.main.async(execute: {() in
                 if(hobbyData.count == 0) {
                     self.hobbyEvents = hobbyData;
@@ -367,22 +391,28 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func doneFetchingPromotions(data: Data?, response: URLResponse?, error: Error?) {
         if let fetchedData = data {
-            guard let promotions = try? JSONDecoder().decode([PromotionData].self, from: fetchedData)
+            guard var promotions = try? JSONDecoder().decode([PromotionData].self, from: fetchedData)
                 else {
                     return
             }
             DispatchQueue.main.async(execute: {() in
+                promotions = promotions.filter { item in
+                    return !item.isUsed();
+                }
                 if(promotions.count == 0) {
                     self.promotions = promotions;
-                    self.promotionCollectionView.reloadData();
+                self.promotionCollectionView.reloadData();
+                    self.recommendedPromotionsTitleLabel.isHidden = true;
                     
                 } else {
+                    
                     self.promotions = promotions.shuffled();
                     self.recommendedPromotions = promotions;
                     self.promotionCollectionView.reloadData();
                     self.promotionBannerContainer.isHidden = false;
                     self.promotionSectionTitleView.isHidden = false;
-                    self.setPromotionBanner(promotions[0]);
+                    self.recommendedPromotionsTitleLabel.isHidden = false;
+                    self.setPromotionBanner(self.promotions[0]);
                     if promotions.count > 1 {
                         self.promotionCollectionView.isHidden = false;
                     }
@@ -401,7 +431,8 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "location_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "organizer_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"))
-        
+        urlComponents?.queryItems?.append(URLQueryItem(name: "exclude_past_events", value: "true"))
+    
         let defaults = UserDefaults.standard;
         let latitude = defaults.float(forKey: DefaultKeys.Location.lat),
             longitude = defaults.float(forKey: DefaultKeys.Location.lon);
@@ -429,7 +460,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         promotionBannerTitleLabel.text = promotion.name;
         promotionBannerDescriptionLabel.text = promotion.description;
-        promotionBannerDateLabel.text = "Voimassa " + Utils.formatDateFromString(promotion.endDate) + " saakka";
+        promotionBannerDateLabel.text = String(format: NSLocalizedString("ValidUntil", comment: ""), Utils.formatDateFromString(promotion.endDate));
         let gestureRec = UITapGestureRecognizer(target: self, action:  #selector (self.presentPromotionDetails));
         promotionBannerContainer.addGestureRecognizer(gestureRec);
     }
@@ -467,6 +498,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         newViewController.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
         self.hero.modalAnimationType = .selectBy(presenting: .zoom, dismissing: .zoomOut);
         newViewController.promotion = promotions[0];
+        print(promotions)
         present(newViewController, animated: true);
     }
     
@@ -480,12 +512,12 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let defaults = UserDefaults.standard;
-        if let id = searchOptions[indexPath.row].id {
-            print("SELECT: ", id)
-            var categoryList: [Int] = [];
-            categoryList.append(id);
-            defaults.set(categoryList, forKey: DefaultKeys.Filters.categories);
+        if let name = searchOptions[indexPath.row].name {
+            searchBar.text = name;
+            searchValue = name;
+            let navVc = self.tabBarController?.viewControllers![1] as! UINavigationController;
+            let vc = navVc.topViewController as! HomeViewController;
+            vc.searchValue = searchValue;
             self.tabBarController?.selectedIndex = 1;
         }
     }
@@ -510,5 +542,14 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         };
         searchResultsTableView.reloadData();
         searchResultsHeightConstraint.constant = searchResultsTableView.contentSize.height;
+        searchValue = searchText;
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let navVc = self.tabBarController?.viewControllers![1] as! UINavigationController;
+        let vc = navVc.topViewController as! HomeViewController;
+        vc.searchValue = searchValue;
+        self.tabBarController?.selectedIndex = 1;
+        
     }
 }

@@ -1,23 +1,26 @@
 {
   "images" : [
     {
+      "filename" : "round_filter_alt_black_24pt_1x.png",
       "idiom" : "universal",
-      "filename" : "ic_tune.png",
       "scale" : "1x"
     },
     {
+      "filename" : "round_filter_alt_black_24pt_2x.png",
       "idiom" : "universal",
-      "filename" : "ic_tune_2x.png",
       "scale" : "2x"
     },
     {
+      "filename" : "round_filter_alt_black_24pt_3x.png",
       "idiom" : "universal",
-      "filename" : "ic_tune_3x.png",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
   }
 }

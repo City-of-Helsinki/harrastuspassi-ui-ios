@@ -13,6 +13,7 @@ struct Filters {
     var categories:[Int] = [];
     var weekdays:[Int] = [];
     var times = Times();
+    var price_type: String?;
 }
 
 struct Weekday {
@@ -34,6 +35,6 @@ struct Weekdays {
 }
 
 struct Times {
-    var minTime: CGFloat = 480.0;
-    var maxTime: CGFloat = 1260.0;
+    var minTime: CGFloat = 0.0;
+    var maxTime: CGFloat = 1439;
 }

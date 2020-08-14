@@ -23,15 +23,7 @@ class LocationTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
         
-        if selected {
-            cityLabel.textColor = .white;
-            addressLabel.textColor = .white;
-            selectedBackgroundView?.backgroundColor = Colors.bgMain;
-        } else {
-            cityLabel.textColor = Colors.bgMain;
-            addressLabel.textColor = .black;
-            selectedBackgroundView?.backgroundColor = .white;
-        }
+       
     }
 
 }

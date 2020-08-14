@@ -19,11 +19,9 @@ class CategoryFilterTableViewCell: UITableViewCell {
     
     func setCategory(category: CategoryData) {
         self.categoryData = category
-        if let title = category.name {
-            titleLabel.text = title;
-        } else {
-            titleLabel.text = "Muut";
-        }
+        
+        titleLabel.text = setTitle(category: self.categoryData!);
+        
         checkmarkButton.setImage(UIImage(named: "ic_check")?.withRenderingMode(.alwaysTemplate), for: .normal)
         if categorySelected {
             checkmarkButton.alpha = 1
@@ -33,6 +31,19 @@ class CategoryFilterTableViewCell: UITableViewCell {
             checkmarkButton.tintColor = .black
         }
         
+    }
+    
+    func setTitle(category: CategoryData) -> String? {
+        let lang = Locale.preferredLanguages.first;
+        print(lang)
+        switch lang {
+        case "fi":
+            return category.nameFI;
+        case "sv":
+            return category.nameSV;
+        default:
+            return category.nameEN;
+        }
     }
     
     override func layoutSubviews() {
@@ -54,19 +65,16 @@ class CategoryFilterTableViewCell: UITableViewCell {
     }
 
     @IBAction func checkmarkButtonPressed(_ sender: Any) {
-        print("checkmarkButton pressed")
         guard let data = categoryData else {
             return
         }
         
         if !categorySelected {
-            print("Not selected, changing state to: selected")
             self.selectionDelegate?.addSelection(selectedItem: data)
             categorySelected = true
             checkmarkButton.alpha = 1
             checkmarkButton.tintColor = .green
         } else {
-            print("Selected, changing state to not selected")
             self.selectionDelegate?.removeSelection(removedItem: data)
             categorySelected = false
             checkmarkButton.alpha = 0.3

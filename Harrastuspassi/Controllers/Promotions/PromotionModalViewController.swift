@@ -12,11 +12,15 @@ import Firebase
 
 class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
     
+    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var locationNameLabel: UILabel!
+    @IBOutlet weak var streetAddressLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var availableLabel: UILabel!
     @IBOutlet weak var slideButton: MTSlideToOpenView!
+    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var promotionImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var offerStateLabel: UILabel!
     var completionHandler: (()->Void)?;
@@ -33,23 +37,33 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
             promotionImageView.image = UIImage(named: "logo_lil_yel");
         }
         if promotion.isUsable() {
-            availableLabel.text = "Jäljellä: " + String(promotion.availableCount - promotion.usedCount);
+            availableLabel.text = String(format: NSLocalizedString("Remaining", comment: ""), String(promotion.availableCount - promotion.usedCount));
         } else {
             availableLabel.isHidden = true;
         }
+        descriptionTextView.dataDetectorTypes = .link;
         offerStateLabel.isHidden = true;
         titleLabel.text = promotion.name;
-        descriptionLabel.text = promotion.description;
-        dateLabel.text = "Voimassa: " + Utils.formatDateFromString(promotion.endDate);
+        streetAddressLabel.text = promotion.location?.address;
+        if let zipCode = promotion.location?.zipCode, let city = promotion.location?.city, let name = promotion.location?.name {
+            addressLabel.text = zipCode + " " + city;
+            streetAddressLabel.text = promotion.location?.address;
+            locationNameLabel.text = promotion.location?.name;
+        }
+        descriptionTextView.text = promotion.description;
+        dateLabel.text = String(format: NSLocalizedString("ValidUntil", comment: ""), Utils.formatDateFromString(promotion.endDate));
         slideButton.sliderViewTopDistance = 0;
         slideButton.sliderCornerRadius = 30
         slideButton.sliderHolderView.frame = slideButton.frame;
-        slideButton.defaultSliderBackgroundColor = UIColor(named: "mainColorAlpha")!
+        slideButton.defaultSliderBackgroundColor = UIColor(named: "accentTeal")!
         slideButton.defaultSlidingColor = UIColor(named: "mainColor")!
         slideButton.delegate = self
-        slideButton.defaultLabelText = "Vedä käyttääksesi"
+        
+        slideButton.defaultLabelText = NSLocalizedString("SwipeToUse", comment: "");
         slideButton.thumnailImageView.image = UIImage(named: "ic_local_activity")
         slideButton.defaultThumbnailColor = UIColor(named: "mainColor")!
+        closeButton.layer.cornerRadius = 15;
+        closeButton.clipsToBounds = true;
         
         if promotion.isUsed() {
             slideButton.isHidden = true;
@@ -57,7 +71,7 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
         } else if !promotion.isUsable() {
             slideButton.isHidden = true;
             offerStateLabel.isHidden = false;
-            offerStateLabel.text = "Käytetty loppuun"
+            offerStateLabel.text = NSLocalizedString("AllUsed", comment: "");
         }
         
         Analytics.logEvent("viewPromotion", parameters: [
@@ -66,7 +80,12 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
 
         // Do any additional setup after loading the view.
     }
-
+    
+    
+    @IBAction func closeButtonClicked(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil);
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -93,6 +112,7 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
             UIView.animate(withDuration: 0.2) {
                 self.offerStateLabel.transform = CGAffineTransform(scaleX: 1, y: 1);
             }
+            self.availableLabel.text = String(format: NSLocalizedString("Remaining", comment: ""), String(self.promotion.availableCount - self.promotion.usedCount - 1));
         })
     };
 }

@@ -41,10 +41,12 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
         self.hero.isEnabled = true;
         markerIcon = imageWithImage(image: markerIcon!, scaledToSize: CGSize(width: 40.0, height: 40.0)).withRenderingMode(.alwaysTemplate);
         setupClusterManager();
-        
-        let finland = GMSCameraPosition.camera(withLatitude: 61.9241,
-                                               longitude: 25.7482,
-                                               zoom: 6);
+        let defaults = UserDefaults.standard;
+        let lat = defaults.float(forKey: DefaultKeys.Location.lat);
+        let lon = defaults.float(forKey: DefaultKeys.Location.lon);
+        let finland = GMSCameraPosition.camera(withLatitude: Double(lat),
+                                               longitude: Double(lon),
+                                               zoom: 10);
         mapView.camera = finland;
         updateData();
         navigationController?.delegate = self;
@@ -68,10 +70,11 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
     
     func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
         if let fetchedData = data {
-            guard let eventData = try? JSONDecoder().decode([HobbyEventData].self, from: fetchedData)
+            guard let response = try? JSONDecoder().decode(HobbyEventResponse.self, from: fetchedData)
                 else {
                     return
             }
+            guard let eventData = response.results else {return};
             DispatchQueue.main.async(execute: {() in
                 if(eventData.count == 0) {
                     return;
@@ -100,6 +103,7 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "location_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "organizer_detail"))
+        urlComponents?.queryItems?.append(URLQueryItem(name: "exclude_past_events", value: "true"))
         if filters.categories.count > 0 {
             for id in filters.categories {
                 urlComponents?.queryItems?.append(URLQueryItem(name: "category", value: String(id)))

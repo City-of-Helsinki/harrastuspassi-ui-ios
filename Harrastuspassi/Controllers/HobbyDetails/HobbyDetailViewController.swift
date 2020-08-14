@@ -34,12 +34,12 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     @IBOutlet weak var organizerLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var eventTableView: EventTableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var favouriteButton: UIButton!
     
     @IBOutlet weak var shareActivityIndicator: UIActivityIndicatorView!
@@ -74,6 +74,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         }
         mapView.preferredFrameRate = .conservative;
         mapView.isUserInteractionEnabled = false;
+        descriptionTextView.dataDetectorTypes = .link;
         
         if #available(iOS 13.0, *) {
             self.hero.isEnabled = true;
@@ -160,7 +161,10 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         titleLabel.text = event.hobby?.name
         organizerLabel.text = event.hobby?.organizer?.name
         locationLabel.text = event.hobby?.location?.name
-        descriptionLabel.text = event.hobby?.description
+        if let description = event.hobby?.description {
+            descriptionTextView.text = description;
+        }
+        
         guard let location = event.hobby?.location else {
             return
         }
@@ -278,8 +282,14 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         let timeOutputFormatter = DateFormatter()
         timeOutputFormatter.dateFormat = "HH:mm"
         if let date = getDateFormatter.date(from: d), let time = getTimeFormatter.date(from: t), let endTime = getTimeFormatter.date(from: et) {
-            cell.dateLabel.text = dateOutputDateFormatter.string(from: date);
-            cell.timeLabel.text = timeOutputFormatter.string(from: time) + "-" + timeOutputFormatter.string(from: endTime)
+            if timeOutputFormatter.string(from: time) == "00:00" && timeOutputFormatter.string(from: endTime) == "00:00" {
+                cell.timeLabel.text = "-"
+            } else {
+                cell.dateLabel.text = dateOutputDateFormatter.string(from: date);
+                cell.timeLabel.text = timeOutputFormatter.string(from: time) + "-" + timeOutputFormatter.string(from: endTime)
+
+            }
+            
         }
         return cell;
     }
@@ -302,12 +312,14 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     
     func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
         if let fetchedData = data {
-            var eventsData = [HobbyEventData]();
-            do {
-                eventsData = try JSONDecoder().decode([HobbyEventData].self, from: fetchedData)
-            } catch {
-                print(error)
+            guard let response = try? JSONDecoder().decode(HobbyEventResponse.self, from: fetchedData)
+                else {
+                    DispatchQueue.main.async(execute: {() in
+                        print("error")
+                    })
+                    return
             }
+            guard let eventsData = response.results else {return};
 //            guard let eventsData = try?  else {
 //                    print("FAILED")
 //                    return
@@ -341,6 +353,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"));
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "location_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "organizer_detail"))
+        urlComponents?.queryItems?.append(URLQueryItem(name: "exclude_past_events", value: "true"))
         return urlComponents?.url
     }
     

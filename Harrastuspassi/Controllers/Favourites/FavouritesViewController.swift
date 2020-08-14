@@ -11,6 +11,7 @@ import UIKit
 class FavouritesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var hobbyData = [HobbyEventData]();
+    var viewInForeground = true;
     
     @IBOutlet weak var favoritesTableView: UITableView!
     @IBOutlet weak var placeholderTextLabel: UILabel!
@@ -31,6 +32,8 @@ class FavouritesViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
+        viewInForeground = true;
+        hobbyData = [];
         favorites = UserDefaults.standard.array(forKey: DefaultKeys.Favourites.list) as? [Int];
         if !(favorites?.count == 0) {
             print(favorites?.count);
@@ -62,6 +65,10 @@ class FavouritesViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated);
+        viewInForeground = false;
+    }
 
     /*
     // MARK: - Navigation
@@ -99,39 +106,61 @@ class FavouritesViewController: UIViewController, UITableViewDelegate, UITableVi
         let session = URLSession(configuration: config);
         var url: URL?;
         url = applyQueryParamsToUrl(urlString);
+        print(url)
         let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
     
         task.resume();
     }
     
+    func fetchNext(urlString: String) {
+        let config = URLSessionConfiguration.default;
+        let session = URLSession(configuration: config);
+        let url = URL(string: urlString);
+        print(url)
+        let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
+        task.resume();
+    }
+    
     func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
         if let fetchedData = data {
-            guard let eventData = try? JSONDecoder().decode([HobbyEventData].self, from: fetchedData)
+            guard let response = try? JSONDecoder().decode(HobbyEventResponse.self, from: fetchedData)
                 else {
                     DispatchQueue.main.async(execute: {() in
                         print("error")
                     })
                     return
             }
+            guard let eventData = response.results else {return};
             DispatchQueue.main.async(execute: {() in
                 if(eventData.count == 0) {
-                    self.hobbyData = Array(Set(eventData));
+                    self.hobbyData += Array(Set(eventData));
                     self.favoritesTableView.reloadData()
                 } else {
-                    self.hobbyData = self.filteredFavoriteHobbiesFrom(eventData.uniques);
+                    self.hobbyData += self.filteredFavoriteHobbiesFrom(eventData.uniques);
                     self.favoritesTableView.reloadData()
                 }
+                print(self.hobbyData);
                 self.refreshControl.endRefreshing();
             })
+            if let next = response.next {
+                if viewInForeground { fetchNext(urlString: next) }
+            }
         }
     }
     
     func applyQueryParamsToUrl(_ url: String) -> URL? {
         var urlComponents = URLComponents(string: url);
+        let defaults = UserDefaults.standard;
+        let latitude = defaults.float(forKey: DefaultKeys.Location.lat),
+            longitude = defaults.float(forKey: DefaultKeys.Location.lon);
         urlComponents?.queryItems = []
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "location_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "organizer_detail"))
+        urlComponents?.queryItems?.append(URLQueryItem(name: "ordering", value: "nearest"));
+        urlComponents?.queryItems?.append(URLQueryItem(name: "near_latitude", value: String(latitude)));
+        urlComponents?.queryItems?.append(URLQueryItem(name: "near_longitude", value: String(longitude)));
+        
 //        if let storedFavorites = favorites {
 //            for id in storedFavorites {
 //                urlComponents?.queryItems?.append(URLQueryItem(name: "hobby", value: String(id)));
@@ -141,6 +170,7 @@ class FavouritesViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.hobbyData = [];
         self.fetchUrl(urlString: Config.API_URL + "hobbyevents")
         
     }

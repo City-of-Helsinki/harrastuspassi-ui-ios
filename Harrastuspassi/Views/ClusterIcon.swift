@@ -39,7 +39,6 @@ class ClusterIcon: UIView {
     }
     
     func commonInit() {
-        print("Custom view here I come")
         Bundle.main.loadNibNamed("ClusterIcon", owner: self, options: nil);
         addSubview(contentView);
         contentView.frame = self.bounds;

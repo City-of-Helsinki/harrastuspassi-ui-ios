@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Roboto-Bold.ttf">
-            <string>Roboto-Bold</string>
+        <array key="Poppins-Bold.ttf">
+            <string>Poppins-Bold</string>
         </array>
     </customFonts>
     <objects>
@@ -26,12 +25,12 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnA-PT-aqj">
                     <rect key="frame" x="5" y="5" width="30" height="30"/>
-                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
-                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" name="clusterIconBg"/>
+            <color key="backgroundColor" name="mainColor"/>
             <accessibility key="accessibilityConfiguration" identifier="ClusterIcon"/>
             <constraints>
                 <constraint firstItem="EnA-PT-aqj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="HtV-Ja-TjE"/>
@@ -46,8 +45,8 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="clusterIconBg">
-            <color red="1" green="0.92156862745098034" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="mainColor">
+            <color red="0.050999999046325684" green="0.043000001460313797" blue="0.70999997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

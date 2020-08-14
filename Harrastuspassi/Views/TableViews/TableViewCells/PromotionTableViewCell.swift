@@ -19,7 +19,7 @@ class PromotionTableViewCell: UITableViewCell {
 
     
     func setUsedAppearance() {
-        cardView.layer.opacity = 0.5;
+        cardView.layer.opacity = 0.2;
     }
 
     func setPromotion(_ promotion: PromotionData) {
@@ -27,10 +27,10 @@ class PromotionTableViewCell: UITableViewCell {
         cardView.layer.masksToBounds = true;
         titleLabel.text = promotion.name;
         descriptionLabel.text = promotion.description;
-        dateLabel.text = "Voimassa: " + Utils.formatDateFromString(promotion.endDate)
+        dateLabel.text = String(format: NSLocalizedString("ValidUntil", comment: ""), Utils.formatDateFromString(promotion.endDate));
         let placeholderImage = UIImage(named: "logo_lil_yel");
         if let image = promotion.image {
-            print(image);
+        
             promotionImage.kf.indicatorType = .activity;
             promotionImage.kf.setImage(with: URL(string: image)!, placeholder: placeholderImage) { _ in
                 self.setNeedsLayout()

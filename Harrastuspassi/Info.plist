@@ -48,6 +48,10 @@
 	<string>Harrastuspassi käyttää sijaintia harrastuksien suodattamiseen etäisyyden perusteella.</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Poppins-Regular.ttf</string>
+		<string>Poppins-Bold.ttf</string>
+		<string>Poppins-Medium.ttf</string>
+		<string>Poppins-Light.ttf</string>
 		<string>Roboto-Regular.ttf</string>
 		<string>Roboto-Light.ttf</string>
 		<string>Roboto-Regular.ttf</string>
