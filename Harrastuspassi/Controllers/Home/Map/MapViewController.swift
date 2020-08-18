@@ -21,6 +21,7 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
     var imageCache = Dictionary<Int, UIImage>();
     var markerIcon = UIImage(named:"ic_room")?.withRenderingMode(.alwaysTemplate);
     var hobbies: [HobbyData] = [];
+    var searchTerm: String? = "";
     
     
     // MARK: - Initialization
@@ -35,6 +36,7 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         super.viewWillDisappear(animated)
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         filters = Utils.getDefaultFilters();
@@ -120,6 +122,9 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
         urlComponents?.queryItems?.append(URLQueryItem(name: "ordering", value: "nearest"));
         urlComponents?.queryItems?.append(URLQueryItem(name: "near_latitude", value: String(latitude)));
         urlComponents?.queryItems?.append(URLQueryItem(name: "near_longitude", value: String(longitude)));
+        if let search = searchTerm {
+            urlComponents?.queryItems?.append(URLQueryItem(name: "search", value: search));
+        }
 
         return urlComponents?.url
     }
