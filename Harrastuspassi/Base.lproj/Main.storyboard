@@ -936,6 +936,7 @@
                         <outlet property="addressLabel" destination="VgM-ym-leG" id="vSQ-HG-8HX"/>
                         <outlet property="closeButton" destination="f4s-Bc-XH8" id="k43-mu-aKy"/>
                         <outlet property="contentView" destination="Og3-us-WGZ" id="Qbh-Gi-0b0"/>
+                        <outlet property="dateRangeIcon" destination="wsb-3h-lV0" id="rjm-f6-qAF"/>
                         <outlet property="descriptionTextView" destination="d5v-4M-suJ" id="LRh-kX-sXf"/>
                         <outlet property="eventTableView" destination="vOg-UK-dQ4" id="fwV-NB-ouE"/>
                         <outlet property="favouriteButton" destination="hav-cw-20a" id="7tt-lI-1Mn"/>

@@ -38,6 +38,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var eventTableView: EventTableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var dateRangeIcon: UIView!
     
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var favouriteButton: UIButton!
@@ -291,7 +292,8 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         timeOutputFormatter.dateFormat = "HH:mm"
         if let date = getDateFormatter.date(from: d), let time = getTimeFormatter.date(from: t), let endTime = getTimeFormatter.date(from: et) {
             if timeOutputFormatter.string(from: time) == "00:00" && timeOutputFormatter.string(from: endTime) == "00:00" {
-                cell.timeLabel.text = "-"
+                cell.timeLabel.isHidden = true
+                dateRangeIcon.isHidden = true
             } else {
                 cell.dateLabel.text = dateOutputDateFormatter.string(from: date);
                 cell.timeLabel.text = timeOutputFormatter.string(from: time) + "-" + timeOutputFormatter.string(from: endTime)
