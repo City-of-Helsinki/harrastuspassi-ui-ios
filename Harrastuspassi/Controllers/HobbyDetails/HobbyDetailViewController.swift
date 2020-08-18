@@ -197,7 +197,6 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
             return
         }
         camera = GMSCameraPosition.camera(withLatitude: Double(lat), longitude: Double(lon), zoom: 16.0)
-        print("camera", camera)
         guard let cam = camera else {
             return
         }
