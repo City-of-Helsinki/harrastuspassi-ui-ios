@@ -62,6 +62,14 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         eventTableView.delegate = self;
         eventTableView.dataSource = self;
         linkActivityIndicator.isHidden = true;
+        let defaults = UserDefaults.standard;
+        let lat = defaults.float(forKey: DefaultKeys.Location.lat);
+        let lon = defaults.float(forKey: DefaultKeys.Location.lon);
+        let finland = GMSCameraPosition.camera(withLatitude: Double(lat),
+                                               longitude: Double(lon),
+                                               zoom: 10);
+        mapView.camera = finland;
+
         if !navigatedFromDynamicLink {
             setupUI();
         } else {
@@ -324,7 +332,6 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
 //                    print("FAILED")
 //                    return
 //            }
-            print(eventsData)
             DispatchQueue.main.async(execute: {() in
                 
                 self.activityIndicator.stopAnimating();
