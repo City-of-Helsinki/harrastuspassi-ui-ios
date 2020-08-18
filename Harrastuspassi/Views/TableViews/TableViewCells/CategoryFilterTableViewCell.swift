@@ -34,8 +34,7 @@ class CategoryFilterTableViewCell: UITableViewCell {
     }
     
     func setTitle(category: CategoryData) -> String? {
-        let lang = Locale.preferredLanguages.first;
-        print(lang)
+        let lang = Locale.current.languageCode;
         switch lang {
         case "fi":
             return category.nameFI;
