@@ -77,11 +77,27 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
         Analytics.logEvent("viewPromotion", parameters: [
             "promotionName": promotion.name
         ]);
-
+        self.setupLabelTap()
         // Do any additional setup after loading the view.
     }
-    
-    
+
+     @objc func labelTapped(_ sender: UITapGestureRecognizer) {
+         guard let lat = promotion.location?.coordinates?.coordinates?[1], let lon = promotion.location?.coordinates?.coordinates?[0] else {
+             return
+         }
+         let url = URL(string: "http://maps.apple.com/maps?saddr=&daddr=\(lat),\(lon)")
+         UIApplication.shared.open(url!)
+
+    }
+
+    func setupLabelTap() {
+         let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped(_:)))
+         self.streetAddressLabel.isUserInteractionEnabled = true
+         self.streetAddressLabel.addGestureRecognizer(labelTap)
+         self.addressLabel.isUserInteractionEnabled = true
+         self.addressLabel.addGestureRecognizer(labelTap)
+     }
+
     @IBAction func closeButtonClicked(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil);
     }

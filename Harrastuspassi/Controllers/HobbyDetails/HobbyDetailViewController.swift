@@ -188,11 +188,26 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         }
         activityIndicator.isHidden = false;
         activityIndicator.startAnimating();
+        self.setupLabelTap()
         print(Config.API_URL + "hobbyevents")
         fetchUrl(urlString: Config.API_URL + "hobbyevents")
     }
-    
-    
+    @objc func labelTapped(_ sender: UITapGestureRecognizer) {
+        guard let lat = hobbyEvent?.hobby?.location?.coordinates?.coordinates?[1], let lon = hobbyEvent?.hobby?.location?.coordinates?.coordinates?[0] else {
+            return
+        }
+        let url = URL(string: "http://maps.apple.com/maps?saddr=&daddr=\(lat),\(lon)")
+        UIApplication.shared.open(url!)
+
+    }
+   func setupLabelTap() {
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped(_:)))
+        self.locationLabel.isUserInteractionEnabled = true
+        self.locationLabel.addGestureRecognizer(labelTap)
+        self.addressLabel.isUserInteractionEnabled = true
+        self.addressLabel.addGestureRecognizer(labelTap)
+
+    }
     func setUpMapView() {
         guard let lat = hobbyEvent?.hobby?.location?.coordinates?.coordinates?[1], let lon = hobbyEvent?.hobby?.location?.coordinates?.coordinates?[0], let title = hobbyEvent?.hobby?.name, let snippet = hobbyEvent?.hobby?.location?.name else {
             return
