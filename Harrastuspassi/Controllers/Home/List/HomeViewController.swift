@@ -177,6 +177,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
                 return
             }
             filterModal.modalDelegate = self
+        } else if segue.destination is MapViewController {
+            let vc = segue.destination as? MapViewController
+            vc?.searchTerm = searchValue
         }
         
         

@@ -38,6 +38,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var eventTableView: EventTableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var dateRangeIcon: UIView!
     
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var favouriteButton: UIButton!
@@ -62,6 +63,14 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         eventTableView.delegate = self;
         eventTableView.dataSource = self;
         linkActivityIndicator.isHidden = true;
+        let defaults = UserDefaults.standard;
+        let lat = defaults.float(forKey: DefaultKeys.Location.lat);
+        let lon = defaults.float(forKey: DefaultKeys.Location.lon);
+        let finland = GMSCameraPosition.camera(withLatitude: Double(lat),
+                                               longitude: Double(lon),
+                                               zoom: 10);
+        mapView.camera = finland;
+
         if !navigatedFromDynamicLink {
             setupUI();
         } else {
@@ -179,11 +188,26 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         }
         activityIndicator.isHidden = false;
         activityIndicator.startAnimating();
+        self.setupLabelTap()
         print(Config.API_URL + "hobbyevents")
         fetchUrl(urlString: Config.API_URL + "hobbyevents")
     }
-    
-    
+    @objc func labelTapped(_ sender: UITapGestureRecognizer) {
+        guard let lat = hobbyEvent?.hobby?.location?.coordinates?.coordinates?[1], let lon = hobbyEvent?.hobby?.location?.coordinates?.coordinates?[0] else {
+            return
+        }
+        let url = URL(string: "http://maps.apple.com/maps?saddr=&daddr=\(lat),\(lon)")
+        UIApplication.shared.open(url!)
+
+    }
+   func setupLabelTap() {
+        let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped(_:)))
+        self.locationLabel.isUserInteractionEnabled = true
+        self.locationLabel.addGestureRecognizer(labelTap)
+        self.addressLabel.isUserInteractionEnabled = true
+        self.addressLabel.addGestureRecognizer(labelTap)
+
+    }
     func setUpMapView() {
         guard let lat = hobbyEvent?.hobby?.location?.coordinates?.coordinates?[1], let lon = hobbyEvent?.hobby?.location?.coordinates?.coordinates?[0], let title = hobbyEvent?.hobby?.name, let snippet = hobbyEvent?.hobby?.location?.name else {
             return
@@ -283,7 +307,8 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
         timeOutputFormatter.dateFormat = "HH:mm"
         if let date = getDateFormatter.date(from: d), let time = getTimeFormatter.date(from: t), let endTime = getTimeFormatter.date(from: et) {
             if timeOutputFormatter.string(from: time) == "00:00" && timeOutputFormatter.string(from: endTime) == "00:00" {
-                cell.timeLabel.text = "-"
+                cell.timeLabel.isHidden = true
+                dateRangeIcon.isHidden = true
             } else {
                 cell.dateLabel.text = dateOutputDateFormatter.string(from: date);
                 cell.timeLabel.text = timeOutputFormatter.string(from: time) + "-" + timeOutputFormatter.string(from: endTime)
@@ -324,7 +349,6 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
 //                    print("FAILED")
 //                    return
 //            }
-            print(eventsData)
             DispatchQueue.main.async(execute: {() in
                 
                 self.activityIndicator.stopAnimating();

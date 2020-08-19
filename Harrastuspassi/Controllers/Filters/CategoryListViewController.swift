@@ -56,7 +56,6 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
                 else {
                     return
             }
-            print(categoryData);
             DispatchQueue.main.async(execute: {() in
                 self.categoryData = categoryData
                 
@@ -90,7 +89,6 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryFilterCell", for: indexPath) as! CategoryFilterTableViewCell
         
-        print("Setting cell for:")
         if let data = categoryData {
             if data[indexPath.section].childCategories?.count == 0 {
                 cell.accessoryType = .none
@@ -134,15 +132,12 @@ class CategoryListViewController: UIViewController, UITableViewDelegate, UITable
             self.selectedItems.append(id)
         }
         feedbackGenerator.selectionChanged();
-        print(self.selectedItems)
     }
     
     func removeSelection(removedItem: CategoryData) {
         self.selectedItems = selectedItems.filter { element in
             return element != removedItem.id
         }
-        print("selectedItems:")
-        print(self.selectedItems)
         feedbackGenerator.selectionChanged();
     }
     
