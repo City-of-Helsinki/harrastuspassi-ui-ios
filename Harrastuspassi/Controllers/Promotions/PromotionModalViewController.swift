@@ -54,6 +54,10 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
         dateLabel.text = String(format: NSLocalizedString("ValidUntil", comment: ""), Utils.formatDateFromString(promotion.endDate));
         slideButton.sliderViewTopDistance = 0;
         slideButton.sliderCornerRadius = 30
+        if let font = UIFont(name: "Poppins", size: 14){
+            slideButton.textFont = font;
+        }
+        
         slideButton.sliderHolderView.frame = slideButton.frame;
         slideButton.defaultSliderBackgroundColor = UIColor(named: "accentTeal")!
         slideButton.defaultSlidingColor = UIColor(named: "mainColor")!
