@@ -203,7 +203,7 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
         marker.userData = true;
         let icon = imageWithImage(image: UIImage(named: "ic_my_location")!, scaledToSize: CGSize(width: 40, height: 40)).withRenderingMode(.alwaysTemplate);
         let iconView = UIImageView(image: icon);
-        iconView.tintColor = UIColor(named: "mainColorLight");
+        iconView.tintColor = UIColor(named: "accentPink");
         marker.iconView = iconView;
         marker.groundAnchor = CGPoint(x: 0.5, y: 0.5);
         marker.map = mapView;
