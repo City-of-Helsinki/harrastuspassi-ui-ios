@@ -1,23 +1,23 @@
 {
   "images" : [
     {
+      "filename" : "Artboard 1.png",
       "idiom" : "universal",
-      "filename" : "ic_my_location.png",
       "scale" : "1x"
     },
     {
+      "filename" : "Artboard 1@2x.png",
       "idiom" : "universal",
-      "filename" : "ic_my_location_2x.png",
       "scale" : "2x"
     },
     {
+      "filename" : "Artboard 1@3x.png",
       "idiom" : "universal",
-      "filename" : "ic_my_location_3x.png",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }
