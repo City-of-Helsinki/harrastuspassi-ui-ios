@@ -21,6 +21,10 @@ class PromotionTableViewCell: UITableViewCell {
     func setUsedAppearance() {
         cardView.layer.opacity = 0.2;
     }
+    
+    func setUnUsedAppearence() {
+        cardView.layer.opacity = 1
+    }
 
     func setPromotion(_ promotion: PromotionData) {
         cardView.layer.cornerRadius = 15;

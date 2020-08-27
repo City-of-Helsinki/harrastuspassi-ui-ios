@@ -54,17 +54,6 @@ class PromotionsViewController: UIViewController, UITableViewDelegate, UITableVi
         fetchUrl(urlString: Config.API_URL + "promotions/");
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return promotions.count;
     }
@@ -73,9 +62,10 @@ class PromotionsViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "promocell", for: indexPath) as! PromotionTableViewCell;
         let promotion = promotions[indexPath.row];
         cell.setPromotion(promotion);
-        print(promotion.isUsed());
         if !promotion.isUsable() || promotion.isUsed() {
             cell.setUsedAppearance();
+        } else {
+            cell.setUnUsedAppearence()
         }
         return cell;
     }
