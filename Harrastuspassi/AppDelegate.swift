@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         GMSServices.provideAPIKey(Config.GM_API_KEY)
         FirebaseApp.configure()
         locationManager.delegate = self
+        UITabBar.appearance().unselectedItemTintColor = .white;
         if #available(iOS 13.0, *) {
             // disable dark mode
             window?.overrideUserInterfaceStyle = .light

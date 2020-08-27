@@ -62,10 +62,23 @@ class SettingsMapViewController: UIViewController, GMSMapViewDelegate {
     }
     */
     
+    func imageWithImage(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
+        image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         print(coordinate);
         self.mapView.clear();
         let marker = GMSMarker(position: coordinate);
+        let icon = imageWithImage(image: UIImage(named: "ic_my_location")!, scaledToSize: CGSize(width: 40, height: 40)).withRenderingMode(.alwaysTemplate);
+        let iconView = UIImageView(image: icon);
+        iconView.tintColor = UIColor(named: "accentPink");
+        marker.iconView = iconView;
+        marker.groundAnchor = CGPoint(x: 0.5, y: 0.5);
         marker.title = "Valittu sijainti";
         marker.map = mapView;
         locationSelected = true;

@@ -178,14 +178,24 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
             
         }
     }
-    
+    func setTitle(category: CategoryData) -> String? {
+        let lang = Locale.current.languageCode;
+        switch lang {
+        case "fi":
+            return category.nameFI;
+        case "sv":
+            return category.nameSV;
+        default:
+            return category.nameEN;
+        }
+    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.categoryCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FlagCell", for: indexPath) as! CategoryFlagView
             
             print("Setting cell for:")
             if let data = categories {
-                cell.titleLabel.text = data[selectedCategories[indexPath.item]]?.name
+                cell.titleLabel.text = self.setTitle(category: data[selectedCategories[indexPath.item]]!);
                 cell.titleLabel.sizeToFit()
             }
             cell.layer.cornerRadius = 10;

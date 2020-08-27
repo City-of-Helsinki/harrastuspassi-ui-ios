@@ -45,7 +45,6 @@ class HobbyTableViewCell: UITableViewCell {
         }
         
         title.text = hobbyEvent.hobby?.name
-        icon.image = UIImage(named: "date_range")
     }
     
 }
