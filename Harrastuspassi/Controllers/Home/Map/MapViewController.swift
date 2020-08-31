@@ -65,6 +65,7 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
         let session = URLSession(configuration: config);
         var url: URL?;
         url = applyQueryParamsToUrl(urlString);
+        print(url)
         let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
     
         task.resume();
@@ -106,6 +107,7 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "location_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "organizer_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "exclude_past_events", value: "true"))
+        urlComponents?.queryItems?.append(URLQueryItem(name: "page_size", value: "500"))
         if filters.categories.count > 0 {
             for id in filters.categories {
                 urlComponents?.queryItems?.append(URLQueryItem(name: "category", value: String(id)))

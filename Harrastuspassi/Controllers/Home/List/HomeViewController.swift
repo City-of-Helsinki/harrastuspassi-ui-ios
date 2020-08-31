@@ -10,6 +10,7 @@ import UIKit
 import Hero
 import CoreLocation
 import Firebase
+import Alamofire
 
 class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate, UITableViewDataSource, ModalDelegate, UINavigationControllerDelegate, UISearchBarDelegate {
     
@@ -17,6 +18,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     
     @IBOutlet var containerView: UIView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var hobbyTableView: UITableView!
     @IBOutlet weak var errorText: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -27,6 +29,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     var filters = Filters();
     let refreshControl = UIRefreshControl();
     var searchValue: String? = nil;
+    var nextPage: String?
+    var pageSize = 50;
+    var isFetching = false;
     
     let locationManager = CLLocationManager();
     
@@ -53,6 +58,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         filters = Utils.getDefaultFilters();
         containerView.hero.modifiers = [.forceNonFade];
         navigationController?.view.backgroundColor = UIColor(named: "mainColor")
+        activityIndicator.isHidden = true;
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -94,16 +100,30 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     }
     
     func fetchUrl(urlString: String) {
-        let config = URLSessionConfiguration.default;
-        let session = URLSession(configuration: config);
-        var url: URL?;
-        url = applyQueryParamsToUrl(urlString);
-        print(url);
-        let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
-        task.resume();
+        if !isFetching {
+            let config = URLSessionConfiguration.default;
+            let session = URLSession(configuration: config);
+            var url: URL?;
+            url = applyQueryParamsToUrl(urlString);
+            print(url);
+            let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
+            task.resume();
+        }
+    }
+    
+    func fetchNext() {
+        print(nextPage)
+        print(isFetching)
+        if let nextPage = self.nextPage, !isFetching {
+            activityIndicator.isHidden = false;
+            activityIndicator.startAnimating();
+            isFetching = true;
+            AF.request(nextPage, method: .get).response { response in self.doneFetchingNext(data: response.data, response: response.response, error: response.error)}
+        }
     }
     
     func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
+        print("FETCH DONE")
         if let fetchedData = data {
             guard let response = try? JSONDecoder().decode(HobbyEventResponse.self, from: fetchedData)
                 else {
@@ -114,7 +134,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
                     return
             }
             guard let eventData = response.results else {return};
+            if let nextPage = response.next {
+                self.nextPage = nextPage;
+            }
             DispatchQueue.main.async(execute: {() in
+                self.activityIndicator.isHidden = true;
+                self.isFetching = false;
+                self.refreshControl.endRefreshing();
                 if(eventData.count == 0) {
                     self.hobbyData = Array(Set(eventData));
                     self.hobbyTableView.reloadData()
@@ -122,11 +148,52 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
                     self.errorText.isHidden = false
                 } else {
                     self.errorText.isHidden = true
-                    self.hobbyData = eventData.uniques;
-                    self.hobbyTableView.reloadData()
+                    self.hobbyData = eventData;
+                    self.hobbyTableView.reloadData();
                 }
-                self.refreshControl.endRefreshing();
+                
             })
+        }
+    }
+    
+    func doneFetchingNext(data: Data?, response: URLResponse?, error: Error?) {
+        print("FETCH DONE")
+        if let fetchedData = data {
+            guard let response = try? JSONDecoder().decode(HobbyEventResponse.self, from: fetchedData)
+                else {
+                    DispatchQueue.main.async(execute: {() in
+                        self.errorText.isHidden = false
+                        self.errorText.text = NSLocalizedString("Something went wrong", comment:"");
+                    })
+                    return
+            }
+            guard let eventData = response.results else {return};
+            if let nextPage = response.next {
+                self.nextPage = nextPage;
+            }
+            DispatchQueue.main.async(execute: {() in
+                self.activityIndicator.isHidden = true;
+                self.isFetching = false;
+                self.refreshControl.endRefreshing();
+                if(eventData.count == 0) {
+                    self.hobbyData = Array(Set(eventData));
+                    self.hobbyTableView.reloadData()
+                    self.errorText.text = NSLocalizedString("No hobby events.", comment: "")
+                    self.errorText.isHidden = false
+                } else {
+                    self.errorText.isHidden = true
+                    self.hobbyData.append(contentsOf: eventData);
+                    self.hobbyTableView.reloadData();
+                }
+                
+            })
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (((scrollView.contentOffset.y + scrollView.frame.size.height) > scrollView.contentSize.height ) && !isFetching){
+            print("SCROLL FINISHD")
+            self.fetchNext();
         }
     }
     
@@ -211,6 +278,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "location_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "organizer_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "exclude_past_events", value: "true"))
+        urlComponents?.queryItems?.append(URLQueryItem(name: "page_size", value: String(pageSize)));
         
         let defaults = UserDefaults.standard;
         let latitude = defaults.float(forKey: DefaultKeys.Location.lat),
@@ -249,6 +317,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        nextPage = nil;
         self.fetchUrl(urlString: Config.API_URL + "hobbyevents");
         searchBar.resignFirstResponder();
     }
