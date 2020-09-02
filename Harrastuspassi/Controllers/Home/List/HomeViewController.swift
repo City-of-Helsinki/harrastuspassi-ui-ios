@@ -101,19 +101,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     
     func fetchUrl(urlString: String) {
         if !isFetching {
-            let config = URLSessionConfiguration.default;
-            let session = URLSession(configuration: config);
             var url: URL?;
             url = applyQueryParamsToUrl(urlString);
-            print(url);
-            let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
-            task.resume();
+            if let initUrl = url {
+                AF.request(initUrl, method: .get).response { response in self.doneFetching(data: response.data, response: response.response, error: response.error)}
+            }
         }
     }
     
     func fetchNext() {
-        print(nextPage)
-        print(isFetching)
         if let nextPage = self.nextPage, !isFetching {
             activityIndicator.isHidden = false;
             activityIndicator.startAnimating();
@@ -123,7 +119,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     }
     
     func doneFetching(data: Data?, response: URLResponse?, error: Error?) {
-        print("FETCH DONE")
         if let fetchedData = data {
             guard let response = try? JSONDecoder().decode(HobbyEventResponse.self, from: fetchedData)
                 else {
@@ -157,7 +152,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     }
     
     func doneFetchingNext(data: Data?, response: URLResponse?, error: Error?) {
-        print("FETCH DONE")
         if let fetchedData = data {
             guard let response = try? JSONDecoder().decode(HobbyEventResponse.self, from: fetchedData)
                 else {
@@ -192,7 +186,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (((scrollView.contentOffset.y + scrollView.frame.size.height) > scrollView.contentSize.height ) && !isFetching){
-            print("SCROLL FINISHD")
             self.fetchNext();
         }
     }
@@ -223,7 +216,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
                     params["category"+String(index)] = category;
                 }
                 
-                debugPrint("ANALYTICS EVENT");
                 Analytics.logEvent("viewHobby", parameters: params)
             };
             
