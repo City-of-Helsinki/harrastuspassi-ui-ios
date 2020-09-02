@@ -100,12 +100,12 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
         let defaults = UserDefaults.standard;
         let latitude = defaults.float(forKey: DefaultKeys.Location.lat),
             longitude = defaults.float(forKey: DefaultKeys.Location.lon);
-        print(latitude, longitude);
         urlComponents?.queryItems = []
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "location_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "organizer_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "exclude_past_events", value: "true"))
+        urlComponents?.queryItems?.append(URLQueryItem(name: "page_size", value: "500"))
         if filters.categories.count > 0 {
             for id in filters.categories {
                 urlComponents?.queryItems?.append(URLQueryItem(name: "category", value: String(id)))
@@ -287,7 +287,6 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         if let id = (marker.userData as? POIItem)?.id {
-            print("Marker tapped. ID:", id);
             let storyboard = UIStoryboard(name: "Main", bundle: nil);
             let vc = storyboard.instantiateViewController(withIdentifier: "hobbylistmodal") as! HobbyListModalViewController;
             vc.events = hobbyData.filter { event in
@@ -296,7 +295,6 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
             let title = hobbyData.first { event in
                 event.hobby?.location?.id == id
                 }?.hobby?.location?.name;
-            print(title);
             vc.titleText = title;
             mapView.preferredFrameRate = .conservative;
             vc.mapView = mapView;
