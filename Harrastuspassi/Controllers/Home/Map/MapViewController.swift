@@ -65,7 +65,6 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
         let session = URLSession(configuration: config);
         var url: URL?;
         url = applyQueryParamsToUrl(urlString);
-        print(url)
         let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
     
         task.resume();
@@ -101,7 +100,6 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
         let defaults = UserDefaults.standard;
         let latitude = defaults.float(forKey: DefaultKeys.Location.lat),
             longitude = defaults.float(forKey: DefaultKeys.Location.lon);
-        print(latitude, longitude);
         urlComponents?.queryItems = []
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "location_detail"))
@@ -289,7 +287,6 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         if let id = (marker.userData as? POIItem)?.id {
-            print("Marker tapped. ID:", id);
             let storyboard = UIStoryboard(name: "Main", bundle: nil);
             let vc = storyboard.instantiateViewController(withIdentifier: "hobbylistmodal") as! HobbyListModalViewController;
             vc.events = hobbyData.filter { event in
@@ -298,7 +295,6 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
             let title = hobbyData.first { event in
                 event.hobby?.location?.id == id
                 }?.hobby?.location?.name;
-            print(title);
             vc.titleText = title;
             mapView.preferredFrameRate = .conservative;
             vc.mapView = mapView;
