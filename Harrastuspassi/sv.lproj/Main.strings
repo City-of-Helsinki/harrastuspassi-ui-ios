@@ -71,7 +71,7 @@
 "lr0-Bf-4nI.title" = "List";
 
 /* Class = "UISearchBar"; placeholder = "Etsi harrastuksia"; ObjectID = "lUa-xN-aUL"; */
-"lUa-xN-aUL.placeholder" = "Sök";
+"lUa-xN-aUL.placeholder" = "Sök hobbyer";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "mjL-rY-x9o"; */
 "mjL-rY-x9o.text" = "Label";
@@ -140,7 +140,7 @@
 "WIG-H8-St5.normalTitle" = "Filter";
 
 /* Class = "UISearchBar"; placeholder = "Etsi harrastuksia"; ObjectID = "WZ6-Tb-37v"; Note = "Search bar"; */
-"WZ6-Tb-37v.placeholder" = "Sök";
+"WZ6-Tb-37v.placeholder" = "Sök hobbyer";
 
 /* Class = "UILabel"; text = "Vain maksuttomat harrastukset"; ObjectID = "Zk4-bD-wHP"; */
 "Zk4-bD-wHP.text" = "Visa bara gratis";
