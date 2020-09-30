@@ -44,6 +44,16 @@ class HobbyTableViewCell: UITableViewCell {
             date.text = "Ei tapahtuma-aikaa"
         }
         
+        if let dataSource = hobbyEvent.dataSource {
+            if dataSource == "lipas" {
+                icon.isHidden = true;
+                date.isHidden = true;
+            } else {
+                icon.isHidden = false;
+                date.isHidden = false;
+            }
+        }
+        
         title.text = hobbyEvent.hobby?.name
     }
     
