@@ -36,11 +36,11 @@ class FavouritesViewController: UIViewController, UITableViewDelegate, UITableVi
         hobbyData = [];
         favorites = UserDefaults.standard.array(forKey: DefaultKeys.Favourites.list) as? [Int];
         if !(favorites?.count == 0) {
-            print(favorites?.count);
+            self.hobbyData = self.filteredFavoriteHobbiesFrom(self.hobbyData);
+            favoritesTableView.reloadData();
             self.fetchUrl(urlString: Config.API_URL + "hobbyevents");
             placeholderTextLabel.isHidden = true;
         } else {
-            print(favorites?.count);
             hobbyData = [];
             favoritesTableView.reloadData();
             placeholderTextLabel.isHidden = false;
