@@ -39,6 +39,7 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
     @IBOutlet weak var eventTableView: EventTableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var dateRangeIcon: UIView!
+    @IBOutlet weak var eventListHeaderView: UIView!
     
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var favouriteButton: UIButton!
@@ -129,6 +130,16 @@ class HobbyDetailViewController: UIViewController, UIScrollViewDelegate, UIGestu
                 imageView.kf.setImage(with: url);
             } else {
                 imageView.image = UIImage(named: "ic_panorama")
+            }
+            if let dataSource = event.dataSource {
+                if dataSource == "lipas" {
+                    eventTableView.isHidden = true;
+                    eventListHeaderView.isHidden = true;
+                    NSLayoutConstraint.activate([eventTableView.heightAnchor.constraint(equalToConstant: 0), eventListHeaderView.heightAnchor.constraint(equalToConstant: 0)]);
+                } else {
+                    eventTableView.isHidden = false;
+                    eventListHeaderView.isHidden = false;
+                }
             }
         }
         reloadData();

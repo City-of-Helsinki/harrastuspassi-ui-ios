@@ -36,11 +36,11 @@ class FavouritesViewController: UIViewController, UITableViewDelegate, UITableVi
         hobbyData = [];
         favorites = UserDefaults.standard.array(forKey: DefaultKeys.Favourites.list) as? [Int];
         if !(favorites?.count == 0) {
-            print(favorites?.count);
+            self.hobbyData = self.filteredFavoriteHobbiesFrom(self.hobbyData);
+            favoritesTableView.reloadData();
             self.fetchUrl(urlString: Config.API_URL + "hobbyevents");
             placeholderTextLabel.isHidden = true;
         } else {
-            print(favorites?.count);
             hobbyData = [];
             favoritesTableView.reloadData();
             placeholderTextLabel.isHidden = false;
@@ -106,7 +106,6 @@ class FavouritesViewController: UIViewController, UITableViewDelegate, UITableVi
         let session = URLSession(configuration: config);
         var url: URL?;
         url = applyQueryParamsToUrl(urlString);
-        print(url)
         let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
     
         task.resume();
@@ -116,7 +115,6 @@ class FavouritesViewController: UIViewController, UITableViewDelegate, UITableVi
         let config = URLSessionConfiguration.default;
         let session = URLSession(configuration: config);
         let url = URL(string: urlString);
-        print(url)
         let task = session.dataTask(with: url!, completionHandler: self.doneFetching);
         task.resume();
     }
@@ -151,15 +149,12 @@ class FavouritesViewController: UIViewController, UITableViewDelegate, UITableVi
     func applyQueryParamsToUrl(_ url: String) -> URL? {
         var urlComponents = URLComponents(string: url);
         let defaults = UserDefaults.standard;
-        let latitude = defaults.float(forKey: DefaultKeys.Location.lat),
-            longitude = defaults.float(forKey: DefaultKeys.Location.lon);
+        
         urlComponents?.queryItems = []
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "hobby_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "location_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "organizer_detail"))
-        urlComponents?.queryItems?.append(URLQueryItem(name: "ordering", value: "nearest"));
-        urlComponents?.queryItems?.append(URLQueryItem(name: "near_latitude", value: String(latitude)));
-        urlComponents?.queryItems?.append(URLQueryItem(name: "near_longitude", value: String(longitude)));
+        urlComponents?.queryItems?.append(URLQueryItem(name: "ordering", value: "start_date"));
         
 //        if let storedFavorites = favorites {
 //            for id in storedFavorites {
