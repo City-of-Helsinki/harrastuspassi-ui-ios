@@ -18,6 +18,7 @@ struct HobbyEventData : Codable, Hashable {
     let endDate: String?
     let startTime : String?
     let endTime : String?
+    let dataSource: String?
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(hobby?.id);
@@ -32,6 +33,7 @@ struct HobbyEventData : Codable, Hashable {
         case endDate = "end_date"
         case endTime = "end_time"
         case startTime = "start_time"
+        case dataSource = "data_source"
     }
     
     static func == (lhs: HobbyEventData, rhs: HobbyEventData) -> Bool {

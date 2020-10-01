@@ -38,10 +38,20 @@ class HobbyTableViewCell: UITableViewCell {
             location.text = "Ei paikkatietoa"
         }
         
-        if let time = hobbyEvent.startDayOfWeek {
-            date.text = Weekdays().list.first{ $0.id == time}?.name
+        if let time = hobbyEvent.startDate {
+            date.text = Utils.formatDateFromString(time)
         } else {
             date.text = "Ei tapahtuma-aikaa"
+        }
+        
+        if let dataSource = hobbyEvent.dataSource {
+            if dataSource == "lipas" {
+                icon.isHidden = true;
+                date.isHidden = true;
+            } else {
+                icon.isHidden = false;
+                date.isHidden = false;
+            }
         }
         
         title.text = hobbyEvent.hobby?.name
