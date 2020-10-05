@@ -1704,17 +1704,33 @@
             <objects>
                 <viewController title="Harrastuspassi" id="Hh2-0W-Qfq" customClass="FrontPageViewController" customModule="Harrastuspassi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A7S-sl-Gwz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="673"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rPY-dS-kxu">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovJ-Vf-sMk" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2328"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2432.5"/>
                                         <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xtk-Zx-ntk">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="104.5"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner_logo" translatesAutoresizingMaskIntoConstraints="NO" id="U8w-SG-1kQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="104.5"/>
+                                                        <color key="backgroundColor" name="mainColor"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="U8w-SG-1kQ" firstAttribute="leading" secondItem="xtk-Zx-ntk" secondAttribute="leading" id="2yx-J1-orx"/>
+                                                    <constraint firstAttribute="bottom" secondItem="U8w-SG-1kQ" secondAttribute="bottom" id="HYa-7D-Qes"/>
+                                                    <constraint firstAttribute="trailing" secondItem="U8w-SG-1kQ" secondAttribute="trailing" id="QzD-sj-vQD"/>
+                                                    <constraint firstItem="U8w-SG-1kQ" firstAttribute="top" secondItem="xtk-Zx-ntk" secondAttribute="top" id="vbe-we-Q6j"/>
+                                                </constraints>
+                                            </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="xjf-QR-sEI">
-                                                <rect key="frame" x="15" y="0.0" width="384" height="2328"/>
+                                                <rect key="frame" x="15" y="104.5" width="384" height="2328"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOI-S1-Olp">
                                                         <rect key="frame" x="0.0" y="0.0" width="384" height="356"/>
@@ -2267,9 +2283,12 @@
                                         <color key="backgroundColor" name="bgGrey"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="xjf-QR-sEI" secondAttribute="bottom" id="58x-rO-EUg"/>
-                                            <constraint firstItem="xjf-QR-sEI" firstAttribute="top" secondItem="ovJ-Vf-sMk" secondAttribute="top" id="Pna-OM-0hr"/>
                                             <constraint firstAttribute="trailing" secondItem="xjf-QR-sEI" secondAttribute="trailing" constant="15" id="RY9-Vs-ldD"/>
+                                            <constraint firstAttribute="trailing" secondItem="xtk-Zx-ntk" secondAttribute="trailing" id="TWG-pZ-BqC"/>
                                             <constraint firstItem="xjf-QR-sEI" firstAttribute="leading" secondItem="ovJ-Vf-sMk" secondAttribute="leading" constant="15" id="hCQ-Vx-KQQ"/>
+                                            <constraint firstItem="xtk-Zx-ntk" firstAttribute="leading" secondItem="ovJ-Vf-sMk" secondAttribute="leading" id="hfd-8h-L4Q"/>
+                                            <constraint firstItem="xjf-QR-sEI" firstAttribute="top" secondItem="xtk-Zx-ntk" secondAttribute="bottom" id="qYL-yy-a9h"/>
+                                            <constraint firstItem="xtk-Zx-ntk" firstAttribute="top" secondItem="ovJ-Vf-sMk" secondAttribute="top" id="tDq-Zh-KVJ"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
@@ -2277,7 +2296,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" name="bgGrey"/>
+                                <color key="backgroundColor" name="mainColor"/>
                                 <constraints>
                                     <constraint firstItem="ovJ-Vf-sMk" firstAttribute="leading" secondItem="Z1p-11-9XH" secondAttribute="leading" id="36G-HQ-s1y"/>
                                     <constraint firstItem="ovJ-Vf-sMk" firstAttribute="top" secondItem="Z1p-11-9XH" secondAttribute="top" id="MdJ-Y3-sOS"/>
@@ -2296,7 +2315,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="baT-RS-cBj"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="mainColor"/>
                         <constraints>
                             <constraint firstItem="rPY-dS-kxu" firstAttribute="trailing" secondItem="baT-RS-cBj" secondAttribute="trailing" id="dcZ-QB-k1x"/>
                             <constraint firstItem="rPY-dS-kxu" firstAttribute="leading" secondItem="baT-RS-cBj" secondAttribute="leading" id="hy8-bS-FRv"/>
@@ -3253,12 +3272,12 @@
         <!--Harrastuspassi-->
         <scene sceneID="bwj-VP-hhw">
             <objects>
-                <navigationController title="Harrastuspassi" automaticallyAdjustsScrollViewInsets="NO" id="8Ee-6B-kea" sceneMemberID="viewController">
+                <navigationController title="Harrastuspassi" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="8Ee-6B-kea" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Koti" image="ic_home" id="5Tf-zg-UIg"/>
                     <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="IRt-56-YVu">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="mainColor"/>
                         <color key="barTintColor" name="mainColor"/>
@@ -3292,6 +3311,7 @@
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
+        <image name="banner_logo" width="203" height="104.5"/>
         <image name="ic_add" width="24" height="24"/>
         <image name="ic_check" width="24" height="24"/>
         <image name="ic_close" width="24" height="24"/>
