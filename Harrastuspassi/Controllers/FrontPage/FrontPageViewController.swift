@@ -102,6 +102,10 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         
         self.searchBar.delegate = self;
         
+        
+        searchBar.compatibleSearchTextField.textColor = .black
+        searchBar.compatibleSearchTextField.backgroundColor = .white
+        
         let window = UIApplication.shared.keyWindow
         window?.addSubview(revealingSplashView)
         
