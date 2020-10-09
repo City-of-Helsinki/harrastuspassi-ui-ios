@@ -142,6 +142,8 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         searchOptions = [];
         searchResultsTableView.reloadData();
         searchResultsHeightConstraint.constant = searchResultsTableView.contentSize.height;
+        fetchUrl(urlString: Config.API_URL + "hobbyevents/");
+        fetchPromotionsUrl(urlString: Config.API_URL + "promotions/")
     }
     
     @objc func dismissKeyboard(_ sender: UITapGestureRecognizer? = nil) {
@@ -439,6 +441,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         urlComponents?.queryItems?.append(URLQueryItem(name: "ordering", value: "nearest"));
         urlComponents?.queryItems?.append(URLQueryItem(name: "near_latitude", value: String(latitude)));
         urlComponents?.queryItems?.append(URLQueryItem(name: "near_longitude", value: String(longitude)));
+        urlComponents?.queryItems?.append(URLQueryItem(name: "max_distance", value: String("50")));
         return urlComponents?.url
     }
     

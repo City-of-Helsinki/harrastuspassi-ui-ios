@@ -1481,7 +1481,10 @@
                                                             <real key="value" value="2"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                            <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="value" name="darkGrey"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="4"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
@@ -1613,7 +1616,10 @@
                                                             <real key="value" value="2"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                            <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="value" name="darkGrey"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="4"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
@@ -2457,7 +2463,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7by-Dd-37M" userLabel="HobbyEvents">
-                                <rect key="frame" x="8" y="0.0" width="398" height="725"/>
+                                <rect key="frame" x="8" y="8" width="398" height="717"/>
                                 <color key="backgroundColor" name="bgGrey"/>
                                 <color key="sectionIndexBackgroundColor" name="bgGrey"/>
                                 <prototypes>
@@ -2582,7 +2588,7 @@
                         <viewLayoutGuide key="safeArea" id="3lC-ak-x1J"/>
                         <color key="backgroundColor" name="bgGrey"/>
                         <constraints>
-                            <constraint firstItem="7by-Dd-37M" firstAttribute="top" secondItem="3lC-ak-x1J" secondAttribute="top" id="A6z-9G-T9k"/>
+                            <constraint firstItem="7by-Dd-37M" firstAttribute="top" secondItem="3lC-ak-x1J" secondAttribute="top" constant="8" id="A6z-9G-T9k"/>
                             <constraint firstItem="aiY-KQ-qLw" firstAttribute="leading" secondItem="3lC-ak-x1J" secondAttribute="leading" constant="16" id="Ay0-FJ-Xra"/>
                             <constraint firstItem="3lC-ak-x1J" firstAttribute="trailing" secondItem="aiY-KQ-qLw" secondAttribute="trailing" constant="16" id="KnL-DL-cnr"/>
                             <constraint firstItem="7by-Dd-37M" firstAttribute="trailing" secondItem="3lC-ak-x1J" secondAttribute="trailing" constant="-8" id="LUv-Xz-Hu5"/>
@@ -3307,7 +3313,7 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="Lh2-IU-ImO"/>
-        <segue reference="8Kb-Cg-TZ3"/>
+        <segue reference="BZT-no-DMH"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
