@@ -1,5 +1,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
+
 target 'Harrastuspassi' do
+  use_frameworks!
   pod 'GoogleMaps'
   pod 'Google-Maps-iOS-Utils'
   pod 'GooglePlaces'
@@ -10,7 +12,7 @@ target 'Harrastuspassi' do
   pod 'Firebase/Analytics'
   pod 'Firebase/DynamicLinks'
   pod 'MTSlideToOpen'
-  pod 'Alamofire', '~> 5.0.0-rc.3'
+  pod 'Alamofire', '~> 5.2'
   pod 'GoogleIDFASupport'
 end
 

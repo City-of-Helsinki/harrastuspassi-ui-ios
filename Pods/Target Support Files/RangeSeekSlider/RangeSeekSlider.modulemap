@@ -1,4 +1,4 @@
-module RangeSeekSlider {
+framework module RangeSeekSlider {
   umbrella header "RangeSeekSlider-umbrella.h"
 
   export *

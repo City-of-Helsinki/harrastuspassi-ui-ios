@@ -49,7 +49,6 @@
 		31CE402422B0E2AA00EEAF78 /* HarrastuspassiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE402322B0E2AA00EEAF78 /* HarrastuspassiUITests.swift */; };
 		31CE403222B0E6AC00EEAF78 /* AnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE403122B0E6AC00EEAF78 /* AnimatedTabBarController.swift */; };
 		31CE403522B2118500EEAF78 /* HobbyEventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE403422B2118500EEAF78 /* HobbyEventData.swift */; };
-		BF8E14E612673C20D9477D1C /* libPods-Harrastuspassi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC1C78DA448E9599ACE3272 /* libPods-Harrastuspassi.a */; };
 		C20B4E942386863A00FFB726 /* PromotionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B4E932386863A00FFB726 /* PromotionCollectionViewCell.swift */; };
 		C20B4E962386B97E00FFB726 /* HobbyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B4E952386B97E00FFB726 /* HobbyCollectionViewCell.swift */; };
 		C213D60C23A74B030042538E /* SearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C213D60B23A74B030042538E /* SearchResultsTableViewCell.swift */; };
@@ -97,6 +96,7 @@
 		C2EE6E352319237400ADF459 /* PannableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EE6E342319237400ADF459 /* PannableScrollView.swift */; };
 		C2FAD61123169C6000CCF284 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FAD61023169C6000CCF284 /* Config.swift */; };
 		C2FAD6132317AC7200CCF284 /* TimeFilterSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FAD6122317AC7200CCF284 /* TimeFilterSlider.swift */; };
+		F080851A2BC0D24E80C10A42 /* Pods_Harrastuspassi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8257D9E724298EB50D0C61C2 /* Pods_Harrastuspassi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,7 +117,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1E22FA57BC449116BC77D138 /* Pods-Harrastuspassi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harrastuspassi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi.debug.xcconfig"; sourceTree = "<group>"; };
 		2E0CD7B022E9BE1C001E80D3 /* HobbyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyDetailViewController.swift; sourceTree = "<group>"; };
 		2E1329A722D74B790060A3A1 /* HobbyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyTableViewCell.swift; sourceTree = "<group>"; };
 		2EB9E13122DDFF560024AA16 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -158,8 +157,9 @@
 		31CE402522B0E2AA00EEAF78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31CE403122B0E6AC00EEAF78 /* AnimatedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTabBarController.swift; sourceTree = "<group>"; };
 		31CE403422B2118500EEAF78 /* HobbyEventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyEventData.swift; sourceTree = "<group>"; };
-		5D7ACE3BCF49CC1E3F90F1F9 /* Pods-Harrastuspassi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harrastuspassi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi.release.xcconfig"; sourceTree = "<group>"; };
-		BAC1C78DA448E9599ACE3272 /* libPods-Harrastuspassi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Harrastuspassi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F1FDAA8456213595AA95D2C /* Pods-Harrastuspassi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harrastuspassi.release.xcconfig"; path = "Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi.release.xcconfig"; sourceTree = "<group>"; };
+		8257D9E724298EB50D0C61C2 /* Pods_Harrastuspassi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Harrastuspassi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BF061014937A384F614A7C3 /* Pods-Harrastuspassi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harrastuspassi.debug.xcconfig"; path = "Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi.debug.xcconfig"; sourceTree = "<group>"; };
 		C20B4E932386863A00FFB726 /* PromotionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCollectionViewCell.swift; sourceTree = "<group>"; };
 		C20B4E952386B97E00FFB726 /* HobbyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyCollectionViewCell.swift; sourceTree = "<group>"; };
 		C213D60B23A74B030042538E /* SearchResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCell.swift; sourceTree = "<group>"; };
@@ -184,7 +184,6 @@
 		C27F5D6C234328C800CBFFA4 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		C27F5D6E23446E6200CBFFA4 /* EventTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableView.swift; sourceTree = "<group>"; };
 		C27F5D702345BE8E00CBFFA4 /* Harrastuspassi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Harrastuspassi.entitlements; sourceTree = "<group>"; };
-		C2814C65233A145B00440ECE /* GoogleMapsUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoogleMapsUtils.h; sourceTree = "<group>"; };
 		C2814C68233CDB6200440ECE /* POIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIItem.swift; sourceTree = "<group>"; };
 		C291F7FD232105420068CEB5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C291F7FF23210FF00068CEB5 /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
@@ -213,8 +212,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF8E14E612673C20D9477D1C /* libPods-Harrastuspassi.a in Frameworks */,
 				C213D60E23A8D5100042538E /* AdSupport.framework in Frameworks */,
+				F080851A2BC0D24E80C10A42 /* Pods_Harrastuspassi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				C213D60D23A8D5100042538E /* AdSupport.framework */,
-				BAC1C78DA448E9599ACE3272 /* libPods-Harrastuspassi.a */,
+				8257D9E724298EB50D0C61C2 /* Pods_Harrastuspassi.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -314,13 +313,12 @@
 		31CE3FF522B0E2A700EEAF78 = {
 			isa = PBXGroup;
 			children = (
-				C2814C65233A145B00440ECE /* GoogleMapsUtils.h */,
 				31CE400022B0E2A700EEAF78 /* Harrastuspassi */,
 				31CE401722B0E2AA00EEAF78 /* HarrastuspassiTests */,
 				31CE402222B0E2AA00EEAF78 /* HarrastuspassiUITests */,
 				31CE3FFF22B0E2A700EEAF78 /* Products */,
-				5627CD0804CDF7A5ED3A5F2D /* Pods */,
 				0ACF1A2A550E2DDFA7B7D986 /* Frameworks */,
+				E4E7B9CDC07263CD347688BB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -388,15 +386,6 @@
 				C2BF0B2B23E15F78004267B7 /* API.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		5627CD0804CDF7A5ED3A5F2D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1E22FA57BC449116BC77D138 /* Pods-Harrastuspassi.debug.xcconfig */,
-				5D7ACE3BCF49CC1E3F90F1F9 /* Pods-Harrastuspassi.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		C229C11623851025009101AC /* FrontPage */ = {
@@ -539,6 +528,15 @@
 			path = Favourites;
 			sourceTree = "<group>";
 		};
+		E4E7B9CDC07263CD347688BB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9BF061014937A384F614A7C3 /* Pods-Harrastuspassi.debug.xcconfig */,
+				6F1FDAA8456213595AA95D2C /* Pods-Harrastuspassi.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -546,11 +544,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 31CE402822B0E2AA00EEAF78 /* Build configuration list for PBXNativeTarget "Harrastuspassi" */;
 			buildPhases = (
-				BA3A2D2D2AD01F6DF882A1D2 /* [CP] Check Pods Manifest.lock */,
+				5B1887C26BDCD01A0872B841 /* [CP] Check Pods Manifest.lock */,
 				31CE3FFA22B0E2A700EEAF78 /* Sources */,
 				31CE3FFB22B0E2A700EEAF78 /* Frameworks */,
 				31CE3FFC22B0E2A700EEAF78 /* Resources */,
-				59DF95283B26AC3345B8F88E /* [CP] Copy Pods Resources */,
+				6548422EF17F504FFA6546D7 /* [CP] Embed Pods Frameworks */,
+				7F23502C3D5334582A716D61 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -704,7 +703,46 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		59DF95283B26AC3345B8F88E /* [CP] Copy Pods Resources */ = {
+		5B1887C26BDCD01A0872B841 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Harrastuspassi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6548422EF17F504FFA6546D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F23502C3D5334582A716D61 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -719,24 +757,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Harrastuspassi/Pods-Harrastuspassi-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BA3A2D2D2AD01F6DF882A1D2 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Harrastuspassi-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -989,7 +1009,7 @@
 		};
 		31CE402922B0E2AA00EEAF78 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E22FA57BC449116BC77D138 /* Pods-Harrastuspassi.debug.xcconfig */;
+			baseConfigurationReference = 9BF061014937A384F614A7C3 /* Pods-Harrastuspassi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Harrastuspassi/Harrastuspassi.entitlements;
@@ -1008,7 +1028,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fi.haltu.harrastuspassi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = GoogleMapsUtils.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1016,7 +1035,7 @@
 		};
 		31CE402A22B0E2AA00EEAF78 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D7ACE3BCF49CC1E3F90F1F9 /* Pods-Harrastuspassi.release.xcconfig */;
+			baseConfigurationReference = 6F1FDAA8456213595AA95D2C /* Pods-Harrastuspassi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Harrastuspassi/Harrastuspassi.entitlements;
@@ -1035,7 +1054,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fi.haltu.harrastuspassi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = GoogleMapsUtils.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

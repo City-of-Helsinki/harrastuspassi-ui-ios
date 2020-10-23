@@ -23,10 +23,13 @@
 #import "GMUPoint.h"
 #import "GMUPolygon.h"
 #import "GMUStyle.h"
+#import "GMUPair.h"
+#import "GMUStyleMap.h"
 
 static NSString *const kGMUPlacemarkElementName = @"Placemark";
 static NSString *const kGMUGroundOverlayElementName = @"GroundOverlay";
 static NSString *const kGMUStyleElementName = @"Style";
+static NSString *const kGMUStyleMapElementName = @"StyleMap";
 static NSString *const kGMULineStyleElementName = @"LineStyle";
 static NSString *const kGMUPointElementName = @"Point";
 static NSString *const kGMULineStringElementName = @"LineString";
@@ -35,7 +38,7 @@ static NSString *const kGMUMultiGeometryElementName = @"MultiGeometry";
 static NSString *const kGMUInnerBoundariesAttributeName = @"innerBoundaries";
 static NSString *const kGMUOuterBoundariesAttributeName = @"outerBoundaries";
 static NSString *const kGMUHotspotElementName = @"hotSpot";
-static NSString *const kGMUCoordinatesElementName= @"coordinates";
+static NSString *const kGMUCoordinatesElementName = @"coordinates";
 static NSString *const kGMURandomAttributeValue = @"random";
 static NSString *const kGMUFractionAttributeValue = @"fraction";
 static NSString *const kGMUNameElementName = @"name";
@@ -63,12 +66,15 @@ static NSString *const kGMUOutlineElementName = @"outline";
 static NSString *const kGMUWidthElementName = @"width";
 static NSString *const kGMUColorElementName = @"color";
 static NSString *const kGMUColorModeElementName = @"colorMode";
+static NSString *const kGMUPairElementName = @"Pair";
+static NSString *const kGMUKeyAttributeValue = @"key";
+static NSString *const kGMUPairAttributeRegex = @"^(key|styleUrl)$";
 static NSString *const kGMUGeometryRegex = @"^(Point|LineString|Polygon|MultiGeometry)$";
 static NSString *const kGMUGeometryAttributeRegex =
     @"^(coordinates|name|description|rotation|drawOrder|href|styleUrl)$";
 static NSString *const kGMUCompassRegex = @"^(north|east|south|west)$";
 static NSString *const kGMUBoundaryRegex = @"^(outerBoundaryIs|innerBoundaryIs)$";
-static NSString *const kGMUStyleRegex = @"^(Style|LineStyle)$";
+static NSString *const kGMUStyleRegex = @"^(Style|StyleMap|LineStyle|Pair)$";
 static NSString *const kGMUStyleAttributeRegex =
     @"^(text|scale|heading|fill|outline|width|color|colorMode)$";
 static NSString *const kGMUStyleUrlRegex = @"#.+";
@@ -82,8 +88,10 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
   kGMUParserStateOuterBoundary = 1 << 1,
   kGMUParserStateMultiGeometry = 1 << 2,
   kGMUParserStateStyle = 1 << 3,
-  kGMUParserStateLineStyle = 1 << 4,
-  kGMUParserStateLeafNode = 1 << 5,
+  kGMUParserStateStyleMap = 1 << 4,
+  kGMUParserStateLineStyle = 1 << 5,
+  kGMUParserStatePair = 1 << 6,
+  kGMUParserStateLeafNode = 1 << 7,
 };
 
 @interface GMUKMLParser () <NSXMLParserDelegate>
@@ -132,6 +140,11 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
   NSRegularExpression *_geometryAttributeRegex;
 
   /**
+   * The format that a pair in a style map may take
+   */
+  NSRegularExpression *_pairAttributeRegex;
+
+  /**
    * The list of placemarks that have been parsed.
    */
   NSMutableArray<GMUPlacemark *> *_placemarks;
@@ -140,6 +153,16 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
    * The list of styles that have been parsed.
    */
   NSMutableArray<GMUStyle *> *_styles;
+
+  /**
+   * The list of styles maps that have been parsed.
+   */
+  NSMutableArray<GMUStyleMap *> *_styleMaps;
+
+  /**
+   * The list of pairs that currently parsed style map contains
+   */
+  NSMutableArray<GMUPair *> *_pairs;
 
   /**
    * The characters contained within the element being parsed.
@@ -180,16 +203,23 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
   NSString *_geometryType;
 
   /**
+   * The properties to be propagated into the KMLPair object being parsed.
+   */
+  NSString *_key;
+
+  /**
    * The current state of the parser.
    */
   GMUParserState _parserState;
 }
 
-- (instancetype)initWithParser:(NSXMLParser*)parser {
+- (instancetype)initWithParser:(NSXMLParser *)parser {
   if (self = [super init]) {
     _parser = parser;
     _placemarks = [[NSMutableArray alloc] init];
     _styles = [[NSMutableArray alloc] init];
+    _styleMaps = [[NSMutableArray alloc] init];
+    _pairs = [[NSMutableArray alloc] init];
     _geometries = [[NSMutableArray alloc] init];
     _attributes = [[NSMutableDictionary alloc] init];
 
@@ -215,6 +245,10 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
     _styleUrlRegex = [NSRegularExpression regularExpressionWithPattern:kGMUStyleUrlRegex
                                                                options:0
                                                                  error:nil];
+
+    _pairAttributeRegex = [NSRegularExpression regularExpressionWithPattern:kGMUPairAttributeRegex
+                                                                    options:0
+                                                                      error:nil];
     _hasFill = YES;
     _hasStroke = YES;
     [_parser setDelegate:self];
@@ -242,6 +276,10 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
   return _styles;
 }
 
+- (NSArray<GMUStyleMap *> *)styleMaps {
+  return _styleMaps;
+}
+
 - (void)parse {
   [_parser parse];
 }
@@ -252,7 +290,7 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
 
 - (CLLocation *)locationFromString:(NSString *)string {
   NSString *trimmedString =
-    [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+      [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
   NSArray *coordinateStrings = [trimmedString componentsSeparatedByString:@","];
   CLLocationDegrees longitude = [coordinateStrings[0] doubleValue];
   CLLocationDegrees latitude = [coordinateStrings[1] doubleValue];
@@ -280,10 +318,10 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
   unsigned long long color;
   NSScanner *scanner = [NSScanner scannerWithString:string];
   [scanner scanHexLongLong:&color];
-  CGFloat alpha = ((CGFloat) ((color >> 24) & 0xff)) / 255;
-  CGFloat blue = ((CGFloat) ((color >> 16) & 0xff)) / 255;
-  CGFloat green = ((CGFloat) ((color >> 8) & 0xff)) / 255;
-  CGFloat red = ((CGFloat) (color & 0xff)) / 255;
+  CGFloat alpha = ((CGFloat)((color >> 24) & 0xff)) / 255;
+  CGFloat blue = ((CGFloat)((color >> 16) & 0xff)) / 255;
+  CGFloat green = ((CGFloat)((color >> 8) & 0xff)) / 255;
+  CGFloat red = ((CGFloat)(color & 0xff)) / 255;
   return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
@@ -326,26 +364,41 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
 }
 
 - (void)parseBeginBoundaryWithElementName:(NSString *)elementName {
-  if([elementName isEqual:kGMUOuterBoundaryIsElementName]) {
+  if ([elementName isEqual:kGMUOuterBoundaryIsElementName]) {
     _parserState |= kGMUParserStateOuterBoundary;
   } else {
     _parserState &= ~kGMUParserStateOuterBoundary;
   }
 }
 
-- (void)parseBeginStyleWithElementName:(NSString *)elementName
-                               styleID:(NSString *)styleID {
+- (void)parseBeginStyleWithElementName:(NSString *)elementName styleID:(NSString *)styleID {
   if ([elementName isEqual:kGMUStyleElementName]) {
     _styleID = [NSString stringWithFormat:@"#%@", styleID];
     _parserState |= kGMUParserStateStyle;
+  } else if ([elementName isEqual:kGMUStyleMapElementName]) {
+    _styleID = [NSString stringWithFormat:@"#%@", styleID];
+    _parserState |= kGMUParserStateStyleMap;
   } else if ([elementName isEqual:kGMULineStyleElementName]) {
     _parserState |= kGMUParserStateLineStyle;
+  } else if ([elementName isEqual:kGMUPairElementName]) {
+    _parserState |= kGMUParserStatePair;
   }
 }
 
 - (void)parseEndStyle {
   if ([self isParsing:kGMUParserStateLineStyle]) {
     _parserState &= ~kGMUParserStateLineStyle;
+  } else if ([self isParsing:kGMUParserStatePair]) {
+    _parserState &= ~kGMUParserStatePair;
+    [self parseEndPair];
+  } else if([self isParsing:kGMUParserStateStyleMap]) {
+    _parserState &= ~kGMUParserStateStyleMap;
+    
+    GMUStyleMap *styleMap = [[GMUStyleMap alloc] initWithId:_styleID
+                                                      pairs: [_pairs copy]];
+    
+    [_styleMaps addObject:styleMap];
+    [_pairs removeAllObjects];
   } else {
     _parserState &= ~kGMUParserStateStyle;
     if ([_fillColorMode isEqual:kGMURandomAttributeValue]) {
@@ -499,8 +552,7 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
   } else if ([attribute isEqual:kGMURotationElementName]) {
     [self parseEndRotation];
   } else if ([attribute isEqual:kGMUDrawOrderElementName]) {
-    [_attributes setObject:@([_characters intValue])
-                    forKey:kGMUZIndexElementName];
+    [_attributes setObject:@([_characters intValue]) forKey:kGMUZIndexElementName];
   } else if ([attribute isEqual:kGMUHrefElementName]) {
     if ([self isParsing:kGMUParserStateStyle]) {
       _iconUrl = [_characters copy];
@@ -551,14 +603,32 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
     if ([self isParsing:kGMUParserStateOuterBoundary]) {
       [_attributes setObject:boundary forKey:kGMUOuterBoundariesAttributeName];
     } else {
-      NSMutableArray *innerBoundaries =
-          [NSMutableArray
-              arrayWithArray:[_attributes objectForKey:kGMUInnerBoundariesAttributeName]];
+      NSMutableArray *innerBoundaries = [NSMutableArray
+          arrayWithArray:[_attributes objectForKey:kGMUInnerBoundariesAttributeName]];
       [innerBoundaries addObject:boundary];
       [_attributes setObject:innerBoundaries forKey:kGMUInnerBoundariesAttributeName];
     }
   }
 }
+
+- (void)parseEndPairAttribute:(NSString *)attribute {
+  if ([attribute isEqual:kGMUKeyAttributeValue]) {
+    _key = [_characters copy];
+  } else if ([attribute isEqual:kGMUStyleUrlElementName]) {
+    _styleUrl = [_characters copy];
+  }
+}
+
+- (void)parseEndPair {
+    GMUPair *pair = [[GMUPair alloc] initWithKey:_key
+                                        styleUrl:_styleUrl];
+    _key = nil;
+    _styleUrl = nil;
+
+    [_pairs addObject:pair];
+}
+
+#pragma mark - NSXMLParserDelegate
 
 - (void)parser:(NSXMLParser *)parser
     didStartElement:(nonnull NSString *)elementName
@@ -572,7 +642,7 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
     [self parseBeginStyleWithElementName:elementName
                                  styleID:[attributeDict objectForKey:kGMUIdAttributeName]];
   } else if ([elementName isEqual:kGMUPlacemarkElementName] ||
-                 [elementName isEqual:kGMUGroundOverlayElementName]) {
+             [elementName isEqual:kGMUGroundOverlayElementName]) {
     [self parseBeginPlacemark];
   } else if ([elementName isEqual:kGMUHotspotElementName]) {
     [self parseBeginHotspotWithAttributes:attributeDict];
@@ -588,12 +658,15 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
   } else if ([_styleAttributeRegex firstMatchInString:elementName
                                               options:0
                                                 range:NSMakeRange(0, elementName.length)] ||
-                 [_geometryAttributeRegex firstMatchInString:elementName
-                                                     options:0
-                                                       range:NSMakeRange(0, elementName.length)] ||
-                     [_compassRegex firstMatchInString:elementName
-                                               options:0
-                                                 range:NSMakeRange(0, elementName.length)]) {
+             [_geometryAttributeRegex firstMatchInString:elementName
+                                                 options:0
+                                                   range:NSMakeRange(0, elementName.length)] ||
+             [_compassRegex firstMatchInString:elementName
+                                       options:0
+                                         range:NSMakeRange(0, elementName.length)] ||
+             [_pairAttributeRegex firstMatchInString:elementName
+                                             options:0
+                                               range:NSMakeRange(0, elementName.length)]) {
     [self parseBeginLeafNode];
   }
 }
@@ -612,6 +685,10 @@ typedef NS_OPTIONS(NSUInteger, GMUParserState) {
     [self parseEndStyleAttribute:elementName];
   } else if ([elementName isEqual:kGMUPlacemarkElementName]) {
     [self parseEndPlacemark];
+  } else if ([_pairAttributeRegex firstMatchInString:elementName
+                                             options:0
+                                               range:NSMakeRange(0, elementName.length)]) {
+    [self parseEndPairAttribute:elementName];
   } else if ([elementName isEqual:kGMUGroundOverlayElementName]) {
     [self parseEndGroundOverlay];
   } else if ([_geometryRegex firstMatchInString:elementName
