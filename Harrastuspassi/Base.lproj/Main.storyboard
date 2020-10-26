@@ -1725,6 +1725,7 @@
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner_logo" translatesAutoresizingMaskIntoConstraints="NO" id="U8w-SG-1kQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="104.5"/>
                                                         <color key="backgroundColor" name="mainColor"/>
+                                                        <color key="tintColor" name="accentTeal"/>
                                                     </imageView>
                                                     <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Etsi harrastuksia" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZ6-Tb-37v" propertyAccessControl="none">
                                                         <rect key="frame" x="16" y="112.5" width="382" height="56"/>
