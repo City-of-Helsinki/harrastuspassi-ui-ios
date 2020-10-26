@@ -17,10 +17,9 @@
 #error "This file requires ARC support."
 #endif
 
-#import "GMUDefaultClusterRenderer+Testing.h"
-
 #import <GoogleMaps/GoogleMaps.h>
 
+#import "GMUDefaultClusterRenderer.h"
 #import "GMUClusterIconGenerator.h"
 #import "GMUWrappingDictionaryKey.h"
 
@@ -39,7 +38,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
   __weak GMSMapView *_mapView;
 
   // Collection of markers added to the map.
-  NSMutableArray<GMSMarker *> *_markers;
+  NSMutableArray<GMSMarker *> *_mutableMarkers;
 
   // Icon generator used to create cluster icon.
   id<GMUClusterIconGenerator> _clusterIconGenerator;
@@ -67,11 +66,15 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
            clusterIconGenerator:(id<GMUClusterIconGenerator>)iconGenerator {
   if ((self = [super init])) {
     _mapView = mapView;
-    _markers = [[NSMutableArray<GMSMarker *> alloc] init];
+    _mutableMarkers = [[NSMutableArray<GMSMarker *> alloc] init];
     _clusterIconGenerator = iconGenerator;
     _renderedClusters = [[NSMutableSet alloc] init];
     _renderedClusterItems = [[NSMutableSet alloc] init];
     _animatesClusters = YES;
+    _minimumClusterSize = kGMUMinClusterSize;
+    _maximumClusterZoom = kGMUMaxClusterZoom;
+    _animationDuration = kGMUAnimationDuration;
+
     _zIndex = 1;
   }
   return self;
@@ -82,7 +85,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
 }
 
 - (BOOL)shouldRenderAsCluster:(id<GMUCluster>)cluster atZoom:(float)zoom {
-  return cluster.count >= kGMUMinClusterSize && zoom <= kGMUMaxClusterZoom;
+  return cluster.count >= _minimumClusterSize && zoom <= _maximumClusterZoom;
 }
 
 #pragma mark GMUClusterRenderer
@@ -96,8 +99,8 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
   } else {
     // No animation, just remove existing markers and add new ones.
     _clusters = [clusters copy];
-    [self clearMarkers:_markers];
-    _markers = [[NSMutableArray<GMSMarker *> alloc] init];
+    [self clearMarkers:_mutableMarkers];
+    _mutableMarkers = [[NSMutableArray<GMSMarker *> alloc] init];
     [self addOrUpdateClusters:clusters animated:NO];
   }
 }
@@ -105,14 +108,15 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
 - (void)renderAnimatedClusters:(NSArray<id<GMUCluster>> *)clusters {
   float zoom = _mapView.camera.zoom;
   BOOL isZoomingIn = zoom > _previousZoom;
-  _previousZoom = zoom;
 
   [self prepareClustersForAnimation:clusters isZoomingIn:isZoomingIn];
 
+  _previousZoom = zoom;
+
   _clusters = [clusters copy];
 
-  NSArray *existingMarkers = _markers;
-  _markers = [[NSMutableArray<GMSMarker *> alloc] init];
+  NSArray *existingMarkers = _mutableMarkers;
+  _mutableMarkers = [[NSMutableArray<GMSMarker *> alloc] init];
 
   [self addOrUpdateClusters:clusters animated:isZoomingIn];
 
@@ -158,7 +162,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
 
     // All is good, perform the animation.
     [CATransaction begin];
-    [CATransaction setAnimationDuration:kGMUAnimationDuration];
+    [CATransaction setAnimationDuration:_animationDuration];
     CLLocationCoordinate2D toPosition = toCluster.position;
     marker.layer.latitude = toPosition.latitude;
     marker.layer.longitude = toPosition.longitude;
@@ -166,7 +170,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
   }
 
   // Clears existing markers after animation has presumably ended.
-  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, kGMUAnimationDuration * NSEC_PER_SEC),
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, _animationDuration * NSEC_PER_SEC),
                  dispatch_get_main_queue(), ^{
                    [self clearMarkers:markers];
                  });
@@ -178,10 +182,8 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
   [self addOrUpdateClusters:_clusters animated:NO];
 }
 
-#pragma mark Testing
-
 - (NSArray<GMSMarker *> *)markers {
-  return _markers;
+  return [_mutableMarkers copy];
 }
 
 #pragma mark Private
@@ -195,7 +197,10 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
     _itemToOldClusterMap =
         [[NSMutableDictionary<GMUWrappingDictionaryKey *, id<GMUCluster>> alloc] init];
     for (id<GMUCluster> cluster in _clusters) {
-      if (![self shouldRenderAsCluster:cluster atZoom:zoom]) continue;
+      if (![self shouldRenderAsCluster:cluster atZoom:zoom]
+          && ![self shouldRenderAsCluster:cluster atZoom:_previousZoom]) {
+        continue;
+      }
       for (id<GMUClusterItem> clusterItem in cluster.items) {
         GMUWrappingDictionaryKey *key =
             [[GMUWrappingDictionaryKey alloc] initWithObject:clusterItem];
@@ -229,13 +234,21 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
     if ([_renderedClusters containsObject:cluster]) continue;
 
     BOOL shouldShowCluster = [visibleBounds containsCoordinate:cluster.position];
-    if (!shouldShowCluster && animated) {
+    BOOL shouldRenderAsCluster = [self shouldRenderAsCluster:cluster atZoom: _mapView.camera.zoom];
+
+    if (!shouldShowCluster) {
       for (id<GMUClusterItem> item in cluster.items) {
-        GMUWrappingDictionaryKey *key = [[GMUWrappingDictionaryKey alloc] initWithObject:item];
-        id<GMUCluster> oldCluster = [_itemToOldClusterMap objectForKey:key];
-        if (oldCluster != nil && [visibleBounds containsCoordinate:oldCluster.position]) {
+        if (!shouldRenderAsCluster && [visibleBounds containsCoordinate:item.position]) {
           shouldShowCluster = YES;
           break;
+        }
+        if (animated) {
+          GMUWrappingDictionaryKey *key = [[GMUWrappingDictionaryKey alloc] initWithObject:item];
+          id<GMUCluster> oldCluster = [_itemToOldClusterMap objectForKey:key];
+          if (oldCluster != nil && [visibleBounds containsCoordinate:oldCluster.position]) {
+            shouldShowCluster = YES;
+            break;
+          }
         }
       }
     }
@@ -262,24 +275,35 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
                                         userData:cluster
                                      clusterIcon:icon
                                         animated:animated];
-    [_markers addObject:marker];
+    [_mutableMarkers addObject:marker];
   } else {
     for (id<GMUClusterItem> item in cluster.items) {
-      CLLocationCoordinate2D fromPosition = kCLLocationCoordinate2DInvalid;
-      BOOL shouldAnimate = animated;
-      if (shouldAnimate) {
-        GMUWrappingDictionaryKey *key = [[GMUWrappingDictionaryKey alloc] initWithObject:item];
-        id<GMUCluster> fromCluster = [_itemToOldClusterMap objectForKey:key];
-        shouldAnimate = fromCluster != nil;
-        fromPosition = fromCluster.position;
+      GMSMarker *marker;
+      if ([item class] == [GMSMarker class]) {
+        marker = (GMSMarker<GMUClusterItem> *)item;
+        marker.map = _mapView;
+      } else {
+        CLLocationCoordinate2D fromPosition = kCLLocationCoordinate2DInvalid;
+        BOOL shouldAnimate = animated;
+        if (shouldAnimate) {
+          GMUWrappingDictionaryKey *key = [[GMUWrappingDictionaryKey alloc] initWithObject:item];
+          id<GMUCluster> fromCluster = [_itemToOldClusterMap objectForKey:key];
+          shouldAnimate = fromCluster != nil;
+          fromPosition = fromCluster.position;
+        }
+        marker = [self markerWithPosition:item.position
+                                     from:fromPosition
+                                 userData:item
+                              clusterIcon:nil
+                                 animated:shouldAnimate];
+        if ([item respondsToSelector:@selector(title)]) {
+            marker.title = item.title;
+        }
+        if ([item respondsToSelector:@selector(snippet)]) {
+            marker.snippet = item.snippet;
+        }
       }
-
-      GMSMarker *marker = [self markerWithPosition:item.position
-                                              from:fromPosition
-                                          userData:item
-                                       clusterIcon:nil
-                                          animated:shouldAnimate];
-      [_markers addObject:marker];
+      [_mutableMarkers addObject:marker];
       [_renderedClusterItems addObject:item];
     }
   }
@@ -318,7 +342,7 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
 
   if (animated) {
     [CATransaction begin];
-    [CATransaction setAnimationDuration:kGMUAnimationDuration];
+    [CATransaction setAnimationDuration:_animationDuration];
     marker.layer.latitude = position.latitude;
     marker.layer.longitude = position.longitude;
     [CATransaction commit];
@@ -363,8 +387,8 @@ static const double kGMUAnimationDuration = 0.5;  // seconds.
 
 // Removes all existing markers from the attached map.
 - (void)clear {
-  [self clearMarkers:_markers];
-  [_markers removeAllObjects];
+  [self clearMarkers:_mutableMarkers];
+  [_mutableMarkers removeAllObjects];
   [_renderedClusters removeAllObjects];
   [_renderedClusterItems removeAllObjects];
   [_itemToNewClusterMap removeAllObjects];

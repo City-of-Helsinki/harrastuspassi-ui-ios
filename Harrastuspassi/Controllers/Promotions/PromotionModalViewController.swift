@@ -59,13 +59,13 @@ class PromotionModalViewController: UIViewController, MTSlideToOpenDelegate {
         }
         
         slideButton.sliderHolderView.frame = slideButton.frame;
-        slideButton.defaultSliderBackgroundColor = UIColor(named: "accentTeal")!
-        slideButton.defaultSlidingColor = UIColor(named: "mainColor")!
+        slideButton.sliderBackgroundColor = UIColor(named: "accentTeal")!
+        slideButton.slidingColor = UIColor(named: "mainColor")!
         slideButton.delegate = self
         
-        slideButton.defaultLabelText = NSLocalizedString("SwipeToUse", comment: "");
+        slideButton.labelText = NSLocalizedString("SwipeToUse", comment: "");
         slideButton.thumnailImageView.image = UIImage(named: "ic_local_activity")
-        slideButton.defaultThumbnailColor = UIColor(named: "mainColor")!
+        slideButton.thumbnailColor = UIColor(named: "mainColor")!
         closeButton.layer.cornerRadius = 15;
         closeButton.clipsToBounds = true;
         

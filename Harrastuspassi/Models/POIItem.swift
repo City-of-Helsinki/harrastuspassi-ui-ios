@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import GoogleMapsUtils
 
 class POIItem: NSObject, GMUClusterItem {
     var position: CLLocationCoordinate2D

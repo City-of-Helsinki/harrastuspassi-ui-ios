@@ -1,4 +1,4 @@
-module Hero {
+framework module Hero {
   umbrella header "Hero-umbrella.h"
 
   export *

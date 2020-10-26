@@ -50,10 +50,12 @@ class CategoryFilterTableViewCell: UITableViewCell {
         checkmarkButton.setImage(UIImage(named: "ic_check")?.withRenderingMode(.alwaysTemplate), for: .normal)
         if categorySelected {
             checkmarkButton.alpha = 1
-            checkmarkButton.tintColor = .green
+            checkmarkButton.tintColor = .white
+            checkmarkButton.backgroundColor = UIColor(named: "mainColor")
         } else {
             checkmarkButton.alpha = 0.3
             checkmarkButton.tintColor = .black
+            checkmarkButton.backgroundColor = .none
         }
     }
 
@@ -72,12 +74,16 @@ class CategoryFilterTableViewCell: UITableViewCell {
             self.selectionDelegate?.addSelection(selectedItem: data)
             categorySelected = true
             checkmarkButton.alpha = 1
-            checkmarkButton.tintColor = .green
+            checkmarkButton.tintColor = .white
+            checkmarkButton.backgroundColor = UIColor(named: "mainColor")
+            checkmarkButton.borderColor = UIColor(named: "mainColor")
         } else {
             self.selectionDelegate?.removeSelection(removedItem: data)
             categorySelected = false
             checkmarkButton.alpha = 0.3
             checkmarkButton.tintColor = .black
+            checkmarkButton.backgroundColor = .none
+            checkmarkButton.borderColor = UIColor(named: "darkGrey")
         }
         
     }
