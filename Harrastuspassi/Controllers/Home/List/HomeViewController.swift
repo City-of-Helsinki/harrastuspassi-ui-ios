@@ -130,6 +130,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
             }
             guard let eventData = response.results else {return};
             if let nextPage = response.next {
+                print(nextPage)
                 self.nextPage = nextPage;
             }
             DispatchQueue.main.async(execute: {() in
@@ -164,6 +165,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
             guard let eventData = response.results else {return};
             if let nextPage = response.next {
                 self.nextPage = nextPage;
+            } else {
+                self.nextPage = nil;
             }
             DispatchQueue.main.async(execute: {() in
                 self.activityIndicator.isHidden = true;

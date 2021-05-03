@@ -75,9 +75,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
         let defaults = UserDefaults.standard;
-        defaults.set(locations.last?.coordinate.latitude, forKey: DefaultKeys.Location.lat);
-        defaults.set(locations.last?.coordinate.longitude, forKey: DefaultKeys.Location.lon);
+        if defaults.bool(forKey: DefaultKeys.Location.isAllowed) {
+            defaults.set(locations.last?.coordinate.latitude, forKey: DefaultKeys.Location.lat);
+            defaults.set(locations.last?.coordinate.longitude, forKey: DefaultKeys.Location.lon);
+        }
+        
         if firstRun {
             NotificationCenter.default.post(name: .locationPermissionsUpdated, object: nil);
             firstRun = false;
@@ -102,13 +106,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             
             case .authorizedWhenInUse:
                 // Enable only your app's when-in-use features.
-                defaults.set(true, forKey: DefaultKeys.Location.isAllowed);
+                if defaults.bool(forKey: "notFirstRun") {
+                    defaults.set(true, forKey: DefaultKeys.Location.isAllowed);
+                    defaults.set(true, forKey: "notFirstRun");
+                }
                 startLocationServices();
                 break
             
             case .authorizedAlways:
                 // Enable any of your app's location services.
-                defaults.set(true, forKey: DefaultKeys.Location.isAllowed);
+                if defaults.bool(forKey: "notFirstRun") {
+                    defaults.set(true, forKey: DefaultKeys.Location.isAllowed);
+                    defaults.set(true, forKey: "notFirstRun");
+                }
                 startLocationServices();
                 break
             

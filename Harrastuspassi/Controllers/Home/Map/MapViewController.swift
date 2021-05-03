@@ -29,6 +29,14 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         super.viewWillAppear(animated)
+        let defaults = UserDefaults.standard;
+        let lat = defaults.float(forKey: DefaultKeys.Location.lat);
+        let lon = defaults.float(forKey: DefaultKeys.Location.lon);
+        let finland = GMSCameraPosition.camera(withLatitude: Double(lat),
+                                               longitude: Double(lon),
+                                               zoom: 10);
+        mapView.camera = finland;
+        updateData();
         createMarkers(data: hobbies, mapView: mapView)
         
     }
@@ -44,14 +52,7 @@ class MapViewController: UIViewController, ModalDelegate, GMSMapViewDelegate, GM
         self.hero.isEnabled = true;
         markerIcon = imageWithImage(image: markerIcon!, scaledToSize: CGSize(width: 40.0, height: 40.0)).withRenderingMode(.alwaysTemplate);
         setupClusterManager();
-        let defaults = UserDefaults.standard;
-        let lat = defaults.float(forKey: DefaultKeys.Location.lat);
-        let lon = defaults.float(forKey: DefaultKeys.Location.lon);
-        let finland = GMSCameraPosition.camera(withLatitude: Double(lat),
-                                               longitude: Double(lon),
-                                               zoom: 10);
-        mapView.camera = finland;
-        updateData();
+        
         navigationController?.delegate = self;
     }
     
