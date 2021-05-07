@@ -274,7 +274,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "organizer_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "exclude_past_events", value: "true"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "page_size", value: String(pageSize)));
-        urlComponents?.queryItems?.append(URLQueryItem(name: "max_distance", value: String("50")));
+        //urlComponents?.queryItems?.append(URLQueryItem(name: "max_distance", value: String("50")));
         
         let defaults = UserDefaults.standard;
         let latitude = defaults.float(forKey: DefaultKeys.Location.lat),
