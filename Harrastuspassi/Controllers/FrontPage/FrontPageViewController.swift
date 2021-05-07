@@ -119,7 +119,6 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         
         let categoryUrl = Config.API_URL + "hobbycategories/";
         AF.request(categoryUrl, method: .get).response { response in
-            debugPrint(response);
             if let fetchedData = response.data {
                 guard let categoryData = try? JSONDecoder().decode([CategoryData].self, from: fetchedData)
                     else {
@@ -127,7 +126,6 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
                 }
                 DispatchQueue.main.async(execute: {() in
                     self.categories = categoryData;
-                    print(self.categories)
                     self.searchResultsHeightConstraint.constant = self.searchResultsTableView.contentSize.height;
                 })
             }
@@ -364,7 +362,6 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
                 else {
                     return
             }
-            print(response.results);
             guard let hobbyData = response.results else {return};
             DispatchQueue.main.async(execute: {() in
                 if(hobbyData.count == 0) {
@@ -449,7 +446,7 @@ class FrontPageViewController: UIViewController, UICollectionViewDataSource, UIC
         urlComponents?.queryItems?.append(URLQueryItem(name: "ordering", value: "nearest"));
         urlComponents?.queryItems?.append(URLQueryItem(name: "near_latitude", value: String(latitude)));
         urlComponents?.queryItems?.append(URLQueryItem(name: "near_longitude", value: String(longitude)));
-        urlComponents?.queryItems?.append(URLQueryItem(name: "max_distance", value: String("50")));
+        //urlComponents?.queryItems?.append(URLQueryItem(name: "max_distance", value: String("50")));
         return urlComponents?.url
     }
     

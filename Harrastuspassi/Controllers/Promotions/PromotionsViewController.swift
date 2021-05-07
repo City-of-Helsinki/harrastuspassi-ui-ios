@@ -138,7 +138,7 @@ class PromotionsViewController: UIViewController, UITableViewDelegate, UITableVi
         urlComponents?.queryItems?.append(URLQueryItem(name: "ordering", value: "nearest"));
         urlComponents?.queryItems?.append(URLQueryItem(name: "near_latitude", value: String(latitude)));
         urlComponents?.queryItems?.append(URLQueryItem(name: "near_longitude", value: String(longitude)));
-        urlComponents?.queryItems?.append(URLQueryItem(name: "max_distance", value: String("50")));
+        //urlComponents?.queryItems?.append(URLQueryItem(name: "max_distance", value: String("50")));
         return urlComponents?.url
     }
     

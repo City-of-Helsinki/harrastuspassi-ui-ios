@@ -130,6 +130,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
             }
             guard let eventData = response.results else {return};
             if let nextPage = response.next {
+                print(nextPage)
                 self.nextPage = nextPage;
             }
             DispatchQueue.main.async(execute: {() in
@@ -164,6 +165,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
             guard let eventData = response.results else {return};
             if let nextPage = response.next {
                 self.nextPage = nextPage;
+            } else {
+                self.nextPage = nil;
             }
             DispatchQueue.main.async(execute: {() in
                 self.activityIndicator.isHidden = true;
@@ -271,7 +274,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UIScrollViewDel
         urlComponents?.queryItems?.append(URLQueryItem(name: "include", value: "organizer_detail"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "exclude_past_events", value: "true"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "page_size", value: String(pageSize)));
-        urlComponents?.queryItems?.append(URLQueryItem(name: "max_distance", value: String("50")));
+        //urlComponents?.queryItems?.append(URLQueryItem(name: "max_distance", value: String("50")));
         
         let defaults = UserDefaults.standard;
         let latitude = defaults.float(forKey: DefaultKeys.Location.lat),
